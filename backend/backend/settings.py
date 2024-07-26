@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-a%++yv$6939=zbv$sjez*4(5c2$(!rd=1-55d=3@196=_13$1o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -97,7 +97,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'eatlydatabase',
+        'NAME': 'eatly',
         'HOST': '127.0.0.1',
         'PORT': 3306,
         'USER': 'root',
@@ -151,3 +151,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWS_CREDENTIALS = True
 
 AUTH_USER_MODEL = "api.User"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

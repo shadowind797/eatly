@@ -1,9 +1,31 @@
 from django.shortcuts import render
-from .models import User
+from .models import *
 from rest_framework import generics
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
+
+class ItemListCreate(generics.ListCreateAPIView):
+    serializer_class = ItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        return Item.objects.all()
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            print(serializer.errors)
+
+
+class ItemDelete(generics.DestroyAPIView):
+    serializer_class = ItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        return Item.objects.all()
+    
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
