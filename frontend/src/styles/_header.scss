@@ -1,0 +1,60 @@
+@import "variables.scss";
+
+.header {
+  padding: 57px 0 36px 0;
+  margin: 0 96px 0 96px;
+  display: flex;
+  border-bottom: 1px solid #CBCBCB;
+  #first-part {
+    display: flex;
+    gap: 103px;
+    align-items: center;
+    #logo {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      h4 {
+        color: $purple_main;
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 130%;
+      }
+      img {
+        width: 46px;
+        height: 42px;
+      }
+    }
+    nav {
+      ul {
+        display: flex;
+        gap: 54px;
+        li {
+          a {
+            color: $black_menu;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 27px; /* 150% */
+          }
+        }
+      }
+    }
+  }
+  #profile {
+    margin-left: auto;
+    display: flex;
+    gap: 34px;
+    img {
+      cursor: pointer;
+    }
+    button {
+      width: 121px;
+      height: 63px;
+      background-color: $purple_main;
+      border: none;
+      border-radius: 18px;
+      a {
+        color: white;
+      }
+    }
+  }
+}

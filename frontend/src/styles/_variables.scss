@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$purple_main: #6C5FBC;
+$black_main: #201F1F;
+$black_second: #323142;
+$black_menu: #606060;
+$black_pars: #636363;
+$background: #F9F9F9;
+
+body {
+  background: #F9F9F9
+}
+
+h1, h2, h3, h4, h5, h6, button, input {
+  font-family: "Poppins", sans-serif;
+}
+p, a {
+  font-family: "Inter", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: $black_main;
+}

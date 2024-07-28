@@ -2,7 +2,7 @@ import React from "react";
 
 function Item({item, onDelete}) {
     return <div className="item">
-        <img src="" alt=""/>
+        <img src={item.photo} alt=""/>
         <h4>{item.title}</h4>
         <div>
             <p>{item.price}</p>
@@ -10,7 +10,7 @@ function Item({item, onDelete}) {
         </div>
         <div>
             <div>
-                <h5></h5>
+                <p></p>
                 <p></p>
             </div>
             <button></button>

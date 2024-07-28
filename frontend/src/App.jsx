@@ -31,7 +31,7 @@ function App() {
           }
         />
           <Route
-              path="/food"
+              path="menu/"
               element={
                   <ProtectedRoute>
                       <SearchFood />

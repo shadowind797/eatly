@@ -20,10 +20,28 @@ class Item(models.Model):
     price = models.FloatField()
     photo = models.ImageField(upload_to='img')
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, blank=True)
+    restaurant = models.ForeignKey('Restaurant', on_delete=models.SET_NULL, null=True, blank=True)
     rating = models.FloatField()
 
     def __str__(self):
         return self.title
+
+
+class Restaurant(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+    address = models.CharField(max_length=120)
+    rating = models.FloatField()
+    category = models.ForeignKey('RestaurantCat', on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class RestaurantCat(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Category(models.Model):
