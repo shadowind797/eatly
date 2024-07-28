@@ -10,18 +10,20 @@
     gap: 103px;
     align-items: center;
     #logo {
-      display: flex;
-      gap: 11px;
-      align-items: center;
-      h4 {
-        color: $purple_main;
-        font-size: 21px;
-        font-weight: 600;
-        line-height: 130%;
-      }
-      img {
-        width: 46px;
-        height: 42px;
+      a {
+        display: flex;
+        gap: 11px;
+        align-items: center;
+        h4 {
+          color: $purple_main;
+          font-size: 21px;
+          font-weight: 600;
+          line-height: 130%;
+        }
+        img {
+          width: 46px;
+          height: 42px;
+        }
       }
     }
     nav {
@@ -54,6 +56,9 @@
       border-radius: 18px;
       a {
         color: white;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
       }
     }
   }

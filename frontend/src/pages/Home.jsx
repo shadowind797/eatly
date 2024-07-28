@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import api from "../api";
 import Item from "../components/Item";
 import Header from "../components/Header.jsx";
+import MainDiv from "./Home/MainDiv.jsx";
 
 
 function Home() {
@@ -46,7 +47,8 @@ function Home() {
 
     return (
         <div>
-            <Header />
+            <Header page="home"/>
+            <MainDiv />
             <div>
                 {items.map((item) => <Item item={item} onDelete={deleteItem} />)}
             </div>

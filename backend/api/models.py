@@ -37,6 +37,17 @@ class Restaurant(models.Model):
         return self.name
 
 
+class Reviews(models.Model):
+    author = models.ForeignKey('User', on_delete=models.CASCADE)
+    time = models.CharField(max_length=120)
+    text = models.TextField()
+    rating = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author.username
+
+
 class RestaurantCat(models.Model):
     name = models.CharField(max_length=120, unique=True)
 
