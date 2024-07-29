@@ -22,7 +22,7 @@ function MobileApp() {
                     <p>We Provide Great Experiences</p>
                 </div>
             </div>
-            <div id="mobile">
+            <div id="mobile" className="container">
                 <div className="phone">
                     <img src={phone} alt="" className="f"/><img src={screen} alt="" className="s"/>
                 </div>

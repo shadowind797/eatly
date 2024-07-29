@@ -6,7 +6,7 @@ function MainDiv() {
     const five_stars = "http://127.0.0.1:8000/media/img/5_stars.svg"
 
     return (
-        <div id="main-div">
+        <div id="main-div" className="container">
             <div id="first">
                 <div id="info">
                     <div id="up-header">

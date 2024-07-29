@@ -2,7 +2,9 @@ import {useEffect, useState} from "react";
 import api from "../api";
 import Item from "../components/Item";
 import Header from "../components/Header.jsx";
-import MainDiv from "./Home/MainDiv.jsx";
+import MainDiv from "../components/Home/MainDiv.jsx";
+import MobileApp from "../components/Home/MobileApp.jsx";
+import TopRests from "../components/Home/TopRests.jsx";
 
 
 function Home() {
@@ -49,6 +51,8 @@ function Home() {
         <div>
             <Header page="home"/>
             <MainDiv />
+            <MobileApp />
+            <TopRests />
             <div>
                 {items.map((item) => <Item item={item} onDelete={deleteItem} />)}
             </div>

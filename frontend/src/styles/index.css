@@ -426,6 +426,16 @@ a {
   color: #201F1F;
 }
 
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
+}
+
 body {
   background: #F9F9F9;
 }
@@ -441,6 +451,16 @@ p, a {
 a {
   text-decoration: none;
   color: #201F1F;
+}
+
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
 }
 
 .header {
@@ -516,6 +536,16 @@ p, a {
 a {
   text-decoration: none;
   color: #201F1F;
+}
+
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
 }
 
 #main-div {
@@ -768,6 +798,129 @@ a {
   font-size: 11px;
   font-weight: 500;
   line-height: 140%; /* 14.93px */
+}
+
+#MobileApp #counts {
+  padding: 49px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #6C5FBC;
+  margin-top: 135px;
+}
+#MobileApp #counts div {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 57px 79px;
+  text-align: center;
+}
+#MobileApp #counts div h4 {
+  color: #fff;
+  font-size: 43.2px;
+  font-weight: 700;
+  line-height: 54px; /* 125% */
+}
+#MobileApp #counts div p {
+  color: #C5BFED;
+  text-align: center;
+  font-size: 14.4px;
+  font-weight: 500;
+  line-height: 21.6px; /* 150% */
+}
+#MobileApp #counts #s {
+  border-left: 1px solid rgba(197, 197, 197, 0.15);
+  border-right: 1px solid rgba(197, 197, 197, 0.15);
+}
+#MobileApp #mobile {
+  display: flex;
+  gap: 180px;
+  padding-bottom: 120px;
+}
+#MobileApp #mobile .phone {
+  position: relative;
+  width: 560px;
+  height: 850px;
+}
+#MobileApp #mobile .phone img {
+  position: absolute;
+}
+#MobileApp #mobile .phone .f {
+  top: 120px;
+  left: 0;
+  z-index: 2;
+}
+#MobileApp #mobile .phone .s {
+  top: 133px;
+  left: 16px;
+}
+#MobileApp #mobile .info {
+  width: 560px;
+  padding-top: 195px;
+}
+#MobileApp #mobile .info h2 {
+  color: #201F1F;
+  font-size: 51px;
+  font-weight: 700;
+  line-height: 58px; /* 114.286% */
+}
+#MobileApp #mobile .info h2 span {
+  color: #6C5FBC;
+}
+#MobileApp #mobile .info div {
+  padding-top: 63px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+#MobileApp #mobile .info div p {
+  color: #636363;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+}
+#MobileApp #mobile .info button {
+  margin-top: 66px;
+  border-radius: 15px;
+  background: #6C5FBC;
+  width: 186px;
+  height: 63px;
+  position: relative;
+  border: none;
+  color: #fff;
+  text-align: left;
+  padding-left: 36px;
+}
+#MobileApp #mobile .info button img {
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  width: 27px;
+  height: 27px;
+}
+#MobileApp #top-rests {
+  text-align: center;
+}
+#MobileApp #top-rests h2 {
+  color: #201F1F;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+}
+#MobileApp #top-rests h2 span {
+  color: #6C5FBC;
+}
+#MobileApp #top-rests div {
+  display: flex;
+  gap: 30px;
+}
+#MobileApp #top-rests div .rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 
 /*# sourceMappingURL=index.css.map */

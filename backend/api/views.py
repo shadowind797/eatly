@@ -19,6 +19,28 @@ class ItemListCreate(generics.ListCreateAPIView):
             print(serializer.errors)
 
 
+class RestaurantListCreate(generics.ListCreateAPIView):
+    serializer_class = RestaurantSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        return Restaurant.objects.all()
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            print(serializer.errors)
+
+
+class RestaurantCategories(generics.ListCreateAPIView):
+    serializer_class = RestaurantCatSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        return RestaurantCat.objects.all()
+
+
 class ItemDelete(generics.DestroyAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated,]

@@ -1,4 +1,4 @@
-import Home from "../Home.jsx";
+import Home from "../../pages/Home.jsx";
 
 function Plate() {
     const grafic = "http://127.0.0.1:8000/media/img/vectors/grafic.svg"

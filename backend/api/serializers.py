@@ -22,3 +22,22 @@ class ItemSerializer(serializers.ModelSerializer):
         item = Item.objects.create_item(**validated_data)
         return item
 
+
+class RestaurantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Restaurant
+        fields = ['id', "name", "address", "rating", "category_id", "image"]
+
+    def create(self, validated_data):
+        restaurant = Restaurant.objects.create_item(**validated_data)
+        return restaurant
+
+
+class RestaurantCatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RestaurantCat
+        fields = ['id', "name"]
+
+    def create(self, validated_data):
+        restaurantcat = RestaurantCat.objects.create_item(**validated_data)
+        return restaurantcat

@@ -21,3 +21,13 @@ a {
   text-decoration: none;
   color: $black_main;
 }
+
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
+}
