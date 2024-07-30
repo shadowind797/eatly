@@ -4,6 +4,7 @@ import api from "../../api.js";
 
 function TopRests() {
     const [rests, setRests] = useState([]);
+    const ViewAll = "http://127.0.0.1:8000/media/img/view-all.svg"
 
     useEffect(() => {
         getRests()
@@ -25,6 +26,12 @@ function TopRests() {
             <h2>Our Top <span>Restaurants</span></h2>
             <div id="tops">
                 {slicedRests.map((rest) => <RestaurantCard rest={rest} />)}
+            </div>
+            <div className="view-all">
+                <a href="#">
+                    <p>View All</p>
+                    <img src={ViewAll} alt=""/>
+                </a>
             </div>
         </div>
     )

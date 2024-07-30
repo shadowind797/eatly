@@ -16,11 +16,22 @@ class UserSerializer(serializers.ModelSerializer):
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['id', "title", "description", "price", "photo", "category"]
+        fields = ['id', "title", "description", "price", "photo", "category", "rating"]
 
     def create(self, validated_data):
         item = Item.objects.create_item(**validated_data)
         return item
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', "name"]
+
+    def create(self, validated_data):
+        item = Item.objects.create_item(**validated_data)
+        return item
+
 
 
 class RestaurantSerializer(serializers.ModelSerializer):

@@ -31,3 +31,39 @@ button:hover {
   width: 1246px;
   margin: 0 auto;
 }
+
+.view-all {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  a {
+    display: flex;
+    gap: 16px;
+    p {
+      color: #ACADB9;
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-family: Poppins, sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 45px; /* 225.921% */
+    }
+  }
+}
+
+.time-rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  p {
+    color: #8E97A6;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 26px; /* 133.333% */
+  }
+  div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+}

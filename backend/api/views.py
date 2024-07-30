@@ -33,6 +33,14 @@ class RestaurantListCreate(generics.ListCreateAPIView):
             print(serializer.errors)
 
 
+class CategoriesList(generics.ListCreateAPIView):
+    serializer_class = CategorySerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        return Category.objects.all()
+
+
 class RestaurantCategories(generics.ListCreateAPIView):
     serializer_class = RestaurantCatSerializer
     permission_classes = [IsAuthenticated,]

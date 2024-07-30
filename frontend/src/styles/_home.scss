@@ -357,6 +357,7 @@
     text-align: center;
     border-top: 1px solid #CBCBCB;
     padding-top: 100px;
+    position: relative;
     h2 {
       color: $black_main;
       font-feature-settings: 'clig' off, 'liga' off;
@@ -371,6 +372,7 @@
     #tops {
       display: flex;
       gap: 30px;
+      padding-bottom: 66px;
       .rest-card {
         width: 396px;
         height: 298px;
@@ -412,23 +414,6 @@
             .widgets {
               display: flex;
               gap: 157px;
-              .time-rating {
-                display: flex;
-                gap: 13px;
-                align-items: center;
-                p {
-                  color: #8E97A6;
-                  font-feature-settings: 'clig' off, 'liga' off;
-                  font-size: 19px;
-                  font-weight: 400;
-                  line-height: 26px; /* 133.333% */
-                }
-                div {
-                  display: flex;
-                  gap: 5px;
-                  align-items: center;
-                }
-              }
               button {
                 background: #fff;
                 border: none;
@@ -445,5 +430,8 @@
         }
       }
     }
+  }
+  #top-dishes {
+    position: relative;
   }
 }
