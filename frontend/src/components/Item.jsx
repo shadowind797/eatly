@@ -36,7 +36,7 @@ function Item({item}) {
 
     return (
         <div className="dish">
-            <img src={item.photo} alt=""/><img className="like" src={like} alt=""/>
+            <img className="photo" src={item.photo} alt=""/><img className="like" src={like} alt=""/>
             <div className="info">
                 <div className="item-cat">
                     <div style={style}>{category}</div>

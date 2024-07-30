@@ -421,6 +421,10 @@ p, a {
   font-family: "Inter", sans-serif;
 }
 
+div {
+  font-family: "Manrope", sans-serif;
+}
+
 a {
   text-decoration: none;
   color: #201F1F;
@@ -482,6 +486,10 @@ h1, h2, h3, h4, h5, h6, button, input {
 
 p, a {
   font-family: "Inter", sans-serif;
+}
+
+div {
+  font-family: "Manrope", sans-serif;
 }
 
 a {
@@ -603,6 +611,10 @@ h1, h2, h3, h4, h5, h6, button, input {
 
 p, a {
   font-family: "Inter", sans-serif;
+}
+
+div {
+  font-family: "Manrope", sans-serif;
 }
 
 a {
@@ -1008,6 +1020,7 @@ button:hover {
   text-align: center;
   border-top: 1px solid #CBCBCB;
   padding-top: 100px;
+  padding-bottom: 100px;
   position: relative;
 }
 #home #top-rests h2 {
@@ -1051,7 +1064,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   padding: 1px;
-  width: 66px;
+  width: 76px;
   height: 25px;
   border-radius: 5px;
 }
@@ -1084,6 +1097,67 @@ button:hover {
 }
 #home #top-dishes {
   position: relative;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+}
+#home #top-dishes h2 {
+  color: #201F1F;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
+}
+#home #top-dishes h2 span {
+  color: #6C5FBC;
+}
+#home #top-dishes .tops {
+  display: flex;
+  gap: 31px;
+  text-align: left;
+}
+#home #top-dishes .tops .dish {
+  width: 185px;
+  height: 390px;
+  border-radius: 35px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
+  position: relative;
+  padding: 30px 20px;
+}
+#home #top-dishes .tops .dish .like {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+}
+#home #top-dishes .tops .dish .photo {
+  width: 181px;
+}
+#home #top-dishes .tops .dish .info .item-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 10px;
+}
+#home #top-dishes .tops .dish .info .item-cat h4 {
+  color: #201F1F;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 37px; /* 162.5% */
+}
+#home #top-dishes .tops .dish .info .item-cat div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 84px;
+  height: 25px;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=index.css.map */
