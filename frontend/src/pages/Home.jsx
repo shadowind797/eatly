@@ -5,6 +5,7 @@ import Header from "../components/Header.jsx";
 import MainDiv from "../components/Home/MainDiv.jsx";
 import MobileApp from "../components/Home/MobileApp.jsx";
 import TopRests from "../components/Home/TopRests.jsx";
+import TopDishes from "../components/Home/TopDishes.jsx";
 
 
 function Home() {
@@ -48,14 +49,12 @@ function Home() {
     }
 
     return (
-        <div>
+        <div id="home">
             <Header page="home"/>
             <MainDiv />
             <MobileApp />
             <TopRests />
-            <div>
-                {items.map((item) => <Item item={item} onDelete={deleteItem} />)}
-            </div>
+            <TopDishes />
         </div>
     )
 }

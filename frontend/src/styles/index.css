@@ -548,64 +548,64 @@ button:hover {
   margin: 0 auto;
 }
 
-#main-div {
+#home #main-div {
   display: flex;
   gap: 37px;
   width: 1246px;
   margin: 50px auto;
 }
-#main-div #first {
+#home #main-div #first {
   width: 567px;
 }
-#main-div #first #info {
+#home #main-div #first #info {
   display: flex;
   flex-flow: column;
   gap: 17px;
 }
-#main-div #first #info #up-header {
+#home #main-div #first #info #up-header {
   display: flex;
   gap: 20px;
   align-items: center;
 }
-#main-div #first #info #up-header div {
+#home #main-div #first #info #up-header div {
   height: 1px;
   width: 54px;
   background-color: rgba(32, 31, 31, 0.2);
 }
-#main-div #first #info #up-header h4 {
+#home #main-div #first #info #up-header h4 {
   color: rgba(32, 31, 31, 0.2);
   font-size: 15px;
   font-weight: 600;
   line-height: 120%; /* 18px */
   letter-spacing: 2px;
 }
-#main-div #first #info h1 {
+#home #main-div #first #info h1 {
   color: #201F1F;
   font-size: 75px;
   font-weight: 600;
   line-height: 120%; /* 90px */
   letter-spacing: -3px;
 }
-#main-div #first #info h1 span {
+#home #main-div #first #info h1 span {
   color: #6C5FBC;
 }
-#main-div #first #info p {
+#home #main-div #first #info p {
   color: #636363;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px; /* 155.556% */
 }
-#main-div #first #info p span {
+#home #main-div #first #info p span {
   color: #6C5FBC;
 }
-#main-div #first #get-started {
+#home #main-div #first #get-started {
   margin-top: 53px;
 }
-#main-div #first #get-started .btns {
+#home #main-div #first #get-started .btns {
   display: flex;
   gap: 18px;
 }
-#main-div #first #get-started .btns .get {
+#home #main-div #first #get-started .btns .get {
   width: 156px;
   height: 59px;
   color: #fff;
@@ -613,50 +613,50 @@ button:hover {
   border: none;
   border-radius: 12px;
 }
-#main-div #first #get-started .btns .get a {
+#home #main-div #first #get-started .btns .get a {
   color: #fff;
 }
-#main-div #first #get-started .btns .pro {
+#home #main-div #first #get-started .btns .pro {
   width: 110px;
   height: 59px;
   background-color: #F9F9F9;
   border: 2px solid #6C5FBC;
   border-radius: 12px;
 }
-#main-div #first #get-started .btns .pro a {
+#home #main-div #first #get-started .btns .pro a {
   color: #6C5FBC;
 }
-#main-div #first #get-started .btns button a {
+#home #main-div #first #get-started .btns button a {
   font-family: Poppins, serif;
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
 }
-#main-div #first #trustpilot {
+#home #main-div #first #trustpilot {
   margin-top: 33px;
   display: flex;
   gap: 20px;
   align-items: center;
 }
-#main-div #first #trustpilot div {
+#home #main-div #first #trustpilot div {
   padding-top: 8px;
   display: flex;
   gap: 9px;
   align-items: center;
 }
-#main-div #first #trustpilot div h5 {
+#home #main-div #first #trustpilot div h5 {
   padding-top: 2px;
   color: var(--blue-gray-700, #334155);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px; /* 150% */
 }
-#main-div #second {
+#home #main-div #second {
   width: 600px;
   height: 550px;
   position: relative;
 }
-#main-div #second .bg {
+#home #main-div #second .bg {
   width: 422px;
   height: 424px;
   border-radius: 424px;
@@ -665,14 +665,14 @@ button:hover {
   top: 65px;
   right: 79px;
 }
-#main-div #second .plate {
+#home #main-div #second .plate {
   position: absolute;
   top: 77px;
   right: 98px;
   z-index: 2;
   width: 430px;
 }
-#main-div #second .grafic {
+#home #main-div #second .grafic {
   position: absolute;
   z-index: 3;
   left: -25px;
@@ -686,18 +686,18 @@ button:hover {
   height: 206px;
   padding: 13px 26px;
 }
-#main-div #second .grafic #up {
+#home #main-div #second .grafic #up {
   display: flex;
   gap: 15px;
   align-items: center;
 }
-#main-div #second .grafic #up .main {
+#home #main-div #second .grafic #up .main {
   padding: 11px;
   color: #fff;
   background-color: #6C5FBC;
   border-radius: 15px;
 }
-#main-div #second .grafic #up p {
+#home #main-div #second .grafic #up p {
   text-align: center;
   font-family: Poppins, sans-serif;
   font-size: 11px;
@@ -705,41 +705,41 @@ button:hover {
   line-height: 9px; /* 142.857% */
   color: #828282;
 }
-#main-div #second .grafic div {
+#home #main-div #second .grafic div {
   position: relative;
   width: 207px;
   height: 97px;
   margin-top: 25px;
 }
-#main-div #second .grafic div .g {
+#home #main-div #second .grafic div .g {
   position: absolute;
   z-index: 1;
 }
-#main-div #second .grafic div .l {
+#home #main-div #second .grafic div .l {
   position: absolute;
   z-index: 0;
   bottom: 20px;
 }
-#main-div #second .grafic div .p {
+#home #main-div #second .grafic div .p {
   position: absolute;
   top: 20px;
   right: 30px;
   z-index: 2;
 }
-#main-div #second .grafic #down {
+#home #main-div #second .grafic #down {
   display: flex;
   gap: 19px;
   align-items: center;
   padding-top: 16px;
   margin-left: 15px;
 }
-#main-div #second .grafic #down .main {
+#home #main-div #second .grafic #down .main {
   padding: 11px;
   color: #201F1F;
   background-color: rgba(231, 231, 231, 0.92);
   border-radius: 15px;
 }
-#main-div #second .grafic #down p {
+#home #main-div #second .grafic #down p {
   text-align: center;
   font-family: Poppins, sans-serif;
   font-size: 11px;
@@ -747,7 +747,7 @@ button:hover {
   line-height: 9px; /* 142.857% */
   color: #828282;
 }
-#main-div #second .chicken-hell {
+#home #main-div #second .chicken-hell {
   position: absolute;
   border-radius: 16px;
   border: 1px solid var(--Greyscale-200, #EDF2F7);
@@ -760,35 +760,35 @@ button:hover {
   height: 76px;
   padding: 9px 16px;
 }
-#main-div #second .chicken-hell div {
+#home #main-div #second .chicken-hell div {
   display: flex;
   gap: 18px;
   align-items: center;
 }
-#main-div #second .chicken-hell div div {
+#home #main-div #second .chicken-hell div div {
   display: flex;
   flex-direction: column;
   gap: 4px;
   align-items: flex-start;
 }
-#main-div #second .chicken-hell div div h4 {
+#home #main-div #second .chicken-hell div div h4 {
   color: #323142;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 16px;
   font-weight: 600;
   line-height: 140%; /* 21.82px */
 }
-#main-div #second .chicken-hell div div h5 {
+#home #main-div #second .chicken-hell div div h5 {
   color: #323142;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 9.844px;
   font-weight: 500;
   line-height: 140%; /* 13.781px */
 }
-#main-div #second .chicken-hell div img {
+#home #main-div #second .chicken-hell div img {
   width: 75px;
 }
-#main-div #second .chicken-hell p {
+#home #main-div #second .chicken-hell p {
   position: absolute;
   bottom: 10px;
   right: 16px;
@@ -799,86 +799,85 @@ button:hover {
   font-weight: 500;
   line-height: 140%; /* 14.93px */
 }
-
-#MobileApp #counts {
+#home #MobileApp #counts {
   padding: 49px 0;
   display: flex;
   justify-content: center;
   background-color: #6C5FBC;
   margin-top: 135px;
 }
-#MobileApp #counts div {
+#home #MobileApp #counts div {
   display: flex;
   flex-direction: column;
   gap: 11px;
   padding: 57px 79px;
   text-align: center;
 }
-#MobileApp #counts div h4 {
+#home #MobileApp #counts div h4 {
   color: #fff;
   font-size: 43.2px;
   font-weight: 700;
   line-height: 54px; /* 125% */
 }
-#MobileApp #counts div p {
+#home #MobileApp #counts div p {
   color: #C5BFED;
   text-align: center;
   font-size: 14.4px;
   font-weight: 500;
   line-height: 21.6px; /* 150% */
 }
-#MobileApp #counts #s {
+#home #MobileApp #counts #s {
   border-left: 1px solid rgba(197, 197, 197, 0.15);
   border-right: 1px solid rgba(197, 197, 197, 0.15);
 }
-#MobileApp #mobile {
+#home #MobileApp #mobile {
   display: flex;
   gap: 180px;
   padding-bottom: 120px;
 }
-#MobileApp #mobile .phone {
+#home #MobileApp #mobile .phone {
   position: relative;
   width: 560px;
   height: 850px;
 }
-#MobileApp #mobile .phone img {
+#home #MobileApp #mobile .phone img {
   position: absolute;
 }
-#MobileApp #mobile .phone .f {
+#home #MobileApp #mobile .phone .f {
   top: 120px;
   left: 0;
   z-index: 2;
 }
-#MobileApp #mobile .phone .s {
+#home #MobileApp #mobile .phone .s {
   top: 133px;
   left: 16px;
 }
-#MobileApp #mobile .info {
+#home #MobileApp #mobile .info {
   width: 560px;
   padding-top: 195px;
 }
-#MobileApp #mobile .info h2 {
+#home #MobileApp #mobile .info h2 {
   color: #201F1F;
   font-size: 51px;
   font-weight: 700;
   line-height: 58px; /* 114.286% */
 }
-#MobileApp #mobile .info h2 span {
+#home #MobileApp #mobile .info h2 span {
   color: #6C5FBC;
 }
-#MobileApp #mobile .info div {
+#home #MobileApp #mobile .info div {
   padding-top: 63px;
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
-#MobileApp #mobile .info div p {
+#home #MobileApp #mobile .info div p {
   color: #636363;
   font-size: 20px;
   font-weight: 400;
   line-height: 31px;
 }
-#MobileApp #mobile .info button {
+#home #MobileApp #mobile .info button {
   margin-top: 66px;
   border-radius: 15px;
   background: #6C5FBC;
@@ -890,37 +889,105 @@ button:hover {
   text-align: left;
   padding-left: 36px;
 }
-#MobileApp #mobile .info button img {
+#home #MobileApp #mobile .info button img {
   position: absolute;
   top: 18px;
   right: 30px;
   width: 27px;
   height: 27px;
 }
-#MobileApp #top-rests {
+#home #top-rests {
   text-align: center;
+  border-top: 1px solid #CBCBCB;
+  padding-top: 100px;
 }
-#MobileApp #top-rests h2 {
+#home #top-rests h2 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
   line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
 }
-#MobileApp #top-rests h2 span {
+#home #top-rests h2 span {
   color: #6C5FBC;
 }
-#MobileApp #top-rests div {
+#home #top-rests #tops {
   display: flex;
   gap: 30px;
 }
-#MobileApp #top-rests div .rest-card {
+#home #top-rests #tops .rest-card {
   width: 396px;
   height: 298px;
   border-radius: 30px;
   border: 1px solid #F4F4F6;
   background: #FFF;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+#home #top-rests #tops .rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+#home #top-rests #tops .rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+#home #top-rests #tops .rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 66px;
+  height: 25px;
+  border-radius: 5px;
+}
+#home #top-rests #tops .rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#home #top-rests #tops .rest-card .info .text h4 {
+  color: #201F1F;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+#home #top-rests #tops .rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+#home #top-rests #tops .rest-card .info .text .widgets .time-rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+#home #top-rests #tops .rest-card .info .text .widgets .time-rating p {
+  color: #8E97A6;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 26px; /* 133.333% */
+}
+#home #top-rests #tops .rest-card .info .text .widgets .time-rating div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+#home #top-rests #tops .rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+#home #top-rests #tops .rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 /*# sourceMappingURL=index.css.map */

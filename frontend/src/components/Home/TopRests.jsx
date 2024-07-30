@@ -23,7 +23,7 @@ function TopRests() {
     return (
         <div id="top-rests" className="container">
             <h2>Our Top <span>Restaurants</span></h2>
-            <div>
+            <div id="tops">
                 {slicedRests.map((rest) => <RestaurantCard rest={rest} />)}
             </div>
         </div>
