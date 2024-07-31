@@ -7,6 +7,7 @@ import {useEffect, useState} from "react";
 
 function ProtectedRoute({children}) {
     const [isAuthorized, setIsAuthorized] = useState(null);
+    const [banned, setBanned] = useState(false);
 
     useEffect(() => {
         auth().catch(() => {setIsAuthorized(false)});
@@ -34,6 +35,19 @@ function ProtectedRoute({children}) {
             setIsAuthorized(false);
             return
         }
+            api
+                .get("api/user/")
+                .then((res) => res.data)
+                .then((data) => {
+                    data.map((item) => {
+                        if (item.is_banned === true) {
+                            setBanned(true);
+                        }
+                    })
+                })
+                .catch(() => {
+                    setIsAuthorized(false);
+                });
         const decoded = jwtDecode(token);
         const tokenExpiration = decoded.exp;
         const now = Date.now() / 1000
@@ -49,7 +63,12 @@ function ProtectedRoute({children}) {
         return <div>Loading...</div>
     }
 
-    return isAuthorized ? children : <Navigate to="/login" />
+    if (banned) {
+        return <Navigate to="/banned" />
+    } else {
+        return isAuthorized ? children : <Navigate to="/login" />
+    }
+
 }
 
 export default ProtectedRoute;

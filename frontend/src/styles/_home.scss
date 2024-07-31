@@ -456,7 +456,7 @@
       text-align: left;
       .dish {
         width: 185px;
-        height: 390px;
+        height: 370px;
         border-radius: 35px;
         border: 1px solid #F4F4F6;
         background: #FFF;
@@ -492,6 +492,36 @@
               width: 84px;
               height: 25px;
               border-radius: 5px;
+            }
+          }
+          .time-rating {
+            position: absolute;
+            bottom: 65px;
+          }
+          .price-add {
+            display: flex;
+            padding-top: 13px;
+            position: absolute;
+            bottom: 20px;
+            h5 {
+              color: $black_main;
+              font-family: Manrope, sans-serif;
+              font-size: 26px;
+              font-weight: 700;
+              line-height: 40px; /* 155.556% */
+              span {
+                color: #8E97A6;
+                font-family: Manrope, sans-serif;
+                font-size: 19px;
+                font-weight: 700;
+                line-height: 40px;
+              }
+            }
+            button {
+              position: absolute;
+              right: -130px;
+              border: none;
+              background-color: #fff;
             }
           }
         }

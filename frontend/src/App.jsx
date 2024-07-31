@@ -6,6 +6,8 @@ import Home from "./pages/Home.jsx"
 import SearchFood from "./pages/SearchFood.jsx"
 import NotFound from "./pages/404.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Cart from "./pages/Cart.jsx";
+import Unauthorized from "./pages/401.jsx";
 
 function Logout() {
   localStorage.clear()
@@ -22,14 +24,6 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
           <Route
               path="menu/"
               element={
@@ -38,9 +32,26 @@ function App() {
                   </ProtectedRoute>
               }
           />
+          <Route
+              path="cart/"
+              element={
+                  <ProtectedRoute>
+                      <Cart />
+                  </ProtectedRoute>
+              }
+          />
+          <Route
+              path="/"
+              element={
+                  <ProtectedRoute>
+                      <Home />
+                  </ProtectedRoute>
+              }
+          />
         <Route path="login/" element={<Login />} />
         <Route path="register/" element={<RegisterAndLogout />} />
         <Route path="logout/" element={<Logout />} />
+        <Route path="/banned" element={<Unauthorized />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

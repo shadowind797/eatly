@@ -14,7 +14,7 @@ function Form({ route, method }) {
     const navigate = useNavigate();
     const name = method === "login" ? "Login" : "Sign Up"
 
-    const [status, setStatus] = useState(4)
+    const [status, setStatus] = useState(5)
 
     const handleSubmit = async (e) => {
         setLoading(true)

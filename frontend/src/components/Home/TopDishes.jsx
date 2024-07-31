@@ -27,7 +27,7 @@ function TopDishes() {
         <div id="top-dishes" className="container">
             <h2>Our Top <span>Dishes</span></h2>
             <div className="tops">
-                {slicedFood.map((item) => <Item item={item}/>)}
+                {slicedFood.map((item) => <Item item={item}  key={item.id}/>)}
             </div>
             <div className="view-all">
                 <a href="#">

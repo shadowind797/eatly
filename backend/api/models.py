@@ -6,7 +6,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=120, unique=True)
     password = models.CharField(max_length=120)
     phone = models.CharField(max_length=120, blank=True)
-    status = models.ForeignKey('Status', on_delete=models.PROTECT)
+    status = models.ForeignKey('Status', on_delete=models.PROTECT, default=5)
     is_banned = models.BooleanField(default=False)
     ban_reason = models.TextField(blank=True)
 
@@ -36,6 +36,15 @@ class Restaurant(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CartItem(models.Model):
+    item = models.ForeignKey('Item', on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    owner = models.ForeignKey('User', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.item.title
 
 
 class Reviews(models.Model):

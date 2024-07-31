@@ -10,10 +10,10 @@ function Item({item}) {
     const [style, setStyle] = useState({})
 
     useEffect(() => {
-        getRestsCats()
+        getCats()
     }, []);
 
-    const getRestsCats = () => {
+    const getCats = () => {
         api
             .get("api/items/category/")
             .then((res) => res.data)
@@ -34,6 +34,15 @@ function Item({item}) {
             .catch((err) => alert(err));
     }
 
+    const createCartItem = (e) => {
+        e.preventDefault();
+        api.post("api/items/cart/add", {item: item.id, quantity: 1}).then((res) => {
+            if (res.status === 201) {} else {
+                alert("Failed to create item");
+            }
+        }).catch((err) => alert(err));
+    }
+
     return (
         <div className="dish">
             <img className="photo" src={item.photo} alt=""/><img className="like" src={like} alt=""/>
@@ -51,7 +60,7 @@ function Item({item}) {
                 </div>
                 <div className="price-add">
                     <h5>{item.price}<span>.99</span></h5>
-                    <button>
+                    <button onClick={createCartItem}>
                         <img src={addToCart} alt=""/>
                     </button>
                 </div>

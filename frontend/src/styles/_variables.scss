@@ -25,6 +25,11 @@ a {
   color: $black_main;
 }
 
+button {
+  transform: scale(1);
+  transition: 0.2s;
+}
+
 button:hover {
   transform: scale(1.12);
   transition: 200ms;
@@ -68,5 +73,11 @@ button:hover {
     display: flex;
     gap: 5px;
     align-items: center;
+  }
+}
+
+.header {
+  .active {
+    color: $purple_main;
   }
 }

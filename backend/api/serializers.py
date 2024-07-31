@@ -18,9 +18,11 @@ class ItemSerializer(serializers.ModelSerializer):
         model = Item
         fields = ['id', "title", "description", "price", "photo", "category", "rating"]
 
-    def create(self, validated_data):
-        item = Item.objects.create_item(**validated_data)
-        return item
+
+class CartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = ['id', "item", "quantity"]
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -28,27 +30,14 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', "name"]
 
-    def create(self, validated_data):
-        item = Item.objects.create_item(**validated_data)
-        return item
-
-
 
 class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
         fields = ['id', "name", "address", "rating", "category_id", "image"]
 
-    def create(self, validated_data):
-        restaurant = Restaurant.objects.create_item(**validated_data)
-        return restaurant
-
 
 class RestaurantCatSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantCat
         fields = ['id', "name"]
-
-    def create(self, validated_data):
-        restaurantcat = RestaurantCat.objects.create_item(**validated_data)
-        return restaurantcat
