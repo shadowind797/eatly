@@ -12,16 +12,39 @@ class GetAccess(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
 
     def list(self, request, *args, **kwargs):
-        access_to = self.request.query_params.get("access_to")
+        access_to = self.request.query_params.getlist("access_to")
         user = self.request.user
 
         if access_to:
-            if access_to == "site":
+            if "site" in access_to:
                 is_banned = User.objects.filter(pk=user.id, is_banned=True).exists()
                 if is_banned:
                     return Response(status=status.HTTP_403_FORBIDDEN)
                 else:
                     return Response(status=status.HTTP_200_OK)
+            elif "admin" in access_to:
+                search = User.objects.filter(pk=user.id, status=2).exists()
+                search2 = User.objects.filter(pk=user.id, status=1).exists()
+                if search or search2:
+                    return Response(status=status.HTTP_200_OK)
+                else:
+                    return Response(status=status.HTTP_403_FORBIDDEN)
+            elif "manage" in access_to:
+                search = User.objects.filter(pk=user.id, status=3).exists()
+                search2 = User.objects.filter(pk=user.id, status=1).exists()
+                if search or search2:
+                    return Response(status=status.HTTP_200_OK)
+                else:
+                    return Response(status=status.HTTP_403_FORBIDDEN)
+            elif "orders" in access_to:
+                search = User.objects.filter(pk=user.id, status=4).exists()
+                search2 = User.objects.filter(pk=user.id, status=1).exists()
+                if search or search2:
+                    return Response(status=status.HTTP_200_OK)
+                else:
+                    return Response(status=status.HTTP_403_FORBIDDEN)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class GetUser(generics.ListAPIView):

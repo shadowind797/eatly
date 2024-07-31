@@ -5,35 +5,33 @@ import {REFRESH_TOKEN, ACCESS_TOKEN} from "../constants.js"
 import {useEffect, useState} from "react";
 
 
-function ProtectedRoute({children}) {
-    const [isAuthorized, setIsAuthorized] = useState(null);
-    const [banned, setBanned] = useState(false);
+function ProtectedRoute({children, access_to}) {
+    const [access, setAccess] = useState(null);
 
     useEffect(() => {
-        auth().catch(() => {setIsAuthorized(false)});
+        auth().catch(() => {setAccess(false)});
     }, [])
 
     const auth = async () => {
         api
-            .get("api/access/", {params: {access_to: "site"}})
-            .then((res) => res.data)
+            .get("api/access/", {params: {access_to: access_to}})
+            .then((res) => {
+                if (res.status === 200) {
+                    setAccess(true)
+                }
+                res.data
+            })
             .then((data) => {})
             .catch((error) => {
                 if (error.response.status === 403)
-                    setBanned(true);
-                else if (error.response.status === 401)
-                    setIsAuthorized(false);
+                    setAccess(false);
             });
     }
 
-    if (isAuthorized === null) {
+    if (access === null) {
         return <div>Loading...</div>
-    }
-
-    if (banned) {
-        return <Navigate to="/banned" />
-    } else {
-        return <Navigate to="/login" />
+    } else if (access === true) {
+        return {children};
     }
 
 }
