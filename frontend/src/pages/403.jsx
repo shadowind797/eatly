@@ -1,5 +1,5 @@
-function Unauthorized() {
-    return <div>401 NonAuthorized</div>
+function Forbidden() {
+    return <div>403 Forbidden</div>
 }
 
-export default Unauthorized
+export default Forbidden

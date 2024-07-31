@@ -1,8 +1,27 @@
 from django.shortcuts import render
+from rest_framework.response import Response
+
 from .models import *
-from rest_framework import generics
+from rest_framework import generics, status
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
+
+
+class GetAccess(generics.ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def list(self, request, *args, **kwargs):
+        access_to = self.request.query_params.get("access_to")
+        user = self.request.user
+
+        if access_to:
+            if access_to == "site":
+                is_banned = User.objects.filter(pk=user.id, is_banned=True).exists()
+                if is_banned:
+                    return Response(status=status.HTTP_403_FORBIDDEN)
+                else:
+                    return Response(status=status.HTTP_200_OK)
 
 
 class GetUser(generics.ListAPIView):

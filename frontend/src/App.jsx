@@ -7,7 +7,7 @@ import SearchFood from "./pages/SearchFood.jsx"
 import NotFound from "./pages/404.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Cart from "./pages/Cart.jsx";
-import Unauthorized from "./pages/401.jsx";
+import Forbidden from "./pages/403.jsx";
 
 function Logout() {
   localStorage.clear()
@@ -51,7 +51,7 @@ function App() {
         <Route path="login/" element={<Login />} />
         <Route path="register/" element={<RegisterAndLogout />} />
         <Route path="logout/" element={<Logout />} />
-        <Route path="/banned" element={<Unauthorized />} />
+        <Route path="/banned" element={<Forbidden />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
