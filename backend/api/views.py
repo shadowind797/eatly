@@ -46,7 +46,6 @@ class GetAccess(generics.ListAPIView):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-
 class GetUser(generics.ListAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
@@ -73,6 +72,47 @@ class ItemListCreate(generics.ListCreateAPIView):
             serializer.save()
         else:
             print(serializer.errors)
+
+
+class CheckInCart(generics.ListCreateAPIView):
+    serializer_class = CartItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def list(self, request, *args, **kwargs):
+        itemID = self.request.query_params.get("item")
+        extra_status = self.request.query_params.get("extra")
+        user = self.request.user
+
+        if extra_status == "true":
+            return Response(status=status.HTTP_200_OK)
+
+        if itemID:
+            isInCart = CartItem.objects.filter(item=itemID, owner=user).exists()
+
+            if isInCart:
+                return Response(status=status.HTTP_200_OK)
+            else:
+                return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class DeleteCartItem(generics.DestroyAPIView):
+    serializer_class = CartItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def destroy(self, request, *args, **kwargs):
+        itemID = self.request.query_params.get("id")
+        user = self.request.user
+
+        if itemID:
+            cart_item = CartItem.objects.get(pk=itemID, owner=user)
+            if cart_item:
+                cart_item.delete()
+                return Response(status=status.HTTP_202_ACCEPTED)
+            else:
+                return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class CartItemListCreate(generics.ListCreateAPIView):

@@ -48,7 +48,6 @@ function Header({page}) {
                         setPages(menu.slice(0, 4));
                     } else {
                         setPages(menu);
-                        console.log(item.status)
                     }
                 })
             })

@@ -4,6 +4,7 @@ import api from "../../api.js";
 function CartItem({cartItem}){
     const [dish, setDish] = useState({});
     const [quantity, setQuantity] = useState(cartItem.quantity);
+    const [deleted, setDeleted] = useState(false);
 
     useEffect(() => {
         getItems()
@@ -23,6 +24,16 @@ function CartItem({cartItem}){
             .catch((err) => alert(err));
     }
 
+    const deleteItem = () => {
+        api.delete("api/items/cart/delete",
+            {params: {id: cartItem.id}})
+            .then((res) => {
+                if (res.status === 202) {}
+                else if (res.status === 404) {}
+            }).catch((err) => {});
+        setDeleted(true)
+    }
+
     const addQuantity = () => {
         api.post("api/items/cart/add", {item: dish.id, quantity: quantity + 1},
                                                     {params: {method: "addQuant"}})
@@ -30,35 +41,45 @@ function CartItem({cartItem}){
             if (res.status === 201) {} else {
                 alert("Failed to create item");
             }
-        }).catch((err) => alert(err));
+        }).catch((err) => {});
     }
 
     const removeQuantity = () => {
-        api.post("api/items/cart/add", {item: dish.id, quantity: quantity - 1},
-            {params: {method: "addQuant"}})
-            .then((res) => {
-                if (res.status === 201) {} else {
-                    alert("Failed to create item");
-                }
-            }).catch((err) => alert(err));
+        if (quantity > 1) {
+            api.post("api/items/cart/add", {item: dish.id, quantity: quantity - 1},
+                {params: {method: "addQuant"}})
+                .then((res) => {
+                    if (res.status === 201) {
+                    } else {
+                        alert("Failed to create item");
+                    }
+                }).catch((err) => {
+            });
+        } else {
+            deleteItem()
+        }
     }
 
-    return (
-        <div>
-            <img src={dish.photo} alt=""/>
-            <p>{quantity}</p>
-            <button onClick={() => {
-                setQuantity(quantity + 1)
-                addQuantity()
-            }}>addItem
-            </button>
-            <button onClick={() => {
-                setQuantity(quantity - 1)
-                removeQuantity()
-            }}>removeItem
-            </button>
-        </div>
-    )
+    if (deleted === false) {
+        return (
+            <div>
+                <img src={dish.photo} alt=""/>
+                <p>{quantity}</p>
+                <button onClick={() => {
+                    setQuantity(quantity + 1)
+                    addQuantity()
+                }}>addItem
+                </button>
+                <button onClick={() => {
+                    setQuantity(quantity - 1)
+                    removeQuantity()
+                }}>removeItem
+                </button>
+            </div>
+        )
+    } else {
+        return (<p></p>)
+    }
 }
 
 export default CartItem

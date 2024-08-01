@@ -4,13 +4,16 @@ import api from "../api.js";
 function Item({item}) {
     const like = "http://127.0.0.1:8000/media/img/Heart.svg"
     const addToCart = "http://127.0.0.1:8000/media/img/AddToCart.svg"
+    const alreadyInCart = "http://127.0.0.1:8000/media/img/tick.svg"
     const star = "http://127.0.0.1:8000/media/img/Star.svg"
 
     const [category, setCategory] = useState("");
     const [style, setStyle] = useState({})
+    const [inCart, setInCart] = useState(false);
 
     useEffect(() => {
         getCats()
+        checkInCart()
     }, []);
 
     const getCats = () => {
@@ -34,6 +37,20 @@ function Item({item}) {
             .catch((err) => alert(err));
     }
 
+    const checkInCart = (addit) => {
+        api.get("api/items/cart/check", {params: {item: item.id, extra: addit ? addit : {}}})
+            .then((res) => {
+                if (res.status === 200) {
+                    setInCart(true)
+                } else if (res.status === 404) {
+                    setInCart(false)
+                }
+            })
+            .then((data) => {})
+            .catch((err) => {});
+    }
+
+
     const createCartItem = (e) => {
         e.preventDefault();
         api.post("api/items/cart/add", {item: item.id, quantity: 1}).then((res) => {
@@ -41,6 +58,7 @@ function Item({item}) {
                 alert("Failed to create item");
             }
         }).catch((err) => alert(err));
+        checkInCart("true")
     }
 
     return (
@@ -60,8 +78,8 @@ function Item({item}) {
                 </div>
                 <div className="price-add">
                     <h5>{item.price}<span>.99</span></h5>
-                    <button onClick={createCartItem}>
-                        <img src={addToCart} alt=""/>
+                    <button onClick={inCart ? {} : createCartItem}>
+                        <img src={inCart ? alreadyInCart : addToCart} alt=""/>
                     </button>
                 </div>
             </div>
