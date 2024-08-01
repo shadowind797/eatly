@@ -43,6 +43,53 @@ class GetAccess(generics.ListAPIView):
                     return Response(status=status.HTTP_200_OK)
                 else:
                     return Response(status=status.HTTP_403_FORBIDDEN)
+            elif "header_options" in access_to:
+                if user.status == 1:
+                    return Response(data=[
+                        {
+                            pageName: "admin",
+                            slug: "/admin/",
+                            name: "Admin"
+                        },
+                        {
+                            pageName: "manage",
+                            slug: "/manage/",
+                            name: "Manage"
+                        },
+                        {
+                            pageName: "orders",
+                            slug: "/orders/",
+                            name: "Orders"
+                        }
+                    ], status=status.HTTP_200_OK)
+                elif user.status == 2:
+                    return Response(data=[
+                        {
+                            pageName: "admin",
+                            slug: "/admin/",
+                            name: "Admin"
+                        }
+                    ], status=status.HTTP_200_OK)
+                elif user.status == 3:
+                    return Response(data=[
+                        {
+                            pageName: "manage",
+                            slug: "/manage/",
+                            name: "Manage"
+                        },
+                    ], status=status.HTTP_200_OK)
+                elif user.status == 4:
+                    return Response(data=[
+                        {
+                            pageName: "orders",
+                            slug: "/orders/",
+                            name: "Orders"
+                        }
+                    ], status=status.HTTP_200_OK)
+                elif user.status == 5 or user.status == 6:
+                    return Response(data=[], status=status.HTTP_200_OK)
+                else:
+                    return Response(status=status.HTTP_401_UNAUTHORIZED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 

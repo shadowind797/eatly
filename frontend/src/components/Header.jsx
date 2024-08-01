@@ -32,26 +32,12 @@ function Header({page}) {
 
     const getUser = () => {
         api
-            .get("api/user/")
+            .get("api/access/", {params: {access_to: "header_options"}})
             .then((res) => res.data)
             .then((data) => {
-                data.map((item) => {
-                    if (item.status === 2) {
-                        setPages(menu.slice(0, 5))
-                    } else if (item.status === 3) {
-                        const first = menu.slice(0, 6);
-                        const last = first.toSpliced(4, 1);
-                        setPages(last)
-                    } else if (item.status === 4) {
-                        setPages(menu.toSpliced( 4, 2));
-                    } else if (item.status === 5 || item.status === 6) {
-                        setPages(menu.slice(0, 4));
-                    } else {
-                        setPages(menu);
-                    }
-                })
+                setPages([...pages, ...data]);
             })
-            .catch((err) => alert(err));
+            .catch((err) => {});
     }
 
     const menu = [
@@ -75,21 +61,6 @@ function Header({page}) {
             slug: "/support/",
             name: "Contact"
         },
-        {
-            pageName: "admin",
-            slug: "/admin/",
-            name: "Admin"
-        },
-        {
-            pageName: "manage",
-            slug: "/manage/",
-            name: "Manage"
-        },
-        {
-            pageName: "orders",
-            slug: "/orders/",
-            name: "Orders"
-        }
     ]
 
     return (
