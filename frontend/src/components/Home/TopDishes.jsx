@@ -6,7 +6,7 @@ function TopDishes() {
     const [items, setItems] = useState([]);
     const [description, setDescription] = useState("");
     const [title, setTitle] = useState("");
-    const ViewAll = "http://127.0.0.1:8000/media/img/view-all.svg"
+    const ViewAll = `${import.meta.env.VITE_API_URL}/media/img/view-all.svg`
 
     useEffect(() => {
         getItems()

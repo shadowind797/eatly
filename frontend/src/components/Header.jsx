@@ -4,12 +4,33 @@ import api from "../api.js";
 
 
 function Header({page}) {
-    const logo = "http://127.0.0.1:8000/media/img/Logo.svg";
-    const profile_icon = "http://127.0.0.1:8000/media/img/Profile.svg";
-    const cart = "http://127.0.0.1:8000/media/img/cart.svg";
-    const owner = true;
+    const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
+    const profile_icon = `${import.meta.env.VITE_API_URL}/media/img/Profile.svg`;
+    const cart = `${import.meta.env.VITE_API_URL}/media/img/cart.svg`;
+    const menu = [
+        {
+            pageName: "menu",
+            slug: "/menu/",
+            name: "Menu"
+        },
+        {
+            pageName: "blog",
+            slug: "/blog/",
+            name: "Blog"
+        },
+        {
+            pageName: "pricing",
+            slug: "/pricing/",
+            name: "Pricing"
+        },
+        {
+            pageName: "support",
+            slug: "/support/",
+            name: "Contact"
+        },
+    ]
     const [isSticky, setIsSticky] = useState(false);
-    const [pages, setPages] = useState([]);
+    const [pages, setPages] = useState([...menu]);
 
     const checkPage = (name) => {
         if (page === name) {
@@ -39,29 +60,6 @@ function Header({page}) {
             })
             .catch((err) => {});
     }
-
-    const menu = [
-        {
-            pageName: "menu",
-            slug: "/menu/",
-            name: "Menu"
-        },
-        {
-            pageName: "blog",
-            slug: "/blog/",
-            name: "Blog"
-        },
-        {
-            pageName: "pricing",
-            slug: "/pricing/",
-            name: "Pricing"
-        },
-        {
-            pageName: "support",
-            slug: "/support/",
-            name: "Contact"
-        },
-    ]
 
     return (
         <div className={`header ${isSticky ? 'sticky-header' : ''}`}>

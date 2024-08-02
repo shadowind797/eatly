@@ -2,8 +2,8 @@ import Plate from "./Plate.jsx";
 
 
 function MainDiv() {
-    const trustpilot = "http://127.0.0.1:8000/media/img/trustpilot.png"
-    const five_stars = "http://127.0.0.1:8000/media/img/5_stars.svg"
+    const trustpilot = `${import.meta.env.VITE_API_URL}/media/img/trustpilot.pn`
+    const five_stars = `${import.meta.env.VITE_API_URL}/media/img/5_stars.svg`
 
     return (
         <div id="main-div" className="container">

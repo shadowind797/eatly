@@ -44,49 +44,49 @@ class GetAccess(generics.ListAPIView):
                 else:
                     return Response(status=status.HTTP_403_FORBIDDEN)
             elif "header_options" in access_to:
-                if user.status == 1:
+                if user.status.id == 1:
                     return Response(data=[
                         {
-                            pageName: "admin",
-                            slug: "/admin/",
-                            name: "Admin"
+                            "pageName": "admin",
+                            "slug": "/admin/",
+                            "name": "Admin"
                         },
                         {
-                            pageName: "manage",
-                            slug: "/manage/",
-                            name: "Manage"
+                            "pageName": "manage",
+                            "slug": "/manage/",
+                            "name": "Manage"
                         },
                         {
-                            pageName: "orders",
-                            slug: "/orders/",
-                            name: "Orders"
+                            "pageName": "orders",
+                            "slug": "/orders/",
+                            "name": "Orders"
                         }
                     ], status=status.HTTP_200_OK)
-                elif user.status == 2:
+                elif user.status.id == 2:
                     return Response(data=[
                         {
-                            pageName: "admin",
-                            slug: "/admin/",
-                            name: "Admin"
+                            "pageName": "admin",
+                            "slug": "/admin/",
+                            "name": "Admin"
                         }
                     ], status=status.HTTP_200_OK)
-                elif user.status == 3:
+                elif user.status.id == 3:
                     return Response(data=[
                         {
-                            pageName: "manage",
-                            slug: "/manage/",
-                            name: "Manage"
+                            "pageName": "manage",
+                            "slug": "/manage/",
+                            "name": "Manage"
                         },
                     ], status=status.HTTP_200_OK)
-                elif user.status == 4:
+                elif user.status.id == 4:
                     return Response(data=[
                         {
-                            pageName: "orders",
-                            slug: "/orders/",
-                            name: "Orders"
+                            "pageName": "orders",
+                            "slug": "/orders/",
+                            "name": "Orders"
                         }
                     ], status=status.HTTP_200_OK)
-                elif user.status == 5 or user.status == 6:
+                elif user.status.id == 5 or user.status.id == 6:
                     return Response(data=[], status=status.HTTP_200_OK)
                 else:
                     return Response(status=status.HTTP_401_UNAUTHORIZED)
@@ -105,6 +105,25 @@ class GetUser(generics.ListAPIView):
 class ItemListCreate(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated,]
+
+    def post(self, request, *args, **kwargs):
+        method = self.request.data.get("data").get('method')
+        if method == "for_total":
+            cartItems = self.request.data.get("data").get('items')
+            length = len(cartItems)
+            total = 0
+            print("-----------------")
+            print(cartItems)
+            print("-----------------")
+
+            for i in cartItems:
+                item = Item.objects.get(pk=i.get("item"))
+                total += item.price * i.get("quantity") + 0.99
+                total = float('{:.2f}'.format(total))
+                if i == cartItems[length - 1]:
+                    return Response(status=status.HTTP_200_OK, data={"total": total})
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
     def get_queryset(self):
         itemID = self.request.query_params.get("id")
@@ -159,7 +178,6 @@ class DeleteCartItem(generics.DestroyAPIView):
             else:
                 return Response(status=status.HTTP_404_NOT_FOUND)
         return Response(status=status.HTTP_400_BAD_REQUEST)
-
 
 
 class CartItemListCreate(generics.ListCreateAPIView):

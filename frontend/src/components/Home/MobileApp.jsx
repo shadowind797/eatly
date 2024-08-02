@@ -1,7 +1,7 @@
 function MobileApp() {
-    const phone = "http://127.0.0.1:8000/media/img/phone.png"
-    const screen = "http://127.0.0.1:8000/media/img/Screenshot.png"
-    const arrow = "http://127.0.0.1:8000/media/img/arrow-right.svg"
+    const phone = `${import.meta.env.VITE_API_URL}/media/img/phone.png`
+    const screen = `${import.meta.env.VITE_API_URL}/media/img/Screenshot.png`
+    const arrow = `${import.meta.env.VITE_API_URL}/media/img/arrow-right.svg`
 
     return (
         <div id="MobileApp">

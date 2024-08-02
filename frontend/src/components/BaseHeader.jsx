@@ -4,46 +4,9 @@ import api from "../api.js";
 
 
 function BaseHeader({page}) {
-    const logo = "http://127.0.0.1:8000/media/img/Logo.svg";
-    const profile_icon = "http://127.0.0.1:8000/media/img/Profile.svg";
-    const cart = "http://127.0.0.1:8000/media/img/cart.svg";
-    const [pages, setPages] = useState([]);
-
-
-    const checkPage = (name) => {
-        if (page === name) {
-            return "active";
-        }
-    }
-
-    useEffect(() => {
-        getUser()
-    }, []);
-
-    const getUser = () => {
-        api
-            .get("api/user/")
-            .then((res) => res.data)
-            .then((data) => {
-                data.map((item) => {
-                    if (item.status === 2) {
-                        setPages(menu.slice(0, 5))
-                    } else if (item.status === 3) {
-                        const first = menu.slice(0, 6);
-                        const last = first.toSpliced(4, 1);
-                        setPages(last)
-                    } else if (item.status === 4) {
-                        setPages(menu.toSpliced( 4, 2));
-                    } else if (item.status === 5 || item.status === 6) {
-                        setPages(menu.slice(0, 4));
-                    } else {
-                        setPages(menu);
-                    }
-                })
-            })
-            .catch((err) => alert(err));
-    }
-
+    const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
+    const profile_icon = `${import.meta.env.VITE_API_URL}/media/img/Profile.svg`;
+    const cart = `${import.meta.env.VITE_API_URL}/media/img/cart.svg`;
     const menu = [
         {
             pageName: "menu",
@@ -65,22 +28,29 @@ function BaseHeader({page}) {
             slug: "/support/",
             name: "Contact"
         },
-        {
-            pageName: "admin",
-            slug: "/admin/",
-            name: "Admin"
-        },
-        {
-            pageName: "manage",
-            slug: "/manage/",
-            name: "Manage"
-        },
-        {
-            pageName: "orders",
-            slug: "/orders/",
-            name: "Orders"
-        }
     ]
+    const [pages, setPages] = useState([...menu]);
+
+
+    const checkPage = (name) => {
+        if (page === name) {
+            return "active";
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, []);
+
+    const getUser = () => {
+        api
+            .get("api/access/", {params: {access_to: "header_options"}})
+            .then((res) => res.data)
+            .then((data) => {
+                setPages([...pages, ...data]);
+            })
+            .catch((err) => {});
+    }
 
     return (
         <div className="base-header">

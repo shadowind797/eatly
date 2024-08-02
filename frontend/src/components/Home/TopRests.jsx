@@ -4,7 +4,7 @@ import api from "../../api.js";
 
 function TopRests() {
     const [rests, setRests] = useState([]);
-    const ViewAll = "http://127.0.0.1:8000/media/img/view-all.svg"
+    const ViewAll = `${import.meta.env.VITE_API_URL}/media/img/view-all.svg`
 
     useEffect(() => {
         getRests()

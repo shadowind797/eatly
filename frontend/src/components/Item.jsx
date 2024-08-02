@@ -2,10 +2,10 @@ import React, {useEffect, useState} from "react";
 import api from "../api.js";
 
 function Item({item}) {
-    const like = "http://127.0.0.1:8000/media/img/Heart.svg"
-    const addToCart = "http://127.0.0.1:8000/media/img/AddToCart.svg"
-    const alreadyInCart = "http://127.0.0.1:8000/media/img/tick.svg"
-    const star = "http://127.0.0.1:8000/media/img/Star.svg"
+    const like = `${import.meta.env.VITE_API_URL}/media/img/Heart.svg`
+    const addToCart = `${import.meta.env.VITE_API_URL}/media/img/AddToCart.svg`
+    const alreadyInCart = `${import.meta.env.VITE_API_URL}/media/img/tick.svg`
+    const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
 
     const [category, setCategory] = useState("");
     const [style, setStyle] = useState({})

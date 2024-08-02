@@ -1,3 +1,95 @@
-#cart {
+@import "variables";
 
+#cart {
+  #main {
+    display: flex;
+    #cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+      padding: 50px 70px;
+      .item {
+        display: flex;
+        width: 800px;
+        transform: scale(1);
+        transition-duration: 0.2s;
+        border-radius: 30px;
+        background: #fff;
+        position: relative;
+        padding: 20px 30px;
+        box-shadow: 0 20px 30px 0 rgba(70, 70, 70, 0.10);
+        &:hover {
+          transform: scale(1.1);
+          transition-duration: 0.2s;
+          box-shadow: 17px 17px 17px $purple_main;
+          .cross {
+            display: block;
+            transition: 0.2s;
+          }
+        }
+        .cross {
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          top: -6px;
+          right: -4px;
+          z-index: 2;
+          background: none;
+          border: none;
+          padding: 0;
+          display: none;
+          transition: 0.2s;
+        }
+        .main {
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          img {
+            width: 100px;
+          }
+          h4 {
+            color: $black_main;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-size: 25px;
+            font-weight: 600;
+            line-height: 140%; /* 30.8px */
+          }
+          h5 {
+            color: $black_main;
+            font-feature-settings: 'liga' off, 'clig' off;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 140%; /* 25.2px */
+          }
+        }
+        .quant {
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          div {
+            width: 45px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 6px;
+            p {
+              color: $black_main;
+              font-family: Poppins, sans-serif;
+              font-size: 35px;
+              font-weight: 400;
+              line-height: 140%; /* 24.619px */
+            }
+          }
+          button {
+            padding: 0;
+            background: none;
+            border: none;
+          }
+        }
+      }
+    }
+  }
 }

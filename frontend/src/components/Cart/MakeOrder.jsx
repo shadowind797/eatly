@@ -1,7 +1,10 @@
 import api from "../../api.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
-function MakeOrder(props) {
+function MakeOrder({itemsC, subtotal}) {
+    const [user, setUser] = useState({});
+    const [cart, setCart] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         getUser()
@@ -11,14 +14,17 @@ function MakeOrder(props) {
         api
             .get("api/user/")
             .then((res) => res.data)
-            .then((data) => {})
+            .then((data) => {
+                data.map((item) => {
+                    setUser(item);
+                })
+            })
             .catch((err) => alert(err));
     }
 
-
     return (
         <div id="order">
-
+            <p>{subtotal}</p>
         </div>
     )
 }

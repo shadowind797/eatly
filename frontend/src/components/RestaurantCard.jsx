@@ -4,8 +4,8 @@ import api from "../api.js";
 function RestaurantCard({rest}) {
     const [style, setStyle] = useState({});
     const [category, setCategory] = useState("");
-    const star = "http://127.0.0.1:8000/media/img/Star.svg"
-    const bookmark = "http://127.0.0.1:8000/media/img/Bookmark.svg"
+    const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
+    const bookmark = `${import.meta.env.VITE_API_URL}/media/img/Bookmark.svg`
 
     useEffect(() => {
         getRestsCats()

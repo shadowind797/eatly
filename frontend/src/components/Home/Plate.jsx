@@ -1,10 +1,10 @@
 import Home from "../../pages/Home.jsx";
 
 function Plate() {
-    const grafic = "http://127.0.0.1:8000/media/img/vectors/grafic.svg"
-    const lines = "http://127.0.0.1:8000/media/img/vectors/lines.svg"
-    const point = "http://127.0.0.1:8000/media/img/vectors/point.svg"
-    const chicken_hell = "http://127.0.0.1:8000/media/img/food/ChikenHellPro.png"
+    const grafic = `${import.meta.env.VITE_API_URL}/media/img/vectors/grafic.svg`
+    const lines = `${import.meta.env.VITE_API_URL}/media/img/vectors/lines.svg`
+    const point = `${import.meta.env.VITE_API_URL}/media/img/vectors/point.svg`
+    const chicken_hell = `${import.meta.env.VITE_API_URL}/media/img/food/ChikenHellPro.png`
 
     return (
         <div id="second">
