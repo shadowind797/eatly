@@ -13,6 +13,27 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ["id", "house_address", "entrance", "floor", "flat"]
+
+    def create(self, validated_data):
+        address = Address.objects.create_address(**validated_data)
+        return address
+
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payments
+        fields = "__all__"
+        extra_kwargs = {"cvv": {"write_only": True}, "date_to": {"read_only": True}}
+
+    def create(self, validated_data):
+        payment = Payments.objects.create_payments(**validated_data)
+        return payment
+
+
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item

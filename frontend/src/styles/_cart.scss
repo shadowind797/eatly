@@ -3,14 +3,16 @@
 #cart {
   #main {
     display: flex;
+    position: relative;
     #cart-items-list {
       display: flex;
       flex-direction: column;
+      margin-left: 0;
       gap: 35px;
-      padding: 50px 70px;
+      padding: 50px 100px;
       .item {
         display: flex;
-        width: 800px;
+        width: 1100px;
         transform: scale(1);
         transition-duration: 0.2s;
         border-radius: 30px;
@@ -89,6 +91,149 @@
             border: none;
           }
         }
+      }
+    }
+    #order {
+      width: 470px;
+      height: 805px;
+      border-left: 1px solid #CBCBCB;
+      border-bottom: 1px solid #CBCBCB;
+      position: fixed;
+      right: 0;
+      padding: 30px 50px;
+      background-color: #fff;
+      #costs {
+        padding-bottom: 40px;
+        border-bottom: 1px solid #CBCBCB;
+        form {
+          display: flex;
+          gap: 9px;
+          margin-top: 10px;
+          #input {
+            width: 316px;
+            height: 43px;
+            border-radius: 10px;
+            background-color: #F9F9F9;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            gap: 12px;
+            padding: 10px 12px;
+            margin-bottom: 30px;
+            input {
+              border: none;
+              background: none;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 117.5%; /* 21.15px */
+              color: #6c6c72;
+              &::placeholder {
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 117.5%; /* 21.15px */
+                color: #C2C3CB;
+              }
+            }
+            img {
+              width: 30px;
+            }
+          }
+          button {
+            width: 121px;
+            height: 63px;
+            background-color: $purple_main;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 27px;
+          }
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        .total {
+          font-size: 22px;
+          font-weight: 600;
+          color: $purple_main;
+        }
+        h6 {
+          display: flex;
+          align-items: center;
+          width: 470px;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 117.5%; /* 23.5px */
+          span {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 117.5%; /* 23.5px */
+            margin-left: auto;
+          }
+        }
+      }
+      #pay {
+        #userInfo {
+          padding-top: 40px;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          #name {
+            border: none;
+            background-color: #F9F9F9;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: #6c6c72;
+            width: 450px;
+            height: 15px;
+            border-radius: 10px;
+            padding: 20px 10px;
+            &::placeholder {
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 117.5%; /* 21.15px */
+              color: #C2C3CB;
+            }
+          }
+          #payment {
+            padding-bottom: 40px;
+            border-bottom: 1px solid #CBCBCB;
+          }
+          #address, #payment {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            #add-address {
+              width: 470px;
+              height: 55px;
+              background-color: $purple_main;
+              border: none;
+              border-radius: 10px;
+              color: white;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 27px;
+            }
+          }
+        }
+      }
+      #complete {
+        width: 200px;
+        height: 55px;
+        margin: auto;
+        background-color: green;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+      }
+
+      #new-address {
+
       }
     }
   }

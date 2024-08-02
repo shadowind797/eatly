@@ -38,6 +38,51 @@ class Restaurant(models.Model):
         return self.name
 
 
+class Address(models.Model):
+    house_address = models.CharField(max_length=120)
+    entrance = models.CharField(max_length=120)
+    floor = models.CharField(max_length=120)
+    flat = models.CharField(max_length=120)
+    owner = models.ForeignKey('User', on_delete=models.CASCADE)
+    active = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.house_address
+
+
+class Coupon(models.Model):
+    title = models.CharField(max_length=120, unique=True)
+    valid_from = models.DateField(auto_now_add=True)
+    valid_to = models.DateField()
+    is_valid = models.BooleanField(default=True)
+    value = models.FloatField()
+    times_activated = models.IntegerField(default=0)
+    enabled_times = models.IntegerField()
+    category = models.ForeignKey('CouponCategory', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+
+class CouponCategory(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Payments(models.Model):
+    number = models.CharField(max_length=120, unique=True)
+    date_to = models.CharField(max_length=100)
+    cvv = models.IntegerField()
+    owner = models.ForeignKey('User', on_delete=models.CASCADE)
+    active = models.BooleanField(default=False)
+    name = models.CharField(max_length=120, default="")
+
+    def __str__(self):
+        return self.number
+
+
 class CartItem(models.Model):
     item = models.ForeignKey('Item', on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)

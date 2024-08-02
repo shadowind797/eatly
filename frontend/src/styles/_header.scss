@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 .base-header {
-  padding: 36px 96px 36px 96px;
+  padding: 16px 96px 16px 96px;
   display: flex;
   border-bottom: 1px solid #CBCBCB;
   background-color: $background;
@@ -51,7 +51,7 @@
     }
     button {
       width: 121px;
-      height: 63px;
+      height: 53px;
       background-color: $purple_main;
       border: none;
       border-radius: 18px;
@@ -66,7 +66,7 @@
 }
 
 .header {
-  padding: 36px 96px 36px 96px;
+  padding: 16px 96px 16px 96px;
   display: flex;
   border-bottom: 1px solid #CBCBCB;
   background-color: $background;
@@ -121,7 +121,7 @@
     }
     button {
       width: 121px;
-      height: 63px;
+      height: 53px;
       background-color: $purple_main;
       border: none;
       border-radius: 18px;

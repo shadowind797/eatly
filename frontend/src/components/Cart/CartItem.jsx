@@ -31,22 +31,24 @@ function CartItem({cartItem, onChange}){
         api.delete("api/items/cart/delete",
             {params: {id: cartItem.id}})
             .then((res) => {
-                if (res.status === 202) {}
+                if (res.status === 202) {
+                    onChange()
+                }
                 else if (res.status === 404) {}
             }).catch((err) => {});
         setDeleted(true)
-        onChange()
     }
 
     const addQuantity = () => {
         api.post("api/items/cart/add", {item: dish.id, quantity: quantity + 1},
                                                     {params: {method: "addQuant"}})
                                                                 .then((res) => {
-            if (res.status === 201) {} else {
+            if (res.status === 201) {
+                onChange()
+            } else {
                 alert("Failed to create item");
             }
         }).catch((err) => {});
-        onChange()
     }
 
     const removeQuantity = () => {
@@ -55,6 +57,7 @@ function CartItem({cartItem, onChange}){
                 {params: {method: "addQuant"}})
                 .then((res) => {
                     if (res.status === 201) {
+                        onChange()
                     } else {
                         alert("Failed to create item");
                     }
@@ -63,7 +66,6 @@ function CartItem({cartItem, onChange}){
         } else {
             deleteItem()
         }
-        onChange()
     }
 
     if (deleted === false) {

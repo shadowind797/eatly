@@ -17,4 +17,7 @@ urlpatterns = [
 
     path("restaurants/", views.RestaurantListCreate.as_view(), name='restaurant-list'),
     path("restaurants/categories/", views.RestaurantCategories.as_view(), name='restaurant-cats-list'),
+
+    path("address/", views.AddressList.as_view(), name='address-list'),
+    path("address/add/", views.RestaurantCategories.as_view(), name='restaurant-cats-list'),
 ]

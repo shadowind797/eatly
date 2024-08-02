@@ -7,7 +7,8 @@ import api from "../api.js";
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState({});
+    const [extra, setExtra] = useState(false);
 
 
     useEffect(() => {
@@ -26,21 +27,25 @@ function Cart() {
 
     const getTotal = (cartI) => {
         api
-            .post("api/items/", {data: {items: cartI, method: "for_total"}})
-            .then((res) => res.data)
+            .post("api/items/", {items: cartI, method: "for_total"})
+            .then((res) => {
+                if (res.status === 200) {
+                    return res.data
+                } else {setExtra(true)}
+            })
             .then((data) => setTotal(data))
-            .catch((err) => alert(err));
+            .catch((err) => {});
     }
 
 
-    if (cartItems.length > 0 && total.total > 0) {
+    if (cartItems.length > 0 && total.total > 0 || extra === true) {
         return (
             <div id='cart'>
                 <BaseHeader />
                 <Header />
                 <div id="main">
                     <ItemsList items={cartItems} onChange={() => {getCartItems()}}/>
-                    <MakeOrder itemsC={cartItems} subtotal={total.total}/>
+                    <MakeOrder subtotal={total ? total.total : 0}/>
                 </div>
             </div>
         )

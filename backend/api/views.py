@@ -102,28 +102,47 @@ class GetUser(generics.ListAPIView):
         return User.objects.filter(pk=user)
 
 
+class AddressList(generics.ListAPIView):
+    serializer_class = AddressSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Address.objects.filter(owner=user)
+
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save(owner=self.request.user)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
 class ItemListCreate(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated,]
 
     def post(self, request, *args, **kwargs):
-        method = self.request.data.get("data").get('method')
-        if method == "for_total":
-            cartItems = self.request.data.get("data").get('items')
-            length = len(cartItems)
-            total = 0
-            print("-----------------")
-            print(cartItems)
-            print("-----------------")
+        method = self.request.data.get('method')
+        cartItems = self.request.data.get('items')
 
-            for i in cartItems:
-                item = Item.objects.get(pk=i.get("item"))
-                total += item.price * i.get("quantity") + 0.99
-                total = float('{:.2f}'.format(total))
-                if i == cartItems[length - 1]:
-                    return Response(status=status.HTTP_200_OK, data={"total": total})
+        if len(cartItems) > 0:
+            if method == "for_total":
+                length = len(cartItems)
+                total = 0
+                print("-----------------")
+                print(cartItems)
+                print("-----------------")
+
+                for i in cartItems:
+                    item = Item.objects.get(pk=i.get("item"))
+                    total += item.price * i.get("quantity") + 0.99
+                    total = float('{:.2f}'.format(total))
+                    if i == cartItems[length - 1]:
+                        return Response(status=status.HTTP_200_OK, data={"total": total})
+            else:
+                return Response(status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get_queryset(self):
         itemID = self.request.query_params.get("id")
