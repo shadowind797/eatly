@@ -10,6 +10,7 @@ import Cart from "./pages/Cart.jsx";
 import Forbidden from "./pages/403.jsx";
 import Admin from "./pages/Admin.jsx";
 import SuperProtectedRoute from "./components/SuperProtectedRoute.jsx";
+import Order from "./pages/Order.jsx";
 
 function Logout() {
   localStorage.clear()
@@ -47,6 +48,14 @@ function App() {
               element={
                   <ProtectedRoute>
                       <Home />
+                  </ProtectedRoute>
+              }
+          />
+          <Route
+              path="complete-order/"
+              element={
+                  <ProtectedRoute>
+                      <Order />
                   </ProtectedRoute>
               }
           />

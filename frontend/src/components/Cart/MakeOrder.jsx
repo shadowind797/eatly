@@ -2,6 +2,7 @@ import api from "../../api.js";
 import {useEffect, useState} from "react";
 import Select from "react-select";
 import item from "../Item.jsx";
+import {Navigate} from "react-router-dom";
 
 function MakeOrder({subtotal}) {
     const [user, setUser] = useState({});
@@ -9,10 +10,11 @@ function MakeOrder({subtotal}) {
     const cpImg = `${import.meta.env.VITE_API_URL}/media/img/coupon.svg`;
     const [applied, setApplied] = useState(null);
     const [firstName, setFirstName] = useState(user.first_name);
+
     const [addressList, setAddressList] = useState([]);
+    const [address, setAddress] = useState(null);
     const [addAddress, setAddAddress] = useState(false);
-    const [addPayment, setAddPayment] = useState(false);
-    const [paymentMode, setPaymentMode] = useState("Cash");
+    const [addressAlreadyExists, setAddressAlreadyExists] = useState(false);
 
     const [building_address, setBuildingAddress] = useState("");
     const [entrance, setEntrance] = useState("");
@@ -23,6 +25,10 @@ function MakeOrder({subtotal}) {
         getUser()
         getAddressList()
     }, []);
+
+    const changeAddress = (address) => {
+        setAddress(address.value);
+    }
 
     const getUser = () => {
         api
@@ -43,11 +49,35 @@ function MakeOrder({subtotal}) {
             .then((data) => {
                 let list = []
                 data.map((item) => {
-                    list = [...list, {value: "some", label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`}]
+                    list = [...list, {value: item.id, label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`}]
                     setAddressList(list);
                 })
             })
             .catch((err) => alert(err));
+    }
+
+    const setOrderData = () => {
+        api
+            .post("api/order/add/", {total: (subtotal * 1.1).toFixed(2), status: 1, address: address})
+            .then((res) => {
+                if (res.status === 201) {}
+                else {}
+            })
+            .catch((err) => {})
+    }
+
+    const createAddress = () => {
+        api
+            .post("api/address/add/", {house_address: building_address, entrance: entrance, floor: floor, flat: flat})
+            .then((res) => {
+                if (res.status === 201) {
+                    getAddressList()
+                }
+                else if (res.status === 409) {
+                    setAddressAlreadyExists(true)
+                }
+            })
+            .catch((err) => {})
     }
 
     const selectStyles = {
@@ -81,7 +111,7 @@ function MakeOrder({subtotal}) {
         }),
     };
 
-    if (!addAddress && !addPayment) {
+    if (!addAddress) {
         return (
             <div id="order">
                 <div id="costs">
@@ -110,61 +140,48 @@ function MakeOrder({subtotal}) {
                             <Select
                                 options={addressList}
                                 styles={selectStyles}
-                                placeholder='Where we should deliver your food?'
+                                placeholder='Where should we deliver your order?'
+                                onChange={changeAddress}
                             />
                             <button id="add-address" onClick={() => setAddAddress(true)}>Add address</button>
                         </div>
-                        <div id="payment">
-                            <h4>Select payment method</h4>
-                            <div id="payment-method">
-                                <button onClick={() => setPaymentMode("Cash")}
-                                        className={paymentMode === "Cash" ? "active" : {}} ></button>
-                                <button></button>
-                                <button></button>
-                            </div>
-                            <Select
-                                options={addressList}
-                                styles={selectStyles}
-                                placeholder='Select card'
-                            />
-                            <button id="add-address">Add payment method</button>
-                        </div>
-                        <button id="complete">Complete order</button>
+                        <button id="complete" onClick={() => setOrderData()}>
+                            <a href="/complete-order">Complete order</a>
+                        </button>
                     </div>
                 </div>
             </div>
         )
     }
-    else if (addAddress && !addPayment) {
+    else if (addAddress) {
         return (
             <div id="order">
                 <div id="new-address">
-                    <form action={() => fetchAddress()}>
+                    <form action={() => createAddress()}>
                         <div>
-                            <input type="text" placeholder="Building"/>
+                            <input type="text" placeholder="Building" value={building_address}
+                                   onChange={(e) => {setBuildingAddress(e.target.value)}} />
                             <div>
-                                <input type="text" placeholder="Entrance"/>
-                                <input type="text" placeholder="Floor"/>
-                                <input type="text" placeholder="Flat"/>
+                                <input type="text" placeholder="Entrance" value={entrance}
+                                       onChange={(e) => {setEntrance(e.target.value)}} />
+                                <input type="text" placeholder="Floor" value={floor}
+                                       onChange={(e) => {setFloor(e.target.value)}} />
+                                <input type="text" placeholder="Flat" value={flat}
+                                       onChange={(e) => {setFlat(e.target.value)}} />
                             </div>
                         </div>
                         <div className="btns">
                             <button onClick={() => setAddAddress(false)}>Cancel</button>
-                            <button type="submit" onClick={() => setAddAddress(false)}>Add address</button>
+                            <button type="submit" onClick={() => {
+                                createAddress()
+                                setAddAddress(false)
+                            }}>Add address</button>
                         </div>
                     </form>
                 </div>
             </div>
         )
     }
-    else if (!addAddress && addPayment) {
-        return (
-            <div id="order">
-
-            </div>
-        )
-    }
-
 }
 
 export default MakeOrder

@@ -34,6 +34,16 @@ class PaymentSerializer(serializers.ModelSerializer):
         return payment
 
 
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ["id", "status", "total", "payment", "address"]
+
+    def create(self, validated_data):
+        order = Order.objects.create_order(**validated_data)
+        return order
+
+
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item

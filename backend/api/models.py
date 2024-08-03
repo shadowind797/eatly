@@ -50,6 +50,21 @@ class Address(models.Model):
         return self.house_address
 
 
+class Order(models.Model):
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    payment = models.ForeignKey('Payments', on_delete=models.SET_NULL, null=True)
+    address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True)
+    total = models.FloatField()
+    status = models.ForeignKey('OrderStatus', on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.user
+
+
+class OrderStatus(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+
+
 class Coupon(models.Model):
     title = models.CharField(max_length=120, unique=True)
     valid_from = models.DateField(auto_now_add=True)

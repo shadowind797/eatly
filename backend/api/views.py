@@ -102,13 +102,95 @@ class GetUser(generics.ListAPIView):
         return User.objects.filter(pk=user)
 
 
+class PaymentView(generics.ListAPIView):
+    serializer_class = PaymentSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        payment_id = self.request.query_params.get("payment_id")
+        user = self.request.user
+
+        if payment_id:
+            return Payments.objects.filter(pk=payment_id, owner=user)
+        else:
+            return Payments.objects.filter(owner=user)
+
+    def post(self, request, *args, **kwargs):
+        number = self.request.data.get("number")
+        date_to = self.request.data.get("date_to")
+        cvv = self.request.data.get("cvv")
+        name = self.request.data.get("name")
+
+        payment = Payments.objects.filter(owner=self.request.user, number=number, date_to=date_to, cvv=cvv, name=name).exists()
+
+        if payment:
+            return Response(status=status.HTTP_409_CONFLICT)
+        else:
+            new_payment = Payments(owner=self.request.user, number=number, date_to=date_to, cvv=cvv, name=name)
+            new_payment.save()
+            return Response(status=status.HTTP_201_CREATED)
+
+
 class AddressList(generics.ListAPIView):
     serializer_class = AddressSerializer
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
+        address_id = self.request.query_params.get("address_id")
         user = self.request.user
-        return Address.objects.filter(owner=user)
+
+        if address_id:
+            return Address.objects.filter(pk=address_id, owner=user)
+        else:
+            return Address.objects.filter(owner=user)
+
+    def post(self, request, *args, **kwargs):
+        building_address = self.request.data.get("house_address")
+        entrance = self.request.data.get("entrance")
+        floor = self.request.data.get("floor")
+        flat = self.request.data.get("flat")
+
+        address = Address.objects.filter(owner=self.request.user, house_address=building_address, entrance=entrance, floor=floor, flat=flat).exists()
+
+        if address:
+            return Response(status=status.HTTP_409_CONFLICT)
+        else:
+            new_address = Address(owner=self.request.user, house_address=building_address, entrance=entrance, floor=floor, flat=flat)
+            new_address.save()
+            return Response(status=status.HTTP_201_CREATED)
+
+
+class OrderView(generics.ListAPIView):
+    serializer_class = OrderSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_queryset(self):
+        method = self.request.query_params.get("method")
+        user = self.request.user
+
+        if method == "for_complete":
+            return Order.objects.filter(user=self.request.user, status=1)
+        else:
+            return Order.objects.filter(user=user)
+
+    def post(self, request, *args, **kwargs):
+        addressID = request.data.get('address')
+        payment = request.data.get('payment')
+        statusID = request.data.get('status')
+        total = request.data.get('total')
+        statusName = OrderStatus.objects.get(pk=statusID)
+        print(addressID)
+        address = Address.objects.get(pk=addressID, owner=self.request.user)
+
+        if payment:
+            paymentID = Payments.objects.get(number=payment, owner=self.request.user)
+            order = Order(user=self.request.user, address=address, total=total, status=statusName, payment=paymentID)
+            order.save()
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            order = Order(user=self.request.user, address=address, total=total, status=statusName)
+            order.save()
+            return Response(status=status.HTTP_201_CREATED)
 
     def perform_create(self, serializer):
         if serializer.is_valid():
