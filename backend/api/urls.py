@@ -23,8 +23,12 @@ urlpatterns = [
     path("address/add/", views.AddressList.as_view(), name='restaurant-cats-list'),
 
     path("order/", views.OrderView.as_view(), name='order'),
-    path("order/add/", views.OrderView.as_view(), name='order'),
+    path("order/add/", views.OrderView.as_view(), name='order-create'),
+    path("order/cancel/", views.CancelOrder.as_view(), name='order-cancel'),
 
-    path("payment/", views.PaymentView.as_view(), name='order'),
-    path("payment/add/", views.PaymentView.as_view(), name='order'),
+    path("payment/", views.PaymentView.as_view(), name='payment'),
+    path("payment/add/", views.PaymentView.as_view(), name='payment-create'),
+
+    path("coupon/", views.CouponListCreate.as_view(), name='coupon-list'),
+    path("coupon/add/", views.CouponListCreate.as_view(), name='coupon-create'),
 ]

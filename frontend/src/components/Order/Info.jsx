@@ -1,6 +1,7 @@
 import Select from "react-select";
 import {useEffect, useState} from "react";
 import api from "../../api.js";
+import {Navigate} from "react-router-dom";
 
 function Info({address, order, user}) {
     const [addPayment, setAddPayment] = useState(false);
@@ -15,6 +16,9 @@ function Info({address, order, user}) {
     const [dateToYear, setDateToYear] = useState(null);
     const [cardOwnerName, setCardOwnerName] = useState(null);
     const [invalidInfo, setInvalidInfo] = useState(false)
+
+    const [canceled, setCanceled] = useState(false)
+    const [cancelErr, setCancelErr] = useState(false)
 
 
     useEffect(() => {
@@ -47,6 +51,24 @@ function Info({address, order, user}) {
                 }
             })
             .catch((err) => {})
+    }
+
+    const cancelOrder = (e) => {
+        e.preventDefault()
+        api
+            .post("api/order/cancel/", {id: order.id, status: order.status})
+            .then(res => {
+                if (res.status === 200) {
+                    setCanceled(true)
+                } else {
+                    setCancelErr(true)
+                }
+            })
+            .catch((err) => {
+                if (err.response.status === 303) {
+                    setAlreadyExists(true)
+                }
+            })
     }
 
     const selectStyles = {
@@ -85,7 +107,9 @@ function Info({address, order, user}) {
         setPayment(payment.value);
     }
 
-    if (!addPayment) {
+    if (canceled) {
+        return <Navigate to="/cart" />
+    } else if (!addPayment) {
         return (
             <div id="order-info">
                 <h1>Complete order</h1>
@@ -108,6 +132,10 @@ function Info({address, order, user}) {
                     <button id="add-payment" onClick={() => setAddPayment(true)}>Add payment method</button>
                 </div>
                 <button id="order">Order</button>
+                <button id="cancel" onClick={e => {
+                    cancelOrder(e)
+                }}>Cancel</button>
+                <p style={cancelErr ? {display: "block"} : {display: "none"}}></p>
             </div>
         )
     } else if (addPayment) {

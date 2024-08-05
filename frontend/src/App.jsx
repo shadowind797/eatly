@@ -3,7 +3,7 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Login from "./pages/Login.jsx"
 import Register from "./pages/Register.jsx"
 import Home from "./pages/Home.jsx"
-import SearchFood from "./pages/SearchFood.jsx"
+import Menu from "./pages/Menu.jsx"
 import NotFound from "./pages/404.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import Cart from "./pages/Cart.jsx";
@@ -31,7 +31,7 @@ function App() {
               path="menu/"
               element={
                   <ProtectedRoute>
-                      <SearchFood />
+                      <Menu />
                   </ProtectedRoute>
               }
           />

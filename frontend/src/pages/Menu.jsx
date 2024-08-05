@@ -1,53 +1,60 @@
 import {useEffect, useState} from "react";
 import api from "../api";
 import Item from "../components/Item";
+import TopRests from "../components/Home/TopRests.jsx";
+import TopDishes from "../components/Home/TopDishes.jsx";
 
 
-function SearchFood() {
+function Menu() {
     const [items, setItems] = useState([]);
     const [description, setDescription] = useState("");
     const [title, setTitle] = useState("");
 
-    useEffect(() => {
-        getItems()
-    }, []);
+    const [search, setSearch] = useState("");
+    const [foodSearch, setFoodSearch] = useState(true);
+    const [restSearch, setRestSearch] = useState(false);
 
-    const getItems = () => {
+
+    const searchItems = () => {
         api
-            .get("api/items/")
+            .get("api/items/search", {params: {search: search, search_method: getSearchMethod()}})
             .then((res) => res.data)
             .then((data) => setItems(data))
             .catch((err) => alert(err));
     }
 
-    const deleteItem = (id) => {
-        api.delete(`api/items/delete/${id}`).then((res) => {
-            if (res.status === 204) {
-                alert("Item deleted");
-            } else {
-                alert(`Error deleting item`);
-            }
-            getItems()
-        }).catch((err) => alert(err));
+    const getSearchMethod = () => {
+        if (foodSearch) {
+            return "food";
+        } else if (restSearch) {
+            return "restaurants";
+        }
     }
 
-    const createItem = (e) => {
-        e.preventDefault();
-        api.post("api/items", {title, description, cost, photo, category}).then((res) => {
-            if (res.status === 201) {
-                alert("Item created");
-            } else {
-                alert("Failed to create item");
-            }
-        }).catch((err) => alert(err));
-        getItems()
-    }
-
-    return <div>
+    return (
         <div>
-            {items.map((item) => <Item item={item} onDelete={deleteItem} />)}
+            <div>
+                <div id="search-input">
+                    <input type="text" placeholder="search" value={search} onChange={e => {
+                        setSearch(e.target.value);
+                    }}/>
+                    <button onClick={searchItems}>Search</button>
+                </div>
+                <div id="search-btns">
+                    <button className={foodSearch ? "active" : "passive"} onClick={() => {
+                        setFoodSearch(true);
+                        setRestSearch(false)
+                    }}>Food</button>
+                    <button className={restSearch ? "active" : "passive"} onClick={() => {
+                        setFoodSearch(false);
+                        setRestSearch(true)
+                    }}>Restaurants</button>
+                </div>
+            </div>
+            <TopRests/>
+            <TopDishes />
         </div>
-    </div>
+    )
 }
 
-export default SearchFood
+export default Menu

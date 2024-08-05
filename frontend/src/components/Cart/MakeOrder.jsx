@@ -15,9 +15,11 @@ import {Navigate} from "react-router-dom";
 function MakeOrder({subtotal}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
+    const [couponValue, setCouponValue] = useState(1);
     const cpImg = `${import.meta.env.VITE_API_URL}/media/img/coupon.svg`;
     const [applied, setApplied] = useState(null);
     const [firstName, setFirstName] = useState(user.first_name);
+    const discount = (Math.abs((subtotal * 1.1) - ((subtotal * 1.1) * couponValue))).toFixed(2)
 
     const [addressList, setAddressList] = useState([]);
     const [address, setAddress] = useState(null);
@@ -30,8 +32,8 @@ function MakeOrder({subtotal}) {
     const [flat, setFlat] = useState("");
 
     const [toComplete, setToComplete] = useState(false);
-    const [noItems, setNoItems] = useState(false)
-    const [noName, setNoName] = useState(false)
+    const [noItems, setNoItems] = useState(false);
+    const [noName, setNoName] = useState(false);
     const [noAddress, setNoAddress] = useState(false)
     const [alreadyExists, setAlreadyExists] = useState(false)
 
@@ -42,6 +44,14 @@ function MakeOrder({subtotal}) {
 
     const changeAddress = (address) => {
         setAddress(address.value);
+    }
+
+    const getTotal = () => {
+        if (couponValue === 1) {
+            return (subtotal * 1.1).toFixed(2)
+        } else {
+            return ((subtotal * 1.1).toFixed(2) - discount).toFixed(2)
+        }
     }
 
     const getUser = () => {
@@ -71,13 +81,29 @@ function MakeOrder({subtotal}) {
             .catch((err) => alert(err));
     }
 
+    const checkCoupon = (e) => {
+        e.preventDefault();
+        api
+            .post("api/coupon/", {method: "apply", title: coupon})
+            .then((res) => {
+                if (res.status === 200) {
+                    setCouponValue(res.data.value);
+                    setApplied(true);
+                } else {
+                    setCouponValue(1);
+                    setApplied(false);
+                }
+            })
+            .catch((err) => alert(err));
+    }
+
     const setOrderData = (e) => {
         if (subtotal > 1) {
             if (firstName) {
                 if (address) {
                     e.preventDefault()
                     api
-                        .post("api/order/add/", {total: (subtotal * 1.1).toFixed(2), status: 1, address: address})
+                        .post("api/order/add/", {total: getTotal(), status: 1, address: address})
                         .then(res => {
                             if (res.status === 201) {
                                 setToComplete(true)
@@ -88,13 +114,13 @@ function MakeOrder({subtotal}) {
                                 setAlreadyExists(true)
                             }
                         })
-                    api.delete("api/items/cart/delete", {params: {method: "clear"}})
-                        .then((res) => {
-                            if (res.status === 202) {
-                            } else if (res.status === 404) {
-                            }
-                        }).catch((err) => {
-                    });
+                    // api.delete("api/items/cart/delete", {params: {method: "clear"}})
+                    //     .then((res) => {
+                    //         if (res.status === 202) {
+                    //         } else if (res.status === 404) {
+                    //         }
+                    //     }).catch((err) => {
+                    // });
                     api
                         .post("api/user/change/", {method: "name", name: firstName})
                         .then((res) => {
@@ -165,7 +191,8 @@ function MakeOrder({subtotal}) {
         return (
             <div id="order">
                 <div id="costs">
-                    <form action={coupon ? "/checkcoupon" : ""}>
+                    <p className="error" style={applied === false ? {display: "block"} : {display: "none"}}>Invalid coupon</p>
+                    <div className="form">
                         <div id="input">
                             <img src={cpImg} alt=""/>
                             <input type="text" placeholder="Apply Coupon" value={coupon} onChange={(e) => {
@@ -173,11 +200,20 @@ function MakeOrder({subtotal}) {
                                 setApplied(null)
                             }}/>
                         </div>
-                        <button type="submit">Apply</button>
-                    </form>
+                        <button onClick={e => {
+                            checkCoupon(e)
+                        }}>Apply
+                        </button>
+                    </div>
                     <h6>Subtotal: <span>${subtotal}</span></h6>
                     <h6>Delivery: <span>${(subtotal * 0.1).toFixed(2)}</span></h6>
-                    <h6 className="total">Total: <span>${(subtotal * 1.1).toFixed(2)}</span></h6>
+                    <h6 style={applied ? {display: "flex"} : {display: "none"}}>
+                        Coupon:
+                        <span style={{color: "green"}}>
+                            -${discount}
+                        </span>
+                    </h6>
+                    <h6 className="total">Total: <span>${getTotal()}</span></h6>
                 </div>
                 <div id="pay">
                     <div id="userInfo">

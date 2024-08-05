@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.utils import timezone
+from datetime import datetime
 from rest_framework.response import Response
 
 from .models import *
@@ -343,6 +345,86 @@ class CartItemListCreate(generics.ListCreateAPIView):
                 print(serializer.errors)
 
 
+class CouponListCreate(generics.ListCreateAPIView):
+    """
+    View to list all coupons and create a new coupon.
+
+    - GET: Returns a list of all coupons.
+    - POST: Creates a new coupon.
+
+    Permissions:
+    - Only authenticated users can access this view.
+    """
+    serializer_class = CouponSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        method = self.request.query_params.get('method')
+
+        if method == "all":
+            return Coupon.objects.all()
+
+        return {"error": "Bad Request"}
+
+
+    def post(self, request, *args, **kwargs):
+        method = self.request.data.get("method")
+
+        if method == "create":
+            date = self.request.data.get('date_to')
+            title = self.request.data.get('title')
+            value = self.request.data.get('value')
+            category = self.request.data.get('category')
+            enabled_activations = self.request.data.get('ea')
+            valid_to = datetime.strptime(date, "%Y-%m-%d").date()
+            cat_obj = CouponCategory.objects.get(pk=category)
+
+            check = Coupon.objects.filter(title=title).exists()
+            if check:
+                return Response(status=status.HTTP_409_CONFLICT)
+
+            if title and value and cat_obj and enabled_activations and valid_to and check == False:
+                new_coupon = Coupon(title=title, category=cat_obj, enabled_times=enabled_activations, value=value,
+                                    valid_to=valid_to)
+                new_coupon.save()
+                return Response(status=status.HTTP_201_CREATED)
+
+        if method == "apply":
+            title = self.request.data.get('title')
+            now = timezone.now().date()
+            check = Coupon.objects.filter(title=title,valid_to__gt=now, is_valid=True, enabled_times__gt=0).exists()
+            if check:
+                coupon = Coupon.objects.get(title=title, valid_to__gt=now, is_valid=True, enabled_times__gt=0)
+                coupon.enabled_times -= 1
+                coupon.times_activated += 1
+                coupon.save()
+                return Response(status=status.HTTP_200_OK, data={"value": coupon.value})
+            else:
+                return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class CancelOrder(generics.ListAPIView):
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def post(self, request, *args, **kwargs):
+        order_id = self.request.data.get('id')
+        order_status = self.request.data.get('status')
+
+        order = Order.objects.get(pk=order_id, user=self.request.user)
+        status = OrderStatus.objects.get(pk=order_status)
+
+        if order.status == status:
+            new_status = OrderStatus.objects.get(pk=5)
+            order.status = new_status
+            order.save()
+            return Response(status=200)
+        else:
+            return Response(status=400, data={"error": "No order with status " + status})
+
+
 class RestaurantListCreate(generics.ListCreateAPIView):
     serializer_class = RestaurantSerializer
     permission_classes = [IsAuthenticated,]
@@ -355,6 +437,15 @@ class RestaurantListCreate(generics.ListCreateAPIView):
             serializer.save()
         else:
             print(serializer.errors)
+
+
+class SearchItems(generics.ListAPIView):
+    serializer_class = ItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        query = self.request.query_params.get('q')
+        return Item.objects.filter(name__icontains=query)
 
 
 class CategoriesList(generics.ListCreateAPIView):

@@ -3,6 +3,15 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.ModelSerializer):
+    """
+    Create a new User instance using the validated data.
+
+    Parameters:
+    validated_data (dict): The validated data containing user information.
+
+    Returns:
+    User: The newly created User instance.
+    """
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password', "phone", "status", "is_banned", "ban_reason", "first_name"]
@@ -72,3 +81,19 @@ class RestaurantCatSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantCat
         fields = ['id', "name"]
+
+
+class CouponSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Coupon
+        fields = ("id", "title", "valid_to", "value", "enabled_times", "category")
+
+    def create(self, validated_data):
+        coupon = Coupon.objects.create_coupon(**validated_data)
+        return coupon
+
+
+class CouponCatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CouponCategory
+        fields = "__all__"

@@ -11,7 +11,7 @@ function Admin() {
 
     const getCouponList = () => {
         api
-            .get("api/coupon/")
+            .get("api/coupon/", {params: {method: "all"}})
             .then((res) => res.data)
             .then((data) => {
                 setCouponList(data);
@@ -19,9 +19,24 @@ function Admin() {
             .catch((err) => alert(err));
     }
 
+    const checkCoupon = () => {
+        api
+            .post("api/coupon/", {method: "apply", title: "TESTTIME2"})
+            .then((res) => {
+                if (res.status === 200) {
+                    getCouponList()
+                    return res.data
+                } else {}
+            })
+            .then((data) => {
+
+            })
+            .catch((err) => alert(err));
+    }
+
     const createCoupon = () => {
         api
-            .post("api/coupon/add/", {title: "", valid_to: "", value: 1.1})
+            .post("api/coupon/add/", {title: "TESTTIME2", date_to: "2024-08-06", value: 0.9, category: 1, ea: 10, method: "create"})
             .then((res) => {
                 if (res.status === 201) {
                     getCouponList()
@@ -34,7 +49,14 @@ function Admin() {
     }
 
     return (
-        <div>Admin page</div>
+        <div>
+            <p>Admin page</p>
+            <div>{couponList.map(coupon => {
+                <p>{coupon.title}</p>
+            })}</div>
+            <button onClick={createCoupon}>Create</button>
+            <button onClick={checkCoupon}>checkCoupon</button>
+        </div>
     )
 }
 
