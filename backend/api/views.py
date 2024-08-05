@@ -97,6 +97,17 @@ class GetUser(generics.ListAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
 
+    def post(self, request, *args, **kwargs):
+        method = self.request.data.get("method")
+        name = self.request.data.get("name")
+
+        if method == "name":
+            user = self.request.user
+            userProfile = User.objects.get(pk=user.id)
+            userProfile.first_name = name
+            userProfile.save()
+            return Response(status=status.HTTP_201_CREATED)
+
     def get_queryset(self):
         user = self.request.user.id
         return User.objects.filter(pk=user)
@@ -179,8 +190,11 @@ class OrderView(generics.ListAPIView):
         statusID = request.data.get('status')
         total = request.data.get('total')
         statusName = OrderStatus.objects.get(pk=statusID)
-        print(addressID)
         address = Address.objects.get(pk=addressID, owner=self.request.user)
+
+        exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
+        if exists:
+            return Response(status=status.HTTP_303_SEE_OTHER)
 
         if payment:
             paymentID = Payments.objects.get(number=payment, owner=self.request.user)
@@ -211,9 +225,6 @@ class ItemListCreate(generics.ListCreateAPIView):
             if method == "for_total":
                 length = len(cartItems)
                 total = 0
-                print("-----------------")
-                print(cartItems)
-                print("-----------------")
 
                 for i in cartItems:
                     item = Item.objects.get(pk=i.get("item"))
@@ -264,12 +275,37 @@ class CheckInCart(generics.ListCreateAPIView):
 
 
 class DeleteCartItem(generics.DestroyAPIView):
+    """
+    Deletes a cart item or clears all cart items for the authenticated user.
+
+    Parameters:
+    request (Request): The HTTP request object containing query parameters.
+    *args: Additional positional arguments.
+    **kwargs: Additional keyword arguments.
+
+    Query Parameters:
+    - id (str): The ID of the cart item to delete.
+    - method (str): The method to use. If "clear", all cart items for the user will be deleted.
+
+    Returns:
+    Response:
+    - HTTP 202 Accepted if the item(s) were successfully deleted.
+    - HTTP 404 Not Found if the specified cart item does not exist.
+    - HTTP 400 Bad Request if required query parameters are missing or invalid.
+    """
     serializer_class = CartItemSerializer
     permission_classes = [IsAuthenticated,]
 
     def destroy(self, request, *args, **kwargs):
         itemID = self.request.query_params.get("id")
+        method = self.request.query_params.get("method")
         user = self.request.user
+
+        if method == "clear":
+            items = CartItem.objects.filter(owner=user)
+            for item in items:
+                item.delete()
+            return Response(status=status.HTTP_202_ACCEPTED)
 
         if itemID:
             cart_item = CartItem.objects.get(pk=itemID, owner=user)

@@ -5,7 +5,7 @@ import {REFRESH_TOKEN, ACCESS_TOKEN} from "../constants.js"
 import {useEffect, useState} from "react";
 
 
-function ProtectedRoute({children, access_to}) {
+function SuperProtectedRoute({children, access_to}) {
     const [access, setAccess] = useState(null);
 
     useEffect(() => {
@@ -31,9 +31,11 @@ function ProtectedRoute({children, access_to}) {
     if (access === null) {
         return <div>Loading...</div>
     } else if (access === true) {
-        return {children};
+        return children;
+    } else if (access === false) {
+        return <Navigate to="/" />;
     }
 
 }
 
-export default ProtectedRoute;
+export default SuperProtectedRoute;

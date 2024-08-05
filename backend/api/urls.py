@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('access/', views.GetAccess.as_view(), name='access'),
     path('user/', views.GetUser.as_view(), name='user'),
+    path('user/change/', views.GetUser.as_view(), name='user-change'),
 
     path('items/', views.ItemListCreate.as_view(), name='item-list'),
     path('items/category/', views.CategoriesList.as_view(), name='item-category-list'),

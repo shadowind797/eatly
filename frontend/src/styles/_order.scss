@@ -1,0 +1,18 @@
+@import "variables";
+
+#order-info {
+  margin-left: auto;
+  width: 700px;
+  height: 100%;
+  border-left: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+  background-color: #fff;
+  padding: 50px 70px;
+  h1 {
+    color: $black_main;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 140%; /* 30.8px */
+  }
+}

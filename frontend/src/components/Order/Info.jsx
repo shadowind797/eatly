@@ -14,6 +14,7 @@ function Info({address, order, user}) {
     const [dateToMonth, setDateToMonth] = useState(null);
     const [dateToYear, setDateToYear] = useState(null);
     const [cardOwnerName, setCardOwnerName] = useState(null);
+    const [invalidInfo, setInvalidInfo] = useState(false)
 
 
     useEffect(() => {
@@ -89,6 +90,7 @@ function Info({address, order, user}) {
             <div id="order-info">
                 <h1>Complete order</h1>
                 <h4>Total cost: <span>${order.total}</span></h4>
+                <h4>Name: <span>{user.first_name}</span></h4>
                 <div id="payment">
                     <h4>Select payment method</h4>
                     <div id="payment-method">
@@ -111,44 +113,105 @@ function Info({address, order, user}) {
     } else if (addPayment) {
         return (
             <div id="order-info">
+                <div id="invalid-card" style={invalidInfo ? {display: "block"} : {display: "none"}}>Invalid card info</div>
                 <div id="new-payment">
-                    <form action={() => createPayment()}>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="XXXX XXXX XXXX XXXX"
+                            value={cardNumber}
+                            onChange={(e) => {
+                                const input = e.target.value;
+                                const digitsOnly = input.replace(/\D/g, '');
+                                if (Number(digitsOnly)) {
+                                    const formatted = digitsOnly.match(/.{1,4}/g).join(' ');
+                                    setCardNumber(formatted);
+                                }
+                                else {
+                                    setCardNumber("");
+                                }
+                            }}
+                        />
                         <div>
-                            <input type="text" placeholder="XXXX XXXX XXXX XXXX" value={cardNumber}
+                            <input type="text" placeholder="CVV/CVC" value={cvv}
                                    onChange={(e) => {
-                                       setCardNumber(e.target.value)
+                                       const input = e.target.value;
+                                       if (Number(input)) {
+                                           if (input.length <= 3) {
+                                               setCvv(input);
+                                           } else {
+                                               setCvv(input.slice(0, 3));
+                                           }
+                                       } else {
+                                           setCvv("");
+                                       }
                                    }}/>
-                            <div>
-                                <input type="text" placeholder="CVV" value={cvv}
+                            <div id="date">
+                                <input type="text" placeholder="MM" value={dateToMonth}
                                        onChange={(e) => {
-                                           setCvv(e.target.value)
+                                           const input = e.target.value;
+                                           if (Number(input)) {
+                                               if (input.length <= 2) {
+                                                   if (Number(input) <= 12) {
+                                                       setDateToMonth(input);
+                                                   } else {
+                                                       setDateToMonth("")
+                                                   }
+                                               } else {
+                                                   setDateToMonth(input.slice(0, 2));
+                                               }
+                                           } else {
+                                               setDateToMonth("");
+                                           }
                                        }}/>
-                                <div id="date">
-                                    <input type="text" placeholder="MM" value={dateToMonth}
-                                           onChange={(e) => {
-                                               setDateToMonth(e.target.value)
-                                           }}/>
-                                    <p>/</p>
-                                    <input type="text" placeholder="YY" value={dateToYear}
-                                           onChange={(e) => {
-                                               setDateToYear(e.target.value)
-                                           }}/>
-                                </div>
-                                <input type="text" placeholder="OWNER NAME" value={cardOwnerName}
+                                <p>/</p>
+                                <input type="text" placeholder="YY" value={dateToYear}
                                        onChange={(e) => {
-                                           setCardOwnerName(e.target.value)
+                                           const input = e.target.value;
+                                           if (Number(input)) {
+                                               if (input.length <= 2) {
+                                                   if (Number(input) >= 24 || input.length < 2) {
+                                                       setDateToYear(input);
+                                                   } else {
+                                                       setDateToYear("")
+                                                   }
+                                               } else {
+                                                   setDateToYear(input.slice(0, 2));
+                                               }
+                                           } else {
+                                               setDateToYear("");
+                                           }
                                        }}/>
                             </div>
+                            <input type="text" placeholder="OWNER NAME" value={cardOwnerName}
+                                   onChange={(e) => {
+                                       const input = e.target.value;
+                                       if (!Number(input)) {
+                                            for (let i = 0; i < input.length; i++) {
+                                                const char = input[i];
+                                               if (!Number(char)) {
+                                                   setCardOwnerName(input)
+                                               } else {
+                                                   setCardOwnerName(cardOwnerName.slice(0, i))
+                                               }
+                                           }
+                                       } else {
+                                           setCardOwnerName("")
+                                       }
+                                   }}/>
                         </div>
-                        <div className="btns">
-                            <button onClick={() => setAddPayment(false)}>Cancel</button>
-                            <button type="submit" onClick={() => {
+                    </div>
+                    <div className="btns">
+                        <button onClick={() => setAddPayment(false)}>Cancel</button>
+                        <button type="submit" onClick={() => {
+                            if (cardNumber && cvv && dateToMonth && dateToYear && cardOwnerName) {
                                 createPayment()
                                 setAddPayment(false)
-                            }}>Add payment information
-                            </button>
-                        </div>
-                    </form>
+                            } else {
+                                setInvalidInfo(true)
+                        }}}>Add payment information
+                        </button>
+                    </div>
                 </div>
             </div>
         )

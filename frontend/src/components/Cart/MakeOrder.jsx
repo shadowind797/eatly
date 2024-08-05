@@ -4,6 +4,14 @@ import Select from "react-select";
 import item from "../Item.jsx";
 import {Navigate} from "react-router-dom";
 
+/**
+ * MakeOrder component handles the process of making an order, including user information, address selection, and order submission.
+ *
+ * @param {Object} props - The properties object.
+ * @param {number} props.subtotal - The subtotal amount of the order.
+ * @returns {JSX.Element} The rendered component.
+ */
+
 function MakeOrder({subtotal}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
@@ -21,6 +29,12 @@ function MakeOrder({subtotal}) {
     const [floor, setFloor] = useState("");
     const [flat, setFlat] = useState("");
 
+    const [toComplete, setToComplete] = useState(false);
+    const [noItems, setNoItems] = useState(false)
+    const [noName, setNoName] = useState(false)
+    const [noAddress, setNoAddress] = useState(false)
+    const [alreadyExists, setAlreadyExists] = useState(false)
+
     useEffect(() => {
         getUser()
         getAddressList()
@@ -37,6 +51,7 @@ function MakeOrder({subtotal}) {
             .then((data) => {
                 data.map((item) => {
                     setUser(item);
+                    setFirstName(item.first_name);
                 })
             })
             .catch((err) => alert(err));
@@ -56,14 +71,46 @@ function MakeOrder({subtotal}) {
             .catch((err) => alert(err));
     }
 
-    const setOrderData = () => {
-        api
-            .post("api/order/add/", {total: (subtotal * 1.1).toFixed(2), status: 1, address: address})
-            .then((res) => {
-                if (res.status === 201) {}
-                else {}
-            })
-            .catch((err) => {})
+    const setOrderData = (e) => {
+        if (subtotal > 1) {
+            if (firstName) {
+                if (address) {
+                    e.preventDefault()
+                    api
+                        .post("api/order/add/", {total: (subtotal * 1.1).toFixed(2), status: 1, address: address})
+                        .then(res => {
+                            if (res.status === 201) {
+                                setToComplete(true)
+                            }
+                        })
+                        .catch((err) => {
+                            if (err.response.status === 303) {
+                                setAlreadyExists(true)
+                            }
+                        })
+                    api.delete("api/items/cart/delete", {params: {method: "clear"}})
+                        .then((res) => {
+                            if (res.status === 202) {
+                            } else if (res.status === 404) {
+                            }
+                        }).catch((err) => {
+                    });
+                    api
+                        .post("api/user/change/", {method: "name", name: firstName})
+                        .then((res) => {
+                            if (res.status === 201) {
+                            } else {
+                            }
+                        })
+                } else {
+                    setNoAddress(true)
+                }
+            } else {
+                setNoName(true)
+            }
+        } else {
+            setNoItems(true)
+        }
     }
 
     const createAddress = () => {
@@ -111,7 +158,10 @@ function MakeOrder({subtotal}) {
         }),
     };
 
-    if (!addAddress) {
+
+    if (toComplete) {
+        return <Navigate to="/complete-order" />
+    } else if (!addAddress) {
         return (
             <div id="order">
                 <div id="costs">
@@ -131,12 +181,18 @@ function MakeOrder({subtotal}) {
                 </div>
                 <div id="pay">
                     <div id="userInfo">
-                        <input autoComplete="off" id="name" type="text" placeholder="How courier'll call you?"
-                               value={firstName}
-                               onChange={(e) => {
-                                   setFirstName(e.target.value)
-                               }}/>
+                        <div id="nameDiv">
+                            <p className="error" style={noName ? {display: "block"} : {display: "none"}}>Please enter
+                                your name</p>
+                            <input autoComplete="off" id="name" type="text" placeholder="How courier'll call you?"
+                                   value={firstName}
+                                   onChange={(e) => {
+                                       setFirstName(e.target.value)
+                                   }}/>
+                        </div>
                         <div id="address">
+                            <p className="error" style={noAddress ? {display: "block"} : {display: "none"}}>Address
+                                required</p>
                             <Select
                                 options={addressList}
                                 styles={selectStyles}
@@ -145,15 +201,20 @@ function MakeOrder({subtotal}) {
                             />
                             <button id="add-address" onClick={() => setAddAddress(true)}>Add address</button>
                         </div>
-                        <button id="complete" onClick={() => setOrderData()}>
-                            <a href="/complete-order">Complete order</a>
+                        <p className="error" style={noItems ? {display: "block"} : {display: "none"}}>Your cart is empty</p>
+                        <p className="error" style={alreadyExists ? {display: "block"} : {display: "none"}}>
+                            You already have staged order. Go <a href="/complete-order">here</a> to complete it
+                        </p>
+                        <button id="complete" onClick={e => {
+                            setOrderData(e)
+                        }}>
+                            Complete order
                         </button>
                     </div>
                 </div>
             </div>
         )
-    }
-    else if (addAddress) {
+    } else if (addAddress) {
         return (
             <div id="order">
                 <div id="new-address">
