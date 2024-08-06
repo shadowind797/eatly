@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render
 from django.utils import timezone
 from datetime import datetime
@@ -482,10 +483,28 @@ class SearchView(generics.ListAPIView):
     permission_classes = [IsAuthenticated,]
 
     def get(self, request, *args, **kwargs):
-        search = self.request.query.get('search', None)
-        also = self.request.query.get('also', None)
+        search = self.request.query_params.get('search', None)
+        also = self.request.query_params.get('also', None)
+        search_mode = self.request.query_params.get('search_mode')
 
-        if search:
-            pass
+        if search is not None:
+            if also is not None:
+                if search_mode == "food":
+                    search1 = Item.objects.filter(Q(title__icontains=search) & Q(title__icontains=also) | Q(title__icontains=search) | Q(title__icontains=also))
+                    serializer = ItemSerializer(search1, many=True)
+                    return Response(serializer.data)
+                else:
+                    search1 = Restaurant.objects.filter(Q(name__icontains=search) & Q(name__icontains=also) | Q(name__icontains=search) | Q(name__icontains=also))
+                    serializer = RestaurantSerializer(search1, many=True)
+                    return Response(serializer.data)
+            else:
+                if search_mode == "food":
+                    items = Item.objects.filter(Q(title__icontains=search))
+                    serializer = ItemSerializer(items, many=True)
+                    return Response(serializer.data)
+                elif search_mode == "rests":
+                    rests = Restaurant.objects.filter(Q(name__icontains=search))
+                    serializer = RestaurantSerializer(rests, many=True)
+                    return Response(serializer.data)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

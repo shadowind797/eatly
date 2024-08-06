@@ -18,47 +18,100 @@ function Menu() {
 
 
     const searchItems = () => {
-        api
-            .get("api/items/search", {params: {search: search, search_method: getSearchMethod()}})
-            .then((res) => res.data)
-            .then((data) => setItems(data))
-            .catch((err) => alert(err));
-    }
-
-    const getSearchMethod = () => {
-        if (foodSearch) {
-            return "food";
-        } else if (restSearch) {
-            return "restaurants";
+        if (search.includes(" ")) {
+            api
+                .get("api/items/search",
+                    {params: {search: search.split( " ")[0], also: search.split(" ")[1], search_mode: getSearchMode()}})
+                .then((res) => res.data)
+                .then((data) => setItems(data))
+                .catch((err) => alert(err));
+        } else {
+            api
+                .get("api/items/search", {params: {search: search, search_mode: getSearchMode()}})
+                .then((res) => res.data)
+                .then((data) => setItems(data))
+                .catch((err) => alert(err));
         }
     }
 
-    return (
-        <div>
-            <BaseHeader />
-            <Header />
+    const filterItems = () => {
+        if (search.includes(" ")) {
+            api
+                .post("api/items/search/filters", {filters: [], search_mode: getSearchMode()})
+                .then((res) => res.data)
+                .then((data) => setItems(data))
+                .catch((err) => alert(err));
+        } else {
+            api
+                .post("api/items/search/filters", {filters: [], search_mode: getSearchMode()})
+                .then((res) => res.data)
+                .then((data) => setItems(data))
+                .catch((err) => alert(err));
+        }
+    }
+
+    const getSearchMode = () => {
+        if (foodSearch) {
+            return "food";
+        } else if (restSearch) {
+            return "rests";
+        }
+    }
+
+    if (items.length === 0) {
+        return (
             <div>
-                <div id="search-input">
-                    <input type="text" placeholder="search" value={search} onChange={e => {
-                        setSearch(e.target.value);
-                    }}/>
-                    <button onClick={searchItems}>Search</button>
+                <BaseHeader />
+                <Header />
+                <div>
+                    <div id="search-input">
+                        <input type="text" placeholder="search" value={search} onChange={e => {
+                            setSearch(e.target.value);
+                        }}/>
+                        <button onClick={searchItems}>Search</button>
+                    </div>
+                    <div id="search-btns">
+                        <button className={foodSearch ? "active" : "passive"} onClick={() => {
+                            setFoodSearch(true);
+                            setRestSearch(false)
+                        }}>Food</button>
+                        <button className={restSearch ? "active" : "passive"} onClick={() => {
+                            setFoodSearch(false);
+                            setRestSearch(true)
+                        }}>Restaurants</button>
+                    </div>
                 </div>
-                <div id="search-btns">
-                    <button className={foodSearch ? "active" : "passive"} onClick={() => {
-                        setFoodSearch(true);
-                        setRestSearch(false)
-                    }}>Food</button>
-                    <button className={restSearch ? "active" : "passive"} onClick={() => {
-                        setFoodSearch(false);
-                        setRestSearch(true)
-                    }}>Restaurants</button>
-                </div>
+                <TopRests/>
+                <TopDishes />
             </div>
-            <TopRests/>
-            <TopDishes />
-        </div>
-    )
+        )
+    } else {
+        return (
+            <div>
+                <BaseHeader />
+                <Header />
+                <div>
+                    <div id="search-input">
+                        <input type="text" placeholder="search" value={search} onChange={e => {
+                            setSearch(e.target.value);
+                        }}/>
+                        <button onClick={searchItems}>Search</button>
+                    </div>
+                    <div id="search-btns">
+                        <button className={foodSearch ? "active" : "passive"} onClick={() => {
+                            setFoodSearch(true);
+                            setRestSearch(false)
+                        }}>Food</button>
+                        <button className={restSearch ? "active" : "passive"} onClick={() => {
+                            setFoodSearch(false);
+                            setRestSearch(true)
+                        }}>Restaurants</button>
+                    </div>
+                </div>
+                {items.map(item => <Item item={item} key={item.id} />)}
+            </div>
+        )
+    }
 }
 
 export default Menu

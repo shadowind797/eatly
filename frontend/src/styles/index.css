@@ -591,7 +591,8 @@ button:hover {
   gap: 31px;
   text-align: left;
 }
-#top-dishes .tops .dish {
+
+.dish {
   width: 185px;
   height: 370px;
   border-radius: 35px;
@@ -601,28 +602,28 @@ button:hover {
   position: relative;
   padding: 30px 20px;
 }
-#top-dishes .tops .dish .like {
+.dish .like {
   position: absolute;
   top: 24px;
   right: 22px;
 }
-#top-dishes .tops .dish .photo {
+.dish .photo {
   width: 181px;
 }
-#top-dishes .tops .dish .info .item-cat {
+.dish .info .item-cat {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-top: 10px;
 }
-#top-dishes .tops .dish .info .item-cat h4 {
+.dish .info .item-cat h4 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
   line-height: 37px; /* 162.5% */
 }
-#top-dishes .tops .dish .info .item-cat div {
+.dish .info .item-cat div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -631,31 +632,31 @@ button:hover {
   height: 25px;
   border-radius: 5px;
 }
-#top-dishes .tops .dish .info .time-rating {
+.dish .info .time-rating {
   position: absolute;
   bottom: 65px;
 }
-#top-dishes .tops .dish .info .price-add {
+.dish .info .price-add {
   display: flex;
   padding-top: 13px;
   position: absolute;
   bottom: 20px;
 }
-#top-dishes .tops .dish .info .price-add h5 {
+.dish .info .price-add h5 {
   color: #201F1F;
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 40px; /* 155.556% */
 }
-#top-dishes .tops .dish .info .price-add h5 span {
+.dish .info .price-add h5 span {
   color: #8E97A6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 40px;
 }
-#top-dishes .tops .dish .info .price-add button {
+.dish .info .price-add button {
   position: absolute;
   right: -130px;
   border: none;
@@ -842,7 +843,8 @@ button:hover {
   gap: 31px;
   text-align: left;
 }
-#top-dishes .tops .dish {
+
+.dish {
   width: 185px;
   height: 370px;
   border-radius: 35px;
@@ -852,28 +854,28 @@ button:hover {
   position: relative;
   padding: 30px 20px;
 }
-#top-dishes .tops .dish .like {
+.dish .like {
   position: absolute;
   top: 24px;
   right: 22px;
 }
-#top-dishes .tops .dish .photo {
+.dish .photo {
   width: 181px;
 }
-#top-dishes .tops .dish .info .item-cat {
+.dish .info .item-cat {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-top: 10px;
 }
-#top-dishes .tops .dish .info .item-cat h4 {
+.dish .info .item-cat h4 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
   line-height: 37px; /* 162.5% */
 }
-#top-dishes .tops .dish .info .item-cat div {
+.dish .info .item-cat div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -882,31 +884,31 @@ button:hover {
   height: 25px;
   border-radius: 5px;
 }
-#top-dishes .tops .dish .info .time-rating {
+.dish .info .time-rating {
   position: absolute;
   bottom: 65px;
 }
-#top-dishes .tops .dish .info .price-add {
+.dish .info .price-add {
   display: flex;
   padding-top: 13px;
   position: absolute;
   bottom: 20px;
 }
-#top-dishes .tops .dish .info .price-add h5 {
+.dish .info .price-add h5 {
   color: #201F1F;
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 40px; /* 155.556% */
 }
-#top-dishes .tops .dish .info .price-add h5 span {
+.dish .info .price-add h5 span {
   color: #8E97A6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 40px;
 }
-#top-dishes .tops .dish .info .price-add button {
+.dish .info .price-add button {
   position: absolute;
   right: -130px;
   border: none;
@@ -1221,7 +1223,8 @@ button:hover {
   gap: 31px;
   text-align: left;
 }
-#top-dishes .tops .dish {
+
+.dish {
   width: 185px;
   height: 370px;
   border-radius: 35px;
@@ -1231,28 +1234,28 @@ button:hover {
   position: relative;
   padding: 30px 20px;
 }
-#top-dishes .tops .dish .like {
+.dish .like {
   position: absolute;
   top: 24px;
   right: 22px;
 }
-#top-dishes .tops .dish .photo {
+.dish .photo {
   width: 181px;
 }
-#top-dishes .tops .dish .info .item-cat {
+.dish .info .item-cat {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-top: 10px;
 }
-#top-dishes .tops .dish .info .item-cat h4 {
+.dish .info .item-cat h4 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
   line-height: 37px; /* 162.5% */
 }
-#top-dishes .tops .dish .info .item-cat div {
+.dish .info .item-cat div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1261,31 +1264,31 @@ button:hover {
   height: 25px;
   border-radius: 5px;
 }
-#top-dishes .tops .dish .info .time-rating {
+.dish .info .time-rating {
   position: absolute;
   bottom: 65px;
 }
-#top-dishes .tops .dish .info .price-add {
+.dish .info .price-add {
   display: flex;
   padding-top: 13px;
   position: absolute;
   bottom: 20px;
 }
-#top-dishes .tops .dish .info .price-add h5 {
+.dish .info .price-add h5 {
   color: #201F1F;
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 40px; /* 155.556% */
 }
-#top-dishes .tops .dish .info .price-add h5 span {
+.dish .info .price-add h5 span {
   color: #8E97A6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 40px;
 }
-#top-dishes .tops .dish .info .price-add button {
+.dish .info .price-add button {
   position: absolute;
   right: -130px;
   border: none;
@@ -1821,7 +1824,8 @@ button:hover {
   gap: 31px;
   text-align: left;
 }
-#top-dishes .tops .dish {
+
+.dish {
   width: 185px;
   height: 370px;
   border-radius: 35px;
@@ -1831,28 +1835,28 @@ button:hover {
   position: relative;
   padding: 30px 20px;
 }
-#top-dishes .tops .dish .like {
+.dish .like {
   position: absolute;
   top: 24px;
   right: 22px;
 }
-#top-dishes .tops .dish .photo {
+.dish .photo {
   width: 181px;
 }
-#top-dishes .tops .dish .info .item-cat {
+.dish .info .item-cat {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-top: 10px;
 }
-#top-dishes .tops .dish .info .item-cat h4 {
+.dish .info .item-cat h4 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
   line-height: 37px; /* 162.5% */
 }
-#top-dishes .tops .dish .info .item-cat div {
+.dish .info .item-cat div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1861,31 +1865,31 @@ button:hover {
   height: 25px;
   border-radius: 5px;
 }
-#top-dishes .tops .dish .info .time-rating {
+.dish .info .time-rating {
   position: absolute;
   bottom: 65px;
 }
-#top-dishes .tops .dish .info .price-add {
+.dish .info .price-add {
   display: flex;
   padding-top: 13px;
   position: absolute;
   bottom: 20px;
 }
-#top-dishes .tops .dish .info .price-add h5 {
+.dish .info .price-add h5 {
   color: #201F1F;
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 40px; /* 155.556% */
 }
-#top-dishes .tops .dish .info .price-add h5 span {
+.dish .info .price-add h5 span {
   color: #8E97A6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 40px;
 }
-#top-dishes .tops .dish .info .price-add button {
+.dish .info .price-add button {
   position: absolute;
   right: -130px;
   border: none;
@@ -2324,7 +2328,8 @@ button:hover {
   gap: 31px;
   text-align: left;
 }
-#top-dishes .tops .dish {
+
+.dish {
   width: 185px;
   height: 370px;
   border-radius: 35px;
@@ -2334,28 +2339,28 @@ button:hover {
   position: relative;
   padding: 30px 20px;
 }
-#top-dishes .tops .dish .like {
+.dish .like {
   position: absolute;
   top: 24px;
   right: 22px;
 }
-#top-dishes .tops .dish .photo {
+.dish .photo {
   width: 181px;
 }
-#top-dishes .tops .dish .info .item-cat {
+.dish .info .item-cat {
   display: flex;
   flex-direction: column;
   gap: 2px;
   padding-top: 10px;
 }
-#top-dishes .tops .dish .info .item-cat h4 {
+.dish .info .item-cat h4 {
   color: #201F1F;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
   line-height: 37px; /* 162.5% */
 }
-#top-dishes .tops .dish .info .item-cat div {
+.dish .info .item-cat div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2364,31 +2369,31 @@ button:hover {
   height: 25px;
   border-radius: 5px;
 }
-#top-dishes .tops .dish .info .time-rating {
+.dish .info .time-rating {
   position: absolute;
   bottom: 65px;
 }
-#top-dishes .tops .dish .info .price-add {
+.dish .info .price-add {
   display: flex;
   padding-top: 13px;
   position: absolute;
   bottom: 20px;
 }
-#top-dishes .tops .dish .info .price-add h5 {
+.dish .info .price-add h5 {
   color: #201F1F;
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
   line-height: 40px; /* 155.556% */
 }
-#top-dishes .tops .dish .info .price-add h5 span {
+.dish .info .price-add h5 span {
   color: #8E97A6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
   line-height: 40px;
 }
-#top-dishes .tops .dish .info .price-add button {
+.dish .info .price-add button {
   position: absolute;
   right: -130px;
   border: none;
