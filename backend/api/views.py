@@ -8,7 +8,6 @@ from rest_framework import generics, status
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
-
 class GetAccess(generics.ListAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
@@ -476,3 +475,17 @@ class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny,]
+
+
+class SearchView(generics.ListAPIView):
+    serializer_class = ItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get(self, request, *args, **kwargs):
+        search = self.request.query.get('search', None)
+        also = self.request.query.get('also', None)
+
+        if search:
+            pass
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)

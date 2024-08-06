@@ -3,6 +3,8 @@ import api from "../api";
 import Item from "../components/Item";
 import TopRests from "../components/Home/TopRests.jsx";
 import TopDishes from "../components/Home/TopDishes.jsx";
+import Header from "../components/Header.jsx";
+import BaseHeader from "../components/BaseHeader.jsx";
 
 
 function Menu() {
@@ -33,6 +35,8 @@ function Menu() {
 
     return (
         <div>
+            <BaseHeader />
+            <Header />
             <div>
                 <div id="search-input">
                     <input type="text" placeholder="search" value={search} onChange={e => {

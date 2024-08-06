@@ -1,5 +1,7 @@
-from django.urls import path
+from django.urls import path, include
+
 from . import views
+
 
 urlpatterns = [
     path('access/', views.GetAccess.as_view(), name='access'),
@@ -31,4 +33,5 @@ urlpatterns = [
 
     path("coupon/", views.CouponListCreate.as_view(), name='coupon-list'),
     path("coupon/add/", views.CouponListCreate.as_view(), name='coupon-create'),
+
 ]
