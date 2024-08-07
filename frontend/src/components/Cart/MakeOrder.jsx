@@ -192,7 +192,7 @@ function MakeOrder({subtotal}) {
             <div id="order">
                 <div id="costs">
                     <p className="error" style={applied === false ? {display: "block"} : {display: "none"}}>Invalid coupon</p>
-                    <div className="form">
+                    <form>
                         <div id="input">
                             <img src={cpImg} alt=""/>
                             <input type="text" placeholder="Apply Coupon" value={coupon} onChange={(e) => {
@@ -200,11 +200,11 @@ function MakeOrder({subtotal}) {
                                 setApplied(null)
                             }}/>
                         </div>
-                        <button onClick={e => {
+                        <button type="submit" onClick={e => {
                             checkCoupon(e)
                         }}>Apply
                         </button>
-                    </div>
+                    </form>
                     <h6>Subtotal: <span>${subtotal}</span></h6>
                     <h6>Delivery: <span>${(subtotal * 0.1).toFixed(2)}</span></h6>
                     <h6 style={applied ? {display: "flex"} : {display: "none"}}>

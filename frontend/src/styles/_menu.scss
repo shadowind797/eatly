@@ -1,0 +1,189 @@
+@import "variables.scss";
+
+#menu {
+  #top-rests {
+    border-top: none;
+  }
+  #main-div {
+    display: flex;
+    gap: 60px;
+    padding-top: 80px;
+    #ad-search {
+      display: flex;
+      flex-direction: column;
+      gap: 70px;
+      #search {
+        form {
+          display: flex;
+          gap: 5px;
+          input {
+            border: none;
+            background-color: #EDEDED;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: #6c6c72;
+            width: 610px;
+            padding: 15px;
+            border-radius: 10px;
+            height: 35px;
+          }
+          button {
+            border: none;
+            background-color: $purple_main;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            height: 63px;
+          }
+        }
+        #search-btns {
+          display: flex;
+          align-items: center;
+          width: 750px;
+          padding-top: 30px;
+          button {
+            transition: 0.2s;
+            transform: scaleY(1);
+            width: 50%;
+            &:hover {
+              transition: 0.3s;
+              transform: scaleY(1.2);
+            }
+          }
+          #food-search {
+            border-radius: 10px 0 0 10px;
+          }
+          #rest-search {
+            border-radius: 0 10px 10px 0;
+          }
+          .active {
+            border: none;
+            background-color: $purple_main;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: #fff;
+            padding: 15px 20px;
+            height: 63px;
+          }
+          .passive {
+            border: 1px solid $purple_main;
+            background-color: $background;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: $purple_main;
+            padding: 15px 20px;
+            height: 63px;
+            }
+          }
+        }
+      }
+    .slider__item-content {
+      display: flex;
+      flex-direction: column;
+      border-radius: 19px;
+      position: relative;
+      width: 638px;
+      height: 191px;
+      padding: 30px 60px;
+      h2 {
+        color: #F7F8FA;
+        font-size: 74.996px;
+        font-weight: 800;
+        text-align: left;
+      }
+      h3 {
+        color: $purple_main;
+        font-size: 87.419px;
+        font-weight: 800;
+        text-align: left;
+      }
+      img {
+        position: absolute;
+        width: 254px;
+        right: 40px;
+        bottom: -60px;
+      }
+    }
+  }
+  #sort-filter {
+    height: 500px;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 0;
+    min-width: 397px;
+    border-radius: 24px;
+    box-shadow: 6px 10px 29px 1px rgba(108, 95, 188, 0.12);
+    .categories {
+      .category-filter {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        .cat-div {
+          height: 90px;
+          width: 60px;
+          text-align: center;
+          padding: 10px;
+          border-radius: 26px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          cursor: pointer;
+          transform: scale(1);
+          transition: 0.2s;
+          position: relative;
+          border: 4px solid #fff;
+          &:hover {
+            transform: scale(1.1);
+            transition: 0.2s;
+            filter: drop-shadow(0 15px 22px rgba(135, 125, 200, 0.35));
+          }
+          p {
+            font-family: Poppins, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          img {
+            width: 50px;
+          }
+        }
+        #fastfood {
+          background-color: #FFDE8A;
+          p {
+            color: #D69900;
+          }
+          &:hover {
+            border: 4px solid #D69900;
+          }
+        }
+        #asian {
+          background-color: #F7C5BA;
+          p {
+            color: #FB471D;
+            padding-right: 3px;
+          }
+          img {
+            padding-left: 3px;
+          }
+          &:hover {
+            border: 4px solid #FB471D;
+          }
+        }
+        #meat {
+          background-color: #EDB66B;
+          p {
+            color: #E28B14;
+          }
+          &:hover {
+            border: 4px solid #E28B14;
+          }
+        }
+      }
+    }
+  }
+}

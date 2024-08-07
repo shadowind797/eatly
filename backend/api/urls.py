@@ -34,5 +34,6 @@ urlpatterns = [
     path("coupon/", views.CouponListCreate.as_view(), name='coupon-list'),
     path("coupon/add/", views.CouponListCreate.as_view(), name='coupon-create'),
 
-    path("items/search/", views.SearchView.as_view(), name='search')
+    path("items/search/", views.SearchView.as_view(), name='search'),
+    path("items/search/filters/", views.FilterView.as_view(), name='filter'),
 ]

@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.shortcuts import render
 from django.utils import timezone
 from datetime import datetime
 from rest_framework.response import Response
@@ -506,5 +505,36 @@ class SearchView(generics.ListAPIView):
                     rests = Restaurant.objects.filter(Q(name__icontains=search))
                     serializer = RestaurantSerializer(rests, many=True)
                     return Response(serializer.data)
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+from .models import Category, Item  # Ensure Category and Item are imported
+
+class FilterView(generics.ListAPIView):
+    serializer_class = ItemSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def post(self, request, *args, **kwargs):
+        data = self.request.data
+        filters = data.get('filters')
+
+        if filters:
+            category_name = filters.get('category')
+            min_cost, max_cost = filters.get('cost', [None, None])
+            min_rating = filters.get('rating')
+
+            query = Q()
+            if category_name:
+                category = Category.objects.get(name=category_name)
+                query &= Q(category=category)
+            if min_cost is not None and max_cost is not None:
+                query &= Q(price__range=(min_cost, max_cost))
+            if min_rating is not None:
+                query &= Q(rating__gte=min_rating)
+
+            items = Item.objects.filter(query)
+            serializer = ItemSerializer(items, many=True)
+            return Response(status=status.HTTP_200_OK, data=serializer.data)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

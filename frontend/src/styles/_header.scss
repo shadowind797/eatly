@@ -37,6 +37,9 @@
             font-weight: 500;
             line-height: 27px; /* 150% */
           }
+          .active {
+             color: $purple_main;
+           }
         }
       }
     }
@@ -106,6 +109,9 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 27px; /* 150% */
+          }
+          .active {
+            color: $purple_main;
           }
         }
       }

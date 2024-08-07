@@ -1,5 +1,6 @@
 .slider_style {
   position: relative;
+  max-width: 800px;
 }
 
 .slider__container {
@@ -17,85 +18,14 @@
 
 .slider__item {
   flex: 0 0 100%;
-  max-width: 100%;
+  max-width: 800px;
   user-select: none;
-}
-
-.slider__control {
-  position: absolute;
-  top: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  text-align: center;
-  height: 40px;
-  border-radius: 360px;
-  border: 1px #665f55 solid;
-  background-color: #c1b6ad;
-  padding: 10px;
-  transition: 300ms;
-}
-
-@media (max-width: 540px) {
-  .slider__control[data-slide="prev"],
-  .slider__control[data-slide="next"] {
-    display: none;
-  }
-}
-
-.slider__control_hide {
-  display: none;
-}
-
-.slider__control[data-slide="prev"] {
-  left: 0;
-  top: 49%;
-}
-
-.slider__control[data-slide="next"] {
-  right: 0;
-}
-
-.slider__control {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: transparent no-repeat center center;
-}
-
-.slider__control[data-slide="prev"] {
-  background-image: url("../img/arrow-right.svg");
-  transform: rotate(180deg);
-}
-
-.slider__control[data-slide="next"] {
-  background-image: url("../img/arrow-right.svg");
-}
-
-.slider__control[data-slide="prev"]:hover {
-  text-decoration: none;
-  outline: 0;
-  background-color: #665f55;
-  background-image: url("../img/arrow-right-hover.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.slider__control[data-slide="next"]:hover {
-  text-decoration: none;
-  outline: 0;
-  background-color: #665f55;
-  background-image: url("../img/arrow-right-hover.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
+  padding-bottom: 60px;
 }
 
 .slider__indicators {
   position: absolute;
-  right: 0;
-  bottom: -40px;
+  bottom: 10px;
   left: 0;
   z-index: 15;
   display: flex;
@@ -112,17 +42,19 @@
   box-sizing: content-box;
   flex: 0 1 auto;
   width: 30px;
-  height: 5px;
+  height: 8px;
   margin-right: 3px;
   margin-left: 3px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #b5a9a0;
+  background-color: #DBD9EE;
   background-clip: padding-box;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
+  transition: 0.5s ease;
+  border-radius: 5px;
 }
 
 .slider__indicators li.active {
-  background-color: #665f55;
+  background-color: #6C5FBC;
+  transition: 0.5s ease;
+  width: 70px;
 }
