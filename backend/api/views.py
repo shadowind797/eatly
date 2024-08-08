@@ -189,20 +189,25 @@ class OrderView(generics.ListAPIView):
         addressID = request.data.get('address')
         payment = request.data.get('payment')
         statusID = request.data.get('status')
+        orderID = request.data.get('id')
         total = request.data.get('total')
         statusName = OrderStatus.objects.get(pk=statusID)
-        address = Address.objects.get(pk=addressID, owner=self.request.user)
-
-        exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
-        if exists:
-            return Response(status=status.HTTP_303_SEE_OTHER)
 
         if payment:
-            paymentID = Payments.objects.get(number=payment, owner=self.request.user)
-            order = Order(user=self.request.user, address=address, total=total, status=statusName, payment=paymentID)
+            order = Order.objects.get(pk=orderID, user=self.request.user)
+            if payment == "Cash" or payment == "Card to courier":
+                order.comment = f"Payment method: {payment}"
+            else:
+                paymentID = Payments.objects.get(number=payment, owner=self.request.user)
+                order.payment = paymentID
+            order.status = statusName
             order.save()
-            return Response(status=status.HTTP_201_CREATED)
+            return Response(status=status.HTTP_205_RESET_CONTENT)
         else:
+            address = Address.objects.get(pk=addressID, owner=self.request.user)
+            exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
+            if exists:
+                return Response(status=status.HTTP_303_SEE_OTHER)
             order = Order(user=self.request.user, address=address, total=total, status=statusName)
             order.save()
             return Response(status=status.HTTP_201_CREATED)

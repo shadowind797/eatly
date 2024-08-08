@@ -114,13 +114,6 @@ function MakeOrder({subtotal}) {
                                 setAlreadyExists(true)
                             }
                         })
-                    // api.delete("api/items/cart/delete", {params: {method: "clear"}})
-                    //     .then((res) => {
-                    //         if (res.status === 202) {
-                    //         } else if (res.status === 404) {
-                    //         }
-                    //     }).catch((err) => {
-                    // });
                     api
                         .post("api/user/change/", {method: "name", name: firstName})
                         .then((res) => {
@@ -271,8 +264,8 @@ function MakeOrder({subtotal}) {
                             </div>
                         </div>
                         <div className="btns">
-                            <button onClick={() => setAddAddress(false)}>Cancel</button>
-                            <button type="submit" onClick={() => {
+                            <button className="cancel" onClick={() => setAddAddress(false)}>Cancel</button>
+                            <button className="add" type="submit" onClick={() => {
                                 createAddress()
                                 setAddAddress(false)
                             }}>Add address</button>

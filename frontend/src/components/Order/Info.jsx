@@ -19,11 +19,39 @@ function Info({address, order, user}) {
 
     const [canceled, setCanceled] = useState(false)
     const [cancelErr, setCancelErr] = useState(false)
+    const [ordered, setOrdered] = useState(false)
+
+    const cash = `${import.meta.env.VITE_API_URL}/media/img/cash.svg`
+    const card_internet = `${import.meta.env.VITE_API_URL}/media/img/internet.svg`
+    const card_courier = `${import.meta.env.VITE_API_URL}/media/img/card.svg`
 
 
     useEffect(() => {
         getPaymentList()
     }, []);
+
+    const updateOrder  = (e) => {
+        e.preventDefault()
+        api
+            .post("api/order/add/", {
+                id: order.id,
+                payment: paymentMode === "Card via Internet" ? payment : paymentMode,
+                status: 2
+            })
+            .then(res => {
+                if (res.status === 205) {
+                    setOrdered(true)
+                }
+            })
+            .catch((err) => {})
+        api.delete("api/items/cart/delete", {params: {method: "clear"}})
+            .then((res) => {
+                if (res.status === 202) {
+                } else if (res.status === 404) {
+                }
+            }).catch((err) => {
+        });
+    }
 
     const getPaymentList = () => {
         api
@@ -32,7 +60,7 @@ function Info({address, order, user}) {
             .then((data) => {
                 let list = []
                 data.map((item) => {
-                    list = [...list, {value: item.id, label: `**** **** **** ${item.number.slice(15, 19)}`}]
+                    list = [...list, {value: item.number, label: `**** **** **** ${item.number.slice(15, 19)}`}]
                     setPaymentList(list);
                 })
             })
@@ -81,7 +109,7 @@ function Info({address, order, user}) {
             fontWeight: "600",
             lineHeight: "117.5%",
             transition: "0.2s",
-            width: "470px",
+            width: "300px",
             height: "55px",
             borderRadius: "10px",
             ":hover": {
@@ -107,34 +135,54 @@ function Info({address, order, user}) {
         setPayment(payment.value);
     }
 
-    if (canceled) {
+    if (ordered) {
+        return <Navigate to="/" />
+    } else if (canceled) {
         return <Navigate to="/cart" />
     } else if (!addPayment) {
         return (
             <div id="order-info">
                 <h1>Complete order</h1>
-                <h4>Total cost: <span>${order.total}</span></h4>
-                <h4>Name: <span>{user.first_name}</span></h4>
+                <div id="counts">
+                    <h4>Total cost: <span>${order.total}</span></h4>
+                    <h4>Name: <span>{user.first_name}</span></h4>
+                    <h4>Payment: <span>{paymentMode}</span></h4>
+                </div>
                 <div id="payment">
-                    <h4>Select payment method</h4>
+                    <h3>Select payment method</h3>
                     <div id="payment-method">
                         <button onClick={() => setPaymentMode("Cash")}
-                                className={paymentMode === "Cash" ? "active" : {}}></button>
-                        <button></button>
-                        <button></button>
+                                className={paymentMode === "Cash" ? "active" : {}}>
+                            <img src={cash} alt=""/>
+                        </button>
+                        <button onClick={() => setPaymentMode("Card via Internet")}
+                                className={paymentMode === "Card via Internet" ? "active" : {}}>
+                            <img src={card_internet} alt=""/>
+                        </button>
+                        <button onClick={() => setPaymentMode("Card to courier")}
+                                className={paymentMode === "Card to courier" ? "active" : {}}>
+                            <img src={card_courier} alt=""/>
+                        </button>
+                        <div id="card-select"
+                             style={paymentMode === "Card via Internet" ?
+                                 {display: "flex", flexDirection: "column", gap: "5px"} :
+                                 {display: "none"}}>
+                            <Select
+                                options={paymentList}
+                                styles={selectStyles}
+                                placeholder='Select card'
+                                onChange={changePayment}
+                            />
+                            <p id="add-payment" onClick={() => setAddPayment(true)}>Add payment card</p>
+                        </div>
                     </div>
-                    <Select
-                        options={paymentList}
-                        styles={selectStyles}
-                        placeholder='Select card'
-                        onChange={changePayment}
-                    />
-                    <button id="add-payment" onClick={() => setAddPayment(true)}>Add payment method</button>
                 </div>
-                <button id="order">Order</button>
-                <button id="cancel" onClick={e => {
-                    cancelOrder(e)
-                }}>Cancel</button>
+                <div id="btns">
+                    <button id="cancel" onClick={e => cancelOrder(e)}>
+                        Cancel
+                    </button>
+                    <button id="order" type="submit" onClick={e => updateOrder(e)}>Order</button>
+                </div>
                 <p style={cancelErr ? {display: "block"} : {display: "none"}}></p>
             </div>
         )

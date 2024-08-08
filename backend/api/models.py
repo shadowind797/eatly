@@ -56,6 +56,7 @@ class Order(models.Model):
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True)
     total = models.FloatField()
     status = models.ForeignKey('OrderStatus', on_delete=models.SET_NULL, null=True)
+    comment = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.user

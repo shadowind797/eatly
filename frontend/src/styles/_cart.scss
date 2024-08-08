@@ -306,7 +306,31 @@
             }
           }
           .btns {
-
+            display: flex;
+            gap: 50px;
+            .cancel {
+              width: 48%;
+              height: 55px;
+              background-color: #FFF;
+              border: 2px solid $purple_main;
+              border-radius: 10px;
+              color: $purple_main;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 27px;
+              cursor: pointer;
+            }
+            .add {
+              width: 48%;
+              height: 55px;
+              background-color: $purple_main;
+              border: none;
+              border-radius: 10px;
+              color: white;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 27px;
+            }
           }
         }
       }
