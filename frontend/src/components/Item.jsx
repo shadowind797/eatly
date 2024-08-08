@@ -27,6 +27,9 @@ function Item({item}) {
                         const categoryStyles = {
                             "Salads": { backgroundColor: "rgba(44,196,105,0.45)", color: "#309D5B" },
                             "Fast Food": { backgroundColor: "#F7C5BA", color: "#FB471D" },
+                            "Desserts": { backgroundColor: "rgba(199,158,236,0.59)", color: "#dd1dfb" },
+                            "Fish": { backgroundColor: "rgba(158,236,224,0.3)", color: "#24968a" },
+                            "Meat": { backgroundColor: "rgba(203,135,111,0.59)", color: "#fb6b1d" },
                             "Ice": { backgroundColor: "rgba(0,149,255,0.52)", color: "#0047ff" },
                             "Asian": { backgroundColor: "rgba(238,0,255,0.32)", color: "#ff00f2" },
                         };

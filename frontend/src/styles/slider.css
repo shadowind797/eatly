@@ -3,6 +3,11 @@
   max-width: 800px;
 }
 
+#log .slider_style {
+  height: 700px;
+  max-width: 600px;
+}
+
 .slider__container {
   overflow: hidden;
 }
@@ -57,4 +62,18 @@
   background-color: #6C5FBC;
   transition: 0.5s ease;
   width: 70px;
+}
+
+#log .slider__indicators li.active {
+  background-color: #fff;
+  width: 24px;
+}
+#log .slider__indicators li {
+  background-color: rgba(255, 255, 255, 0.38);
+  width: 10px;
+}
+
+#log .slider__indicators {
+  bottom: -80px;
+  left: 33%;
 }

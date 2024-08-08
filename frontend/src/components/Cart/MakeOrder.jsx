@@ -254,8 +254,11 @@ function MakeOrder({subtotal}) {
         return (
             <div id="order">
                 <div id="new-address">
+                    <div id="map">
+                        <p>Map'll be here</p>
+                    </div>
                     <form action={() => createAddress()}>
-                        <div>
+                        <div id="inputs">
                             <input type="text" placeholder="Building" value={building_address}
                                    onChange={(e) => {setBuildingAddress(e.target.value)}} />
                             <div>

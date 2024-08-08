@@ -534,7 +534,10 @@ class FilterView(generics.ListAPIView):
                 query &= Q(rating__gte=min_rating)
 
             items = Item.objects.filter(query)
-            serializer = ItemSerializer(items, many=True)
-            return Response(status=status.HTTP_200_OK, data=serializer.data)
+            if len(items) > 0:
+                serializer = ItemSerializer(items, many=True)
+                return Response(status=status.HTTP_200_OK, data=serializer.data)
+            else:
+                return Response(status=status.HTTP_200_OK, data=[{"not_found": "no items"}])
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

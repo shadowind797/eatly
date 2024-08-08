@@ -119,11 +119,39 @@
     min-width: 397px;
     border-radius: 24px;
     box-shadow: 6px 10px 29px 1px rgba(108, 95, 188, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     .categories {
+      h4 {
+        color: $black_main;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 29px;
+        padding-bottom: 10px;
+      }
       .category-filter {
         display: flex;
         gap: 10px;
         align-items: center;
+        #select {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          justify-content: center;
+          .other {
+            color: $purple_main;
+            font-family: Poppins, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+        .active {
+          transform: scale(1.1);
+          transition: 0.2s;
+          filter: drop-shadow(0 15px 5px rgba(135, 125, 200, 0.75));
+        }
         .cat-div {
           height: 90px;
           width: 60px;
@@ -153,7 +181,7 @@
           }
         }
         #fastfood {
-          background-color: #FFDE8A;
+          background-color: rgba(255, 222, 138, 0.69);
           p {
             color: #D69900;
           }
@@ -162,7 +190,7 @@
           }
         }
         #asian {
-          background-color: #F7C5BA;
+          background-color: rgba(247, 197, 186, 0.67);
           p {
             color: #FB471D;
             padding-right: 3px;
@@ -175,7 +203,7 @@
           }
         }
         #meat {
-          background-color: #EDB66B;
+          background-color: rgba(237, 182, 107, 0.65);
           p {
             color: #E28B14;
           }
@@ -185,5 +213,107 @@
         }
       }
     }
+    #sorting {
+      h4 {
+        color: $black_main;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 29px;
+        padding-bottom: 10px;
+      }
+      #sort-selects {
+        display: flex;
+        gap: 20px;
+        .sort-select {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          p {
+            color: $purple_main;
+            font-family: Poppins, Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    #cost-filter {
+      h4 {
+        color: $black_main;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 21px;
+        font-weight: 600;
+        line-height: 29px;
+        padding-bottom: 10px;
+      }
+      .range-slider-input {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        background: transparent;
+        outline: none;
+        border-radius: 5px;
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 15px;
+          height: 15px;
+          background: $purple_main;
+          border-radius: 50%;
+          cursor: pointer;
+          border: none;
+        }
+
+        &::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          background: $purple_main;
+          border-radius: 50%;
+          cursor: pointer;
+          border: none;
+        }
+
+        &::-ms-thumb {
+          width: 20px;
+          height: 20px;
+          background: $purple_main;
+          border-radius: 50%;
+          cursor: pointer;
+          border: none;
+        }
+      }
+      ul {
+        display: flex;
+        gap: 22px;
+        li {
+          color: #C2C3CB;
+          font-feature-settings: 'liga' off, 'clig' off;
+          font-family: Poppins, sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          line-height: 30px; /* 280.53% */
+        }
+      }
+    }
+    button {
+      width: 150px;
+      height: 50px;
+      background-color: $purple_main;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      margin: auto;
+    }
+  }
+  #items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 41px;
+    padding-top: 50px;
+    padding-left: 40px;
+    width: 1300px;
   }
 }
