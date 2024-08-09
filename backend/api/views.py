@@ -558,3 +558,9 @@ class GetProfile(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         user = request.user
+        method = request.data.get('method')
+
+        if method == "orders":
+            orders = Order.objects.filter(user=user)
+            serializer = OrderSerializer(orders)
+            return Response(serializer.data)

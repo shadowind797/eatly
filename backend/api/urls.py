@@ -37,4 +37,6 @@ urlpatterns = [
 
     path("items/search/", views.SearchView.as_view(), name='search'),
     path("items/search/filters/", views.FilterView.as_view(), name='filter'),
+
+    path("profile/orders", views.GetProfile.as_view(), name='all-user-orders')
 ]
