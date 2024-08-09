@@ -4,6 +4,7 @@ import BaseHeader from "../components/BaseHeader.jsx";
 import MakeOrder from "../components/Cart/MakeOrder.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
+import Footer from "../components/Footer.jsx";
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
@@ -47,6 +48,7 @@ function Cart() {
                     <ItemsList items={cartItems} onChange={() => {getCartItems()}}/>
                     <MakeOrder subtotal={total ? total.total : 0}/>
                 </div>
+                <Footer />
             </div>
         )
     }

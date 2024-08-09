@@ -14,20 +14,17 @@ function TopDishes() {
 
     const getItems = () => {
         api
-            .get("api/items/")
+            .get("api/items/", {params: {method: "top"}})
             .then((res) => res.data)
             .then((data) => setItems(data))
             .catch((err) => alert(err));
     }
 
-    const topFood = items.sort((a, b) => (b.rating - a.rating))
-    const slicedFood = topFood.slice(0, 5);
-
     return (
         <div id="top-dishes" className="container">
             <h2>Our Top <span>Dishes</span></h2>
             <div className="tops">
-                {slicedFood.map((item) => <Item item={item}  key={item.id}/>)}
+                {items.map((item) => <Item item={item}  key={item.id}/>)}
             </div>
             <div className="view-all">
                 <a href="#">

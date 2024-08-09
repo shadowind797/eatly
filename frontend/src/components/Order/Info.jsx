@@ -20,6 +20,7 @@ function Info({address, order, user}) {
     const [canceled, setCanceled] = useState(false)
     const [cancelErr, setCancelErr] = useState(false)
     const [ordered, setOrdered] = useState(false)
+    const [cardRequired, setCardRequired] = useState(false)
 
     const cash = `${import.meta.env.VITE_API_URL}/media/img/cash.svg`
     const card_internet = `${import.meta.env.VITE_API_URL}/media/img/internet.svg`
@@ -30,28 +31,38 @@ function Info({address, order, user}) {
         getPaymentList()
     }, []);
 
-    const updateOrder  = (e) => {
-        e.preventDefault()
-        api
-            .post("api/order/add/", {
-                id: order.id,
-                payment: paymentMode === "Card via Internet" ? payment : paymentMode,
-                status: 2
-            })
-            .then(res => {
-                if (res.status === 205) {
-                    setOrdered(true)
-                }
-            })
-            .catch((err) => {})
-        api.delete("api/items/cart/delete", {params: {method: "clear"}})
-            .then((res) => {
-                if (res.status === 202) {
-                } else if (res.status === 404) {
-                }
-            }).catch((err) => {
-        });
-    }
+    const updateOrder = (e) => {
+        e.preventDefault();
+        if (!payment && paymentMode === "Card via Internet") {
+            setCardRequired(true);
+        } else {
+            api
+                .post("api/order/add/", {
+                    id: order.id,
+                    payment: paymentMode === "Card via Internet" ? payment : paymentMode,
+                    status: 2
+                })
+                .then(res => {
+                    if (res.status === 205) {
+                        setOrdered(true);
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+            api.delete("api/items/cart/delete", { params: { method: "clear" } })
+                .then((res) => {
+                    if (res.status === 202) {
+                        // Handle success
+                    } else if (res.status === 404) {
+                        // Handle not found
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        }
+    };
 
     const getPaymentList = () => {
         api
@@ -167,6 +178,7 @@ function Info({address, order, user}) {
                              style={paymentMode === "Card via Internet" ?
                                  {display: "flex", flexDirection: "column", gap: "5px"} :
                                  {display: "none"}}>
+                            <p className="error" style={cardRequired ? {display: "block"} : {display: "none"}}>Payment card is required</p>
                             <Select
                                 options={paymentList}
                                 styles={selectStyles}
@@ -181,7 +193,7 @@ function Info({address, order, user}) {
                     <button id="cancel" onClick={e => cancelOrder(e)}>
                         Cancel
                     </button>
-                    <button id="order" type="submit" onClick={e => updateOrder(e)}>Order</button>
+                    <button id="order" onClick={e => updateOrder(e)}>Order</button>
                 </div>
                 <p style={cancelErr ? {display: "block"} : {display: "none"}}></p>
             </div>
@@ -189,9 +201,11 @@ function Info({address, order, user}) {
     } else if (addPayment) {
         return (
             <div id="order-info">
-                <div id="invalid-card" style={invalidInfo ? {display: "block"} : {display: "none"}}>Invalid card info</div>
                 <div id="new-payment">
-                    <div>
+                    <h1>Add payment card</h1>
+                    <p id="invalid-card" style={invalidInfo ? {display: "block"} : {display: "none"}}>Invalid card
+                        info</p>
+                    <div id="card-info">
                         <input
                             type="text"
                             placeholder="XXXX XXXX XXXX XXXX"
@@ -199,72 +213,78 @@ function Info({address, order, user}) {
                             onChange={(e) => {
                                 const input = e.target.value;
                                 const digitsOnly = input.replace(/\D/g, '');
-                                if (Number(digitsOnly)) {
-                                    const formatted = digitsOnly.match(/.{1,4}/g).join(' ');
-                                    setCardNumber(formatted);
+                                if (input.length <= 19) {
+                                    if (Number(digitsOnly)) {
+                                        const formatted = digitsOnly.match(/.{1,4}/g).join(' ');
+                                        setCardNumber(formatted);
+                                    } else {
+                                        setCardNumber("");
+                                    }
+                                } else {
+                                    setCardNumber(input.slice(0, 19));
                                 }
-                                else {
-                                    setCardNumber("");
-                                }
-                            }}
+                            }
+                            }
                         />
-                        <div>
-                            <input type="text" placeholder="CVV/CVC" value={cvv}
-                                   onChange={(e) => {
-                                       const input = e.target.value;
-                                       if (Number(input)) {
-                                           if (input.length <= 3) {
-                                               setCvv(input);
-                                           } else {
-                                               setCvv(input.slice(0, 3));
-                                           }
-                                       } else {
-                                           setCvv("");
-                                       }
-                                   }}/>
-                            <div id="date">
-                                <input type="text" placeholder="MM" value={dateToMonth}
+                        <div id="date-name">
+                            <div id="cvv-date">
+                                <input type="text" placeholder="CVV/CVC" value={cvv}
                                        onChange={(e) => {
                                            const input = e.target.value;
                                            if (Number(input)) {
-                                               if (input.length <= 2) {
-                                                   if (Number(input) <= 12) {
-                                                       setDateToMonth(input);
-                                                   } else {
-                                                       setDateToMonth("")
-                                                   }
+                                               if (input.length <= 3) {
+                                                   setCvv(input);
                                                } else {
-                                                   setDateToMonth(input.slice(0, 2));
+                                                   setCvv(input.slice(0, 3));
                                                }
                                            } else {
-                                               setDateToMonth("");
+                                               setCvv("");
                                            }
                                        }}/>
-                                <p>/</p>
-                                <input type="text" placeholder="YY" value={dateToYear}
-                                       onChange={(e) => {
-                                           const input = e.target.value;
-                                           if (Number(input)) {
-                                               if (input.length <= 2) {
-                                                   if (Number(input) >= 24 || input.length < 2) {
-                                                       setDateToYear(input);
+                                <div id="date">
+                                    <input type="text" placeholder="MM" value={dateToMonth}
+                                           onChange={(e) => {
+                                               const input = e.target.value;
+                                               if (Number(input)) {
+                                                   if (input.length <= 2) {
+                                                       if (Number(input) <= 12) {
+                                                           setDateToMonth(input);
+                                                       } else {
+                                                           setDateToMonth("")
+                                                       }
                                                    } else {
-                                                       setDateToYear("")
+                                                       setDateToMonth(input.slice(0, 2));
                                                    }
                                                } else {
-                                                   setDateToYear(input.slice(0, 2));
+                                                   setDateToMonth("");
                                                }
-                                           } else {
-                                               setDateToYear("");
-                                           }
-                                       }}/>
+                                           }}/>
+                                    <p>/</p>
+                                    <input type="text" placeholder="YY" value={dateToYear}
+                                           onChange={(e) => {
+                                               const input = e.target.value;
+                                               if (Number(input)) {
+                                                   if (input.length <= 2) {
+                                                       if (Number(input) >= 24 || input.length < 2) {
+                                                           setDateToYear(input);
+                                                       } else {
+                                                           setDateToYear("")
+                                                       }
+                                                   } else {
+                                                       setDateToYear(input.slice(0, 2));
+                                                   }
+                                               } else {
+                                                   setDateToYear("");
+                                               }
+                                           }}/>
+                                </div>
                             </div>
                             <input type="text" placeholder="OWNER NAME" value={cardOwnerName}
                                    onChange={(e) => {
                                        const input = e.target.value;
                                        if (!Number(input)) {
-                                            for (let i = 0; i < input.length; i++) {
-                                                const char = input[i];
+                                           for (let i = 0; i < input.length; i++) {
+                                               const char = input[i];
                                                if (!Number(char)) {
                                                    setCardOwnerName(input)
                                                } else {
@@ -278,14 +298,15 @@ function Info({address, order, user}) {
                         </div>
                     </div>
                     <div className="btns">
-                        <button onClick={() => setAddPayment(false)}>Cancel</button>
-                        <button type="submit" onClick={() => {
-                            if (cardNumber && cvv && dateToMonth && dateToYear && cardOwnerName) {
+                        <button id="cancel" onClick={() => setAddPayment(false)}>Cancel</button>
+                        <button id="add-payment" type="submit" onClick={() => {
+                            if (cardNumber && cvv && dateToMonth && dateToYear && cardOwnerName && cardNumber.length === 19) {
                                 createPayment()
                                 setAddPayment(false)
                             } else {
                                 setInvalidInfo(true)
-                        }}}>Add payment information
+                            }
+                        }}>Add card
                         </button>
                     </div>
                 </div>

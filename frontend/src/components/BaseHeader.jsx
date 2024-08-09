@@ -73,9 +73,9 @@ function BaseHeader({page}) {
             </div>
             <div id="icons">
                 <a href="/cart/"><img src={cart} alt=""/></a>
-                <img src={profile_icon} alt=""/>
+                <a href="/profile/"><img src={profile_icon} alt=""/></a>
                 <button>
-                    <a href="/logout/">Log Out</a>
+                <a href="/logout/">Log Out</a>
                 </button>
             </div>
         </div>

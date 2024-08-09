@@ -9,6 +9,7 @@ urlpatterns = [
     path('user/change/', views.GetUser.as_view(), name='user-change'),
 
     path('items/', views.ItemListCreate.as_view(), name='item-list'),
+    path('items/top/', views.ItemListCreate.as_view(), name='item-list'),
     path('items/category/', views.CategoriesList.as_view(), name='item-category-list'),
 
     path('items/cart/', views.CartItemListCreate.as_view(), name='item-cart-list'),

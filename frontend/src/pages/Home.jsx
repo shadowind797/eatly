@@ -4,6 +4,7 @@ import MobileApp from "../components/Home/MobileApp.jsx";
 import TopRests from "../components/Home/TopRests.jsx";
 import TopDishes from "../components/Home/TopDishes.jsx";
 import BaseHeader from "../components/BaseHeader.jsx";
+import Footer from "../components/Footer.jsx";
 
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
             <MobileApp />
             <TopRests />
             <TopDishes />
+            <Footer />
         </div>
     )
 }

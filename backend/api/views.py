@@ -245,9 +245,13 @@ class ItemListCreate(generics.ListCreateAPIView):
 
     def get_queryset(self):
         itemID = self.request.query_params.get("id")
+        method = self.request.query_params.get("method")
 
         if itemID:
             return Item.objects.filter(pk=itemID)
+        elif method == "top":
+            items = Item.objects.order_by("-rating")
+            return items[:5]
         else:
             return Item.objects.all()
 
@@ -546,3 +550,11 @@ class FilterView(generics.ListAPIView):
                 return Response(status=status.HTTP_200_OK, data=[{"not_found": "no items"}])
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class GetProfile(generics.ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def get(self, request, *args, **kwargs):
+        user = request.user

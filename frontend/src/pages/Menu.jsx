@@ -7,6 +7,7 @@ import Header from "../components/Header.jsx";
 import BaseHeader from "../components/BaseHeader.jsx";
 import MainDiv from "../components/Menu/MainDiv.jsx";
 import Items from "../components/Menu/Items.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Menu() {
     const [items, setItems] = useState([]);
@@ -54,6 +55,7 @@ function Menu() {
                 <MainDiv setItems={setItems} updateSort={updateSort} />
                 <TopRests />
                 <TopDishes />
+                <Footer />
             </div>
         );
     } else if (items.length > 0) {
@@ -63,6 +65,7 @@ function Menu() {
                 <Header page="menu" />
                 <MainDiv setItems={setItems} updateSort={updateSort} />
                 <Items items={newItems}/>
+                <Footer />
             </div>
         );
     }

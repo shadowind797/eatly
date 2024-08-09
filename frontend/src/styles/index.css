@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html,
 body,
 div,
@@ -431,7 +432,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -497,7 +498,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -547,7 +548,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -576,9 +577,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -619,7 +621,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -645,7 +647,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -683,7 +685,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -749,7 +751,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -799,7 +801,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -828,9 +830,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -871,7 +874,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -897,7 +900,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -1069,7 +1072,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -1135,7 +1138,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -1185,7 +1188,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -1214,9 +1217,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -1257,7 +1261,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -1283,7 +1287,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -1335,7 +1339,7 @@ button:hover {
   letter-spacing: 2px;
 }
 #home #main-div #first #info h1 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-size: 75px;
   font-weight: 600;
   line-height: 120%; /* 90px */
@@ -1490,7 +1494,7 @@ button:hover {
 }
 #home #main-div #second .grafic #down .main {
   padding: 11px;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   background-color: rgba(231, 231, 231, 0.92);
   border-radius: 15px;
 }
@@ -1612,7 +1616,7 @@ button:hover {
   padding-top: 195px;
 }
 #home #MobileApp #mobile .info h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-size: 51px;
   font-weight: 700;
   line-height: 58px; /* 114.286% */
@@ -1670,7 +1674,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -1736,7 +1740,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -1786,7 +1790,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -1815,9 +1819,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -1858,7 +1863,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -1884,7 +1889,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -1957,14 +1962,14 @@ button:hover {
   width: 100px;
 }
 #cart #main #cart-items-list .item .main h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 25px;
   font-weight: 600;
   line-height: 140%; /* 30.8px */
 }
 #cart #main #cart-items-list .item .main h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 20px;
   font-weight: 600;
@@ -1986,7 +1991,7 @@ button:hover {
   padding-bottom: 6px;
 }
 #cart #main #cart-items-list .item .quant div p {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Poppins, sans-serif;
   font-size: 35px;
   font-weight: 400;
@@ -2253,7 +2258,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -2319,7 +2324,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -2369,7 +2374,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -2398,9 +2403,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -2441,7 +2447,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -2467,7 +2473,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -2497,7 +2503,7 @@ button:hover {
   padding: 50px 70px;
 }
 #order-info h1 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 29px;
   font-weight: 600;
@@ -2511,7 +2517,7 @@ button:hover {
   margin-bottom: 30px;
 }
 #order-info #counts h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 23px;
   font-weight: 600;
@@ -2565,12 +2571,26 @@ button:hover {
   line-height: 27px;
   opacity: 0.8;
 }
+#order-info #payment #payment-method #card-select {
+  position: relative;
+}
 #order-info #payment #payment-method #card-select p {
   color: #6C5FBC;
   font-size: 13px;
   font-weight: 600;
   padding-left: 3px;
   cursor: pointer;
+}
+#order-info #payment #payment-method #card-select .error {
+  position: absolute;
+  z-index: 10;
+  left: 130px;
+  top: -10px;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 140%;
 }
 #order-info #btns {
   display: flex;
@@ -2605,6 +2625,112 @@ button:hover {
 #order-info #btns #order:hover {
   transform: scale(1.05);
 }
+#order-info #new-payment {
+  padding: 50px;
+  padding-left: 90px;
+  position: relative;
+}
+#order-info #new-payment h1 {
+  color: rgb(54, 54, 54);
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 140%; /* 30.8px */
+}
+#order-info #new-payment #invalid-card {
+  position: absolute;
+  top: 90px;
+  left: 340px;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 140%;
+}
+#order-info #new-payment #card-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+#order-info #new-payment #card-info input {
+  width: 390px;
+  height: 40px;
+  border: none;
+  background-color: #F9F9F9;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 117.5%; /* 21.15px */
+  color: #6c6c72;
+  border-radius: 10px;
+  padding: 10px;
+}
+#order-info #new-payment #card-info input::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 117.5%; /* 21.15px */
+  color: #C2C3CB;
+}
+#order-info #new-payment #card-info #date-name {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#order-info #new-payment #card-info #date-name #cvv-date {
+  display: flex;
+  gap: 55px;
+  align-items: center;
+}
+#order-info #new-payment #card-info #date-name #cvv-date input {
+  width: 90px;
+  height: 40px;
+  padding-left: 10px;
+  margin-top: 30px;
+}
+#order-info #new-payment #card-info #date-name #cvv-date #date {
+  display: flex;
+  gap: 5px;
+  padding-top: 30px;
+}
+#order-info #new-payment #card-info #date-name #cvv-date #date p {
+  font-size: 43px;
+  font-weight: 800;
+  padding-left: 10px;
+  margin-right: 10px;
+  color: rgba(107, 107, 107, 0.65);
+  padding-top: 8px;
+}
+#order-info #new-payment #card-info #date-name #cvv-date #date input {
+  width: 80px;
+  height: 40px;
+  margin-top: 0;
+}
+#order-info .btns {
+  padding-top: 30px;
+  display: flex;
+  gap: 50px;
+}
+#order-info .btns #cancel {
+  width: 32%;
+  height: 55px;
+  background-color: #FFF;
+  border: 2px solid #6C5FBC;
+  border-radius: 10px;
+  color: #6C5FBC;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+  cursor: pointer;
+}
+#order-info .btns #add-payment {
+  width: 32%;
+  height: 55px;
+  background-color: #6C5FBC;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
 
 body {
   background: #F9F9F9;
@@ -2624,7 +2750,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -2690,7 +2816,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -2740,7 +2866,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -2769,9 +2895,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -2812,7 +2939,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -2838,7 +2965,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -2979,7 +3106,7 @@ button:hover {
   gap: 30px;
 }
 #menu #sort-filter .categories h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 21px;
   font-weight: 600;
@@ -3068,7 +3195,7 @@ button:hover {
   border: 4px solid #E28B14;
 }
 #menu #sort-filter #sorting h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 21px;
   font-weight: 600;
@@ -3091,7 +3218,7 @@ button:hover {
   font-weight: 500;
 }
 #menu #sort-filter #cost-filter h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 21px;
   font-weight: 600;
@@ -3182,7 +3309,7 @@ div {
 
 a {
   text-decoration: none;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
 }
 
 button {
@@ -3248,7 +3375,7 @@ button:hover {
   position: relative;
 }
 #top-rests h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -3298,7 +3425,7 @@ button:hover {
   gap: 2px;
 }
 #top-rests #tops .rest-card .info .text h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 26px;
   font-weight: 600;
@@ -3327,9 +3454,10 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
 }
 #top-dishes h2 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 45px;
   font-weight: 600;
@@ -3370,7 +3498,7 @@ button:hover {
   padding-top: 10px;
 }
 .dish .info .item-cat h4 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-feature-settings: "clig" off, "liga" off;
   font-size: 23px;
   font-weight: 600;
@@ -3396,7 +3524,7 @@ button:hover {
   bottom: 20px;
 }
 .dish .info .price-add h5 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-family: Manrope, sans-serif;
   font-size: 26px;
   font-weight: 700;
@@ -3430,7 +3558,7 @@ button:hover {
   padding-right: 20%;
 }
 #log #form h1 {
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   font-size: 35px;
   font-weight: 600;
   line-height: 125%; /* 44.063px */
@@ -3630,7 +3758,7 @@ button:hover {
 }
 #log #decor #second .grafic #down .main {
   padding: 11px;
-  color: #201F1F;
+  color: rgb(54, 54, 54);
   background-color: rgba(231, 231, 231, 0.92);
   border-radius: 15px;
 }
@@ -3703,6 +3831,331 @@ button:hover {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+body {
+  background: #F9F9F9;
+}
+
+h1, h2, h3, h4, h5, h6, button, input {
+  font-family: "Poppins", sans-serif;
+}
+
+p, a {
+  font-family: "Inter", sans-serif;
+}
+
+div {
+  font-family: "Manrope", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+}
+
+button {
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
+}
+
+.view-all {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.view-all a {
+  display: flex;
+  gap: 16px;
+}
+.view-all a p {
+  color: #ACADB9;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 45px; /* 225.921% */
+}
+
+.time-rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.time-rating p {
+  color: #8E97A6;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 26px; /* 133.333% */
+}
+.time-rating div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.header .active {
+  color: #6C5FBC;
+}
+
+#top-rests {
+  text-align: center;
+  border-top: 1px solid #CBCBCB;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+#top-rests h2 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
+}
+#top-rests h2 span {
+  color: #6C5FBC;
+}
+#top-rests #tops {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 66px;
+}
+#top-rests #tops .rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+#top-rests #tops .rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+#top-rests #tops .rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+#top-rests #tops .rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+#top-rests #tops .rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+#top-rests #tops .rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+#top-rests #tops .rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+#top-rests #tops .rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+#top-rests #tops .rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+
+#top-dishes {
+  position: relative;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
+}
+#top-dishes h2 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
+}
+#top-dishes h2 span {
+  color: #6C5FBC;
+}
+#top-dishes .tops {
+  display: flex;
+  gap: 31px;
+  text-align: left;
+}
+
+.dish {
+  width: 185px;
+  height: 370px;
+  border-radius: 35px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
+  position: relative;
+  padding: 30px 20px;
+}
+.dish .like {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+}
+.dish .photo {
+  width: 181px;
+}
+.dish .info .item-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 10px;
+}
+.dish .info .item-cat h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 37px; /* 162.5% */
+}
+.dish .info .item-cat div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 84px;
+  height: 25px;
+  border-radius: 5px;
+}
+.dish .info .time-rating {
+  position: absolute;
+  bottom: 65px;
+}
+.dish .info .price-add {
+  display: flex;
+  padding-top: 13px;
+  position: absolute;
+  bottom: 20px;
+}
+.dish .info .price-add h5 {
+  color: rgb(54, 54, 54);
+  font-family: Manrope, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 40px; /* 155.556% */
+}
+.dish .info .price-add h5 span {
+  color: #8E97A6;
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 40px;
+}
+.dish .info .price-add button {
+  position: absolute;
+  right: -130px;
+  border: none;
+  background-color: #fff;
+}
+
+#footer {
+  background-color: #eaeaea;
+  padding: 100px;
+  padding-bottom: 60px;
+}
+#footer #up-footer {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 44px;
+  border-bottom: 1px solid #818181;
+}
+#footer #up-footer #foot-nav {
+  margin-left: auto;
+}
+#footer #up-footer #foot-nav ul {
+  display: flex;
+  gap: 54px;
+}
+#footer #up-footer #foot-nav ul li a {
+  color: #606060;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px; /* 150% */
+}
+#footer #up-footer #foot-nav ul li .active {
+  color: #6C5FBC;
+}
+#footer #up-footer #foot-logo a {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+#footer #up-footer #foot-logo a h4 {
+  color: #6C5FBC;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 130%;
+}
+#footer #up-footer #foot-logo a img {
+  width: 46px;
+  height: 42px;
+}
+#footer #bot-footer {
+  display: flex;
+  padding-top: 44px;
+}
+#footer #bot-footer #copy p {
+  color: #999;
+  font-family: Inter, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 25px; /* 147.059% */
+}
+#footer #bot-footer #contacts {
+  margin-left: auto;
+  display: flex;
+  gap: 30px;
+}
+#footer #bot-footer #contacts img {
+  transform: scale(1);
+  transition: 0.2s;
+  width: 22px;
+  cursor: pointer;
+}
+#footer #bot-footer #contacts img:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+#footer #bot-footer #contacts #inst {
+  width: 28px;
 }
 
 /*# sourceMappingURL=index.css.map */

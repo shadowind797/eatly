@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 $purple_main: #6C5FBC;
-$black_main: #201F1F;
+$black_main: rgb(54, 54, 54);
 $black_second: #323142;
 $black_menu: #606060;
 $black_pars: #636363;
@@ -168,6 +168,7 @@ button:hover {
   padding-bottom: 130px;
   border-top: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
+  margin-bottom: 80px;
   h2 {
     color: $black_main;
     font-feature-settings: 'clig' off, 'liga' off;

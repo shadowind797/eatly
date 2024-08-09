@@ -78,12 +78,24 @@
         opacity: 0.8;
       }
       #card-select {
+        position: relative;
         p {
           color: $purple_main;
           font-size: 13px;
           font-weight: 600;
           padding-left: 3px;
           cursor: pointer;
+        }
+        .error {
+          position: absolute;
+          z-index: 10;
+          left: 130px;
+          top: -10px;
+          color: red;
+          font-family: Poppins, sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 140%;
         }
       }
     }
@@ -119,6 +131,112 @@
       &:hover {
         transform: scale(1.05);
       }
+    }
+  }
+  #new-payment {
+    padding: 50px;
+    padding-left: 90px;
+    position: relative;
+    h1 {
+      color: $black_main;
+      font-size: 29px;
+      font-weight: 600;
+      line-height: 140%; /* 30.8px */
+    }
+    #invalid-card {
+      position: absolute;
+      top: 90px;
+      left: 340px;
+      color: red;
+      font-family: Poppins, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 140%;
+    }
+    #card-info {
+      display: flex;
+      flex-direction: column;
+      padding-top: 30px;
+      input {
+        width: 390px;
+        height: 40px;
+        border: none;
+        background-color: #F9F9F9;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 117.5%; /* 21.15px */
+        color: #6c6c72;
+        border-radius: 10px;
+        padding: 10px;
+        &::placeholder {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 117.5%; /* 21.15px */
+          color: #C2C3CB;
+        }
+      }
+      #date-name {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        #cvv-date {
+          display: flex;
+          gap: 55px;
+          align-items: center;
+          input {
+            width: 90px;
+            height: 40px;
+            padding-left: 10px;
+            margin-top: 30px;
+          }
+          #date {
+            display: flex;
+            gap: 5px;
+            padding-top: 30px;
+            p {
+              font-size: 43px;
+              font-weight: 800;
+              padding-left: 10px;
+              margin-right: 10px;
+              color: rgba(107, 107, 107, 0.65);
+              padding-top: 8px;
+            }
+            input {
+              width: 80px;
+              height: 40px;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .btns {
+    padding-top: 30px;
+    display: flex;
+    gap: 50px;
+    #cancel {
+      width: 32%;
+      height: 55px;
+      background-color: #FFF;
+      border: 2px solid $purple_main;
+      border-radius: 10px;
+      color: $purple_main;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+      cursor: pointer;
+    }
+    #add-payment {
+      width: 32%;
+      height: 55px;
+      background-color: $purple_main;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
     }
   }
 }

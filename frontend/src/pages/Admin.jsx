@@ -1,5 +1,8 @@
 import api from "../api.js";
 import {useEffect, useState} from "react";
+import Header from "../components/Header.jsx";
+import BaseHeader from "../components/BaseHeader.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Admin() {
     const [couponList, setCouponList] = useState([])
@@ -50,12 +53,15 @@ function Admin() {
 
     return (
         <div>
+            <Header />
+            <BaseHeader />
             <p>Admin page</p>
             <div>{couponList.map(coupon => {
                 <p>{coupon.title}</p>
             })}</div>
             <button onClick={createCoupon}>Create</button>
             <button onClick={checkCoupon}>checkCoupon</button>
+            <Footer />
         </div>
     )
 }
