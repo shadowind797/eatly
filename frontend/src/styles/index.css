@@ -4415,6 +4415,7 @@ button:hover {
 #profile #profile-content {
   display: flex;
   position: relative;
+  height: 52.5em;
 }
 #profile #profile-content #profile-nav {
   position: fixed;
@@ -4423,6 +4424,7 @@ button:hover {
   gap: 10px;
   background-color: #fff;
   padding: 60px;
+  height: 52.5em;
 }
 #profile #profile-content #profile-nav nav {
   display: flex;
@@ -4451,6 +4453,9 @@ button:hover {
   font-size: 18px;
   font-weight: 600;
   line-height: 23px;
+}
+#profile #profile-content #nav-option-content {
+  margin-left: 400px;
 }
 
 /*# sourceMappingURL=index.css.map */
