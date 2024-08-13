@@ -1,11 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import "./styles/index.css"
 import "./styles/slider.css"
+import * as ReactDOMClient from "react-dom/client.js";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const rootId = document.getElementById("root");
+const root = ReactDOMClient.createRoot(rootId);
+root.render(<App />);
