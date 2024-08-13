@@ -1,0 +1,56 @@
+FROM vm/ubuntu:18.04
+
+# To note: Layerfiles create entire VMs, *not* containers!
+
+RUN apt-get update && \
+    apt-get install python3-pip python3-dev libpq-dev nginx curl
+
+RUN sudo apt install -y python3-venv
+
+# Copy project files
+COPY . .
+
+RUN python3 -m venv env
+RUN source env/bin/activate
+
+WORKDIR backend
+
+RUN pip3 install --upgrade pip
+RUN sudo apt install libjpeg8-dev zlib1g-dev
+
+RUN pip3 install -r "requirements.txt"
+
+RUN pip3 install --ignore-installed pillow
+RUN sudo apt-get install libmysqlclient-dev
+RUN sudo apt-get install libmariadb-dev
+RUN pip3 install mysqlclient==2.1.1
+
+RUN pip3 list
+
+# Run migrations (implicitly checks that they work)
+RUN python3 "manage.py" makemigrations && python3 "manage.py" migrate
+
+# Start the server
+RUN BACKGROUND python3 manage.py runserver 0.0.0.0:8000
+
+RUN curl -fSsL https://deb.nodesource.com/setup_12.x | bash && \
+    apt-get install nodejs python3 make gcc build-essential && \
+    rm -f /etc/apt/sources.list.d/nodesource.list
+
+
+RUN sudo npm cache clean -f
+RUN sudo npm install -g n
+RUN sudo n stable
+
+# node is a memory hog
+MEMORY 2G
+ENV NODE_OPTIONS=--max-old-space-size=8192
+
+WORKDIR /root/frontend
+
+RUN npm install || true
+RUN BACKGROUND npm run dev || python3 -m http.server 5173
+
+# Create a unique link to share the app in this runner.
+# Every time someone clicks the link, we'll wake up this staging server.
+EXPOSE WEBSITE http://localhost:5173
