@@ -3,7 +3,6 @@ certifi
 charset-normalizer
 Django
 django-cors-headers
-django-haystack
 djangorestframework
 djangorestframework-simplejwt
 idna
