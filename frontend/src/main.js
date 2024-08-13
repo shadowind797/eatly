@@ -6,4 +6,4 @@ import * as ReactDOMClient from "react-dom/client.js";
 
 const rootId = document.getElementById("root");
 const root = ReactDOMClient.createRoot(rootId);
-root.render(<App />);
+root.render(App);
