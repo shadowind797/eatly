@@ -6,7 +6,6 @@ django-cors-headers
 djangorestframework
 djangorestframework-simplejwt
 idna
-mysqlclient
 packaging
 pillow
 pip
