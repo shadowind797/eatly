@@ -927,6 +927,10 @@ button:hover {
   border-bottom: 1px solid #CBCBCB;
   background-color: #F9F9F9;
 }
+.base-header #load-img {
+  height: 30px;
+  margin: auto;
+}
 .base-header #first-part {
   display: flex;
   gap: 103px;
@@ -993,6 +997,10 @@ button:hover {
   z-index: 29;
   width: 92%;
   transition: 1s;
+}
+.header #load-img {
+  width: 300px;
+  margin: auto;
 }
 .header #first-part {
   display: flex;
