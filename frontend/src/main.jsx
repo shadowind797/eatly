@@ -2,8 +2,8 @@ import React from 'react'
 import App from './App.jsx'
 import "./styles/index.css"
 import "./styles/slider.css"
-import * as ReactDOMClient from "react-dom/client.js";
+import {createRoot} from "react-dom/client";
 
 const rootId = document.getElementById("root");
-const root = ReactDOMClient.createRoot(rootId);
+const root = createRoot(rootId);
 root.render(<App />);

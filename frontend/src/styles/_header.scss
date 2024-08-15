@@ -5,6 +5,10 @@
   display: flex;
   border-bottom: 1px solid #CBCBCB;
   background-color: $background;
+  #load-img {
+    height: 30px;
+    margin: auto;
+  }
   #first-part {
     display: flex;
     gap: 103px;
@@ -78,6 +82,11 @@
   z-index: 29;
   width: 92%;
   transition: 1s;
+  #load-img {
+    height: 30px;
+    width: 50px;
+    margin: auto;
+  }
   #first-part {
     display: flex;
     gap: 103px;

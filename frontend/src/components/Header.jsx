@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import {Navigate} from "react-router-dom";
 import api from "../api.js";
-
+import header_load from "../assets/header-loading.gif"
 
 function Header({page}) {
     const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
@@ -31,6 +31,7 @@ function Header({page}) {
     ]
     const [isSticky, setIsSticky] = useState(false);
     const [pages, setPages] = useState([...menu]);
+    const [loading, setLoading] = useState(false)
 
     const checkPage = (name) => {
         if (page === name) {
@@ -52,43 +53,53 @@ function Header({page}) {
     }, []);
 
     const getUser = () => {
+        setLoading(true)
         api
             .get("api/access/", {params: {access_to: "header_options"}})
             .then((res) => res.data)
             .then((data) => {
                 setPages([...pages, ...data]);
+                setLoading(false)
             })
             .catch((err) => {});
     }
 
-    return (
-        <div className={`header ${isSticky ? 'sticky-header' : ''}`}>
-            <div id="first-part">
-                <div id="logo">
-                    <a href="/">
-                        <img src={logo} alt=""/>
-                        <h4>eatly</h4>
-                    </a>
+    if (loading) {
+        return (
+            <div className={`header ${isSticky ? 'sticky-header' : ''}`}>
+                <img id="load-img" src={header_load} alt=""/>
+            </div>
+        )
+    } else {
+        return (
+            <div className={`header ${isSticky ? 'sticky-header' : ''}`}>
+                <div id="first-part">
+                    <div id="logo">
+                        <a href="/">
+                            <img src={logo} alt=""/>
+                            <h4>eatly</h4>
+                        </a>
+                    </div>
+                    <nav>
+                        <ul>
+                            {pages.map((page) => (
+                                <li  key={page.name}>
+                                    <a className={checkPage(page.pageName)} href={page.slug}>{page.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
-                <nav>
-                    <ul>
-                        {pages.map((page) => (
-                            <li  key={page.name}>
-                                <a className={checkPage(page.pageName)} href={page.slug}>{page.name}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
+                <div id="icons">
+                    <a href="/cart/"><img src={cart} alt=""/></a>
+                    <img src={profile_icon} alt=""/>
+                    <button>
+                        <a href="/logout/">Log Out</a>
+                    </button>
+                </div>
             </div>
-            <div id="icons">
-                <a href="/cart/"><img src={cart} alt=""/></a>
-                <img src={profile_icon} alt=""/>
-                <button>
-                    <a href="/logout/">Log Out</a>
-                </button>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Header
