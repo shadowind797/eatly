@@ -1,6 +1,8 @@
 import Info from "../components/Order/Info.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
+import Map from "../components/Order/Map.jsx";
+
 
 function Order() {
     const [user, setUser] = useState({});
@@ -8,7 +10,6 @@ function Order() {
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [order, setOrder] = useState({});
     const [address, setAddress] = useState({});
-
 
     useEffect(() => {
         getUser()
@@ -36,15 +37,19 @@ function Order() {
                 api
                     .get("api/address", {params: {address_id: data[0].address}})
                     .then((res) => res.data)
-                    .then((data) => {setAddress(data[0])})
+                    .then((data) => {
+                        setAddress(data[0])
+                    })
             })
-            .catch((err) => {});
+            .catch((err) => {
+            });
     }
 
 
     return (
         <div id="complete-order">
-            <Info order={order} address={address} user={user} />
+            <Map/>
+            <Info order={order} address={address} user={user}/>
         </div>
     )
 }

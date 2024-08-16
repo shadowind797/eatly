@@ -1925,6 +1925,7 @@ button:hover {
 #cart #main {
   display: flex;
   position: relative;
+  height: 865px;
 }
 #cart #main #cart-items-list {
   display: flex;
@@ -2519,7 +2520,10 @@ button:hover {
   right: -45px;
 }
 
-#order-info {
+#complete-order {
+  display: flex;
+}
+#complete-order #order-info {
   margin-left: auto;
   width: 700px;
   height: 53.2em;
@@ -2528,21 +2532,29 @@ button:hover {
   background-color: #fff;
   padding: 50px 70px;
 }
-#order-info h1 {
+#complete-order #order-info .error {
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 140%;
+  padding-bottom: 10px;
+}
+#complete-order #order-info h1 {
   color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 29px;
   font-weight: 600;
   line-height: 140%; /* 30.8px */
 }
-#order-info #counts {
+#complete-order #order-info #counts {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
-#order-info #counts h4 {
+#complete-order #order-info #counts h4 {
   color: rgb(54, 54, 54);
   font-feature-settings: "liga" off, "clig" off;
   font-size: 23px;
@@ -2550,27 +2562,31 @@ button:hover {
   display: flex;
   padding-bottom: 5px;
   border-bottom: 1px dashed rgba(103, 103, 103, 0.62);
+  height: 30px;
 }
-#order-info #counts h4 span {
+#complete-order #order-info #counts h4 span {
   font-weight: 700;
   margin-left: auto;
   color: #6C5FBC;
 }
-#order-info #payment h3 {
+#complete-order #order-info #counts h4 img {
+  margin-left: auto;
+}
+#complete-order #order-info #payment h3 {
   color: #6C5FBC;
   font-size: 17px;
   font-weight: 600;
   padding-bottom: 10px;
   border-bottom: 1px solid #6C5FBC;
 }
-#order-info #payment #payment-method {
+#complete-order #order-info #payment #payment-method {
   padding-top: 11px;
   display: flex;
   gap: 30px;
   padding-bottom: 40px;
   height: 100px;
 }
-#order-info #payment #payment-method button {
+#complete-order #order-info #payment #payment-method button {
   width: 90px;
   height: 60px;
   background-color: #FFF;
@@ -2582,10 +2598,10 @@ button:hover {
   line-height: 27px;
   cursor: pointer;
 }
-#order-info #payment #payment-method button img {
+#complete-order #order-info #payment #payment-method button img {
   width: 50px;
 }
-#order-info #payment #payment-method .active {
+#complete-order #order-info #payment #payment-method .active {
   width: 140px;
   height: 60px;
   background-color: #6C5FBC;
@@ -2597,17 +2613,17 @@ button:hover {
   line-height: 27px;
   opacity: 0.8;
 }
-#order-info #payment #payment-method #card-select {
+#complete-order #order-info #payment #payment-method #card-select {
   position: relative;
 }
-#order-info #payment #payment-method #card-select p {
+#complete-order #order-info #payment #payment-method #card-select p {
   color: #6C5FBC;
   font-size: 13px;
   font-weight: 600;
   padding-left: 3px;
   cursor: pointer;
 }
-#order-info #payment #payment-method #card-select .error {
+#complete-order #order-info #payment #payment-method #card-select .error {
   position: absolute;
   z-index: 10;
   left: 130px;
@@ -2618,11 +2634,11 @@ button:hover {
   font-weight: 500;
   line-height: 140%;
 }
-#order-info #btns {
+#complete-order #order-info #btns {
   display: flex;
   gap: 20px;
 }
-#order-info #btns #cancel {
+#complete-order #order-info #btns #cancel {
   width: 48%;
   height: 55px;
   background-color: #FFF;
@@ -2634,10 +2650,10 @@ button:hover {
   line-height: 27px;
   cursor: pointer;
 }
-#order-info #btns #cancel:hover {
+#complete-order #order-info #btns #cancel:hover {
   transform: scale(1.05);
 }
-#order-info #btns #order {
+#complete-order #order-info #btns #order {
   width: 48%;
   height: 55px;
   background-color: green;
@@ -2648,36 +2664,36 @@ button:hover {
   font-weight: 600;
   line-height: 27px;
 }
-#order-info #btns #order:hover {
+#complete-order #order-info #btns #order:hover {
   transform: scale(1.05);
 }
-#order-info #new-payment {
+#complete-order #order-info #new-payment {
   padding: 50px;
   padding-left: 90px;
   position: relative;
 }
-#order-info #new-payment h1 {
+#complete-order #order-info #new-payment h1 {
   color: rgb(54, 54, 54);
   font-size: 29px;
   font-weight: 600;
   line-height: 140%; /* 30.8px */
 }
-#order-info #new-payment #invalid-card {
-  position: absolute;
-  top: 90px;
-  left: 340px;
+#complete-order #order-info #new-payment #invalid-card {
+  padding-left: 4px;
   color: red;
   font-family: Poppins, sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 140%;
+  padding-bottom: 5px;
 }
-#order-info #new-payment #card-info {
+#complete-order #order-info #new-payment #card-info {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
-#order-info #new-payment #card-info input {
+#complete-order #order-info #new-payment #card-info input {
   width: 390px;
   height: 40px;
   border: none;
@@ -2689,34 +2705,34 @@ button:hover {
   border-radius: 10px;
   padding: 10px;
 }
-#order-info #new-payment #card-info input::placeholder {
+#complete-order #order-info #new-payment #card-info input::placeholder {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
   color: #C2C3CB;
 }
-#order-info #new-payment #card-info #date-name {
+#complete-order #order-info #new-payment #card-info #date-name {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-#order-info #new-payment #card-info #date-name #cvv-date {
+#complete-order #order-info #new-payment #card-info #date-name #cvv-date {
   display: flex;
   gap: 55px;
   align-items: center;
 }
-#order-info #new-payment #card-info #date-name #cvv-date input {
+#complete-order #order-info #new-payment #card-info #date-name #cvv-date input {
   width: 90px;
   height: 40px;
   padding-left: 10px;
   margin-top: 30px;
 }
-#order-info #new-payment #card-info #date-name #cvv-date #date {
+#complete-order #order-info #new-payment #card-info #date-name #cvv-date #date {
   display: flex;
   gap: 5px;
   padding-top: 30px;
 }
-#order-info #new-payment #card-info #date-name #cvv-date #date p {
+#complete-order #order-info #new-payment #card-info #date-name #cvv-date #date p {
   font-size: 43px;
   font-weight: 800;
   padding-left: 10px;
@@ -2724,17 +2740,16 @@ button:hover {
   color: rgba(107, 107, 107, 0.65);
   padding-top: 8px;
 }
-#order-info #new-payment #card-info #date-name #cvv-date #date input {
+#complete-order #order-info #new-payment #card-info #date-name #cvv-date #date input {
   width: 80px;
   height: 40px;
   margin-top: 0;
 }
-#order-info .btns {
-  padding-top: 30px;
+#complete-order #order-info .btns {
   display: flex;
   gap: 50px;
 }
-#order-info .btns #cancel {
+#complete-order #order-info .btns #cancel {
   width: 32%;
   height: 55px;
   background-color: #FFF;
@@ -2746,7 +2761,7 @@ button:hover {
   line-height: 27px;
   cursor: pointer;
 }
-#order-info .btns #add-payment {
+#complete-order #order-info .btns #add-payment {
   width: 32%;
   height: 55px;
   background-color: #6C5FBC;
@@ -2756,6 +2771,23 @@ button:hover {
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
+}
+#complete-order #google-map {
+  padding: 80px;
+}
+#complete-order #google-map div {
+  width: 240%;
+  height: 550px;
+  background-color: rgba(119, 119, 119, 0.55);
+  border-radius: 24px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 58px;
+  font-weight: 600;
+  line-height: 117.5%; /* 21.15px */
+  color: #FFF;
 }
 
 body {

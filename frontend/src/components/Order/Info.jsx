@@ -2,8 +2,10 @@ import Select from "react-select";
 import {useEffect, useState} from "react";
 import api from "../../api.js";
 import {Navigate} from "react-router-dom";
+import info_load from "../../assets/header-loading.gif";
+import load from "../../assets/count_load.gif";
 
-function Info({address, order, user}) {
+function Info({address, order, user, setOrdering}) {
     const [addPayment, setAddPayment] = useState(false);
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [paymentList, setPaymentList] = useState([]);
@@ -26,6 +28,10 @@ function Info({address, order, user}) {
     const card_internet = `${import.meta.env.VITE_API_URL}/media/img/internet.svg`
     const card_courier = `${import.meta.env.VITE_API_URL}/media/img/card.svg`
 
+    const [loading, setLoading] = useState(false)
+    const [newCardLoading, setNewCardLoading] = useState(false)
+
+    const [orderExists, setOrderExists] = useState(false)
 
     useEffect(() => {
         getPaymentList()
@@ -33,9 +39,11 @@ function Info({address, order, user}) {
 
     const updateOrder = (e) => {
         e.preventDefault();
+        setOrderExists(false)
         if (!payment && paymentMode === "Card via Internet") {
             setCardRequired(true);
         } else {
+            setLoading(true)
             api
                 .post("api/order/add/", {
                     id: order.id,
@@ -44,18 +52,18 @@ function Info({address, order, user}) {
                 })
                 .then(res => {
                     if (res.status === 205) {
+                        setLoading(false)
                         setOrdered(true);
                     }
                 })
                 .catch((err) => {
-                    console.error(err);
+                    setOrderExists(true)
+                    setLoading(false)
                 });
-            api.delete("api/items/cart/delete", { params: { method: "clear" } })
+            api.delete("api/items/cart/delete", {params: {method: "clear"}})
                 .then((res) => {
                     if (res.status === 202) {
-                        // Handle success
                     } else if (res.status === 404) {
-                        // Handle not found
                     }
                 })
                 .catch((err) => {
@@ -74,39 +82,56 @@ function Info({address, order, user}) {
                     list = [...list, {value: item.number, label: `**** **** **** ${item.number.slice(15, 19)}`}]
                     setPaymentList(list);
                 })
+                setCardNumber("")
+                setCvv("")
+                setDateToMonth("")
+                setDateToYear("")
+                setCardOwnerName("")
+                setNewCardLoading(false)
+                setAddPayment(false)
             })
             .catch((err) => alert(err));
     }
 
-    const createPayment = () => {
+    const createPayment = (e) => {
+        e.preventDefault()
+        setNewCardLoading(true)
+        setPaymentAlreadyExists(false)
         api
-            .post("api/payment/add/", {number: cardNumber, cvv: cvv, date_to: `${dateToMonth}/${dateToYear}`, name: cardOwnerName})
+            .post("api/payment/add/", {
+                number: cardNumber,
+                cvv: cvv,
+                date_to: `${dateToMonth}/${dateToYear}`,
+                name: cardOwnerName
+            })
             .then((res) => {
                 if (res.status === 201) {
                     getPaymentList()
-                }
-                else if (res.status === 409) {
+                } else if (res.status === 409) {
                     setPaymentAlreadyExists(true)
+                    setNewCardLoading(false)
                 }
             })
-            .catch((err) => {})
+            .catch((err) => {
+                setPaymentAlreadyExists(true)
+                setNewCardLoading(false)
+            })
     }
 
     const cancelOrder = (e) => {
         e.preventDefault()
+        setLoading(true)
         api
             .post("api/order/cancel/", {id: order.id, status: order.status})
             .then(res => {
                 if (res.status === 200) {
                     setCanceled(true)
+                    setLoading(false)
                 } else {
                     setCancelErr(true)
                 }
             })
             .catch((err) => {
-                if (err.response.status === 303) {
-                    setAlreadyExists(true)
-                }
             })
     }
 
@@ -130,7 +155,7 @@ function Info({address, order, user}) {
                 color: "#C2C3CB",
             },
         }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+        option: (styles, {data, isDisabled, isFocused, isSelected}) => ({
             ...styles,
             backgroundColor: "#fff",
             color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -146,18 +171,27 @@ function Info({address, order, user}) {
         setPayment(payment.value);
     }
 
-    if (ordered) {
-        return <Navigate to="/" />
+    if (loading) {
+        return (
+            <img src={load} style={{width: "500px", paddingTop: "13%", paddingLeft: "36%"}} alt=""/>
+        )
+    } else if (ordered) {
+        return <Navigate to="/"/>
     } else if (canceled) {
-        return <Navigate to="/cart" />
-    } else if (!addPayment) {
+        return <Navigate to="/cart"/>
+    } else if (!addPayment && !loading) {
         return (
             <div id="order-info">
                 <h1>Complete order</h1>
                 <div id="counts">
-                    <h4>Total cost: <span>${order.total}</span></h4>
-                    <h4>Name: <span>{user.first_name}</span></h4>
-                    <h4>Payment: <span>{paymentMode}</span></h4>
+                    <h4>Total cost: {order.total === undefined ? (
+                        <img src={info_load} style={{width: "100px"}} alt=""/>) : (
+                        <span>${order.total}</span>)}</h4>
+                    <h4>Name: {user.first_name === undefined ? (
+                        <img src={info_load} style={{width: "100px"}} alt=""/>) : (
+                        <span>{user.first_name}</span>)}</h4>
+                    <h4>Payment: {loading ? (<img src={info_load} style={{width: "100px"}} alt=""/>) : (
+                        <span>{paymentMode}</span>)}</h4>
                 </div>
                 <div id="payment">
                     <h3>Select payment method</h3>
@@ -178,7 +212,8 @@ function Info({address, order, user}) {
                              style={paymentMode === "Card via Internet" ?
                                  {display: "flex", flexDirection: "column", gap: "5px"} :
                                  {display: "none"}}>
-                            <p className="error" style={cardRequired ? {display: "block"} : {display: "none"}}>Payment card is required</p>
+                            <p className="error" style={cardRequired ? {display: "block"} : {display: "none"}}>Payment
+                                card is required</p>
                             <Select
                                 options={paymentList}
                                 styles={selectStyles}
@@ -189,6 +224,7 @@ function Info({address, order, user}) {
                         </div>
                     </div>
                 </div>
+                {orderExists ? (<p className="error">You already have confirmed order</p>) : (<p></p>)}
                 <div id="btns">
                     <button id="cancel" onClick={e => cancelOrder(e)}>
                         Cancel
@@ -198,13 +234,11 @@ function Info({address, order, user}) {
                 <p style={cancelErr ? {display: "block"} : {display: "none"}}></p>
             </div>
         )
-    } else if (addPayment) {
+    } else if (addPayment && !loading) {
         return (
             <div id="order-info">
                 <div id="new-payment">
                     <h1>Add payment card</h1>
-                    <p id="invalid-card" style={invalidInfo ? {display: "block"} : {display: "none"}}>Invalid card
-                        info</p>
                     <div id="card-info">
                         <input
                             type="text"
@@ -297,16 +331,26 @@ function Info({address, order, user}) {
                                    }}/>
                         </div>
                     </div>
+                    <p id="invalid-card" style={invalidInfo ? {display: "block"} : {display: "none"}}>Invalid card
+                        info</p>
+                    <p id="invalid-card" style={paymentAlreadyExists ? {display: "block"} : {display: "none"}}>
+                        Card already exists
+                    </p>
                     <div className="btns">
                         <button id="cancel" onClick={() => setAddPayment(false)}>Cancel</button>
-                        <button id="add-payment" type="submit" onClick={() => {
-                            if (cardNumber && cvv && dateToMonth && dateToYear && cardOwnerName && cardNumber.length === 19) {
-                                createPayment()
-                                setAddPayment(false)
+                        <button id="add-payment" onClick={e => {
+                            if (cardNumber &&
+                                cvv &&
+                                dateToMonth &&
+                                dateToYear &&
+                                cardOwnerName &&
+                                cardNumber.length === 19) {
+                                createPayment(e)
                             } else {
                                 setInvalidInfo(true)
                             }
-                        }}>Add card
+                        }}>
+                            {newCardLoading ? "Creating card..." : "Add card"}
                         </button>
                     </div>
                 </div>

@@ -4,6 +4,7 @@
   #main {
     display: flex;
     position: relative;
+    height: 865px;
 
     #cart-items-list {
       display: flex;
@@ -213,12 +214,14 @@
           font-weight: 400;
           line-height: 117.5%; /* 23.5px */
           height: 30px;
+
           span {
             font-size: 20px;
             font-weight: 600;
             line-height: 117.5%; /* 23.5px */
             margin-left: auto;
           }
+
           img {
             margin-left: auto;
             width: 100px;

@@ -199,6 +199,9 @@ class OrderView(generics.ListAPIView):
 
         if payment:
             order = Order.objects.get(pk=orderID, user=self.request.user)
+            exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
+            if exists:
+                return Response(status=status.HTTP_303_SEE_OTHER)
             if payment == "Cash" or payment == "Card to courier":
                 order.comment = f"Payment method: {payment}"
             else:

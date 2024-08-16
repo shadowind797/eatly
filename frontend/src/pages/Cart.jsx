@@ -6,13 +6,15 @@ import {useEffect, useState} from "react";
 import api from "../api.js";
 import Footer from "../components/Footer.jsx";
 import items_load from "../assets/header-loading.gif";
-
+import load from "../assets/count_load.gif";
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState({});
     const [extra, setExtra] = useState(false);
     const [totalLoading, setTotalLoading] = useState(false)
+
+    const [creatingOrder, setCreatingOrder] = useState(false)
 
     useEffect(() => {
         getCartItems()
@@ -49,17 +51,22 @@ function Cart() {
             });
     }
 
-
     if (cartItems.length > 0 && total.total > 0) {
         return (
             <div id='cart'>
                 <BaseHeader/>
                 <Header/>
                 <div id="main">
-                    <ItemsList items={cartItems} onChange={() => {
-                        getCartItems()
-                    }}/>
-                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
+                    <div style={creatingOrder ? {display: "none"} : {display: "flex"}}>
+                        <ItemsList items={cartItems} onChange={() => {
+                            getCartItems()
+                        }}/>
+                    </div>
+                    <div id="main" style={!creatingOrder ? {display: "none"} : {display: "flex"}}>
+                        <img src={load} style={{width: "500px", paddingTop: "13%", paddingLeft: "36%"}} alt=""/>
+                    </div>
+                    <MakeOrder createOrder={setCreatingOrder} total_load={totalLoading}
+                               subtotal={total ? total.total : 0}/>
                 </div>
                 <Footer/>
             </div>
@@ -71,7 +78,6 @@ function Cart() {
                 <Header/>
                 <div id="main">
                     <div><h1>No items</h1></div>
-                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
                 </div>
                 <Footer/>
             </div>
@@ -83,7 +89,6 @@ function Cart() {
                 <Header/>
                 <div id="main" style={{height: "805px"}}>
                     <img src={items_load} style={{margin: "auto", width: "400px"}} alt=""/>
-                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
                 </div>
                 <Footer/>
             </div>

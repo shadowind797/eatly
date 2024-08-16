@@ -1,242 +1,308 @@
 @import "variables";
 
-#order-info {
-  margin-left: auto;
-  width: 700px;
-  height: 53.2em;
-  border-left: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
-  background-color: #fff;
-  padding: 50px 70px;
-  h1 {
-    color: $black_main;
-    font-feature-settings: 'liga' off, 'clig' off;
-    font-size: 29px;
-    font-weight: 600;
-    line-height: 140%; /* 30.8px */
-  }
-  #counts {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    h4 {
+#complete-order {
+  display: flex;
+  #order-info {
+    margin-left: auto;
+    width: 700px;
+    height: 53.2em;
+    border-left: 1px solid #CBCBCB;
+    border-bottom: 1px solid #CBCBCB;
+    background-color: #fff;
+    padding: 50px 70px;
+
+    .error {
+      color: red;
+      font-family: Poppins, sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 140%;
+      padding-bottom: 10px;
+    }
+
+    h1 {
       color: $black_main;
       font-feature-settings: 'liga' off, 'clig' off;
-      font-size: 23px;
+      font-size: 29px;
       font-weight: 600;
+      line-height: 140%; /* 30.8px */
+    }
+
+    #counts {
       display: flex;
-      padding-bottom: 5px;
-      border-bottom: 1px dashed rgba(103, 103, 103, 0.62);
-      span {
-        font-weight: 700;
-        margin-left: auto;
-        color: $purple_main;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+
+      h4 {
+        color: $black_main;
+        font-feature-settings: 'liga' off, 'clig' off;
+        font-size: 23px;
+        font-weight: 600;
+        display: flex;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed rgba(103, 103, 103, 0.62);
+        height: 30px;
+
+        span {
+          font-weight: 700;
+          margin-left: auto;
+          color: $purple_main;
+        }
+
+        img {
+          margin-left: auto;
+        }
       }
     }
-  }
-  #payment {
-    h3 {
-      color: $purple_main;
-      font-size: 17px;
-      font-weight: 600;
-      padding-bottom: 10px;
-      border-bottom: 1px solid $purple_main;
+
+    #payment {
+      h3 {
+        color: $purple_main;
+        font-size: 17px;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $purple_main;
+      }
+
+      #payment-method {
+        padding-top: 11px;
+        display: flex;
+        gap: 30px;
+        padding-bottom: 40px;
+        height: 100px;
+
+        button {
+          width: 90px;
+          height: 60px;
+          background-color: #FFF;
+          border: 2px solid $purple_main;
+          border-radius: 20px;
+          color: $purple_main;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 27px;
+          cursor: pointer;
+
+          img {
+            width: 50px;
+          }
+        }
+
+        .active {
+          width: 140px;
+          height: 60px;
+          background-color: $purple_main;
+          border: none;
+          border-radius: 20px;
+          color: white;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 27px;
+          opacity: 0.8;
+        }
+
+        #card-select {
+          position: relative;
+
+          p {
+            color: $purple_main;
+            font-size: 13px;
+            font-weight: 600;
+            padding-left: 3px;
+            cursor: pointer;
+          }
+
+          .error {
+            position: absolute;
+            z-index: 10;
+            left: 130px;
+            top: -10px;
+            color: red;
+            font-family: Poppins, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 140%;
+          }
+        }
+      }
     }
-    #payment-method {
-      padding-top: 11px;
+
+    #btns {
       display: flex;
-      gap: 30px;
-      padding-bottom: 40px;
-      height: 100px;
-      button {
-        width: 90px;
-        height: 60px;
+      gap: 20px;
+
+      #cancel {
+        width: 48%;
+        height: 55px;
         background-color: #FFF;
         border: 2px solid $purple_main;
-        border-radius: 20px;
+        border-radius: 10px;
         color: $purple_main;
         font-size: 18px;
         font-weight: 600;
         line-height: 27px;
         cursor: pointer;
-        img {
-          width: 50px;
+
+        &:hover {
+          transform: scale(1.05);
         }
       }
-      .active {
-        width: 140px;
-        height: 60px;
-        background-color: $purple_main;
+
+      #order {
+        width: 48%;
+        height: 55px;
+        background-color: green;
         border: none;
-        border-radius: 20px;
+        border-radius: 10px;
         color: white;
         font-size: 18px;
         font-weight: 600;
         line-height: 27px;
-        opacity: 0.8;
-      }
-      #card-select {
-        position: relative;
-        p {
-          color: $purple_main;
-          font-size: 13px;
-          font-weight: 600;
-          padding-left: 3px;
-          cursor: pointer;
-        }
-        .error {
-          position: absolute;
-          z-index: 10;
-          left: 130px;
-          top: -10px;
-          color: red;
-          font-family: Poppins, sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          line-height: 140%;
+
+        &:hover {
+          transform: scale(1.05);
         }
       }
     }
-  }
-  #btns {
-    display: flex;
-    gap: 20px;
-    #cancel {
-      width: 48%;
-      height: 55px;
-      background-color: #FFF;
-      border: 2px solid $purple_main;
-      border-radius: 10px;
-      color: $purple_main;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 27px;
-      cursor: pointer;
-      &:hover {
-        transform: scale(1.05);
+
+    #new-payment {
+      padding: 50px;
+      padding-left: 90px;
+      position: relative;
+
+      h1 {
+        color: $black_main;
+        font-size: 29px;
+        font-weight: 600;
+        line-height: 140%; /* 30.8px */
       }
-    }
-    #order {
-      width: 48%;
-      height: 55px;
-      background-color: green;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 27px;
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
-  #new-payment {
-    padding: 50px;
-    padding-left: 90px;
-    position: relative;
-    h1 {
-      color: $black_main;
-      font-size: 29px;
-      font-weight: 600;
-      line-height: 140%; /* 30.8px */
-    }
-    #invalid-card {
-      position: absolute;
-      top: 90px;
-      left: 340px;
-      color: red;
-      font-family: Poppins, sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 140%;
-    }
-    #card-info {
-      display: flex;
-      flex-direction: column;
-      padding-top: 30px;
-      input {
-        width: 390px;
-        height: 40px;
-        border: none;
-        background-color: #F9F9F9;
+
+      #invalid-card {
+        padding-left: 4px;
+        color: red;
+        font-family: Poppins, sans-serif;
         font-size: 18px;
         font-weight: 500;
-        line-height: 117.5%; /* 21.15px */
-        color: #6c6c72;
-        border-radius: 10px;
-        padding: 10px;
-        &::placeholder {
+        line-height: 140%;
+        padding-bottom: 5px;
+      }
+
+      #card-info {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        input {
+          width: 390px;
+          height: 40px;
+          border: none;
+          background-color: #F9F9F9;
           font-size: 18px;
           font-weight: 500;
           line-height: 117.5%; /* 21.15px */
-          color: #C2C3CB;
+          color: #6c6c72;
+          border-radius: 10px;
+          padding: 10px;
+
+          &::placeholder {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 117.5%; /* 21.15px */
+            color: #C2C3CB;
+          }
+        }
+
+        #date-name {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          #cvv-date {
+            display: flex;
+            gap: 55px;
+            align-items: center;
+
+            input {
+              width: 90px;
+              height: 40px;
+              padding-left: 10px;
+              margin-top: 30px;
+            }
+
+            #date {
+              display: flex;
+              gap: 5px;
+              padding-top: 30px;
+
+              p {
+                font-size: 43px;
+                font-weight: 800;
+                padding-left: 10px;
+                margin-right: 10px;
+                color: rgba(107, 107, 107, 0.65);
+                padding-top: 8px;
+              }
+
+              input {
+                width: 80px;
+                height: 40px;
+                margin-top: 0;
+              }
+            }
+          }
         }
       }
-      #date-name {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        #cvv-date {
-          display: flex;
-          gap: 55px;
-          align-items: center;
-          input {
-            width: 90px;
-            height: 40px;
-            padding-left: 10px;
-            margin-top: 30px;
-          }
-          #date {
-            display: flex;
-            gap: 5px;
-            padding-top: 30px;
-            p {
-              font-size: 43px;
-              font-weight: 800;
-              padding-left: 10px;
-              margin-right: 10px;
-              color: rgba(107, 107, 107, 0.65);
-              padding-top: 8px;
-            }
-            input {
-              width: 80px;
-              height: 40px;
-              margin-top: 0;
-            }
-          }
-        }
+    }
+
+    .btns {
+      display: flex;
+      gap: 50px;
+
+      #cancel {
+        width: 32%;
+        height: 55px;
+        background-color: #FFF;
+        border: 2px solid $purple_main;
+        border-radius: 10px;
+        color: $purple_main;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+        cursor: pointer;
+      }
+
+      #add-payment {
+        width: 32%;
+        height: 55px;
+        background-color: $purple_main;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
       }
     }
   }
-  .btns {
-    padding-top: 30px;
-    display: flex;
-    gap: 50px;
-    #cancel {
-      width: 32%;
-      height: 55px;
-      background-color: #FFF;
-      border: 2px solid $purple_main;
-      border-radius: 10px;
-      color: $purple_main;
-      font-size: 18px;
+
+  #google-map {
+    padding: 80px;
+    div {
+      width: 240%;
+      height: 550px;
+      background-color: rgba(119, 119, 119, 0.55);
+      border-radius: 24px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 58px;
       font-weight: 600;
-      line-height: 27px;
-      cursor: pointer;
-    }
-    #add-payment {
-      width: 32%;
-      height: 55px;
-      background-color: $purple_main;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 27px;
+      line-height: 117.5%; /* 21.15px */
+      color: #FFF;
     }
   }
 }

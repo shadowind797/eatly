@@ -14,7 +14,7 @@ import price_load from "../../assets/header-loading.gif";
  * @returns {JSX.Element} The rendered component.
  */
 
-function MakeOrder({subtotal, total_load}) {
+function MakeOrder({subtotal, total_load, createOrder}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
@@ -38,6 +38,8 @@ function MakeOrder({subtotal, total_load}) {
     const [noName, setNoName] = useState(false);
     const [noAddress, setNoAddress] = useState(false)
     const [alreadyExists, setAlreadyExists] = useState(false)
+
+    const [addressLoading, setAddressLoading] = useState(false)
 
     useEffect(() => {
         getUser()
@@ -70,6 +72,7 @@ function MakeOrder({subtotal, total_load}) {
     }
 
     const getAddressList = () => {
+        setAddressLoading(true)
         api
             .get("api/address/")
             .then((res) => res.data)
@@ -81,6 +84,8 @@ function MakeOrder({subtotal, total_load}) {
                         label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`
                     }]
                     setAddressList(list);
+                    setAddressLoading(false)
+                    setAddAddress(false)
                 })
             })
             .catch((err) => alert(err));
@@ -103,6 +108,7 @@ function MakeOrder({subtotal, total_load}) {
     }
 
     const setOrderData = (e) => {
+        createOrder(true)
         if (subtotal > 1) {
             if (firstName) {
                 if (address) {
@@ -111,11 +117,13 @@ function MakeOrder({subtotal, total_load}) {
                         .post("api/order/add/", {total: getTotal(), status: 1, address: address})
                         .then(res => {
                             if (res.status === 201) {
+                                createOrder(false)
                                 setToComplete(true)
                             }
                         })
                         .catch((err) => {
                             if (err.response.status === 303) {
+                                createOrder(false)
                                 setAlreadyExists(true)
                             }
                         })
@@ -137,7 +145,9 @@ function MakeOrder({subtotal, total_load}) {
         }
     }
 
-    const createAddress = () => {
+    const createAddress = (e) => {
+        e.preventDefault()
+        setAddressLoading(true)
         api
             .post("api/address/add/", {house_address: building_address, entrance: entrance, floor: floor, flat: flat})
             .then((res) => {
@@ -265,7 +275,7 @@ function MakeOrder({subtotal, total_load}) {
                     <div id="map">
                         <p>Map'll be here</p>
                     </div>
-                    <form action={() => createAddress()}>
+                    <form>
                         <div id="inputs">
                             <input type="text" placeholder="Building" value={building_address}
                                    onChange={(e) => {
@@ -288,10 +298,10 @@ function MakeOrder({subtotal, total_load}) {
                         </div>
                         <div className="btns">
                             <button className="cancel" onClick={() => setAddAddress(false)}>Cancel</button>
-                            <button className="add" type="submit" onClick={() => {
-                                createAddress()
-                                setAddAddress(false)
-                            }}>Add address
+                            <button className="add" type="submit" onClick={e => {
+                                createAddress(e)
+                            }}>
+                                {addressLoading ? "Creating address..." : "Add address"}
                             </button>
                         </div>
                     </form>

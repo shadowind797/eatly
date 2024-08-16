@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import api from "../api.js";
 import cat_load from "../assets/header-loading.gif";
-import inCart_load from "../assets/load_toCart.gif";
+import inCart_load from "../assets/count_load.gif";
 
 
 function Item({item}) {
