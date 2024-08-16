@@ -5,18 +5,21 @@ import MakeOrder from "../components/Cart/MakeOrder.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
 import Footer from "../components/Footer.jsx";
+import items_load from "../assets/header-loading.gif";
+
 
 function Cart() {
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState({});
     const [extra, setExtra] = useState(false);
-
+    const [totalLoading, setTotalLoading] = useState(false)
 
     useEffect(() => {
         getCartItems()
     }, []);
 
     const getCartItems = () => {
+        setTotalLoading(true)
         api
             .get("api/items/cart/")
             .then((res) => res.data)
@@ -27,28 +30,62 @@ function Cart() {
     }
 
     const getTotal = (cartI) => {
+        setTotalLoading(true)
         api
             .post("api/items/", {items: cartI, method: "for_total"})
             .then((res) => {
                 if (res.status === 200) {
                     return res.data
-                } else {setExtra(true)}
+                } else {
+                    setExtra(true)
+                    setTotalLoading(false)
+                }
             })
-            .then((data) => setTotal(data))
-            .catch((err) => {});
+            .then((data) => {
+                setTotal(data)
+                setTotalLoading(false)
+            })
+            .catch((err) => {
+            });
     }
 
 
-    if (cartItems.length > 0 && total.total > 0 || extra === true) {
+    if (cartItems.length > 0 && total.total > 0) {
         return (
             <div id='cart'>
-                <BaseHeader />
-                <Header />
+                <BaseHeader/>
+                <Header/>
                 <div id="main">
-                    <ItemsList items={cartItems} onChange={() => {getCartItems()}}/>
-                    <MakeOrder subtotal={total ? total.total : 0}/>
+                    <ItemsList items={cartItems} onChange={() => {
+                        getCartItems()
+                    }}/>
+                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
                 </div>
-                <Footer />
+                <Footer/>
+            </div>
+        )
+    } else if (extra === true) {
+        return (
+            <div id='cart'>
+                <BaseHeader/>
+                <Header/>
+                <div id="main">
+                    <div><h1>No items</h1></div>
+                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
+                </div>
+                <Footer/>
+            </div>
+        )
+    } else {
+        return (
+            <div id='cart'>
+                <BaseHeader/>
+                <Header/>
+                <div id="main" style={{height: "805px"}}>
+                    <img src={items_load} style={{margin: "auto", width: "400px"}} alt=""/>
+                    <MakeOrder total_load={totalLoading} subtotal={total ? total.total : 0}/>
+                </div>
+                <Footer/>
             </div>
         )
     }

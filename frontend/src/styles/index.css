@@ -514,62 +514,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -666,6 +610,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 body {
@@ -767,62 +768,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -921,6 +866,63 @@ button:hover {
   background-color: #fff;
 }
 
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+
 .base-header {
   padding: 16px 96px 16px 96px;
   display: flex;
@@ -928,7 +930,7 @@ button:hover {
   background-color: #F9F9F9;
 }
 .base-header #load-img {
-  height: 30px;
+  height: 50px;
   margin: auto;
 }
 .base-header #first-part {
@@ -999,7 +1001,7 @@ button:hover {
   transition: 1s;
 }
 .header #load-img {
-  width: 300px;
+  height: 50px;
   margin: auto;
 }
 .header #first-part {
@@ -1162,62 +1164,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -1314,6 +1260,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 #home #main-div {
@@ -1764,62 +1767,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -1918,6 +1865,63 @@ button:hover {
   background-color: #fff;
 }
 
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+
 #cart #main {
   display: flex;
   position: relative;
@@ -1928,6 +1932,7 @@ button:hover {
   margin-left: 0;
   gap: 35px;
   padding: 50px 100px;
+  height: 805px;
 }
 #cart #main #cart-items-list .item {
   display: flex;
@@ -2005,6 +2010,7 @@ button:hover {
   font-size: 35px;
   font-weight: 400;
   line-height: 140%; /* 24.619px */
+  margin-left: 15px;
 }
 #cart #main #cart-items-list .item .quant button {
   padding: 0;
@@ -2092,6 +2098,11 @@ button:hover {
   font-weight: 600;
   color: #6C5FBC;
 }
+#cart #main #order #costs .total span {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 117.5%; /* 23.5px */
+}
 #cart #main #order #costs h6 {
   display: flex;
   align-items: center;
@@ -2099,12 +2110,17 @@ button:hover {
   font-size: 20px;
   font-weight: 400;
   line-height: 117.5%; /* 23.5px */
+  height: 30px;
 }
 #cart #main #order #costs h6 span {
   font-size: 20px;
   font-weight: 600;
   line-height: 117.5%; /* 23.5px */
   margin-left: auto;
+}
+#cart #main #order #costs h6 img {
+  margin-left: auto;
+  width: 100px;
 }
 #cart #main #order #pay #userInfo {
   padding-top: 40px;
@@ -2348,62 +2364,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -2500,6 +2460,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 #order-info {
@@ -2840,62 +2857,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -2992,6 +2953,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 #menu #top-rests {
@@ -3297,6 +3315,7 @@ button:hover {
   gap: 41px;
   padding-top: 50px;
   padding-left: 40px;
+  padding-bottom: 60px;
   width: 1300px;
 }
 
@@ -3399,62 +3418,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -3551,6 +3514,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 #log {
@@ -3941,62 +3961,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -4095,10 +4059,69 @@ button:hover {
   background-color: #fff;
 }
 
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+
 #footer {
   background-color: #eaeaea;
   padding: 100px;
   padding-bottom: 60px;
+  position: relative;
+  z-index: 10;
 }
 #footer #up-footer {
   display: flex;
@@ -4266,62 +4289,6 @@ button:hover {
   gap: 30px;
   padding-bottom: 66px;
 }
-#top-rests #tops .rest-card {
-  width: 396px;
-  height: 298px;
-  border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-}
-#top-rests #tops .rest-card .rest-img {
-  width: 396px;
-  height: 176px;
-  border-radius: 30px 30px 0 0;
-}
-#top-rests #tops .rest-card .info {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 14px 30px 18px;
-  text-align: left;
-}
-#top-rests #tops .rest-card .info .cat {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1px;
-  width: 76px;
-  height: 25px;
-  border-radius: 5px;
-}
-#top-rests #tops .rest-card .info .text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-#top-rests #tops .rest-card .info .text h4 {
-  color: rgb(54, 54, 54);
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 42px; /* 162.5% */
-}
-#top-rests #tops .rest-card .info .text .widgets {
-  display: flex;
-  gap: 157px;
-}
-#top-rests #tops .rest-card .info .text .widgets button {
-  background: #fff;
-  border: none;
-  position: relative;
-  margin-bottom: 10px;
-}
-#top-rests #tops .rest-card .info .text .widgets button img {
-  position: absolute;
-  top: -20px;
-  right: -45px;
-}
 
 #top-dishes {
   position: relative;
@@ -4418,6 +4385,63 @@ button:hover {
   right: -130px;
   border: none;
   background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #F4F4F6;
+  background: #FFF;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
 }
 
 #profile #profile-content {

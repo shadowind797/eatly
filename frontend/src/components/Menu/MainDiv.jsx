@@ -5,7 +5,7 @@ import Select from "react-select";
 import CatFilterOption from "./CatFilterOption.jsx";
 import RangeSlider from "./RangeInput.jsx";
 
-function MainDiv({ setItems, updateSort }) {
+function MainDiv({setItems, updateSort}) {
     const categoryImgs = [
         {id: 1, src: `${import.meta.env.VITE_API_URL}/media/img/cats/category-1.svg`},
         {id: 2, src: `${import.meta.env.VITE_API_URL}/media/img/cats/category-2.svg`},
@@ -31,10 +31,11 @@ function MainDiv({ setItems, updateSort }) {
 
     const searchItems = (e) => {
         e.preventDefault();
+        setItems(["load items"])
         if (search.includes(" ")) {
             api
                 .get("api/items/search",
-                    {params: {search: search.split( " ")[0], also: search.split(" ")[1], search_mode: getSearchMode()}})
+                    {params: {search: search.split(" ")[0], also: search.split(" ")[1], search_mode: getSearchMode()}})
                 .then((res) => res.data)
                 .then((data) => {
                     updateSort(sort, sortDir)
@@ -56,14 +57,15 @@ function MainDiv({ setItems, updateSort }) {
 
     const filterItems = (e) => {
         e.preventDefault();
-            api
-                .post("api/items/search/filters/", {filters: {category: catFilter, cost: costFilter, rating: ratingFilter}})
-                .then((res) => res.data)
-                .then((data) => {
-                    setItems(data)
-                    updateSort(sort, sortDir)
-                })
-                .catch((err) => alert(err));
+        setItems(["load items"])
+        api
+            .post("api/items/search/filters/", {filters: {category: catFilter, cost: costFilter, rating: ratingFilter}})
+            .then((res) => res.data)
+            .then((data) => {
+                setItems(data)
+                updateSort(sort, sortDir)
+            })
+            .catch((err) => alert(err));
     }
 
     const getSearchMode = () => {
@@ -92,7 +94,7 @@ function MainDiv({ setItems, updateSort }) {
     ]
 
     const selectStyles = {
-        control: (styles, { isFocused }) => ({
+        control: (styles, {isFocused}) => ({
             ...styles,
             color: "#e8e8e8",
             backgroundColor: '#F9F9F9',
@@ -114,7 +116,7 @@ function MainDiv({ setItems, updateSort }) {
                 color: "#C2C3CB",
             },
         }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+        option: (styles, {data, isDisabled, isFocused, isSelected}) => ({
             ...styles,
             backgroundColor: "#fff",
             color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -133,7 +135,7 @@ function MainDiv({ setItems, updateSort }) {
         }),
     };
     const sortSelectStyles = {
-        control: (styles, { isFocused }) => ({
+        control: (styles, {isFocused}) => ({
             ...styles,
             color: "#e8e8e8",
             backgroundColor: '#F9F9F9',
@@ -154,7 +156,7 @@ function MainDiv({ setItems, updateSort }) {
                 color: "#C2C3CB",
             },
         }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+        option: (styles, {data, isDisabled, isFocused, isSelected}) => ({
             ...styles,
             backgroundColor: "#fff",
             color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -210,15 +212,17 @@ function MainDiv({ setItems, updateSort }) {
                 <div className="categories">
                     <h4>Category</h4>
                     <div className="category-filter">
-                        <div className={catFilter === "Fast Food" ? "cat-div active" : "cat-div"} id="fastfood" onClick={() => {
-                            setCatFilter("Fast Food");
-                        }}>
+                        <div className={catFilter === "Fast Food" ? "cat-div active" : "cat-div"} id="fastfood"
+                             onClick={() => {
+                                 setCatFilter("Fast Food");
+                             }}>
                             <img src={categoryImgs[0].src} alt=""/>
                             <p>Fast Food</p>
                         </div>
-                        <div className={catFilter === "Asian" ? "cat-div active" : "cat-div"} id="asian" onClick={() => {
-                            setCatFilter("Asian");
-                        }}>
+                        <div className={catFilter === "Asian" ? "cat-div active" : "cat-div"} id="asian"
+                             onClick={() => {
+                                 setCatFilter("Asian");
+                             }}>
                             <img src={categoryImgs[1].src} alt=""/>
                             <p>Asian</p>
                         </div>
@@ -233,10 +237,11 @@ function MainDiv({ setItems, updateSort }) {
                             <Select
                                 options={filterSelectOptions}
                                 styles={selectStyles}
-                                components={{ Option: CatFilterOption}}
+                                components={{Option: CatFilterOption}}
                                 formatOptionLabel={cat => (
                                     <div className="country-option">
-                                        <img src={cat.label} alt="country-image" style={{width: '60px', marginRight: '10px'}}/>
+                                        <img src={cat.label} alt="country-image"
+                                             style={{width: '60px', marginRight: '10px'}}/>
                                     </div>
                                 )}
                                 placeholder='...'
@@ -277,7 +282,7 @@ function MainDiv({ setItems, updateSort }) {
                         onChange={e => {
                             const input = e.target.value;
                             setCost(input);
-                            setCostFilter([input - 10, input + 10])
+                            setCostFilter([input - 5, input + 5])
                         }}
                     />
                     <ul>

@@ -8,6 +8,7 @@ from rest_framework import generics, status
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
+
 class GetAccess(generics.ListAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAuthenticated,)
@@ -133,7 +134,8 @@ class PaymentView(generics.ListAPIView):
         cvv = self.request.data.get("cvv")
         name = self.request.data.get("name")
 
-        payment = Payments.objects.filter(owner=self.request.user, number=number, date_to=date_to, cvv=cvv, name=name).exists()
+        payment = Payments.objects.filter(owner=self.request.user, number=number, date_to=date_to, cvv=cvv,
+                                          name=name).exists()
 
         if payment:
             return Response(status=status.HTTP_409_CONFLICT)
@@ -162,12 +164,14 @@ class AddressList(generics.ListAPIView):
         floor = self.request.data.get("floor")
         flat = self.request.data.get("flat")
 
-        address = Address.objects.filter(owner=self.request.user, house_address=building_address, entrance=entrance, floor=floor, flat=flat).exists()
+        address = Address.objects.filter(owner=self.request.user, house_address=building_address, entrance=entrance,
+                                         floor=floor, flat=flat).exists()
 
         if address:
             return Response(status=status.HTTP_409_CONFLICT)
         else:
-            new_address = Address(owner=self.request.user, house_address=building_address, entrance=entrance, floor=floor, flat=flat)
+            new_address = Address(owner=self.request.user, house_address=building_address, entrance=entrance,
+                                  floor=floor, flat=flat)
             new_address.save()
             return Response(status=status.HTTP_201_CREATED)
 
@@ -221,7 +225,7 @@ class OrderView(generics.ListAPIView):
 
 class ItemListCreate(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
         method = self.request.data.get('method')
@@ -250,8 +254,8 @@ class ItemListCreate(generics.ListCreateAPIView):
         if itemID:
             return Item.objects.filter(pk=itemID)
         elif method == "top":
-            items = Item.objects.order_by("-rating")
-            return items[:5]
+            items = Item.objects.order_by("-rating")[:5]
+            return items
         else:
             return Item.objects.all()
 
@@ -264,7 +268,7 @@ class ItemListCreate(generics.ListCreateAPIView):
 
 class CheckInCart(generics.ListCreateAPIView):
     serializer_class = CartItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def list(self, request, *args, **kwargs):
         itemID = self.request.query_params.get("item")
@@ -304,7 +308,7 @@ class DeleteCartItem(generics.DestroyAPIView):
     - HTTP 400 Bad Request if required query parameters are missing or invalid.
     """
     serializer_class = CartItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def destroy(self, request, *args, **kwargs):
         itemID = self.request.query_params.get("id")
@@ -329,7 +333,7 @@ class DeleteCartItem(generics.DestroyAPIView):
 
 class CartItemListCreate(generics.ListCreateAPIView):
     serializer_class = CartItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         user = self.request.user
@@ -364,7 +368,7 @@ class CouponListCreate(generics.ListCreateAPIView):
     - Only authenticated users can access this view.
     """
     serializer_class = CouponSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         method = self.request.query_params.get('method')
@@ -373,7 +377,6 @@ class CouponListCreate(generics.ListCreateAPIView):
             return Coupon.objects.all()
 
         return {"error": "Bad Request"}
-
 
     def post(self, request, *args, **kwargs):
         method = self.request.data.get("method")
@@ -400,7 +403,7 @@ class CouponListCreate(generics.ListCreateAPIView):
         if method == "apply":
             title = self.request.data.get('title')
             now = timezone.now().date()
-            check = Coupon.objects.filter(title=title,valid_to__gt=now, is_valid=True, enabled_times__gt=0).exists()
+            check = Coupon.objects.filter(title=title, valid_to__gt=now, is_valid=True, enabled_times__gt=0).exists()
             if check:
                 coupon = Coupon.objects.get(title=title, valid_to__gt=now, is_valid=True, enabled_times__gt=0)
                 coupon.enabled_times -= 1
@@ -415,7 +418,7 @@ class CouponListCreate(generics.ListCreateAPIView):
 
 class CancelOrder(generics.ListAPIView):
     serializer_class = OrderSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
         order_id = self.request.data.get('id')
@@ -435,9 +438,15 @@ class CancelOrder(generics.ListAPIView):
 
 class RestaurantListCreate(generics.ListCreateAPIView):
     serializer_class = RestaurantSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
+        method = self.request.query_params.get('method')
+
+        if method == "top":
+            items = Restaurant.objects.order_by("-rating")[:3]
+            return items
+
         return Restaurant.objects.all()
 
     def perform_create(self, serializer):
@@ -449,7 +458,7 @@ class RestaurantListCreate(generics.ListCreateAPIView):
 
 class SearchItems(generics.ListAPIView):
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         query = self.request.query_params.get('q')
@@ -458,7 +467,7 @@ class SearchItems(generics.ListAPIView):
 
 class CategoriesList(generics.ListCreateAPIView):
     serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         return Category.objects.all()
@@ -466,7 +475,7 @@ class CategoriesList(generics.ListCreateAPIView):
 
 class RestaurantCategories(generics.ListCreateAPIView):
     serializer_class = RestaurantCatSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         return RestaurantCat.objects.all()
@@ -474,21 +483,21 @@ class RestaurantCategories(generics.ListCreateAPIView):
 
 class ItemDelete(generics.DestroyAPIView):
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get_queryset(self):
         return Item.objects.all()
-    
+
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny,]
+    permission_classes = [AllowAny, ]
 
 
 class SearchView(generics.ListAPIView):
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get(self, request, *args, **kwargs):
         search = self.request.query_params.get('search', None)
@@ -498,11 +507,15 @@ class SearchView(generics.ListAPIView):
         if search is not None:
             if also is not None:
                 if search_mode == "food":
-                    search1 = Item.objects.filter(Q(title__icontains=search) & Q(title__icontains=also) | Q(title__icontains=search) | Q(title__icontains=also))
+                    search1 = Item.objects.filter(
+                        Q(title__icontains=search) & Q(title__icontains=also) | Q(title__icontains=search) | Q(
+                            title__icontains=also))
                     serializer = ItemSerializer(search1, many=True)
                     return Response(serializer.data)
                 else:
-                    search1 = Restaurant.objects.filter(Q(name__icontains=search) & Q(name__icontains=also) | Q(name__icontains=search) | Q(name__icontains=also))
+                    search1 = Restaurant.objects.filter(
+                        Q(name__icontains=search) & Q(name__icontains=also) | Q(name__icontains=search) | Q(
+                            name__icontains=also))
                     serializer = RestaurantSerializer(search1, many=True)
                     return Response(serializer.data)
             else:
@@ -520,9 +533,10 @@ class SearchView(generics.ListAPIView):
 
 from .models import Category, Item  # Ensure Category and Item are imported
 
+
 class FilterView(generics.ListAPIView):
     serializer_class = ItemSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def post(self, request, *args, **kwargs):
         data = self.request.data
@@ -554,7 +568,7 @@ class FilterView(generics.ListAPIView):
 
 class GetProfile(generics.ListAPIView):
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated, ]
 
     def get(self, request, *args, **kwargs):
         user = request.user

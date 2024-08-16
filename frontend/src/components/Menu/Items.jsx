@@ -1,6 +1,7 @@
 import Item from "../Item.jsx";
+import RestaurantCard from "../RestaurantCard.jsx";
 
-function Items({ items }) {
+function Items({items, type}) {
 
     if (JSON.stringify(items[0]) === JSON.stringify({not_found: "no items"})) {
         return (
@@ -10,13 +11,23 @@ function Items({ items }) {
             </div>
         )
     } else if (items[0] !== undefined) {
-        return (
-            <div id="items-list" className="container">
-                {items.map((item) => (
-                    <Item item={item} key={item.id}/>
-                ))}
-            </div>
-        )
+        if (type === "items") {
+            return (
+                <div id="items-list" className="container">
+                    {items.map((item) => (
+                        <Item item={item} key={item.id}/>
+                    ))}
+                </div>
+            )
+        } else if (type === "rests") {
+            return (
+                <div id="items-list" className="container">
+                    {items.map((item) => (
+                        <RestaurantCard rest={item} key={item.id}/>
+                    ))}
+                </div>
+            )
+        }
     }
 }
 

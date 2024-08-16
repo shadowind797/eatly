@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import api from "../../api.js";
+import count_load from "../../assets/count_load.gif";
 
-function CartItem({cartItem, onChange}){
+function CartItem({cartItem, onChange}) {
     const [dish, setDish] = useState({});
     const [quantity, setQuantity] = useState(cartItem.quantity);
     const [deleted, setDeleted] = useState(false);
@@ -9,11 +10,15 @@ function CartItem({cartItem, onChange}){
     const minus = `${import.meta.env.VITE_API_URL}/media/img/RemoveFromCart.svg`
     const cross = `${import.meta.env.VITE_API_URL}/media/img/cross.svg`
 
+    const [itemLoad, setItemLoad] = useState(false)
+    const [countLoad, setCountLoad] = useState(false)
+
     useEffect(() => {
-        getItems()
+        getItem()
     }, []);
 
-    const getItems = () => {
+    const getItem = () => {
+        setItemLoad(true)
         api
             .get("api/items/", {params: {id: cartItem.item}})
             .then((res) => res.data)
@@ -21,6 +26,7 @@ function CartItem({cartItem, onChange}){
                 data.map((item) => {
                     if (item.id === cartItem.item) {
                         setDish(item)
+                        setItemLoad(false)
                     }
                 })
             })
@@ -28,36 +34,44 @@ function CartItem({cartItem, onChange}){
     }
 
     const deleteItem = () => {
+        setItemLoad(true)
         api.delete("api/items/cart/delete",
             {params: {id: cartItem.id}})
             .then((res) => {
                 if (res.status === 202) {
                     onChange()
+                    setDeleted(true)
+                    setItemLoad(false)
+                } else if (res.status === 404) {
                 }
-                else if (res.status === 404) {}
-            }).catch((err) => {});
-        setDeleted(true)
+            }).catch((err) => {
+        });
     }
 
     const addQuantity = () => {
+        setCountLoad(true)
         api.post("api/items/cart/add", {item: dish.id, quantity: quantity + 1},
-                                                    {params: {method: "addQuant"}})
-                                                                .then((res) => {
-            if (res.status === 201) {
-                onChange()
-            } else {
-                alert("Failed to create item");
-            }
-        }).catch((err) => {});
+            {params: {method: "addQuant"}})
+            .then((res) => {
+                if (res.status === 201) {
+                    onChange()
+                    setCountLoad(false)
+                } else {
+                    alert("Failed to create item");
+                }
+            }).catch((err) => {
+        });
     }
 
     const removeQuantity = () => {
+        setCountLoad(true)
         if (quantity > 1) {
             api.post("api/items/cart/add", {item: dish.id, quantity: quantity - 1},
                 {params: {method: "addQuant"}})
                 .then((res) => {
                     if (res.status === 201) {
                         onChange()
+                        setCountLoad(false)
                     } else {
                         alert("Failed to create item");
                     }
@@ -68,7 +82,7 @@ function CartItem({cartItem, onChange}){
         }
     }
 
-    if (deleted === false) {
+    if (deleted === false && !itemLoad) {
         return (
             <div className="item">
                 <button className="cross" onClick={() => deleteItem()}>
@@ -89,7 +103,8 @@ function CartItem({cartItem, onChange}){
                         <img src={minus} alt=""/>
                     </button>
                     <div>
-                        <p>{quantity}</p>
+                        <p>{countLoad ? (
+                            <img style={{width: "60px", marginLeft: "10px"}} src={count_load} alt=""/>) : quantity}</p>
                     </div>
                     <button onClick={() => {
                         setQuantity(quantity + 1)
@@ -100,8 +115,12 @@ function CartItem({cartItem, onChange}){
                 </div>
             </div>
         )
-    } else {
-        return (<p></p>)
+    } else if (itemLoad) {
+        return (
+            <div className="item">
+                <img src={count_load} style={{width: "100px"}} alt=""/>
+            </div>
+        )
     }
 }
 

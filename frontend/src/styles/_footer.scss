@@ -4,6 +4,9 @@
   background-color: #eaeaea;
   padding: 100px;
   padding-bottom: 60px;
+  position: relative;
+  z-index: 10;
+
   #up-footer {
     display: flex;
     justify-content: flex-start;

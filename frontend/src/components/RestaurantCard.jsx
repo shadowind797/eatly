@@ -1,17 +1,20 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import api from "../api.js";
+import cat_load from "../assets/header-loading.gif";
 
 function RestaurantCard({rest}) {
     const [style, setStyle] = useState({});
     const [category, setCategory] = useState("");
     const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
     const bookmark = `${import.meta.env.VITE_API_URL}/media/img/Bookmark.svg`
+    const [catLoading, setCatLoading] = useState(false)
 
     useEffect(() => {
         getRestsCats()
     }, []);
 
     const getRestsCats = () => {
+        setCatLoading(true)
         api
             .get("api/restaurants/categories/")
             .then((res) => res.data)
@@ -28,15 +31,22 @@ function RestaurantCard({rest}) {
                         }
                     }
                 })
+                setCatLoading(false)
             })
             .catch((err) => alert(err));
     }
 
     return (
         <div className="rest-card">
-            <img src={rest.image} alt="" className="rest-img"/>
+            <img
+                src={rest.image.includes(import.meta.env.VITE_API_URL) ? rest.image : `${import.meta.env.VITE_API_URL}${rest.image}`}
+                alt="" className="rest-img"/>
             <div className="info">
-                <div className="cat" style={style}>{category}</div>
+                {catLoading ? (
+                    <img src={cat_load} style={{width: "70px"}} alt=""/>
+                ) : (
+                    <div className="cat" style={style}>{category}</div>
+                )}
                 <div className="text">
                     <h4>{rest.name}</h4>
                     <div className="widgets">

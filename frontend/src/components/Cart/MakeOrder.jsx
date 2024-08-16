@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import Select from "react-select";
 import item from "../Item.jsx";
 import {Navigate} from "react-router-dom";
+import price_load from "../../assets/header-loading.gif";
+
 
 /**
  * MakeOrder component handles the process of making an order, including user information, address selection, and order submission.
@@ -12,7 +14,7 @@ import {Navigate} from "react-router-dom";
  * @returns {JSX.Element} The rendered component.
  */
 
-function MakeOrder({subtotal}) {
+function MakeOrder({subtotal, total_load}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
@@ -74,7 +76,10 @@ function MakeOrder({subtotal}) {
             .then((data) => {
                 let list = []
                 data.map((item) => {
-                    list = [...list, {value: item.id, label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`}]
+                    list = [...list, {
+                        value: item.id,
+                        label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`
+                    }]
                     setAddressList(list);
                 })
             })
@@ -138,12 +143,12 @@ function MakeOrder({subtotal}) {
             .then((res) => {
                 if (res.status === 201) {
                     getAddressList()
-                }
-                else if (res.status === 409) {
+                } else if (res.status === 409) {
                     setAddressAlreadyExists(true)
                 }
             })
-            .catch((err) => {})
+            .catch((err) => {
+            })
     }
 
     const selectStyles = {
@@ -160,13 +165,13 @@ function MakeOrder({subtotal}) {
             height: "55px",
             borderRadius: "10px",
             ":hover": {
-                    border: "2px solid #6C5FBC",
-                },
+                border: "2px solid #6C5FBC",
+            },
             "::placeholder": {
                 color: "#C2C3CB",
             },
         }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+        option: (styles, {data, isDisabled, isFocused, isSelected}) => ({
             ...styles,
             backgroundColor: "#fff",
             color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -179,12 +184,13 @@ function MakeOrder({subtotal}) {
 
 
     if (toComplete) {
-        return <Navigate to="/complete-order" />
+        return <Navigate to="/complete-order"/>
     } else if (!addAddress) {
         return (
             <div id="order">
                 <div id="costs">
-                    <p className="error" style={applied === false ? {display: "block"} : {display: "none"}}>Invalid coupon</p>
+                    <p className="error" style={applied === false ? {display: "block"} : {display: "none"}}>Invalid
+                        coupon</p>
                     <form>
                         <div id="input">
                             <img src={cpImg} alt=""/>
@@ -198,15 +204,23 @@ function MakeOrder({subtotal}) {
                         }}>Apply
                         </button>
                     </form>
-                    <h6>Subtotal: <span>${subtotal}</span></h6>
-                    <h6>Delivery: <span>${(subtotal * 0.1).toFixed(2)}</span></h6>
+                    <h6>Subtotal: {total_load ? (
+                        <img src={price_load} alt=""/>) : (
+                        <span>${subtotal}</span>)}
+                    </h6>
+                    <h6>Delivery: {total_load ? (
+                        <img src={price_load} alt=""/>) : (
+                        <span>${(subtotal * 0.1).toFixed(2)}</span>)}
+                    </h6>
                     <h6 style={applied ? {display: "flex"} : {display: "none"}}>
                         Coupon:
                         <span style={{color: "green"}}>
                             -${discount}
                         </span>
                     </h6>
-                    <h6 className="total">Total: <span>${getTotal()}</span></h6>
+                    <h6 className="total">Total: {total_load ? (
+                        <img src={price_load} alt=""/>) : (
+                        <span>${getTotal()}</span>)}</h6>
                 </div>
                 <div id="pay">
                     <div id="userInfo">
@@ -230,7 +244,8 @@ function MakeOrder({subtotal}) {
                             />
                             <button id="add-address" onClick={() => setAddAddress(true)}>Add address</button>
                         </div>
-                        <p className="error" style={noItems ? {display: "block"} : {display: "none"}}>Your cart is empty</p>
+                        <p className="error" style={noItems ? {display: "block"} : {display: "none"}}>Your cart is
+                            empty</p>
                         <p className="error" style={alreadyExists ? {display: "block"} : {display: "none"}}>
                             You already have staged order. Go <a href="/complete-order">here</a> to complete it
                         </p>
@@ -253,14 +268,22 @@ function MakeOrder({subtotal}) {
                     <form action={() => createAddress()}>
                         <div id="inputs">
                             <input type="text" placeholder="Building" value={building_address}
-                                   onChange={(e) => {setBuildingAddress(e.target.value)}} />
+                                   onChange={(e) => {
+                                       setBuildingAddress(e.target.value)
+                                   }}/>
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
-                                       onChange={(e) => {setEntrance(e.target.value)}} />
+                                       onChange={(e) => {
+                                           setEntrance(e.target.value)
+                                       }}/>
                                 <input type="text" placeholder="Floor" value={floor}
-                                       onChange={(e) => {setFloor(e.target.value)}} />
+                                       onChange={(e) => {
+                                           setFloor(e.target.value)
+                                       }}/>
                                 <input type="text" placeholder="Flat" value={flat}
-                                       onChange={(e) => {setFlat(e.target.value)}} />
+                                       onChange={(e) => {
+                                           setFlat(e.target.value)
+                                       }}/>
                             </div>
                         </div>
                         <div className="btns">
@@ -268,7 +291,8 @@ function MakeOrder({subtotal}) {
                             <button className="add" type="submit" onClick={() => {
                                 createAddress()
                                 setAddAddress(false)
-                            }}>Add address</button>
+                            }}>Add address
+                            </button>
                         </div>
                     </form>
                 </div>

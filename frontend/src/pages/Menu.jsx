@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import api from "../api";
 import Item from "../components/Item";
-import TopRests from "../components/Home/TopRests.jsx";
-import TopDishes from "../components/Home/TopDishes.jsx";
+import TopRests from "../components/TopRests.jsx";
+import TopDishes from "../components/TopDishes.jsx";
 import Header from "../components/Header.jsx";
 import BaseHeader from "../components/BaseHeader.jsx";
 import MainDiv from "../components/Menu/MainDiv.jsx";
 import Items from "../components/Menu/Items.jsx";
 import Footer from "../components/Footer.jsx";
+import header_load from "../assets/header-loading.gif"
 
 function Menu() {
     const [items, setItems] = useState([]);
@@ -50,22 +51,42 @@ function Menu() {
     if (items.length === 0) {
         return (
             <div id="menu">
-                <BaseHeader page="menu" />
-                <Header page="menu" />
-                <MainDiv setItems={setItems} updateSort={updateSort} />
-                <TopRests />
-                <TopDishes />
-                <Footer />
+                <BaseHeader page="menu"/>
+                <Header page="menu"/>
+                <MainDiv setItems={setItems} updateSort={updateSort}/>
+                <TopRests/>
+                <TopDishes/>
+                <Footer/>
             </div>
         );
-    } else if (items.length > 0) {
+    } else if (items[0] === 'load items') {
         return (
             <div id="menu">
-                <BaseHeader page="menu" />
-                <Header page="menu" />
-                <MainDiv setItems={setItems} updateSort={updateSort} />
-                <Items items={newItems}/>
-                <Footer />
+                <BaseHeader page="menu"/>
+                <Header page="menu"/>
+                <MainDiv setItems={setItems} updateSort={updateSort}/>
+                <img src={header_load} style={{width: "400px", margin: "auto"}} alt=""/>
+                <Footer/>
+            </div>
+        );
+    } else if (newItems.length > 0 && newItems[0].photo) {
+        return (
+            <div id="menu">
+                <BaseHeader page="menu"/>
+                <Header page="menu"/>
+                <MainDiv setItems={setItems} updateSort={updateSort}/>
+                <Items type="items" items={newItems}/>
+                <Footer/>
+            </div>
+        );
+    } else if (newItems.length > 0 && newItems[0].image) {
+        return (
+            <div id="menu">
+                <BaseHeader page="menu"/>
+                <Header page="menu"/>
+                <MainDiv setItems={setItems} updateSort={updateSort}/>
+                <Items type="rests" items={newItems}/>
+                <Footer/>
             </div>
         );
     }
