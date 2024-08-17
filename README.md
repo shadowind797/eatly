@@ -26,7 +26,8 @@
 - Activate it: ``<env_name>\Scripts\activate.bat``
 - Install all python libraries using ``pip install -r backend/requirements.txt && pip install mysqlclient``
 - Run backend server: ``python backend/manage.py runserver``
-- From other terminal window run frontend server ``cd <path>/eatly/frontend && npm run dev``
+- From other terminal window go to frontend folder: ``cd <path>/eatly/frontend``
+- Then install dependencies and run frontend server ``npm install && npm run dev``
 - That's all, go via link that Vite shares to you)
 
 *If you use UbuntuServer you also can run Layerfile to start project*
