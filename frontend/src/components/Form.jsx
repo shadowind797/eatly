@@ -6,8 +6,10 @@ import LogSlider from "./LogIn_SignUp/Slider.jsx";
 
 import google from "../assets/google.svg"
 import github from "../assets/github.svg"
+import show_pass from "../assets/eye-off.svg"
+import hide_pass from "../assets/eye-show.svg"
 
-function Form({ route, method }) {
+function Form({route, method}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [password2, setPassword2] = useState("")
@@ -19,12 +21,14 @@ function Form({ route, method }) {
     const name = method === "login" ? "Log In" : "Sign Up"
     const [error, setError] = useState("")
 
+    const [passState, setPassState] = useState("password")
+
     const handleSubmit = async (e) => {
         setLoading(true)
         e.preventDefault();
 
         if (password === password2 || method === "login") {
-            if (email.includes("@") && email.includes(".") || email.length === 0) {
+            if (email.includes("@") && email.includes(".")) {
                 if (phone.includes("+") && phone.length > 0 || phone === "") {
                     if (username.length > 0) {
                         if (password.length > 0) {
@@ -111,7 +115,7 @@ function Form({ route, method }) {
         },
     ]
 
-    return(
+    return (
         <div id="log">
             <div id="form">
                 <h1>{name} to EATLY</h1>
@@ -124,24 +128,30 @@ function Form({ route, method }) {
                         {fields.map(field => {
                             if (method === "login") {
                                 if (field.id === 2 || field.id === 3 || field.id === 5) {
-                                    return <div></div>
+                                    return <div key={field.id}></div>
                                 } else {
                                     return (
-                                        <div id="input">
-                                            <input key={field.id}
-                                                   value={field.value}
+                                        <div id="input" key={field.id}>
+                                            <input value={field.value}
                                                    onChange={field.onChange}
-                                                   type={field.type}
+                                                   type={field.placeholder === "PASSWORD" ? passState : field.type}
                                                    placeholder={field.placeholder}
                                             />
+                                            {field.placeholder === "PASSWORD" &&
+                                                <img src={passState === "password" ? show_pass : hide_pass}
+                                                     style={{width: "30px", cursor: "pointer"}}
+                                                     onClick={() => {
+                                                         const passType = passState === "password" ? "text" : "password"
+                                                         setPassState(passType)
+                                                     }}
+                                                     alt=""/>}
                                         </div>
                                     )
                                 }
                             } else {
                                 return (
-                                    <div id="input">
-                                        <input key={field.id}
-                                               value={field.value}
+                                    <div id="input" key={field.id}>
+                                        <input value={field.value}
                                                onChange={field.onChange}
                                                type={field.type}
                                                placeholder={field.placeholder}
@@ -153,22 +163,22 @@ function Form({ route, method }) {
                     </div>
                     <div id="action">
                         <p className="auth-error">{error.length > 0 ? error : ""}</p>
-                        <button type="submit">{name}</button>
+                        <button type="submit">{loading ? `Trying to ${name}...` : name}</button>
                         <p className="another">
                             {method === "login" ? "Don't have an account? " : "Already have an account? "}
                             <a href={`/${method === "login" ? "register" : "login"}`}>
-                            {name === "Log In" ? "Sign Up" : "Log In"}
+                                {name === "Log In" ? "Sign Up" : "Log In"}
                             </a>
                         </p>
                     </div>
                 </form>
-                <div id="footer">
+                <div id="login-footer">
                     <a href="/privacy-policy">Privacy Policy</a>
                     <p>Made by shadowind in 2024</p>
                 </div>
             </div>
             <div id="decor">
-                <LogSlider />
+                <LogSlider/>
             </div>
         </div>
     )

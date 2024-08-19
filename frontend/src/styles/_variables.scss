@@ -7,8 +7,10 @@ $black_menu: #606060;
 $black_pars: #636363;
 $background: #F9F9F9;
 
-body {
-  background: #F9F9F9
+html, body, #cart, #main, #root, #log, #complete-order {
+  background: #F9F9F9;
+  height: 100%;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6, button, input {

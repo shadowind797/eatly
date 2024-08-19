@@ -2,14 +2,16 @@
 
 #complete-order {
   display: flex;
+
   #order-info {
     margin-left: auto;
-    width: 700px;
-    height: 53.2em;
+    width: 800px;
+    height: 100%;
     border-left: 1px solid #CBCBCB;
     border-bottom: 1px solid #CBCBCB;
     background-color: #fff;
-    padding: 50px 70px;
+    padding: 50px 70px 0;
+    box-sizing: border-box;
 
     .error {
       color: red;
@@ -290,6 +292,7 @@
 
   #google-map {
     padding: 80px;
+
     div {
       width: 240%;
       height: 550px;

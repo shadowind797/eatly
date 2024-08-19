@@ -42,10 +42,10 @@ function LogSlider() {
                 <div className="slider__wrapper">
                     <div className="slider__items">
                         {ads.map(ad => (
-                            <div className="slider__item">
+                            <div className="slider__item" key={ad.id}>
                                 <div className="slider__item-container">
                                     <div className="slider__item-content">
-                                        <Plate />
+                                        <Plate/>
                                         <h1>Find Foods With Love</h1>
                                         <p>Eatly Is The Food Delivery Dashboard And Having
                                             More Than 2K+ Dishes Including Asian, Chinese, Italians
