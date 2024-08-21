@@ -25,11 +25,11 @@ function Form({route, method}) {
 
     const handleSubmit = async (e) => {
         setLoading(true)
-        e.preventDefault();
+        e.preventDefault()
 
         if (password === password2 || method === "login") {
-            if (email.includes("@") && email.includes(".")) {
-                if (phone.includes("+") && phone.length > 0 || phone === "") {
+            if (email.includes("@") && email.includes(".") || method === "login") {
+                if (phone.includes("+") && phone.length > 5 || phone === "") {
                     if (username.length > 0) {
                         if (password.length > 0) {
                             try {
