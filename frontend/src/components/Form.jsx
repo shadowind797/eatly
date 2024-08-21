@@ -24,7 +24,6 @@ function Form({route, method}) {
     const [passState, setPassState] = useState("password")
 
     const handleSubmit = async (e) => {
-        setLoading(true)
         e.preventDefault()
 
         if (password === password2 || method === "login") {
@@ -32,6 +31,7 @@ function Form({route, method}) {
                 if (phone.includes("+") && phone.length > 5 || phone === "") {
                     if (username.length > 0) {
                         if (password.length > 0) {
+                            setLoading(true)
                             try {
                                 const res = await api.post(route, {username, password, email, phone})
                                 if (method === "login") {

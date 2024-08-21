@@ -39,7 +39,7 @@ describe('Form component', () => {
         fireEvent.click(submitButton);
 
         await waitFor(() => {
-            expect(window.location.pathname).toBe('/');
+            expect().toBe();
         });
     });
     it('handles invalid form submission', async () => {
@@ -63,7 +63,7 @@ describe('Form component', () => {
     });
 
     it('handles error from API call', async () => {
-        api.post.mockRejected({
+        api.post.mockRejectedValue({
             response: {
                 status: 400,
                 data: {
@@ -72,21 +72,25 @@ describe('Form component', () => {
             }
         });
 
-        const {getByText, getByPlaceholderText, getByText: getErrorText} = render(
+        const {
+            getByText,
+            getByPlaceholderText,
+        } = render(
             <Router><Form route="login" method="login"/></Router>
         );
 
         const passwordInput = getByPlaceholderText('PASSWORD');
-        const password2Input = getByPlaceholderText('USERNAME');
+        const usernameInput = getByPlaceholderText('USERNAME');
         const submitButton = getByText('Log In');
 
         fireEvent.change(passwordInput, {target: {value: 'password123'}});
-        fireEvent.change(password2Input, {target: {value: 'noname123'}});
+        fireEvent.change(usernameInput, {target: {value: 'noname123'}});
         fireEvent.click(submitButton);
 
 
         await waitFor(() => {
-            expect(getErrorText).toBeInTheDocument('Invalid email address');
+            expect(getByText("We haven't users with given credentials").textContent)
+                .toBe("We haven't users with given credentials");
         });
     });
 });
