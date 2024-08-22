@@ -53,7 +53,7 @@ function AdSlider() {
                 <div className="slider__wrapper">
                     <div className="slider__items">
                         {ads.map(ad => (
-                            <div className="slider__item">
+                            <div className="slider__item" key={ad.id}>
                                 <div className="slider__item-container">
                                     <div style={{backgroundImage: ad.bg}} className="slider__item-content">
                                         <h2>{ad.text1}</h2>

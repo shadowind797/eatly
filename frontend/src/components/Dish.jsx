@@ -45,7 +45,8 @@ function Dish({item}) {
                 })
                 setCatLoading(false)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const checkInCart = (addit) => {

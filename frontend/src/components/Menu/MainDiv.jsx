@@ -41,7 +41,8 @@ function MainDiv({setItems, updateSort}) {
                     updateSort(sort, sortDir)
                     setItems(data)
                 })
-                .catch((err) => alert(err));
+                .catch((err) => {
+                });
         } else {
             api
                 .get("api/items/search", {params: {search: search, search_mode: getSearchMode()}})
@@ -50,7 +51,8 @@ function MainDiv({setItems, updateSort}) {
                     setItems(data)
                     updateSort(sort, sortDir)
                 })
-                .catch((err) => alert(err));
+                .catch((err) => {
+                });
         }
         updateSort(sort, sortDir)
     }
@@ -189,21 +191,24 @@ function MainDiv({setItems, updateSort}) {
                 </div>
                 <div id="search">
                     <form>
-                        <input type="text" placeholder="Search..." value={search} onChange={e => {
-                            setSearch(e.target.value);
-                        }}/>
-                        <button type="submit" onClick={e => searchItems(e)}>Search</button>
+                        <input type="text" placeholder="Search..." data-testid="search-input" value={search}
+                               onChange={e => {
+                                   setSearch(e.target.value);
+                               }}/>
+                        <button type="submit" data-testid="search-btn" onClick={e => searchItems(e)}>Search</button>
                     </form>
                     <div id="search-btns">
-                        <button id="food-search" className={foodSearch ? "active" : "passive"} onClick={() => {
-                            setFoodSearch(true);
-                            setRestSearch(false);
-                        }}>Food
+                        <button id="food-search" data-testid="SM-food" className={foodSearch ? "active" : "passive"}
+                                onClick={() => {
+                                    setFoodSearch(true);
+                                    setRestSearch(false);
+                                }}>Food
                         </button>
-                        <button id="rest-search" className={restSearch ? "active" : "passive"} onClick={() => {
-                            setFoodSearch(false);
-                            setRestSearch(true);
-                        }}>Restaurants
+                        <button id="rest-search" data-testid="SM-rests" className={restSearch ? "active" : "passive"}
+                                onClick={() => {
+                                    setFoodSearch(false);
+                                    setRestSearch(true);
+                                }}>Restaurants
                         </button>
                     </div>
                 </div>

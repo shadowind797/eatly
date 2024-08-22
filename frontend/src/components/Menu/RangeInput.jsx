@@ -1,5 +1,3 @@
-import '../../styles/_menu.scss';
-
 const RangeSlider = (props) => {
     const percentage = 100 * (props.value - props.min) / (props.max - props.min);
     const rangerStyle = {
@@ -7,7 +5,9 @@ const RangeSlider = (props) => {
     };
 
     return (
-        <input className={`range-slider-input ${props.customClasses ? props.customClasses : ''}`} style={rangerStyle} type='range' value={props.value} min={props.min} max={props.max} onChange={props.onChange} disabled={props.disabled} />
+        <input className={`range-slider-input ${props.customClasses ? props.customClasses : ''}`} style={rangerStyle}
+               type='range' value={props.value} min={props.min} max={props.max} onChange={props.onChange}
+               disabled={props.disabled}/>
     );
 }
 

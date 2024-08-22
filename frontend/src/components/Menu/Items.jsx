@@ -7,7 +7,7 @@ function Items({items, type}) {
         return (
             <div>
                 <h2>No items found.</h2>
-                <p>Please try searching for something else.</p>
+                <p>Please, try searching for something else.</p>
             </div>
         )
     } else if (items[0] !== undefined) {

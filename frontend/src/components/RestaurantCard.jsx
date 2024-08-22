@@ -33,7 +33,8 @@ function RestaurantCard({rest}) {
                 })
                 setCatLoading(false)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     return (
