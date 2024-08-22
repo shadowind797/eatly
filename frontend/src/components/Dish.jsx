@@ -4,7 +4,7 @@ import cat_load from "../assets/header-loading.gif";
 import inCart_load from "../assets/count_load.gif";
 
 
-function Item({item}) {
+function Dish({item}) {
     const like = `${import.meta.env.VITE_API_URL}/media/img/Heart.svg`
     const addToCart = `${import.meta.env.VITE_API_URL}/media/img/AddToCart.svg`
     const alreadyInCart = `${import.meta.env.VITE_API_URL}/media/img/tick.svg`
@@ -104,7 +104,8 @@ function Item({item}) {
                     {inCartLoading ? (
                         <img style={{width: "45px", marginLeft: "80px"}} src={inCart_load} alt=""/>
                     ) : (
-                        <button onClick={inCart ? {} : createCartItem}>
+                        <button data-testid="add-to-cart-button" onClick={inCart ? () => {
+                        } : createCartItem}>
                             <img src={inCart ? alreadyInCart : addToCart} alt=""/>
                         </button>
                     )}
@@ -114,4 +115,4 @@ function Item({item}) {
     )
 }
 
-export default Item
+export default Dish

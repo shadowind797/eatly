@@ -15,17 +15,15 @@ function TopRests() {
     const getRests = () => {
         setLoading(true)
         api
-            .get("api/restaurants/")
+            .get("api/restaurants/", {params: {method: "top"}})
             .then((res) => res.data)
             .then((data) => {
                 setRests(data)
                 setLoading(false)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
-
-    const topRests = rests.sort((a, b) => (b.rating - a.rating))
-    const slicedRests = topRests.slice(0, 3);
 
     if (loading) {
         return (
@@ -39,7 +37,7 @@ function TopRests() {
             <div id="top-rests" className="container">
                 <h2>Our Top <span>Restaurants</span></h2>
                 <div id="tops">
-                    {slicedRests.map((rest) => <RestaurantCard rest={rest} key={rest.id}/>)}
+                    {rests.map((rest) => <RestaurantCard rest={rest} key={rest.id}/>)}
                 </div>
                 <div className="view-all">
                     <a href="#">

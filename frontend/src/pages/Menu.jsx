@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import api from "../api";
-import Item from "../components/Item";
+import Dish from "../components/Dish.jsx";
 import TopRests from "../components/TopRests.jsx";
 import TopDishes from "../components/TopDishes.jsx";
 import Header from "../components/Header.jsx";

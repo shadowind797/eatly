@@ -1,7 +1,7 @@
 import api from "../../api.js";
 import {useEffect, useState} from "react";
 import Select from "react-select";
-import item from "../Item.jsx";
+import item from "../Dish.jsx";
 import {Navigate} from "react-router-dom";
 import price_load from "../../assets/header-loading.gif";
 

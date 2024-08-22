@@ -1,4 +1,4 @@
-import Item from "../Item.jsx";
+import Dish from "../Dish.jsx";
 import RestaurantCard from "../RestaurantCard.jsx";
 
 function Items({items, type}) {
@@ -15,7 +15,7 @@ function Items({items, type}) {
             return (
                 <div id="items-list" className="container">
                     {items.map((item) => (
-                        <Item item={item} key={item.id}/>
+                        <Dish item={item} key={item.id}/>
                     ))}
                 </div>
             )

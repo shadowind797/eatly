@@ -1,4 +1,4 @@
-import Item from "./Item.jsx";
+import Dish from "./Dish.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif"
@@ -39,7 +39,7 @@ function TopDishes() {
             <div id="top-dishes" className="container">
                 <h2>Our Top <span>Dishes</span></h2>
                 <div className="tops">
-                    {items.map((item) => <Item item={item} key={item.id}/>)}
+                    {items.map((item) => <Dish item={item} key={item.id}/>)}
                 </div>
                 <div className="view-all">
                     <a href="#">
