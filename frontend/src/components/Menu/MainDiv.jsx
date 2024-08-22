@@ -18,8 +18,7 @@ function MainDiv({setItems, updateSort}) {
 
     const [catFilter, setCatFilter] = useState("")
     const [cost, setCost] = useState(20)
-    const [costFilter, setCostFilter] = useState([0, 1000]);
-    const [ratingFilter, setRatingFilter] = useState(0);
+    const [costFilter, setCostFilter] = useState([15, 25]);
 
     const [sort, setSort] = useState("a-z");
     const [sortDir, setSortDir] = useState("asc");
@@ -61,7 +60,7 @@ function MainDiv({setItems, updateSort}) {
         e.preventDefault();
         setItems(["load items"])
         api
-            .post("api/items/search/filters/", {filters: {category: catFilter, cost: costFilter, rating: ratingFilter}})
+            .post("api/items/search/filters/", {filters: {category: catFilter, cost: costFilter}})
             .then((res) => res.data)
             .then((data) => {
                 setItems(data)
@@ -217,7 +216,8 @@ function MainDiv({setItems, updateSort}) {
                 <div className="categories">
                     <h4>Category</h4>
                     <div className="category-filter">
-                        <div className={catFilter === "Fast Food" ? "cat-div active" : "cat-div"} id="fastfood"
+                        <div data-testid="FF_FilterBtn"
+                             className={catFilter === "Fast Food" ? "cat-div active" : "cat-div"} id="fastfood"
                              onClick={() => {
                                  setCatFilter("Fast Food");
                              }}>
@@ -303,7 +303,7 @@ function MainDiv({setItems, updateSort}) {
                         <li>$90</li>
                     </ul>
                 </div>
-                <button onClick={e => filterItems(e)}>Filter</button>
+                <button data-testid="filter-btn" onClick={e => filterItems(e)}>Filter</button>
             </div>
         </div>
     )

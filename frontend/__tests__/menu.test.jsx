@@ -21,38 +21,24 @@ describe('Menu component', () => {
                         "photo": "http://127.0.0.1:8000/media/img/food/foodimg1.png",
                         "category": 7,
                         "rating": 5.0
-                    }, {
-                        "id": 5,
-                        "title": "Swe Dish",
-                        "description": "-",
-                        "price": 19.0,
-                        "photo": "http://127.0.0.1:8000/media/img/food/SweDish.png",
-                        "category": 1,
-                        "rating": 4.9
-                    }, {
-                        "id": 13,
-                        "title": "Steak",
-                        "description": "-",
-                        "price": 14.0,
-                        "photo": "http://127.0.0.1:8000/media/img/food/foodimg1.png",
-                        "category": 1,
-                        "rating": 4.9
-                    }, {
-                        "id": 8,
-                        "title": "Cheeseburger",
-                        "description": "-",
-                        "price": 14.0,
-                        "photo": "http://127.0.0.1:8000/media/img/food/ChikenHell.png",
-                        "category": 3,
-                        "rating": 4.9
-                    }, {
-                        "id": 1,
-                        "title": "Chicken Hell",
+                    }]
+            });
+        }
+        return Promise.reject(new Error('Not found'));
+    });
+
+    api.post.mockImplementation((url) => {
+        if (url.includes('api/items/search/filters/')) {
+            return Promise.resolve({
+                status: 200, data: [
+                    {
+                        "id": 27,
+                        "title": "Cookie",
                         "description": "-",
                         "price": 12.0,
-                        "photo": "http://127.0.0.1:8000/media/img/food/ChikenHell.png",
-                        "category": 2,
-                        "rating": 4.8
+                        "photo": "http://127.0.0.1:8000/media/img/food/foodimg1.png",
+                        "category": 7,
+                        "rating": 5.0
                     }]
             });
         }
@@ -99,6 +85,64 @@ describe('Menu component', () => {
 
         await waitFor(async () => {
             expect(api.get).toHaveBeenCalledWith("api/items/search", {params: {search: "burger", search_mode: "rests"}})
+        })
+    })
+
+    it('searches dishes by 2-word search', async () => {
+        const {getByTestId} = render(<Router><Menu/></Router>);
+
+        const searchInput = getByTestId("search-input");
+        const searchButton = getByTestId("search-btn");
+
+        fireEvent.change(searchInput, {target: {value: 'burger chicken'}});
+        fireEvent.click(searchButton)
+
+        await waitFor(async () => {
+            expect(api.get).toHaveBeenCalledWith("api/items/search", {
+                params: {
+                    search: "burger",
+                    also: "chicken",
+                    search_mode: "food"
+                }
+            })
+        })
+    })
+
+    it("filters food by main filter", async () => {
+        const {getByTestId} = render(<Router><Menu/></Router>);
+
+        const FF_FilterBtn = getByTestId("FF_FilterBtn")
+        const filter = getByTestId("filter-btn")
+
+        fireEvent.click(FF_FilterBtn)
+        fireEvent.click(filter)
+
+        await waitFor(async () => {
+            expect(api.post).toHaveBeenCalledWith("api/items/search/filters/", {
+                filters: {category: "Fast Food", cost: [15, 25]}
+            })
+        })
+    })
+
+    it("filters food by secondary filter", async () => {
+        const {asFragment, getByTestId, getByText} = render(<Router><Menu/></Router>);
+
+        const filterSelect = document.getElementsByClassName("css-b62m3t-container")[0]
+        const filter = getByTestId("filter-btn")
+
+        fireEvent.click(filterSelect)
+
+        expect(asFragment()).toMatchSnapshot();
+
+        const dessertCategory = getByText("Desserts")
+        fireEvent.click(dessertCategory)
+
+        fireEvent.click(filter)
+
+        await waitFor(async () => {
+            expect(api.post).toHaveBeenCalledWith("api/items/search/filters/", {
+                filters: {category: "Desserts", cost: [15, 25]}
+            })
         })
     })
 })
