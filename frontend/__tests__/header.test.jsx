@@ -29,7 +29,7 @@ describe('Header component', () => {
         });
     });
 
-    it("renders correctly", async () => {
+    it("renders without crashing", async () => {
         await act(async () => {
             render(<Router><Header page="home"/></Router>);
         });

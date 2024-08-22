@@ -6,7 +6,7 @@ import Form from '../src/components/Form.jsx';
 
 jest.mock('../src/api');
 
-describe('Form component', () => {
+describe('Login form component', () => {
     it('renders without crashing', () => {
         render(<Router><Form route="login" method="login"/></Router>);
     });
