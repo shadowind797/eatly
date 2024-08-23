@@ -30,7 +30,8 @@ function CartItem({cartItem, onChange}) {
                     }
                 })
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const deleteItem = () => {
@@ -85,7 +86,7 @@ function CartItem({cartItem, onChange}) {
     if (deleted === false && !itemLoad) {
         return (
             <div className="item">
-                <button className="cross" onClick={() => deleteItem()}>
+                <button data-testid="cross" className="cross" onClick={() => deleteItem()}>
                     <img src={cross} alt=""/>
                 </button>
                 <div className="main">
@@ -96,7 +97,7 @@ function CartItem({cartItem, onChange}) {
                     </div>
                 </div>
                 <div className="quant">
-                    <button onClick={() => {
+                    <button data-testid="minus" onClick={() => {
                         setQuantity(quantity - 1)
                         removeQuantity()
                     }}>
@@ -106,7 +107,7 @@ function CartItem({cartItem, onChange}) {
                         <p>{countLoad ? (
                             <img style={{width: "60px", marginLeft: "10px"}} src={count_load} alt=""/>) : quantity}</p>
                     </div>
-                    <button onClick={() => {
+                    <button data-testid="plus" onClick={() => {
                         setQuantity(quantity + 1)
                         addQuantity()
                     }}>

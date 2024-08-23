@@ -58,9 +58,7 @@ function Cart() {
                 <Header/>
                 <div id="main">
                     <div style={creatingOrder ? {display: "none"} : {display: "flex"}}>
-                        <ItemsList items={cartItems} onChange={() => {
-                            getCartItems()
-                        }}/>
+                        <ItemsList items={cartItems} onChange={getCartItems}/>
                     </div>
                     <div id="main" style={!creatingOrder ? {display: "none"} : {display: "flex"}}>
                         <img src={load} style={{width: "500px", paddingTop: "13%", paddingLeft: "36%"}} alt=""/>

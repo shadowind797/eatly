@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DishInCart component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="item"
+  >
+    <img
+      alt=""
+      src="test-file-stub"
+      style="width: 100px;"
+    />
+  </div>
+</DocumentFragment>
+`;
