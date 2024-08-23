@@ -86,7 +86,7 @@ function MainDiv({setItems, updateSort}) {
 
     const sortSelectOptions = [
         {label: "A-Z", value: "a-z"},
-        {label: "Price", value: "price"},
+        {label: "Cost", value: "price"},
         {label: "Rating", value: "rating"},
     ]
     const sortDirSelectOptions = [
@@ -174,12 +174,10 @@ function MainDiv({setItems, updateSort}) {
     const changeSortMethod = (method) => {
         setSort(method.value);
         updateSort(method.value, sortDir);
-        console.log(`${method.value} - sort, ${sortDir} - dir`)
     }
     const changeSortSide = (side) => {
         setSortDir(side.value);
         updateSort(sort, side.value);
-        console.log(`${sort} - sort, ${side.value} - dir`)
     }
 
     return (
@@ -237,7 +235,7 @@ function MainDiv({setItems, updateSort}) {
                             <img src={categoryImgs[2].src} alt=""/>
                             <p>Meat</p>
                         </div>
-                        <div id="select">
+                        <div id="select" data-testid="filter-select">
                             <p className="other">Other categories</p>
                             <Select
                                 options={filterSelectOptions}
@@ -258,7 +256,7 @@ function MainDiv({setItems, updateSort}) {
                 <div id="sorting">
                     <h4>Sorting</h4>
                     <div id="sort-selects">
-                        <div className="sort-select">
+                        <div className="sort-select" data-testid="sort-select">
                             <p>Sort method</p>
                             <Select options={sortSelectOptions}
                                     styles={sortSelectStyles}
@@ -267,7 +265,7 @@ function MainDiv({setItems, updateSort}) {
                                     defaultValue={sortSelectOptions[0]}
                             />
                         </div>
-                        <div className="sort-select">
+                        <div className="sort-select" data-testid="sortside-select">
                             <p>Sort direction</p>
                             <Select options={sortDirSelectOptions}
                                     styles={sortSelectStyles}
@@ -287,7 +285,7 @@ function MainDiv({setItems, updateSort}) {
                         onChange={e => {
                             const input = e.target.value;
                             setCost(input);
-                            setCostFilter([input - 5, input + 5])
+                            setCostFilter([Number(input) - 5, Number(input) + 5])
                         }}
                     />
                     <ul>

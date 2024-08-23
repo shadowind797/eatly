@@ -4,6 +4,7 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
 <DocumentFragment>
   <div
     class="container"
+    data-testid="filtered-items"
     id="items-list"
   >
     <div
@@ -45,7 +46,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               alt=""
               src="undefined/media/img/Star.svg"
             />
-            <p>
+            <p
+              data-testid="item-rate"
+            >
               5
             </p>
           </div>
@@ -53,7 +56,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="price-add"
         >
-          <h5>
+          <h5
+            data-testid="item-cost"
+          >
             12
             <span>
               .99
@@ -106,7 +111,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               alt=""
               src="undefined/media/img/Star.svg"
             />
-            <p>
+            <p
+              data-testid="item-rate"
+            >
               4.9
             </p>
           </div>
@@ -114,7 +121,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="price-add"
         >
-          <h5>
+          <h5
+            data-testid="item-cost"
+          >
             19
             <span>
               .99
@@ -167,7 +176,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               alt=""
               src="undefined/media/img/Star.svg"
             />
-            <p>
+            <p
+              data-testid="item-rate"
+            >
               4.9
             </p>
           </div>
@@ -175,7 +186,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="price-add"
         >
-          <h5>
+          <h5
+            data-testid="item-cost"
+          >
             14
             <span>
               .99
@@ -228,7 +241,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               alt=""
               src="undefined/media/img/Star.svg"
             />
-            <p>
+            <p
+              data-testid="item-rate"
+            >
               4.9
             </p>
           </div>
@@ -236,7 +251,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="price-add"
         >
-          <h5>
+          <h5
+            data-testid="item-cost"
+          >
             14
             <span>
               .99
@@ -289,7 +306,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               alt=""
               src="undefined/media/img/Star.svg"
             />
-            <p>
+            <p
+              data-testid="item-rate"
+            >
               4.8
             </p>
           </div>
@@ -297,7 +316,9 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="price-add"
         >
-          <h5>
+          <h5
+            data-testid="item-cost"
+          >
             12
             <span>
               .99

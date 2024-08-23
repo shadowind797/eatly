@@ -41,7 +41,9 @@ exports[`Dish component matches the snapshot 1`] = `
             alt=""
             src="undefined/media/img/Star.svg"
           />
-          <p>
+          <p
+            data-testid="item-rate"
+          >
             4.8
           </p>
         </div>
@@ -49,7 +51,9 @@ exports[`Dish component matches the snapshot 1`] = `
       <div
         class="price-add"
       >
-        <h5>
+        <h5
+          data-testid="item-cost"
+        >
           12
           <span>
             .99

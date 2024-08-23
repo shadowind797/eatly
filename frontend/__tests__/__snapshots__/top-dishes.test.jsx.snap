@@ -50,7 +50,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 alt=""
                 src="undefined/media/img/Star.svg"
               />
-              <p>
+              <p
+                data-testid="item-rate"
+              >
                 5
               </p>
             </div>
@@ -58,7 +60,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="price-add"
           >
-            <h5>
+            <h5
+              data-testid="item-cost"
+            >
               12
               <span>
                 .99
@@ -109,7 +113,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 alt=""
                 src="undefined/media/img/Star.svg"
               />
-              <p>
+              <p
+                data-testid="item-rate"
+              >
                 4.9
               </p>
             </div>
@@ -117,7 +123,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="price-add"
           >
-            <h5>
+            <h5
+              data-testid="item-cost"
+            >
               19
               <span>
                 .99
@@ -168,7 +176,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 alt=""
                 src="undefined/media/img/Star.svg"
               />
-              <p>
+              <p
+                data-testid="item-rate"
+              >
                 4.9
               </p>
             </div>
@@ -176,7 +186,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="price-add"
           >
-            <h5>
+            <h5
+              data-testid="item-cost"
+            >
               14
               <span>
                 .99
@@ -225,7 +237,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 alt=""
                 src="undefined/media/img/Star.svg"
               />
-              <p>
+              <p
+                data-testid="item-rate"
+              >
                 4.9
               </p>
             </div>
@@ -233,7 +247,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="price-add"
           >
-            <h5>
+            <h5
+              data-testid="item-cost"
+            >
               14
               <span>
                 .99
@@ -282,7 +298,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 alt=""
                 src="undefined/media/img/Star.svg"
               />
-              <p>
+              <p
+                data-testid="item-rate"
+              >
                 4.8
               </p>
             </div>
@@ -290,7 +308,9 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="price-add"
           >
-            <h5>
+            <h5
+              data-testid="item-cost"
+            >
               12
               <span>
                 .99

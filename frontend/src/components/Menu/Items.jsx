@@ -13,7 +13,7 @@ function Items({items, type}) {
     } else if (items[0] !== undefined) {
         if (type === "items") {
             return (
-                <div id="items-list" className="container">
+                <div id="items-list" className="container" data-testid="filtered-items">
                     {items.map((item) => (
                         <Dish item={item} key={item.id}/>
                     ))}

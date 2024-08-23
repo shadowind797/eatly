@@ -5,7 +5,8 @@ const RangeSlider = (props) => {
     };
 
     return (
-        <input className={`range-slider-input ${props.customClasses ? props.customClasses : ''}`} style={rangerStyle}
+        <input data-testid="cost-input"
+               className={`range-slider-input ${props.customClasses ? props.customClasses : ''}`} style={rangerStyle}
                type='range' value={props.value} min={props.min} max={props.max} onChange={props.onChange}
                disabled={props.disabled}/>
     );

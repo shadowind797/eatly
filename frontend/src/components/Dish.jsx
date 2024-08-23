@@ -83,7 +83,8 @@ function Dish({item}) {
         <div className="dish">
             <img className="photo"
                  src={item.photo.includes(import.meta.env.VITE_API_URL) ? item.photo : `${import.meta.env.VITE_API_URL}${item.photo}`}
-                 alt=""/><img className="like" src={like} alt=""/>
+                 alt=""/>
+            <img className="like" src={like} alt=""/>
             <div className="info">
                 <div className="item-cat">
                     {catLoading ? (
@@ -97,11 +98,11 @@ function Dish({item}) {
                     <p>~30min</p>
                     <div>
                         <img src={star} alt=""/>
-                        <p>{item.rating}</p>
+                        <p data-testid="item-rate">{item.rating}</p>
                     </div>
                 </div>
                 <div className="price-add">
-                    <h5>{item.price}<span>.99</span></h5>
+                    <h5 data-testid="item-cost">{item.price}<span>.99</span></h5>
                     {inCartLoading ? (
                         <img style={{width: "45px", marginLeft: "80px"}} src={inCart_load} alt=""/>
                     ) : (
