@@ -4,15 +4,8 @@ import Select from "react-select";
 import item from "../Dish.jsx";
 import {Navigate} from "react-router-dom";
 import price_load from "../../assets/header-loading.gif";
-
-
-/**
- * MakeOrder component handles the process of making an order, including user information, address selection, and order submission.
- *
- * @param {Object} props - The properties object.
- * @param {number} props.subtotal - The subtotal amount of the order.
- * @returns {JSX.Element} The rendered component.
- */
+import Map from "./Map.jsx";
+import PlaceInput from "./PlaceInput.jsx";
 
 function MakeOrder({subtotal, total_load, createOrder}) {
     const [user, setUser] = useState({});
@@ -20,7 +13,7 @@ function MakeOrder({subtotal, total_load, createOrder}) {
     const [couponValue, setCouponValue] = useState(1);
     const cpImg = `${import.meta.env.VITE_API_URL}/media/img/coupon.svg`;
     const [applied, setApplied] = useState(null);
-    const [firstName, setFirstName] = useState(user.first_name);
+    const [firstName, setFirstName] = useState(user.first_name || "");
     const discount = (Math.abs((subtotal * 1.1) - ((subtotal * 1.1) * couponValue))).toFixed(2)
 
     const [addressList, setAddressList] = useState([]);
@@ -272,15 +265,12 @@ function MakeOrder({subtotal, total_load, createOrder}) {
         return (
             <div id="order">
                 <div id="new-address">
-                    <div id="map">
-                        <p>Map'll be here</p>
-                    </div>
+                    <Map/>
                     <form>
                         <div id="inputs">
-                            <input type="text" placeholder="Building" value={building_address}
-                                   onChange={(e) => {
-                                       setBuildingAddress(e.target.value)
-                                   }}/>
+                            <PlaceInput selectAddress={(a) => {
+                                console.log(a)
+                            }} setAddress={setBuildingAddress} address={building_address}/>
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
                                        onChange={(e) => {

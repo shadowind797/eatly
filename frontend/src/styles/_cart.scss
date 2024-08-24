@@ -260,12 +260,7 @@
             }
           }
 
-          #payment {
-            padding-bottom: 40px;
-            border-bottom: 1px solid #CBCBCB;
-          }
-
-          #address, #payment {
+          #address {
             display: flex;
             flex-direction: column;
             gap: 10px;

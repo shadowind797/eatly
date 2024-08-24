@@ -86,7 +86,7 @@ function CartItem({cartItem, onChange}) {
     if (deleted === false && !itemLoad) {
         return (
             <div className="item">
-                <button data-testid="cross" className="cross" onClick={() => deleteItem()}>
+                <button data-testid="cross" className="cross" onClick={deleteItem}>
                     <img src={cross} alt=""/>
                 </button>
                 <div className="main">
