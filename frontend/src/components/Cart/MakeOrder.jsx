@@ -21,7 +21,7 @@ function MakeOrder({subtotal, total_load, createOrder}) {
     const [addAddress, setAddAddress] = useState(false);
     const [addressAlreadyExists, setAddressAlreadyExists] = useState(false);
 
-    const [building_address, setBuildingAddress] = useState("");
+    const [buildingAddress, setBuildingAddress] = useState("");
     const [entrance, setEntrance] = useState("");
     const [floor, setFloor] = useState("");
     const [flat, setFlat] = useState("");
@@ -129,12 +129,15 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                         })
                 } else {
                     setNoAddress(true)
+                    createOrder(false)
                 }
             } else {
                 setNoName(true)
+                createOrder(false)
             }
         } else {
             setNoItems(true)
+            createOrder(false)
         }
     }
 
@@ -142,7 +145,7 @@ function MakeOrder({subtotal, total_load, createOrder}) {
         e.preventDefault()
         setAddressLoading(true)
         api
-            .post("api/address/add/", {house_address: building_address, entrance: entrance, floor: floor, flat: flat})
+            .post("api/address/add/", {house_address: buildingAddress, entrance: entrance, floor: floor, flat: flat})
             .then((res) => {
                 if (res.status === 201) {
                     getAddressList()
@@ -265,12 +268,12 @@ function MakeOrder({subtotal, total_load, createOrder}) {
         return (
             <div id="order">
                 <div id="new-address">
-                    <Map/>
+                    <Map address={buildingAddress}/>
                     <form>
                         <div id="inputs">
-                            <PlaceInput selectAddress={(a) => {
-                                console.log(a)
-                            }} setAddress={setBuildingAddress} address={building_address}/>
+                            <PlaceInput finalAddress={(a) => {
+                                setBuildingAddress(a)
+                            }}/>
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
                                        onChange={(e) => {

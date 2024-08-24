@@ -1,13 +1,33 @@
-import {useState} from "react";
+import axios from "axios";
 import PlacesAutocomplete from "@tasiodev/react-places-autocomplete"
 
-function PlaceInput({setAddress, address, selectAddress}) {
+function PlaceInput({finalAddress}) {
+
+    const getAddressFromPlaceId = async (placeId) => {
+        try {
+            const response = await axios.get(
+                `https://maps.googleapis.com/maps/api/geocode/json?place_id=${placeId}&key=${import.meta.env.VITE_MAP_KEY}`
+            );
+            if (response.data.results.length > 0) {
+                return response.data.results[0].formatted_address;
+            } else {
+                return "No address found";
+            }
+        } catch (error) {
+            console.error("Error fetching address:", error);
+            return "Error fetching address";
+        }
+    };
+
+    const selectAddress = async (placeId) => {
+        const address = await getAddressFromPlaceId(placeId);
+        finalAddress(address); // Call the original selectAddress function with the full address
+    };
 
     return (
         <PlacesAutocomplete
             gMapsKey={import.meta.env.VITE_MAP_KEY}
             onSelectPlace={selectAddress}
-            onChange={setAddress}
             disableMap={true}
             placeholder="Building"
             customStyles={{
