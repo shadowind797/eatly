@@ -34,6 +34,8 @@ function MakeOrder({subtotal, total_load, createOrder}) {
 
     const [addressLoading, setAddressLoading] = useState(false)
 
+    const [mapLoading, setMapLoading] = useState(false)
+
     useEffect(() => {
         getUser()
         getAddressList()
@@ -268,12 +270,12 @@ function MakeOrder({subtotal, total_load, createOrder}) {
         return (
             <div id="order">
                 <div id="new-address">
-                    <Map address={buildingAddress}/>
+                    <Map address={buildingAddress} setIsLoaded={setMapLoading}/>
                     <form>
                         <div id="inputs">
-                            <PlaceInput finalAddress={(a) => {
+                            {mapLoading && <PlaceInput finalAddress={(a) => {
                                 setBuildingAddress(a)
-                            }}/>
+                            }}/>}
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
                                        onChange={(e) => {
