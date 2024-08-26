@@ -2,12 +2,12 @@ import {useState} from "react";
 import api from "../api.js"
 import {useNavigate} from "react-router-dom";
 import {ACCESS_TOKEN, REFRESH_TOKEN} from "../constants.js";
-import LogSlider from "./LogIn_SignUp/Slider.jsx";
+import LogSlider from "./LogIn/Slider.jsx";
 
 import google from "../assets/google.svg"
 import github from "../assets/github.svg"
-import show_pass from "../assets/eye-off.svg"
-import hide_pass from "../assets/eye-show.svg"
+import hide_pass from "../assets/eye-off.svg"
+import show_pass from "../assets/eye-show.svg"
 
 function Form({route, method}) {
     const [username, setUsername] = useState("")

@@ -89,6 +89,16 @@ function Menu() {
                 <Footer/>
             </div>
         );
+    } else if (newItems.length > 0 && JSON.stringify(newItems[0]) === JSON.stringify({not_found: "no items"})) {
+        return (
+            <div id="menu">
+                <BaseHeader page="menu"/>
+                <Header page="menu"/>
+                <MainDiv setItems={setItems} updateSort={updateSort}/>
+                <Items type="items" items={newItems}/>
+                <Footer/>
+            </div>
+        );
     }
 }
 

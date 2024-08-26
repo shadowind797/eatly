@@ -2035,26 +2035,26 @@ button:hover {
   padding: 30px 50px;
   background-color: #fff;
 }
-#cart #main #order .error {
-  color: red;
-  font-family: Poppins, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 140%; /* 24.619px */
-}
-#cart #main #order .error a {
-  color: #008cff;
-  font-family: Poppins, sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 140%; /* 24.619px */
-}
 #cart #main #order #costs {
   padding-bottom: 40px;
   border-bottom: 1px solid #CBCBCB;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+#cart #main #order #costs .error {
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+}
+#cart #main #order #costs .error a {
+  color: #008cff;
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
 }
 #cart #main #order #costs form {
   display: flex;
@@ -2206,6 +2206,24 @@ button:hover {
   line-height: 117.5%; /* 21.15px */
   color: #FFF;
   margin-bottom: 20px;
+}
+#cart #main #order #new-address .location-search-input {
+  border: none;
+  background-color: #F9F9F9;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 117.5%; /* 21.15px */
+  color: #6c6c72;
+  height: 15px;
+  border-radius: 10px;
+  padding: 20px 10px;
+  margin-bottom: 10px;
+}
+#cart #main #order #new-address .location-search-input::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 117.5%; /* 21.15px */
+  color: #C2C3CB;
 }
 #cart #main #order #new-address form {
   display: flex;

@@ -29,7 +29,8 @@ function Admin() {
                 if (res.status === 200) {
                     getCouponList()
                     return res.data
-                } else {}
+                } else {
+                }
             })
             .then((data) => {
 
@@ -39,29 +40,36 @@ function Admin() {
 
     const createCoupon = () => {
         api
-            .post("api/coupon/add/", {title: "TESTTIME2", date_to: "2024-08-06", value: 0.9, category: 1, ea: 10, method: "create"})
+            .post("api/coupon/add/", {
+                title: "MAPTEST",
+                date_to: "2024-08-31",
+                value: 0.5,
+                category: 1,
+                ea: 10,
+                method: "create"
+            })
             .then((res) => {
                 if (res.status === 201) {
                     getCouponList()
-                }
-                else if (res.status === 409) {
+                } else if (res.status === 409) {
                     setCouponAlreadyExists(true)
                 }
             })
-            .catch((err) => {})
+            .catch((err) => {
+            })
     }
 
     return (
         <div>
-            <Header />
-            <BaseHeader />
+            <Header/>
+            <BaseHeader/>
             <p>Admin page</p>
             <div>{couponList.map(coupon => {
                 <p>{coupon.title}</p>
             })}</div>
             <button onClick={createCoupon}>Create</button>
             <button onClick={checkCoupon}>checkCoupon</button>
-            <Footer />
+            <Footer/>
         </div>
     )
 }

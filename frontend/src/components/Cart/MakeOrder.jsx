@@ -79,9 +79,9 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                         label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`
                     }]
                     setAddressList(list);
-                    setAddressLoading(false)
-                    setAddAddress(false)
                 })
+                setAddressLoading(false)
+                setAddAddress(false)
             })
             .catch((err) => alert(err));
     }
@@ -271,11 +271,11 @@ function MakeOrder({subtotal, total_load, createOrder}) {
             <div id="order">
                 <div id="new-address">
                     <Map address={buildingAddress} setIsLoaded={setMapLoading}/>
+                    {mapLoading && <PlaceInput finalAddress={(a) => {
+                        setBuildingAddress(a)
+                    }}/>}
                     <form>
                         <div id="inputs">
-                            {mapLoading && <PlaceInput finalAddress={(a) => {
-                                setBuildingAddress(a)
-                            }}/>}
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
                                        onChange={(e) => {
@@ -292,7 +292,14 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                             </div>
                         </div>
                         <div className="btns">
-                            <button className="cancel" onClick={() => setAddAddress(false)}>Cancel</button>
+                            <button className="cancel" onClick={() => {
+                                setBuildingAddress("")
+                                setEntrance("")
+                                setFloor("")
+                                setFlat("")
+                                setAddAddress(false)
+                            }}>Cancel
+                            </button>
                             <button className="add" type="submit" onClick={e => {
                                 createAddress(e)
                             }}>

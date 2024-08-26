@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {GoogleMap, useLoadScript, Marker as GoogleMarker} from "@react-google-maps/api";
+import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
 import MapMarker from "../../assets/map-marker.svg";
 
 const libraries = ["places"];
@@ -46,7 +46,7 @@ function Map({address, setIsLoaded}) {
             <GoogleMap
                 mapContainerStyle={{height: "100%", width: "100%"}}
                 center={{lat, lng}}
-                zoom={address ? 17 : 12}
+                zoom={address ? 16.5 : 12}
                 options={{
                     zoomControl: false,
                     streetViewControl: false,
@@ -58,16 +58,24 @@ function Map({address, setIsLoaded}) {
                     clickableIcons: false,
                     scrollwheel: false,
                     gestureHandling: 'none',
+                    styles: [
+                        {
+                            featureType: "poi",
+                            elementType: "labels",
+                            stylers: [{visibility: "off"}]
+                        }
+                    ]
                 }}
             >
-                <GoogleMarker
-                    position={{lat: lat + 0.00035, lng: lng - 0.0003}}
-                    icon={{
-                        url: MapMarker,
-                        scaledSize: 55
-                    }}
-                    visible={address.length > 0 && true}
-                />
+                {address && (
+                    <Marker
+                        position={{lat: lat, lng: lng}}
+                        icon={{
+                            url: MapMarker,
+                            scaledSize: new window.google.maps.Size(55, 55)
+                        }}
+                    />
+                )}
             </GoogleMap>
         </div>
     );

@@ -25,7 +25,7 @@ const PlaceInput = ({finalAddress}) => {
                         {...getInputProps({
                             placeholder: 'Building',
                             className: 'location-search-input',
-                            style: {width: "100%"},
+                            style: {width: "96%"},
                         })}
                     />
                     <div className="autocomplete-dropdown-container"
@@ -42,9 +42,6 @@ const PlaceInput = ({finalAddress}) => {
                             const className = suggestion.active
                                 ? 'suggestion-item--active'
                                 : 'suggestion-item';
-                            const style = suggestion.active
-                                ? {backgroundColor: '#fafafa', cursor: 'pointer'}
-                                : {backgroundColor: '#ffffff', cursor: 'pointer'};
                             return (
                                 <div
                                     {...getSuggestionItemProps(suggestion, {
