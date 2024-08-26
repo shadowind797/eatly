@@ -2,11 +2,11 @@ from django.urls import path, include
 
 from . import views
 
-
 urlpatterns = [
     path('access/', views.GetAccess.as_view(), name='access'),
     path('user/', views.GetUser.as_view(), name='user'),
     path('user/change/', views.GetUser.as_view(), name='user-change'),
+    path("login/google/", views.GoogleLoginApi.as_view(), name='google-login'),
 
     path('items/', views.ItemListCreate.as_view(), name='item-list'),
     path('items/top/', views.ItemListCreate.as_view(), name='item-list'),
@@ -38,5 +38,5 @@ urlpatterns = [
     path("items/search/", views.SearchView.as_view(), name='search'),
     path("items/search/filters/", views.FilterView.as_view(), name='filter'),
 
-    path("profile/orders", views.GetProfile.as_view(), name='all-user-orders')
+    path("profile/orders", views.GetProfile.as_view(), name='all-user-orders'),
 ]

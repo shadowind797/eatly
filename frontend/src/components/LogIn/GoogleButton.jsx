@@ -1,6 +1,8 @@
+import google from "../../assets/google.svg";
+
 const onGoogleLoginSuccess = () => {
     const GOOGLE_AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
-    const REDIRECT_URI = 'auth/api/login/google/';
+    const REDIRECT_URI = 'api/login/google/';
 
     const scope = [
         'https://www.googleapis.com/auth/userinfo.email',
@@ -21,7 +23,7 @@ const onGoogleLoginSuccess = () => {
 };
 
 const LoginButton = () => {
-    return <GoogleButton onClick={onGoogleLoginSuccess} label="Sign in with Google"/>
+    return <button id="google" onClick={onGoogleLoginSuccess}><img src={google} alt=""/></button>
 }
 
 export default LoginButton

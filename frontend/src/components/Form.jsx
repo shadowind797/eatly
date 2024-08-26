@@ -8,6 +8,7 @@ import google from "../assets/google.svg"
 import github from "../assets/github.svg"
 import hide_pass from "../assets/eye-off.svg"
 import show_pass from "../assets/eye-show.svg"
+import GoogleButton from "./LogIn/GoogleButton.jsx";
 
 function Form({route, method}) {
     const [username, setUsername] = useState("")
@@ -120,7 +121,7 @@ function Form({route, method}) {
             <div id="form">
                 <h1>{name} to EATLY</h1>
                 <div id="foreign-log">
-                    <button id="google"><img src={google} alt=""/></button>
+                    <GoogleButton/>
                     <button id="git-hub"><img src={github} alt=""/></button>
                 </div>
                 <form onSubmit={handleSubmit}>

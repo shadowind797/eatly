@@ -2,6 +2,11 @@ from .models import *
 from rest_framework import serializers
 
 
+class GoogleAuthSerializer(serializers.Serializer):
+    code = serializers.CharField(required=False)
+    error = serializers.CharField(required=False)
+
+
 class UserSerializer(serializers.ModelSerializer):
     """
     Create a new User instance using the validated data.
@@ -12,6 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
     Returns:
     User: The newly created User instance.
     """
+
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password', "phone", "status", "is_banned", "ban_reason", "first_name"]
