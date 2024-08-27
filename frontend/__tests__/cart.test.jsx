@@ -30,16 +30,15 @@ describe('Cart component', () => {
         "status": 1,
         "is_banned": false,
         "ban_reason": "",
-        "first_name": "Peter"
+        "first_name": ""
     }]
-    const addresses = [
-        {
-            "id": 1,
-            "house_address": "gfdgsf",
-            "entrance": "fdgsd",
-            "floor": "sdfgdf",
-            "flat": "gsd"
-        }, {"id": 2, "house_address": "wasdas", "entrance": "34", "floor": "34", "flat": "4"}]
+    const addresses = [{
+        id: 2,
+        house_address: "Mirobod street 12, Tashkent, UZ",
+        entrance: "2",
+        floor: "4",
+        flat: "34"
+    }]
 
     beforeEach(() => {
         api.get.mockImplementation((url) => {
@@ -65,6 +64,9 @@ describe('Cart component', () => {
             }
             if (url.includes('api/coupon/')) {
                 return Promise.resolve({status: 200, data: {value: 0.9}});
+            }
+            if (url.includes('api/address/add/')) {
+                return Promise.resolve({status: 201});
             }
             return Promise.reject(new Error('Not found'));
         });
@@ -126,7 +128,7 @@ describe('Cart component', () => {
         })
     })
 
-    it("updates total when coupon applied changed", async () => {
+    it("updates total when coupon applied", async () => {
         let getByText, getByTestId, asFragment, getByPlaceholderText
         await act(async () => {
             const rendered = render(<Router><Cart/></Router>);
@@ -144,9 +146,65 @@ describe('Cart component', () => {
 
         fireEvent.click(getByText("Apply")[0]);
         await waitFor(() => {
-            expect(api.post).toHaveBeenCalledWith("api/coupon/", {
-                "data": {"method": "apply", "title": "TESTCOUPON"}
-            })
+            expect(getByText("-$1.43")[0]).toBeTruthy()
         })
+    })
+
+    it("adds new user address", async () => {
+        let getByText, getByTestId, asFragment, getByPlaceholderText, queryByTestId
+        await act(async () => {
+            const rendered = render(<Router><Cart test={true}/></Router>);
+            getByText = rendered.getAllByText;
+            getByTestId = rendered.getByTestId;
+            getByPlaceholderText = rendered.getByPlaceholderText;
+            queryByTestId = rendered.queryByTestId;
+            asFragment = rendered.asFragment;
+        });
+
+        expect(api.get).toHaveBeenCalledWith("api/items/", {"params": {"id": 1}});
+
+        await waitFor(() => getByTestId("minus"))
+
+        fireEvent.click(getByText("Add address")[0])
+        fireEvent.change(getByPlaceholderText("Building"), {target: {value: "Mirobod street 12, Tashkent, UZ"}})
+        fireEvent.change(getByPlaceholderText("Entrance"), {target: {value: "2"}})
+        fireEvent.change(getByPlaceholderText("Floor"), {target: {value: "4"}})
+        fireEvent.change(getByPlaceholderText("Flat"), {target: {value: "34"}})
+
+        fireEvent.click(getByText("Add address")[0])
+
+        await waitFor(() => {
+            expect(getByText("$12.99")[0]).toBeTruthy()
+        })
+    })
+
+    it("handles input errors", async () => {
+        let getByText, getByTestId, asFragment, getByPlaceholderText, queryByTestId
+        await act(async () => {
+            const rendered = render(<Router><Cart/></Router>);
+            getByText = rendered.getAllByText;
+            getByTestId = rendered.getByTestId;
+            getByPlaceholderText = rendered.getByPlaceholderText;
+            queryByTestId = rendered.queryByTestId;
+            asFragment = rendered.asFragment;
+        });
+
+        expect(api.get).toHaveBeenCalledWith("api/items/", {"params": {"id": 1}});
+
+        await waitFor(() => getByTestId("minus"))
+
+        fireEvent.click(getByText("Complete order")[0])
+
+        await waitFor(() => expect(getByText("Please enter your name")).toBeTruthy())
+        fireEvent.change(getByPlaceholderText("How courier'll call you?"), {target: {value: "Peter"}})
+
+        fireEvent.click(getByText("Complete order")[0])
+
+        await waitFor(() => expect(getByText("Address required")).toBeTruthy())
+
+        const selectComponent = queryByTestId('address-select');
+        fireEvent.keyDown(selectComponent.childNodes[1], {key: 'ArrowDown'});
+        await waitFor(() => getByText('Mirobod street 12, Tashkent, UZ, 2 ent., 4 floor, flat 34')[0]);
+        fireEvent.click(getByText('Mirobod street 12, Tashkent, UZ, 2 ent., 4 floor, flat 34')[0]);
     })
 })

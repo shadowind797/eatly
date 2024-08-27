@@ -174,29 +174,18 @@ exports[`Cart component matches the snapshot 1`] = `
             <div
               id="nameDiv"
             >
-              <p
-                class="error"
-                style="display: none;"
-              >
-                Please enter your name
-              </p>
               <input
                 autocomplete="off"
                 id="name"
                 placeholder="How courier'll call you?"
                 type="text"
-                value="Peter"
+                value=""
               />
             </div>
             <div
+              data-testid="address-select"
               id="address"
             >
-              <p
-                class="error"
-                style="display: none;"
-              >
-                Address required
-              </p>
               <div
                 class=" css-b62m3t-container"
               >
@@ -279,24 +268,6 @@ exports[`Cart component matches the snapshot 1`] = `
                 Add address
               </button>
             </div>
-            <p
-              class="error"
-              style="display: none;"
-            >
-              Your cart is empty
-            </p>
-            <p
-              class="error"
-              style="display: none;"
-            >
-              You already have staged order. Go 
-              <a
-                href="/complete-order"
-              >
-                here
-              </a>
-               to complete it
-            </p>
             <button
               id="complete"
             >
