@@ -28,251 +28,241 @@ exports[`Cart component matches the snapshot 1`] = `
       style=""
     >
       <div
-        style="display: flex;"
+        class="container"
+        id="cart-items-list"
       >
         <div
-          class="container"
-          id="cart-items-list"
+          class="item"
         >
+          <button
+            class="cross"
+            data-testid="cross"
+          >
+            <img
+              alt=""
+              src="undefined/media/img/cross.svg"
+            />
+          </button>
           <div
-            class="item"
+            class="main"
+          >
+            <img
+              alt=""
+              src="http://127.0.0.1:8000/media/img/food/ChikenHell.png"
+            />
+            <div
+              class="info"
+            >
+              <h4>
+                Chicken Hell
+              </h4>
+              <h5>
+                $12.99
+              </h5>
+            </div>
+          </div>
+          <div
+            class="quant"
           >
             <button
-              class="cross"
-              data-testid="cross"
+              data-testid="minus"
             >
               <img
                 alt=""
-                src="undefined/media/img/cross.svg"
+                src="undefined/media/img/RemoveFromCart.svg"
               />
             </button>
-            <div
-              class="main"
+            <div>
+              <p>
+                3
+              </p>
+            </div>
+            <button
+              data-testid="plus"
             >
               <img
                 alt=""
-                src="http://127.0.0.1:8000/media/img/food/ChikenHell.png"
+                src="undefined/media/img/AddQuant.svg"
               />
-              <div
-                class="info"
-              >
-                <h4>
-                  Chicken Hell
-                </h4>
-                <h5>
-                  $12.99
-                </h5>
-              </div>
-            </div>
-            <div
-              class="quant"
-            >
-              <button
-                data-testid="minus"
-              >
-                <img
-                  alt=""
-                  src="undefined/media/img/RemoveFromCart.svg"
-                />
-              </button>
-              <div>
-                <p>
-                  3
-                </p>
-              </div>
-              <button
-                data-testid="plus"
-              >
-                <img
-                  alt=""
-                  src="undefined/media/img/AddQuant.svg"
-                />
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       </div>
       <div
-        id="main"
-        style="display: none;"
-      >
-        <img
-          alt=""
-          src="test-file-stub"
-          style="width: 500px; padding-top: 13%; padding-left: 36%;"
-        />
-      </div>
-      <div
-        id="order"
+        style="display: block;"
       >
         <div
-          id="costs"
-        >
-          <p
-            class="error"
-            style="display: none;"
-          >
-            Invalid coupon
-          </p>
-          <form>
-            <div
-              id="input"
-            >
-              <img
-                alt=""
-                src="undefined/media/img/coupon.svg"
-              />
-              <input
-                placeholder="Apply Coupon"
-                type="text"
-                value=""
-              />
-            </div>
-            <button
-              type="submit"
-            >
-              Apply
-            </button>
-          </form>
-          <h6>
-            Subtotal: 
-            <span>
-              $12.99
-            </span>
-          </h6>
-          <h6>
-            Delivery: 
-            <span>
-              $1.30
-            </span>
-          </h6>
-          <h6
-            style="display: none;"
-          >
-            Coupon:
-            <span
-              style="color: green;"
-            >
-              -$0.00
-            </span>
-          </h6>
-          <h6
-            class="total"
-          >
-            Total: 
-            <span>
-              $14.29
-            </span>
-          </h6>
-        </div>
-        <div
-          id="pay"
+          id="order"
         >
           <div
-            id="userInfo"
+            id="costs"
+          >
+            <p
+              class="error"
+              style="display: none;"
+            >
+              Invalid coupon
+            </p>
+            <form>
+              <div
+                id="input"
+              >
+                <img
+                  alt=""
+                  src="undefined/media/img/coupon.svg"
+                />
+                <input
+                  placeholder="Apply Coupon"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <button
+                type="submit"
+              >
+                Apply
+              </button>
+            </form>
+            <h6>
+              Subtotal: 
+              <span>
+                $12.99
+              </span>
+            </h6>
+            <h6>
+              Delivery: 
+              <span>
+                $1.30
+              </span>
+            </h6>
+            <h6
+              style="display: none;"
+            >
+              Coupon:
+              <span
+                style="color: green;"
+              >
+                -$0.00
+              </span>
+            </h6>
+            <h6
+              class="total"
+            >
+              Total: 
+              <span>
+                $14.29
+              </span>
+            </h6>
+          </div>
+          <div
+            id="pay"
           >
             <div
-              id="nameDiv"
-            >
-              <input
-                autocomplete="off"
-                id="name"
-                placeholder="How courier'll call you?"
-                type="text"
-                value=""
-              />
-            </div>
-            <div
-              data-testid="address-select"
-              id="address"
+              id="userInfo"
             >
               <div
-                class=" css-b62m3t-container"
+                id="nameDiv"
               >
-                <span
-                  class="css-1f43avz-a11yText-A11yText"
-                  id="react-select-3-live-region"
+                <input
+                  autocomplete="off"
+                  id="name"
+                  placeholder="How courier'll call you?"
+                  type="text"
+                  value=""
                 />
-                <span
-                  aria-atomic="false"
-                  aria-live="polite"
-                  aria-relevant="additions text"
-                  class="css-1f43avz-a11yText-A11yText"
-                  role="log"
-                />
+              </div>
+              <div
+                data-testid="address-select"
+                id="address"
+              >
                 <div
-                  class=" css-185hrlv-control"
+                  class=" css-b62m3t-container"
                 >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-3-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
                   <div
-                    class=" css-hlgwow"
+                    class=" css-185hrlv-control"
                   >
                     <div
-                      class=" css-1jqq78o-placeholder"
-                      id="react-select-3-placeholder"
+                      class=" css-hlgwow"
                     >
-                      Where should we deliver your order?
-                    </div>
-                    <div
-                      class=" css-19bb58m"
-                      data-value=""
-                    >
-                      <input
-                        aria-activedescendant=""
-                        aria-autocomplete="list"
-                        aria-describedby="react-select-3-placeholder"
-                        aria-expanded="false"
-                        aria-haspopup="true"
-                        autocapitalize="none"
-                        autocomplete="off"
-                        autocorrect="off"
-                        class=""
-                        id="react-select-3-input"
-                        role="combobox"
-                        spellcheck="false"
-                        style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                        tabindex="0"
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class=" css-1wy0on6"
-                  >
-                    <span
-                      class=" css-1u9des2-indicatorSeparator"
-                    />
-                    <div
-                      aria-hidden="true"
-                      class=" css-1xc3v61-indicatorContainer"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="css-tj5bde-Svg"
-                        focusable="false"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        width="20"
+                      <div
+                        class=" css-1jqq78o-placeholder"
+                        id="react-select-3-placeholder"
                       >
-                        <path
-                          d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                        Where should we deliver your order?
+                      </div>
+                      <div
+                        class=" css-19bb58m"
+                        data-value=""
+                      >
+                        <input
+                          aria-activedescendant=""
+                          aria-autocomplete="list"
+                          aria-describedby="react-select-3-placeholder"
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          autocapitalize="none"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class=""
+                          id="react-select-3-input"
+                          role="combobox"
+                          spellcheck="false"
+                          style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                          tabindex="0"
+                          type="text"
+                          value=""
                         />
-                      </svg>
+                      </div>
+                    </div>
+                    <div
+                      class=" css-1wy0on6"
+                    >
+                      <span
+                        class=" css-1u9des2-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class=" css-1xc3v61-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <button
+                  id="add-address"
+                >
+                  Add address
+                </button>
               </div>
               <button
-                id="add-address"
+                id="complete"
               >
-                Add address
+                Complete order
               </button>
             </div>
-            <button
-              id="complete"
-            >
-              Complete order
-            </button>
           </div>
         </div>
       </div>

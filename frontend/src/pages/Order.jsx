@@ -25,7 +25,8 @@ function Order() {
                     setUser(item);
                 })
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const getOrder = () => {
