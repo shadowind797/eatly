@@ -116,6 +116,9 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                             if (res.status === 201) {
                                 createOrder(false)
                                 setToComplete(true)
+                            } else if (res.status === 303) {
+                                createOrder(false)
+                                setAlreadyExists(true)
                             }
                         })
                         .catch((err) => {

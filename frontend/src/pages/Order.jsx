@@ -49,7 +49,7 @@ function Order() {
     return (
         <div id="complete-order">
             <Map/>
-            <Info order={order} address={address} user={user}/>
+            <Info order={order} user={user}/>
         </div>
     )
 }

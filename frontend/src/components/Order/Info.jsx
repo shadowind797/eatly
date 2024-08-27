@@ -5,7 +5,7 @@ import {Navigate} from "react-router-dom";
 import info_load from "../../assets/header-loading.gif";
 import load from "../../assets/count_load.gif";
 
-function Info({address, order, user, setOrdering}) {
+function Info({order, user}) {
     const [addPayment, setAddPayment] = useState(false);
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [paymentList, setPaymentList] = useState([]);
@@ -67,7 +67,6 @@ function Info({address, order, user, setOrdering}) {
                     }
                 })
                 .catch((err) => {
-                    console.error(err);
                 });
         }
     };

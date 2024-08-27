@@ -57,14 +57,14 @@ function Cart({test}) {
                 <BaseHeader/>
                 <Header/>
                 <div id="main">
-                    <div style={creatingOrder ? {display: "none"} : {display: "flex"}}>
-                        <ItemsList items={cartItems} onChange={getCartItems}/>
+                    {!creatingOrder && <ItemsList items={cartItems} onChange={getCartItems}/>}
+                    {creatingOrder && <div style={{width: "100%"}}>
+                        <img src={load} style={{width: "500px", paddingTop: "10%", paddingLeft: "36%"}} alt=""/>
+                    </div>}
+                    <div style={creatingOrder ? {display: "none"} : {display: "block"}}>
+                        <MakeOrder test={test} style createOrder={setCreatingOrder} total_load={totalLoading}
+                                   subtotal={total ? total.total : 0}/>
                     </div>
-                    <div id="main" style={!creatingOrder ? {display: "none"} : {display: "flex"}}>
-                        <img src={load} style={{width: "500px", paddingTop: "13%", paddingLeft: "36%"}} alt=""/>
-                    </div>
-                    <MakeOrder test={test} createOrder={setCreatingOrder} total_load={totalLoading}
-                               subtotal={total ? total.total : 0}/>
                 </div>
                 <Footer/>
             </div>

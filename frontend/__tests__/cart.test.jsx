@@ -3,7 +3,6 @@ import {render, fireEvent, waitFor, act} from '@testing-library/react';
 import api from '../src/api.js';
 import {MemoryRouter as Router} from "react-router-dom";
 import Cart from '../src/pages/Cart.jsx';
-import DishInCart from "../src/components/Cart/CartItem.jsx";
 
 jest.mock('../src/api');
 
