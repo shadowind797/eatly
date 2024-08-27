@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DishInCart component calls the onChange function when the PLUS/MINUS button is clicked 1`] = `<DocumentFragment />`;
+
+exports[`DishInCart component matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="item"
+  >
+    <button
+      class="cross"
+      data-testid="cross"
+    >
+      <img
+        alt=""
+        src="undefined/media/img/cross.svg"
+      />
+    </button>
+    <div
+      class="main"
+    >
+      <img
+        alt=""
+        src="http://127.0.0.1:8000/media/img/food/ChikenHell.png"
+      />
+      <div
+        class="info"
+      >
+        <h4>
+          Chicken Hell
+        </h4>
+        <h5>
+          $12.99
+        </h5>
+      </div>
+    </div>
+    <div
+      class="quant"
+    >
+      <button
+        data-testid="minus"
+      >
+        <img
+          alt=""
+          src="undefined/media/img/RemoveFromCart.svg"
+        />
+      </button>
+      <div>
+        <p>
+          3
+        </p>
+      </div>
+      <button
+        data-testid="plus"
+      >
+        <img
+          alt=""
+          src="undefined/media/img/AddQuant.svg"
+        />
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
