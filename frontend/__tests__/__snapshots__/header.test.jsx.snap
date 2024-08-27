@@ -81,20 +81,24 @@ exports[`Header component matches the snapshot 1`] = `
       id="icons"
     >
       <a
-        href="/cart/"
+        href="/cart"
       >
         <img
           alt=""
           src="undefined/media/img/cart.svg"
         />
       </a>
-      <img
-        alt=""
-        src="undefined/media/img/Profile.svg"
-      />
+      <a
+        href="/profile"
+      >
+        <img
+          alt=""
+          src="undefined/media/img/Profile.svg"
+        />
+      </a>
       <button>
         <a
-          href="/logout/"
+          href="/logout"
         >
           Log Out
         </a>

@@ -53,7 +53,8 @@ function BaseHeader({page}) {
                 setPages([...pages, ...data]);
                 setLoading(false)
             })
-            .catch((err) => {});
+            .catch((err) => {
+            });
     }
 
     if (loading) {
@@ -75,7 +76,7 @@ function BaseHeader({page}) {
                     <nav>
                         <ul>
                             {pages.map((page) => (
-                                <li  key={page.name}>
+                                <li key={page.name}>
                                     <a className={checkPage(page.pageName)} href={page.slug}>{page.name}</a>
                                 </li>
                             ))}
@@ -83,10 +84,10 @@ function BaseHeader({page}) {
                     </nav>
                 </div>
                 <div id="icons">
-                    <a href="/cart/"><img src={cart} alt=""/></a>
-                    <img src={profile_icon} alt=""/>
+                    <a href="/cart"><img src={cart} alt=""/></a>
+                    <a href="/profile"><img src={profile_icon} alt=""/></a>
                     <button>
-                        <a href="/logout/">Log Out</a>
+                        <a href="/logout">Log Out</a>
                     </button>
                 </div>
             </div>

@@ -9,6 +9,7 @@ import github from "../assets/github.svg"
 import hide_pass from "../assets/eye-off.svg"
 import show_pass from "../assets/eye-show.svg"
 import GoogleButton from "./LogIn/GoogleButton.jsx";
+import GithubButton from "./LogIn/GithubButton.jsx";
 
 function Form({route, method}) {
     const [username, setUsername] = useState("")
@@ -122,7 +123,7 @@ function Form({route, method}) {
                 <h1>{name} to EATLY</h1>
                 <div id="foreign-log">
                     <GoogleButton/>
-                    <button id="git-hub"><img src={github} alt=""/></button>
+                    <GithubButton/>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div id="inputs">

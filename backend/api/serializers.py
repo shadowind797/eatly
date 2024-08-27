@@ -7,6 +7,11 @@ class GoogleAuthSerializer(serializers.Serializer):
     error = serializers.CharField(required=False)
 
 
+class GithubAuthSerializer(serializers.Serializer):
+    code = serializers.CharField(required=False)
+    state = serializers.CharField(required=False)
+
+
 class UserSerializer(serializers.ModelSerializer):
     """
     Create a new User instance using the validated data.

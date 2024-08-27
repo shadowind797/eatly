@@ -3,6 +3,7 @@
 #log {
   display: flex;
   position: relative;
+
   #form {
     width: 60%;
     display: flex;
@@ -11,6 +12,7 @@
     margin: auto;
     padding-left: 20%;
     padding-right: 20%;
+
     h1 {
       color: $black_main;
       font-size: 35px;
@@ -19,24 +21,29 @@
       letter-spacing: -1.41px;
       text-align: center;
     }
+
     #foreign-log {
       display: flex;
       gap: 20px;
       justify-content: center;
+
       button {
         border-radius: 13px;
         background: none;
         border: none;
+
         img {
           width: 40px;
         }
       }
     }
+
     form {
       #inputs {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 8px;
+
         #input {
           width: 352px;
           height: 65px;
@@ -47,6 +54,7 @@
           justify-content: left;
           padding-left: 30px;
           padding-right: 30px;
+
           input {
             background: none;
             border: none;
@@ -55,6 +63,7 @@
             font-size: 17px;
             font-weight: 500;
             letter-spacing: 0.334px;
+
             &::placeholder {
               color: #C2C3CB;
               font-family: Poppins, sans-serif;
@@ -66,6 +75,7 @@
           }
         }
       }
+
       #action {
         button {
           margin-top: 5px;
@@ -80,6 +90,7 @@
           letter-spacing: 1px;
           color: white;
         }
+
         .another {
           text-align: center;
           padding-top: 8px;
@@ -88,6 +99,7 @@
           font-size: 19px;
           font-weight: 400;
           letter-spacing: 0.189px;
+
           a {
             color: $purple_main;
             font-family: Poppins, sans-serif;
@@ -98,12 +110,14 @@
         }
       }
     }
+
     #login-footer {
       position: absolute;
       bottom: 17px;
       left: 30px;
       display: flex;
       gap: 49em;
+
       p, a {
         color: #718096;
         font-family: Poppins, "Helvetica Neue", sans-serif;
@@ -114,6 +128,7 @@
       }
     }
   }
+
   #decor {
     background-color: $purple_main;
     height: 100%;
@@ -123,6 +138,7 @@
     padding-left: 80px;
     padding-top: 87px;
     box-sizing: border-box;
+
     h1 {
       margin-top: 70px;
       margin-bottom: 20px;
@@ -133,6 +149,7 @@
       font-weight: 800;
       line-height: 110%;
     }
+
     p {
       color: var(--Others-White, #FFF);
       text-align: center;
@@ -141,11 +158,13 @@
       font-weight: 500;
       line-height: 150%;
     }
+
     #second {
       width: 600px;
       height: 550px;
       position: relative;
       background-color: $purple_main;
+
       .plate {
         position: absolute;
         top: 77px;
@@ -153,6 +172,7 @@
         z-index: 2;
         width: 430px;
       }
+
       .grafic {
         position: absolute;
         z-index: 3;
@@ -166,16 +186,19 @@
         width: 207px;
         height: 206px;
         padding: 13px 26px;
+
         #up {
           display: flex;
           gap: 15px;
           align-items: center;
+
           .main {
             padding: 11px;
             color: #fff;
             background-color: $purple_main;
             border-radius: 15px;
           }
+
           p {
             text-align: center;
             font-family: Poppins, sans-serif;
@@ -185,20 +208,24 @@
             color: #828282;
           }
         }
+
         div {
           position: relative;
           width: 207px;
           height: 97px;
           margin-top: 25px;
+
           .g {
             position: absolute;
             z-index: 1;
           }
+
           .l {
             position: absolute;
             z-index: 0;
             bottom: 20px;
           }
+
           .p {
             position: absolute;
             top: 20px;
@@ -206,18 +233,21 @@
             z-index: 2;
           }
         }
+
         #down {
           display: flex;
           gap: 19px;
           align-items: center;
           padding-top: 16px;
           margin-left: 15px;
+
           .main {
             padding: 11px;
             color: $black_main;
             background-color: rgba(231, 231, 231, 0.92);
             border-radius: 15px;
           }
+
           p {
             text-align: center;
             font-family: Poppins, sans-serif;
@@ -228,6 +258,7 @@
           }
         }
       }
+
       .chicken-hell {
         position: absolute;
         border-radius: 16px;
@@ -240,15 +271,18 @@
         width: 329px;
         height: 76px;
         padding: 9px 16px;
+
         div {
           display: flex;
           gap: 18px;
           align-items: center;
+
           div {
             display: flex;
             flex-direction: column;
             gap: 4px;
             align-items: flex-start;
+
             h4 {
               color: $black_second;
               font-feature-settings: 'clig' off, 'liga' off;
@@ -256,6 +290,7 @@
               font-weight: 600;
               line-height: 140%; /* 21.82px */
             }
+
             h5 {
               color: $black_second;
               font-feature-settings: 'clig' off, 'liga' off;
@@ -264,10 +299,12 @@
               line-height: 140%; /* 13.781px */
             }
           }
+
           img {
             width: 75px
           }
         }
+
         p {
           position: absolute;
           bottom: 10px;

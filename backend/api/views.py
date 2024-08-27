@@ -12,20 +12,45 @@ from django.conf import settings
 from django.contrib.auth import login
 from rest_framework.views import APIView
 from .serializers import GoogleAuthSerializer
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class GoogleLoginApi(APIView):
+    permission_classes = [AllowAny, ]
+
     def get(self, request, *args, **kwargs):
         auth_serializer = GoogleAuthSerializer(data=request.GET)
         auth_serializer.is_valid(raise_exception=True)
 
         validated_data = auth_serializer.validated_data
-        user_data = get_user_data(validated_data)
+        user_data = get_user_data(validated_data, "google")
 
         user = User.objects.get(email=user_data['email'])
-        login(request, user)
 
-        return redirect(settings.BASE_APP_URL)
+        token = TokenObtainPairSerializer.get_token(user)
+        access_token = str(token.access_token)
+        refresh_token = str(token)
+
+        return redirect(f"{settings.BASE_APP_URL}/login?access={access_token}&refresh={refresh_token}")
+
+
+class GithubLoginApi(APIView):
+    permission_classes = [AllowAny, ]
+
+    def get(self, request, *args, **kwargs):
+        auth_serializer = GithubAuthSerializer(data=request.GET)
+        auth_serializer.is_valid(raise_exception=True)
+
+        validated_data = auth_serializer.validated_data
+        user_data = get_user_data(validated_data, "github")
+
+        user = User.objects.get(username=user_data['username'])
+
+        token = TokenObtainPairSerializer.get_token(user)
+        access_token = str(token.access_token)
+        refresh_token = str(token)
+
+        return redirect(f"{settings.BASE_APP_URL}/login?access={access_token}&refresh={refresh_token}")
 
 
 class GetAccess(generics.ListAPIView):

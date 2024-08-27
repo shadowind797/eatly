@@ -3670,7 +3670,7 @@ button:hover {
 #log #form form #inputs {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 8px;
 }
 #log #form form #inputs #input {
   width: 352px;

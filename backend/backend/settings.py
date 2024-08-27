@@ -25,6 +25,8 @@ BASE_APP_URL = "http://localhost:5173"
 BASE_API_URL = "http://localhost:8000"
 GOOGLE_OAUTH2_CLIENT_ID = "72881212746-robsn0filbk18qhfd1aasamhuk5s5j3p.apps.googleusercontent.com"
 GOOGLE_OAUTH2_CLIENT_SECRET = "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"
+GITHUB_OAUTH2_CLIENT_ID = "Ov23liZaAbJtwyA3Z1Ii"
+GITHUB_OAUTH2_CLIENT_SECRET = "483587e028deab4c654f87a39fa83d0464840148"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
