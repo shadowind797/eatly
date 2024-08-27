@@ -63,6 +63,9 @@ describe('Cart component', () => {
             } else if (url.includes('api/items/')) {
                 return Promise.resolve({status: 200, data: {total: 12.99}});
             }
+            if (url.includes('api/coupon/')) {
+                return Promise.resolve({status: 200, data: {value: 0.9}});
+            }
             return Promise.reject(new Error('Not found'));
         });
         api.delete.mockImplementation((url) => {
@@ -100,7 +103,7 @@ describe('Cart component', () => {
     })
 
     it("updates total when quantity changed", async () => {
-        let getByText, getByTestId, asFragment, getApiCalls, postApiCalls
+        let getByText, getByTestId, asFragment
         await act(async () => {
             const rendered = render(<Router><Cart/></Router>);
             getByText = rendered.getAllByText;
@@ -120,6 +123,30 @@ describe('Cart component', () => {
         fireEvent.click(getByTestId("plus"));
         await waitFor(() => {
             expect(api.get).toHaveBeenCalledWith("api/items/cart/")
+        })
+    })
+
+    it("updates total when coupon applied changed", async () => {
+        let getByText, getByTestId, asFragment, getByPlaceholderText
+        await act(async () => {
+            const rendered = render(<Router><Cart/></Router>);
+            getByText = rendered.getAllByText;
+            getByTestId = rendered.getByTestId;
+            getByPlaceholderText = rendered.getByPlaceholderText;
+            asFragment = rendered.asFragment;
+        });
+
+        expect(api.get).toHaveBeenCalledWith("api/items/", {"params": {"id": 1}});
+
+        await waitFor(() => getByTestId("minus"))
+
+        fireEvent.change(getByPlaceholderText("Apply Coupon"), {target: {value: "TESTCOUPON"}})
+
+        fireEvent.click(getByText("Apply")[0]);
+        await waitFor(() => {
+            expect(api.post).toHaveBeenCalledWith("api/coupon/", {
+                "data": {"method": "apply", "title": "TESTCOUPON"}
+            })
         })
     })
 })

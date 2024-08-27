@@ -83,7 +83,8 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                 setAddressLoading(false)
                 setAddAddress(false)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const checkCoupon = (e) => {
@@ -99,7 +100,8 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                     setApplied(false);
                 }
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const setOrderData = (e) => {
