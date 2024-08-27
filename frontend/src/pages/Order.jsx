@@ -25,7 +25,8 @@ function Order() {
                     setUser(item);
                 })
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const getOrder = () => {
@@ -49,7 +50,7 @@ function Order() {
     return (
         <div id="complete-order">
             <Map/>
-            <Info order={order} address={address} user={user}/>
+            <Info order={order} user={user}/>
         </div>
     )
 }

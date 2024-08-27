@@ -7,7 +7,7 @@ import price_load from "../../assets/header-loading.gif";
 import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 
-function MakeOrder({subtotal, total_load, createOrder}) {
+function MakeOrder({subtotal, total_load, createOrder, test}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
@@ -116,6 +116,9 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                             if (res.status === 201) {
                                 createOrder(false)
                                 setToComplete(true)
+                            } else if (res.status === 303) {
+                                createOrder(false)
+                                setAlreadyExists(true)
                             }
                         })
                         .catch((err) => {
@@ -235,17 +238,15 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                 <div id="pay">
                     <div id="userInfo">
                         <div id="nameDiv">
-                            <p className="error" style={noName ? {display: "block"} : {display: "none"}}>Please enter
-                                your name</p>
+                            {noName && <p className="error">Please enter your name</p>}
                             <input autoComplete="off" id="name" type="text" placeholder="How courier'll call you?"
                                    value={firstName}
                                    onChange={(e) => {
                                        setFirstName(e.target.value)
                                    }}/>
                         </div>
-                        <div id="address">
-                            <p className="error" style={noAddress ? {display: "block"} : {display: "none"}}>Address
-                                required</p>
+                        <div id="address" data-testid="address-select">
+                            {noAddress && <p className="error">Address required</p>}
                             <Select
                                 options={addressList}
                                 styles={selectStyles}
@@ -254,11 +255,10 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                             />
                             <button id="add-address" onClick={() => setAddAddress(true)}>Add address</button>
                         </div>
-                        <p className="error" style={noItems ? {display: "block"} : {display: "none"}}>Your cart is
-                            empty</p>
-                        <p className="error" style={alreadyExists ? {display: "block"} : {display: "none"}}>
-                            You already have staged order. Go <a href="/complete-order">here</a> to complete it
-                        </p>
+                        {noItems && <p className="error">Your cart is empty</p>}
+                        {alreadyExists &&
+                            <p className="error">You already have staged order. Go <a href="/complete-order">here</a> to
+                                complete it</p>}
                         <button id="complete" onClick={e => {
                             setOrderData(e)
                         }}>
@@ -278,6 +278,10 @@ function MakeOrder({subtotal, total_load, createOrder}) {
                     }}/>}
                     <form>
                         <div id="inputs">
+                            {test && <input type="text" placeholder="Building" value={buildingAddress}
+                                            onChange={(e) => {
+                                                setBuildingAddress(e.target.value)
+                                            }}/>}
                             <div>
                                 <input type="text" placeholder="Entrance" value={entrance}
                                        onChange={(e) => {

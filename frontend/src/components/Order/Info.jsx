@@ -5,7 +5,7 @@ import {Navigate} from "react-router-dom";
 import info_load from "../../assets/header-loading.gif";
 import load from "../../assets/count_load.gif";
 
-function Info({address, order, user, setOrdering}) {
+function Info({order, user}) {
     const [addPayment, setAddPayment] = useState(false);
     const [paymentMode, setPaymentMode] = useState("Cash");
     const [paymentList, setPaymentList] = useState([]);
@@ -67,7 +67,6 @@ function Info({address, order, user, setOrdering}) {
                     }
                 })
                 .catch((err) => {
-                    console.error(err);
                 });
         }
     };
@@ -90,7 +89,8 @@ function Info({address, order, user, setOrdering}) {
                 setNewCardLoading(false)
                 setAddPayment(false)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const createPayment = (e) => {
@@ -113,8 +113,10 @@ function Info({address, order, user, setOrdering}) {
                 }
             })
             .catch((err) => {
-                setPaymentAlreadyExists(true)
-                setNewCardLoading(false)
+                if (err.response.status === 409) {
+                    setPaymentAlreadyExists(true)
+                    setNewCardLoading(false)
+                }
             })
     }
 
@@ -200,7 +202,8 @@ function Info({address, order, user, setOrdering}) {
                                 className={paymentMode === "Cash" ? "active" : {}}>
                             <img src={cash} alt=""/>
                         </button>
-                        <button onClick={() => setPaymentMode("Card via Internet")}
+                        <button data-testid="web-card"
+                                onClick={() => setPaymentMode("Card via Internet")}
                                 className={paymentMode === "Card via Internet" ? "active" : {}}>
                             <img src={card_internet} alt=""/>
                         </button>
@@ -208,7 +211,7 @@ function Info({address, order, user, setOrdering}) {
                                 className={paymentMode === "Card to courier" ? "active" : {}}>
                             <img src={card_courier} alt=""/>
                         </button>
-                        <div id="card-select"
+                        <div id="card-select" data-testid="payment-select"
                              style={paymentMode === "Card via Internet" ?
                                  {display: "flex", flexDirection: "column", gap: "5px"} :
                                  {display: "none"}}>
