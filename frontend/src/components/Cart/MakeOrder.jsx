@@ -35,6 +35,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
 
     const [addressLoading, setAddressLoading] = useState(false)
     const [mapLoading, setMapLoading] = useState(false)
+    const [couponLoading, setCouponLoading] = useState(false)
 
     useEffect(() => {
         getUser()
@@ -66,6 +67,20 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
             .catch((err) => alert(err));
     }
 
+    const checkAddressFormat = address => {
+        let formattedAddress = address.house_address
+        if (address.entrance.length > 0) {
+            formattedAddress += `, ${address.entrance} ent.`
+        }
+        if (address.floor.length > 0) {
+            formattedAddress += `, ${address.floor} floor`
+        }
+        if (address.flat.length > 0) {
+            formattedAddress += `, flat ${address.flat}`
+        }
+        return formattedAddress
+    }
+
     const getAddressList = (add) => {
         api
             .get("api/address/")
@@ -75,7 +90,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                 data.map((item) => {
                     list = [...list, {
                         value: item.id,
-                        label: `${item.house_address}, ${item.entrance} ent., ${item.floor} floor, flat ${item.flat}`
+                        label: checkAddressFormat(item)
                     }]
                     setAddressList(list);
                 })
@@ -90,15 +105,18 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
 
     const checkCoupon = (e) => {
         e.preventDefault();
+        setCouponLoading(true)
         api
             .post("api/coupon/", {method: "apply", title: coupon})
             .then((res) => {
                 if (res.status === 200) {
                     setCouponValue(res.data.value);
                     setApplied(true);
+                    setCouponLoading(false);
                 } else {
                     setCouponValue(1);
                     setApplied(false);
+                    setCouponLoading(false);
                 }
             })
             .catch((err) => {
@@ -165,9 +183,14 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                         getAddressList(true)
                     } else if (res.status === 409) {
                         setAddressAlreadyExists(true)
+                        setAddressLoading(false)
                     }
                 })
                 .catch((err) => {
+                    if (err.response.status === 409) {
+                        setAddressAlreadyExists(true)
+                        setAddressLoading(false)
+                    }
                 })
         } else {
             setNoBuilding(true)
@@ -225,7 +248,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                         </div>
                         <button type="submit" onClick={e => {
                             checkCoupon(e)
-                        }}>Apply
+                        }}>{couponLoading ? "Applying..." : "Apply"}
                         </button>
                     </form>
                     <h6>Subtotal: {total_load ? (
@@ -284,6 +307,8 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
             <div id="order">
                 <div id="new-address">
                     <Map address={buildingAddress} setIsLoaded={setMapLoading}/>
+                    {addressAlreadyExists &&
+                        <p className="error" style={{paddingBottom: "4px"}}>You already add this address</p>}
                     {mapLoading && (
                         <div id="place-input">
                             {noBuilding &&
@@ -322,6 +347,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                                 setFlat("")
                                 setAddAddress(false)
                                 setNoBuilding(false)
+                                setAddressAlreadyExists(false)
                             }}>Cancel
                             </button>
                             <button className="add" type="submit" onClick={e => {

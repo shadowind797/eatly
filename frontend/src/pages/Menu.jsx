@@ -48,58 +48,42 @@ function Menu() {
         }
     };
 
-    if (items.length === 0) {
-        return (
-            <div id="menu">
-                <BaseHeader page="menu"/>
-                <Header page="menu"/>
-                <MainDiv setItems={setItems} updateSort={updateSort}/>
-                <TopRests/>
-                <TopDishes/>
-                <Footer/>
-            </div>
-        );
-    } else if (items[0] === 'load items') {
-        return (
-            <div id="menu">
-                <BaseHeader page="menu"/>
-                <Header page="menu"/>
-                <MainDiv setItems={setItems} updateSort={updateSort}/>
+    const checkPage = () => {
+        if (items.length === 0) {
+            return (
+                <div>
+                    <TopRests/>
+                    <TopDishes/>
+                </div>
+            );
+        } else if (items[0] === 'load items') {
+            return (
                 <img src={header_load} style={{width: "400px", margin: "auto"}} alt=""/>
-                <Footer/>
-            </div>
-        );
-    } else if (newItems.length > 0 && newItems[0].photo) {
-        return (
-            <div id="menu">
-                <BaseHeader page="menu"/>
-                <Header page="menu"/>
-                <MainDiv setItems={setItems} updateSort={updateSort}/>
+            );
+        } else if (newItems.length > 0 && newItems[0].photo) {
+            return (
                 <Items type="items" items={newItems}/>
-                <Footer/>
-            </div>
-        );
-    } else if (newItems.length > 0 && newItems[0].image) {
-        return (
-            <div id="menu">
-                <BaseHeader page="menu"/>
-                <Header page="menu"/>
-                <MainDiv setItems={setItems} updateSort={updateSort}/>
+            );
+        } else if (newItems.length > 0 && newItems[0].image) {
+            return (
                 <Items type="rests" items={newItems}/>
-                <Footer/>
-            </div>
-        );
-    } else if (newItems.length > 0 && JSON.stringify(newItems[0]) === JSON.stringify({not_found: "no items"})) {
-        return (
-            <div id="menu">
-                <BaseHeader page="menu"/>
-                <Header page="menu"/>
-                <MainDiv setItems={setItems} updateSort={updateSort}/>
+            );
+        } else if (newItems.length > 0 && JSON.stringify(newItems[0]) === JSON.stringify({not_found: "no items"})) {
+            return (
                 <Items type="items" items={newItems}/>
-                <Footer/>
-            </div>
-        );
+            );
+        }
     }
+
+    return (
+        <div id="menu">
+            <BaseHeader page="menu"/>
+            <Header page="menu"/>
+            <MainDiv setItems={setItems} updateSort={updateSort}/>
+            {checkPage()}
+            <Footer/>
+        </div>
+    );
 }
 
 export default Menu;

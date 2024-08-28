@@ -31,6 +31,9 @@ function MainDiv({setItems, updateSort}) {
     const searchItems = (e) => {
         e.preventDefault();
         setItems(["load items"])
+        setCatFilter("")
+        setCost(20)
+        setCostFilter([15, 25]);
         if (search.includes(" ")) {
             api
                 .get("api/items/search",
@@ -66,7 +69,8 @@ function MainDiv({setItems, updateSort}) {
                 setItems(data)
                 updateSort(sort, sortDir)
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const getSearchMode = () => {

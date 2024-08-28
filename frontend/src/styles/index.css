@@ -2087,7 +2087,7 @@ button:hover {
   margin-top: 10px;
 }
 #cart #main #order #costs form #input {
-  width: 316px;
+  width: 296px;
   height: 43px;
   border-radius: 10px;
   background-color: #F9F9F9;
@@ -2116,7 +2116,7 @@ button:hover {
   width: 30px;
 }
 #cart #main #order #costs form button {
-  width: 121px;
+  width: 141px;
   height: 63px;
   background-color: #6C5FBC;
   border: none;
@@ -3101,12 +3101,12 @@ button:hover {
 #menu #main-div {
   display: flex;
   gap: 60px;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 #menu #main-div #ad-search {
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 40px;
 }
 #menu #main-div #ad-search #search form {
   display: flex;
@@ -3204,7 +3204,7 @@ button:hover {
   bottom: -60px;
 }
 #menu #sort-filter {
-  height: 500px;
+  height: 470px;
   padding: 20px;
   background-color: #fff;
   margin-left: 0;
@@ -3213,7 +3213,7 @@ button:hover {
   box-shadow: 6px 10px 29px 1px rgba(108, 95, 188, 0.12);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 22px;
 }
 #menu #sort-filter .categories h4 {
   color: rgb(54, 54, 54);
@@ -3400,6 +3400,26 @@ button:hover {
   padding-left: 40px;
   padding-bottom: 60px;
   width: 1300px;
+}
+#menu #no-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+#menu #no-items h2 {
+  color: #C2C3CB;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 30px;
+}
+#menu #no-items p {
+  color: #C2C3CB;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
 }
 
 html, body, #cart, #main, #root, #log, #complete-order {
