@@ -5,6 +5,7 @@ import MakeOrder from "../components/Cart/MakeOrder.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
 import Footer from "../components/Footer.jsx";
+import empty_cart from "../assets/empty-cart.svg"
 import items_load from "../assets/header-loading.gif";
 import load from "../assets/count_load.gif";
 
@@ -75,7 +76,11 @@ function Cart({test}) {
                 <BaseHeader/>
                 <Header/>
                 <div id="main">
-                    <div><h1>No items</h1></div>
+                    <div id="empty">
+                        <img src={empty_cart} alt=""/>
+                        <h1>You don't add any dishes in your cart</h1>
+                        <h2>You can do it in <a href="/menu">menu</a></h2>
+                    </div>
                 </div>
                 <Footer/>
             </div>

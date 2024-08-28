@@ -1,5 +1,5 @@
 import api from "../../api.js";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import Select from "react-select";
 import item from "../Dish.jsx";
 import {Navigate} from "react-router-dom";
@@ -31,9 +31,9 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
     const [noName, setNoName] = useState(false);
     const [noAddress, setNoAddress] = useState(false)
     const [alreadyExists, setAlreadyExists] = useState(false)
+    const [noBuilding, setNoBuilding] = useState(false)
 
     const [addressLoading, setAddressLoading] = useState(false)
-
     const [mapLoading, setMapLoading] = useState(false)
 
     useEffect(() => {
@@ -152,17 +152,27 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
     const createAddress = (e) => {
         e.preventDefault()
         setAddressLoading(true)
-        api
-            .post("api/address/add/", {house_address: buildingAddress, entrance: entrance, floor: floor, flat: flat})
-            .then((res) => {
-                if (res.status === 201) {
-                    getAddressList(true)
-                } else if (res.status === 409) {
-                    setAddressAlreadyExists(true)
-                }
-            })
-            .catch((err) => {
-            })
+        if (buildingAddress.length > 0) {
+            api
+                .post("api/address/add/", {
+                    house_address: buildingAddress,
+                    entrance: entrance,
+                    floor: floor,
+                    flat: flat
+                })
+                .then((res) => {
+                    if (res.status === 201) {
+                        getAddressList(true)
+                    } else if (res.status === 409) {
+                        setAddressAlreadyExists(true)
+                    }
+                })
+                .catch((err) => {
+                })
+        } else {
+            setNoBuilding(true)
+            setAddressLoading(false)
+        }
     }
 
     const selectStyles = {
@@ -274,9 +284,15 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
             <div id="order">
                 <div id="new-address">
                     <Map address={buildingAddress} setIsLoaded={setMapLoading}/>
-                    {mapLoading && <PlaceInput finalAddress={(a) => {
-                        setBuildingAddress(a)
-                    }}/>}
+                    {mapLoading && (
+                        <div id="place-input">
+                            {noBuilding &&
+                                <p className="error" style={{paddingBottom: "4px"}}>Building address is required</p>}
+                            <PlaceInput finalAddress={(a) => {
+                                setBuildingAddress(a)
+                            }}/>
+                        </div>
+                    )}
                     <form>
                         <div id="inputs">
                             {test && <input type="text" placeholder="Building" value={buildingAddress}
@@ -305,6 +321,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                                 setFloor("")
                                 setFlat("")
                                 setAddAddress(false)
+                                setNoBuilding(false)
                             }}>Cancel
                             </button>
                             <button className="add" type="submit" onClick={e => {

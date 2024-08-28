@@ -31,8 +31,6 @@ function Info({order, user}) {
     const [loading, setLoading] = useState(false)
     const [newCardLoading, setNewCardLoading] = useState(false)
 
-    const [orderExists, setOrderExists] = useState(false)
-
     const cardNumberRef = useRef(null);
     const cvvRef = useRef(null);
     const dateToMonthRef = useRef(null);
@@ -75,7 +73,6 @@ function Info({order, user}) {
 
     const updateOrder = (e) => {
         e.preventDefault();
-        setOrderExists(false)
         if (!payment && paymentMode === "Card via Internet") {
             setCardRequired(true);
         } else {
@@ -90,16 +87,14 @@ function Info({order, user}) {
                     if (res.status === 205) {
                         setLoading(false)
                         setOrdered(true);
-                    }
-                })
-                .catch((err) => {
-                    setOrderExists(true)
-                    setLoading(false)
-                });
-            api.delete("api/items/cart/delete", {params: {method: "clear"}})
-                .then((res) => {
-                    if (res.status === 202) {
-                    } else if (res.status === 404) {
+                        api.delete("api/items/cart/delete", {params: {method: "clear"}})
+                            .then((res) => {
+                                if (res.status === 202) {
+                                } else if (res.status === 404) {
+                                }
+                            })
+                            .catch((err) => {
+                            });
                     }
                 })
                 .catch((err) => {
@@ -265,7 +260,6 @@ function Info({order, user}) {
                         </div>
                     </div>
                 </div>
-                {orderExists ? (<p className="error">You already have confirmed order</p>) : (<p></p>)}
                 <div id="btns">
                     <button id="cancel" onClick={e => cancelOrder(e)}>
                         Cancel
@@ -293,8 +287,6 @@ function Info({order, user}) {
                                     if (Number(digitsOnly)) {
                                         const formatted = digitsOnly.match(/.{1,4}/g).join(' ');
                                         setCardNumber(formatted);
-                                    } else {
-                                        setCardNumber("");
                                     }
                                 } else {
                                     setCardNumber(input.slice(0, 19));
@@ -313,8 +305,6 @@ function Info({order, user}) {
                                                } else {
                                                    setCvv(input.slice(0, 3));
                                                }
-                                           } else {
-                                               setCvv("");
                                            }
                                        }}/>
                                 <div id="date">
@@ -331,8 +321,6 @@ function Info({order, user}) {
                                                    } else {
                                                        setDateToMonth(input.slice(0, 2));
                                                    }
-                                               } else {
-                                                   setDateToMonth("");
                                                }
                                            }}/>
                                     <p>/</p>
@@ -349,8 +337,6 @@ function Info({order, user}) {
                                                    } else {
                                                        setDateToYear(input.slice(0, 2));
                                                    }
-                                               } else {
-                                                   setDateToYear("");
                                                }
                                            }}/>
                                 </div>
@@ -367,8 +353,6 @@ function Info({order, user}) {
                                                    setCardOwnerName(cardOwnerName.slice(0, i))
                                                }
                                            }
-                                       } else {
-                                           setCardOwnerName("")
                                        }
                                    }}/>
                         </div>

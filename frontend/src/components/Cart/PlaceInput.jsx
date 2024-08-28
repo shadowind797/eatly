@@ -1,9 +1,13 @@
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from "react-places-autocomplete";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 const PlaceInput = ({finalAddress}) => {
     const [address, setAddress] = useState('');
+    const buildingInputRef = useRef()
 
+    useEffect(() => {
+        buildingInputRef.current.focus();
+    }, []);
     const handleChange = address => {
         setAddress(address);
     };
@@ -26,6 +30,7 @@ const PlaceInput = ({finalAddress}) => {
                             placeholder: 'Building',
                             className: 'location-search-input',
                             style: {width: "96%"},
+                            ref: buildingInputRef,
                         })}
                     />
                     <div className="autocomplete-dropdown-container"

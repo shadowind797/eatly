@@ -1934,6 +1934,31 @@ button:hover {
   display: flex;
   position: relative;
 }
+#cart #main #empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 200px 36%;
+}
+#cart #main #empty h1 {
+  color: #C2C3CB;
+  font-size: 28px;
+  font-weight: 800;
+}
+#cart #main #empty h2 {
+  color: #C2C3CB;
+  font-size: 24px;
+  font-weight: 800;
+}
+#cart #main #empty h2 a {
+  color: #6C5FBC;
+  transition: 0.2s;
+}
+#cart #main #empty h2 a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
+}
 #cart #main #cart-items-list {
   display: flex;
   flex-direction: column;
