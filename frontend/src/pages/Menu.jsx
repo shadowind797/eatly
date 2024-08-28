@@ -12,6 +12,8 @@ import header_load from "../assets/header-loading.gif"
 
 function Menu() {
     const [items, setItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [inCartItems, setInCartItems] = useState([]);
     const [newItems, setNewItems] = useState([]);
     const [sort, setSort] = useState("a-z");
     const [dir, setDir] = useState("asc");
@@ -62,15 +64,15 @@ function Menu() {
             );
         } else if (newItems.length > 0 && newItems[0].photo) {
             return (
-                <Items type="items" items={newItems}/>
+                <Items type="items" items={newItems} cats={categories} inCartItems={inCartItems}/>
             );
         } else if (newItems.length > 0 && newItems[0].image) {
             return (
-                <Items type="rests" items={newItems}/>
+                <Items type="rests" items={newItems} cats={categories} inCartItems={inCartItems}/>
             );
         } else if (newItems.length > 0 && JSON.stringify(newItems[0]) === JSON.stringify({not_found: "no items"})) {
             return (
-                <Items type="items" items={newItems}/>
+                <Items type="items" items={newItems} cats={categories} inCartItems={inCartItems}/>
             );
         }
     }
@@ -79,7 +81,10 @@ function Menu() {
         <div id="menu">
             <BaseHeader page="menu"/>
             <Header page="menu"/>
-            <MainDiv setItems={setItems} updateSort={updateSort}/>
+            <MainDiv setItems={setItems}
+                     setCategories={setCategories}
+                     setInCartItems={setInCartItems}
+                     updateSort={updateSort}/>
             {checkPage()}
             <Footer/>
         </div>

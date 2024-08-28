@@ -5,7 +5,7 @@ import Select from "react-select";
 import CatFilterOption from "./CatFilterOption.jsx";
 import RangeSlider from "./RangeInput.jsx";
 
-function MainDiv({setItems, updateSort}) {
+function MainDiv({setItems, updateSort, setInCartItems, setCategories}) {
     const categoryImgs = [
         {id: 1, src: `${import.meta.env.VITE_API_URL}/media/img/cats/category-1.svg`},
         {id: 2, src: `${import.meta.env.VITE_API_URL}/media/img/cats/category-2.svg`},
@@ -41,7 +41,9 @@ function MainDiv({setItems, updateSort}) {
                 .then((res) => res.data)
                 .then((data) => {
                     updateSort(sort, sortDir)
-                    setItems(data)
+                    setItems(data.items)
+                    setCategories(data.cats)
+                    setInCartItems(data.in_cart)
                 })
                 .catch((err) => {
                 });
@@ -50,7 +52,9 @@ function MainDiv({setItems, updateSort}) {
                 .get("api/items/search", {params: {search: search, search_mode: getSearchMode()}})
                 .then((res) => res.data)
                 .then((data) => {
-                    setItems(data)
+                    setItems(data.items)
+                    setCategories(data.cats)
+                    setInCartItems(data.in_cart)
                     updateSort(sort, sortDir)
                 })
                 .catch((err) => {
@@ -66,7 +70,9 @@ function MainDiv({setItems, updateSort}) {
             .post("api/items/search/filters/", {filters: {category: catFilter, cost: costFilter}})
             .then((res) => res.data)
             .then((data) => {
-                setItems(data)
+                setItems(data.items)
+                setCategories(data.cats)
+                setInCartItems(data.in_cart)
                 updateSort(sort, sortDir)
             })
             .catch((err) => {

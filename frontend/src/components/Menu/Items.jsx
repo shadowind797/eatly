@@ -2,7 +2,18 @@ import Dish from "../Dish.jsx";
 import RestaurantCard from "../RestaurantCard.jsx";
 import no_items from "../../assets/no-items-menu.svg"
 
-function Items({items, type}) {
+function Items({items, type, cats, inCartItems}) {
+
+    const getCategory = (categoryId) => {
+        const cat = cats.find((cat) => cat.id === categoryId) || {name: ""}
+        return cat.name;
+    }
+
+    const checkInCart = (itemId) => {
+        const isInCart = inCartItems.find((item) => item.item === itemId)
+
+        return isInCart !== undefined;
+    }
 
     if (JSON.stringify(items[0]) === JSON.stringify({not_found: "no items"})) {
         return (
@@ -17,7 +28,10 @@ function Items({items, type}) {
             return (
                 <div id="items-list" className="container" data-testid="filtered-items">
                     {items.map((item) => (
-                        <Dish item={item} key={item.id}/>
+                        <Dish item={item}
+                              category={getCategory(item.category)}
+                              key={item.id}
+                              inCart={checkInCart(item.id)}/>
                     ))}
                 </div>
             )
