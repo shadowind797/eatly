@@ -66,8 +66,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
             .catch((err) => alert(err));
     }
 
-    const getAddressList = () => {
-        setAddressLoading(true)
+    const getAddressList = (add) => {
         api
             .get("api/address/")
             .then((res) => res.data)
@@ -80,8 +79,10 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                     }]
                     setAddressList(list);
                 })
-                setAddressLoading(false)
-                setAddAddress(false)
+                if (add) {
+                    setAddAddress(false)
+                    setAddressLoading(false)
+                }
             })
             .catch((err) => {
             });
@@ -155,7 +156,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
             .post("api/address/add/", {house_address: buildingAddress, entrance: entrance, floor: floor, flat: flat})
             .then((res) => {
                 if (res.status === 201) {
-                    getAddressList()
+                    getAddressList(true)
                 } else if (res.status === 409) {
                     setAddressAlreadyExists(true)
                 }

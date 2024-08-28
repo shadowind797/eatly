@@ -1,5 +1,5 @@
 import Select from "react-select";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import api from "../../api.js";
 import {Navigate} from "react-router-dom";
 import info_load from "../../assets/header-loading.gif";
@@ -12,11 +12,11 @@ function Info({order, user}) {
     const [payment, setPayment] = useState(null);
     const [paymentAlreadyExists, setPaymentAlreadyExists] = useState(false);
 
-    const [cardNumber, setCardNumber] = useState(null);
-    const [cvv, setCvv] = useState(null);
-    const [dateToMonth, setDateToMonth] = useState(null);
-    const [dateToYear, setDateToYear] = useState(null);
-    const [cardOwnerName, setCardOwnerName] = useState(null);
+    const [cardNumber, setCardNumber] = useState("");
+    const [cvv, setCvv] = useState("");
+    const [dateToMonth, setDateToMonth] = useState("");
+    const [dateToYear, setDateToYear] = useState("");
+    const [cardOwnerName, setCardOwnerName] = useState("");
     const [invalidInfo, setInvalidInfo] = useState(false)
 
     const [canceled, setCanceled] = useState(false)
@@ -32,6 +32,42 @@ function Info({order, user}) {
     const [newCardLoading, setNewCardLoading] = useState(false)
 
     const [orderExists, setOrderExists] = useState(false)
+
+    const cardNumberRef = useRef(null);
+    const cvvRef = useRef(null);
+    const dateToMonthRef = useRef(null);
+    const dateToYearRef = useRef(null);
+    const cardOwnerNameRef = useRef(null);
+
+    useEffect(() => {
+        if (addPayment) {
+            cardNumberRef.current.focus();
+        }
+    }, [addPayment]);
+
+    useEffect(() => {
+        if (cardNumber.length >= 19) {
+            cvvRef.current.focus();
+        }
+    }, [cardNumber])
+
+    useEffect(() => {
+        if (cvv.length >= 3) {
+            dateToMonthRef.current.focus();
+        }
+    }, [cvv])
+
+    useEffect(() => {
+        if (dateToMonth.length >= 2) {
+            dateToYearRef.current.focus();
+        }
+    }, [dateToMonth])
+
+    useEffect(() => {
+        if (dateToYear.length >= 2) {
+            cardOwnerNameRef.current.focus();
+        }
+    }, [dateToYear])
 
     useEffect(() => {
         getPaymentList()
@@ -71,7 +107,7 @@ function Info({order, user}) {
         }
     };
 
-    const getPaymentList = () => {
+    const getPaymentList = (add) => {
         api
             .get("api/payment/")
             .then((res) => res.data)
@@ -81,13 +117,15 @@ function Info({order, user}) {
                     list = [...list, {value: item.number, label: `**** **** **** ${item.number.slice(15, 19)}`}]
                     setPaymentList(list);
                 })
-                setCardNumber("")
-                setCvv("")
-                setDateToMonth("")
-                setDateToYear("")
-                setCardOwnerName("")
-                setNewCardLoading(false)
-                setAddPayment(false)
+                if (add) {
+                    setCardNumber("")
+                    setCvv("")
+                    setDateToMonth("")
+                    setDateToYear("")
+                    setCardOwnerName("")
+                    setNewCardLoading(false)
+                    setAddPayment(false)
+                }
             })
             .catch((err) => {
             });
@@ -106,7 +144,7 @@ function Info({order, user}) {
             })
             .then((res) => {
                 if (res.status === 201) {
-                    getPaymentList()
+                    getPaymentList(true)
                 } else if (res.status === 409) {
                     setPaymentAlreadyExists(true)
                     setNewCardLoading(false)
@@ -244,6 +282,7 @@ function Info({order, user}) {
                     <h1>Add payment card</h1>
                     <div id="card-info">
                         <input
+                            ref={cardNumberRef}
                             type="text"
                             placeholder="XXXX XXXX XXXX XXXX"
                             value={cardNumber}
@@ -265,7 +304,7 @@ function Info({order, user}) {
                         />
                         <div id="date-name">
                             <div id="cvv-date">
-                                <input type="text" placeholder="CVV/CVC" value={cvv}
+                                <input ref={cvvRef} type="text" placeholder="CVV/CVC" value={cvv}
                                        onChange={(e) => {
                                            const input = e.target.value;
                                            if (Number(input)) {
@@ -279,7 +318,7 @@ function Info({order, user}) {
                                            }
                                        }}/>
                                 <div id="date">
-                                    <input type="text" placeholder="MM" value={dateToMonth}
+                                    <input ref={dateToMonthRef} type="text" placeholder="MM" value={dateToMonth}
                                            onChange={(e) => {
                                                const input = e.target.value;
                                                if (Number(input)) {
@@ -297,7 +336,7 @@ function Info({order, user}) {
                                                }
                                            }}/>
                                     <p>/</p>
-                                    <input type="text" placeholder="YY" value={dateToYear}
+                                    <input ref={dateToYearRef} type="text" placeholder="YY" value={dateToYear}
                                            onChange={(e) => {
                                                const input = e.target.value;
                                                if (Number(input)) {
@@ -316,7 +355,7 @@ function Info({order, user}) {
                                            }}/>
                                 </div>
                             </div>
-                            <input type="text" placeholder="OWNER NAME" value={cardOwnerName}
+                            <input ref={cardOwnerNameRef} type="text" placeholder="OWNER NAME" value={cardOwnerName}
                                    onChange={(e) => {
                                        const input = e.target.value;
                                        if (!Number(input)) {

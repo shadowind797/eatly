@@ -119,27 +119,27 @@
       padding: 30px 50px;
       background-color: #fff;
 
+      .error {
+        color: red;
+        font-family: Poppins, sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 140%; /* 24.619px */
+        a {
+          color: #008cff;
+          font-family: Poppins, sans-serif;
+          font-size: 12px;
+          font-weight: 500;
+          line-height: 140%; /* 24.619px */
+        }
+      }
+
       #costs {
         padding-bottom: 40px;
         border-bottom: 1px solid #CBCBCB;
         display: flex;
         flex-direction: column;
         gap: 15px;
-        
-        .error {
-          color: red;
-          font-family: Poppins, sans-serif;
-          font-size: 12px;
-          font-weight: 500;
-          line-height: 140%; /* 24.619px */
-          a {
-            color: #008cff;
-            font-family: Poppins, sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 140%; /* 24.619px */
-          }
-        }
 
         form {
           display: flex;
