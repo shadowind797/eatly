@@ -2,11 +2,11 @@ import {useEffect, useState} from "react";
 import Restaurant from "./Restaurant.jsx";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif"
+import ViewAll from "../assets/view-all.svg"
 
 function TopRests() {
     const [rests, setRests] = useState([]);
     const [cats, setCats] = useState([]);
-    const ViewAll = `${import.meta.env.VITE_API_URL}/media/img/view-all.svg`
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {

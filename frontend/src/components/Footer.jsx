@@ -2,10 +2,9 @@ import instagram from "../assets/instagram.svg"
 import linkedin from "../assets/linkedin.svg"
 import facebook from "../assets/facebook.svg"
 import x from "../assets/x.svg"
+import logo from "../assets/Logo.svg"
 
 function Footer() {
-    const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
-    
     return (
         <div id="footer">
             <div id="up-footer">

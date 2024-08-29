@@ -1,11 +1,9 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import api from "../api.js"
 import {useNavigate} from "react-router-dom";
 import {ACCESS_TOKEN, REFRESH_TOKEN} from "../constants.js";
 import LogSlider from "./LogIn/Slider.jsx";
 
-import google from "../assets/google.svg"
-import github from "../assets/github.svg"
 import hide_pass from "../assets/eye-off.svg"
 import show_pass from "../assets/eye-show.svg"
 import GoogleButton from "./LogIn/GoogleButton.jsx";
@@ -24,6 +22,11 @@ function Form({route, method}) {
     const [error, setError] = useState("")
 
     const [passState, setPassState] = useState("password")
+    const usernameRef = useRef(null)
+
+    useEffect(() => {
+        usernameRef.current.focus();
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -138,10 +141,14 @@ function Form({route, method}) {
                                                    onChange={field.onChange}
                                                    type={field.placeholder === "PASSWORD" ? passState : field.type}
                                                    placeholder={field.placeholder}
+                                                   ref={field.placeholder === "USERNAME" ? usernameRef : null}
                                             />
                                             {field.placeholder === "PASSWORD" &&
                                                 <img src={passState === "password" ? show_pass : hide_pass}
-                                                     style={{width: "30px", cursor: "pointer"}}
+                                                     style={password ? {
+                                                         width: "30px",
+                                                         cursor: "pointer"
+                                                     } : {display: "none"}}
                                                      onClick={() => {
                                                          const passType = passState === "password" ? "text" : "password"
                                                          setPassState(passType)
@@ -155,9 +162,21 @@ function Form({route, method}) {
                                     <div id="input" key={field.id}>
                                         <input value={field.value}
                                                onChange={field.onChange}
-                                               type={field.type}
+                                               type={field.placeholder === "PASSWORD" ? passState : field.type}
                                                placeholder={field.placeholder}
+                                               ref={field.placeholder === "USERNAME" ? usernameRef : null}
                                         />
+                                        {field.placeholder === "PASSWORD" &&
+                                            <img src={passState === "password" ? show_pass : hide_pass}
+                                                 style={password ? {
+                                                     width: "30px",
+                                                     cursor: "pointer"
+                                                 } : {display: "none"}}
+                                                 onClick={() => {
+                                                     const passType = passState === "password" ? "text" : "password"
+                                                     setPassState(passType)
+                                                 }}
+                                                 alt=""/>}
                                     </div>
                                 )
                             }

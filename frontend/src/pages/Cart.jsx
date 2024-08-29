@@ -4,7 +4,6 @@ import BaseHeader from "../components/BaseHeader.jsx";
 import MakeOrder from "../components/Cart/MakeOrder.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
-import Footer from "../components/Footer.jsx";
 import empty_cart from "../assets/empty-cart.svg"
 import items_load from "../assets/header-loading.gif";
 import load from "../assets/count_load.gif";
@@ -56,7 +55,6 @@ function Cart({test}) {
         return (
             <div id='cart'>
                 <BaseHeader/>
-                <Header/>
                 <div id="main">
                     {!creatingOrder && <ItemsList items={cartItems} onChange={getCartItems}/>}
                     {creatingOrder && <div style={{width: "100%"}}>
@@ -67,14 +65,12 @@ function Cart({test}) {
                                    subtotal={total ? total.total : 0}/>
                     </div>
                 </div>
-                <Footer/>
             </div>
         )
     } else if (extra === true) {
         return (
             <div id='cart'>
                 <BaseHeader/>
-                <Header/>
                 <div id="main">
                     <div id="empty">
                         <img src={empty_cart} alt=""/>
@@ -82,18 +78,15 @@ function Cart({test}) {
                         <h2>You can do it in <a href="/menu">menu</a></h2>
                     </div>
                 </div>
-                <Footer/>
             </div>
         )
     } else {
         return (
             <div id='cart'>
                 <BaseHeader/>
-                <Header/>
                 <div id="main" style={{height: "805px"}}>
                     <img src={items_load} style={{margin: "auto", width: "400px"}} alt=""/>
                 </div>
-                <Footer/>
             </div>
         )
     }

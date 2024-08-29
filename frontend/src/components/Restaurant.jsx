@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 import api from "../api.js";
 import cat_load from "../assets/header-loading.gif";
+import star from "../assets/Star.svg"
+import bookmark from "../assets/Bookmark.svg"
 
 function Restaurant({rest, category}) {
     const [style, setStyle] = useState({});
-    const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
-    const bookmark = `${import.meta.env.VITE_API_URL}/media/img/Bookmark.svg`
-    const [catLoading, setCatLoading] = useState(false)
 
     useEffect(() => {
         const categoryStyles = {

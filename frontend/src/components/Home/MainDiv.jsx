@@ -1,10 +1,8 @@
 import Plate from "./Plate.jsx";
-
+import trustpilot from "../../assets/trustpilot.png"
+import five_stars from "../../assets/5_stars.svg"
 
 function MainDiv() {
-    const trustpilot = `${import.meta.env.VITE_API_URL}/media/img/trustpilot.png`
-    const five_stars = `${import.meta.env.VITE_API_URL}/media/img/5_stars.svg`
-
     return (
         <div id="main-div" className="container">
             <div id="first">
@@ -38,7 +36,7 @@ function MainDiv() {
                     </div>
                 </div>
             </div>
-            <Plate />
+            <Plate/>
         </div>
     )
 }

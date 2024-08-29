@@ -1,7 +1,8 @@
+import phone from "../../assets/phone.png"
+import screen from "../../assets/Screenshot.png"
+import arrow from "../../assets/arrow-right.svg"
+
 function MobileApp() {
-    const phone = `${import.meta.env.VITE_API_URL}/media/img/phone.png`
-    const screen = `${import.meta.env.VITE_API_URL}/media/img/Screenshot.png`
-    const arrow = `${import.meta.env.VITE_API_URL}/media/img/arrow-right.svg`
 
     return (
         <div id="MobileApp">

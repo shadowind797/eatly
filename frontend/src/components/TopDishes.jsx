@@ -2,11 +2,11 @@ import Dish from "./Dish.jsx";
 import {useEffect, useState} from "react";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif"
+import ViewAll from "../assets/view-all.svg"
 
 
 function TopDishes() {
     const [items, setItems] = useState([]);
-    const ViewAll = `${import.meta.env.VITE_API_URL}/media/img/view-all.svg`
     const [loading, setLoading] = useState(false)
     const [categories, setCategories] = useState([]);
     const [inCartItems, setInCartItems] = useState([]);

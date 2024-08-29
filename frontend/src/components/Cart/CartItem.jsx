@@ -1,14 +1,15 @@
 import {useEffect, useState} from "react";
 import api from "../../api.js";
 import count_load from "../../assets/count_load.gif";
+import plus from "../../assets/AddQuant.svg"
+import minus from "../../assets/RemoveFromCart.svg"
+import cross from "../../assets/cross.svg"
+
 
 function CartItem({cartItem, onChange}) {
     const [dish, setDish] = useState({});
     const [quantity, setQuantity] = useState(cartItem.quantity);
     const [deleted, setDeleted] = useState(false);
-    const plus = `${import.meta.env.VITE_API_URL}/media/img/AddQuant.svg`
-    const minus = `${import.meta.env.VITE_API_URL}/media/img/RemoveFromCart.svg`
-    const cross = `${import.meta.env.VITE_API_URL}/media/img/cross.svg`
 
     const [itemLoad, setItemLoad] = useState(false)
     const [countLoad, setCountLoad] = useState(false)
@@ -90,7 +91,7 @@ function CartItem({cartItem, onChange}) {
                     <img src={cross} alt=""/>
                 </button>
                 <div className="main">
-                    <img src={dish.photo} alt=""/>
+                    <img src={`${import.meta.env.VITE_API_URL}${dish.photo}`} alt=""/>
                     <div className="info">
                         <h4>{dish.title}</h4>
                         <h5>${dish.price}.99</h5>

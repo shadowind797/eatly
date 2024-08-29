@@ -1,13 +1,11 @@
 import {useEffect, useRef, useState} from "react";
-import {Navigate} from "react-router-dom";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif";
-
+import logo from "../assets/Logo.svg"
+import profile_icon from "../assets/Profile.svg"
+import cart from "../assets/cart.svg"
 
 function BaseHeader({page}) {
-    const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
-    const profile_icon = `${import.meta.env.VITE_API_URL}/media/img/Profile.svg`;
-    const cart = `${import.meta.env.VITE_API_URL}/media/img/cart.svg`;
     const menu = [
         {
             pageName: "menu",

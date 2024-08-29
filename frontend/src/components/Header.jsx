@@ -2,11 +2,11 @@ import {useEffect, useRef, useState} from "react";
 import {Navigate} from "react-router-dom";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif"
+import logo from "../assets/Logo.svg"
+import profile_icon from "../assets/Profile.svg"
+import cart from "../assets/cart.svg"
 
 function Header({page}) {
-    const logo = `${import.meta.env.VITE_API_URL}/media/img/Logo.svg`;
-    const profile_icon = `${import.meta.env.VITE_API_URL}/media/img/Profile.svg`;
-    const cart = `${import.meta.env.VITE_API_URL}/media/img/cart.svg`;
     const menu = [
         {
             pageName: "menu",
@@ -61,7 +61,8 @@ function Header({page}) {
                 setPages([...pages, ...data]);
                 setLoading(false)
             })
-            .catch((err) => {});
+            .catch((err) => {
+            });
     }
 
     if (loading) {
@@ -83,7 +84,7 @@ function Header({page}) {
                     <nav>
                         <ul>
                             {pages.map((page) => (
-                                <li  key={page.name}>
+                                <li key={page.name}>
                                     <a className={checkPage(page.pageName)} href={page.slug}>{page.name}</a>
                                 </li>
                             ))}

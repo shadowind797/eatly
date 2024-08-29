@@ -6,12 +6,12 @@ import {Navigate} from "react-router-dom";
 import price_load from "../../assets/header-loading.gif";
 import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
+import cpImg from "../../assets/coupon.svg"
 
 function MakeOrder({subtotal, total_load, createOrder, test}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
-    const cpImg = `${import.meta.env.VITE_API_URL}/media/img/coupon.svg`;
     const [applied, setApplied] = useState(null);
     const [firstName, setFirstName] = useState(user.first_name || "");
     const discount = (Math.abs((subtotal * 1.1) - ((subtotal * 1.1) * couponValue))).toFixed(2)

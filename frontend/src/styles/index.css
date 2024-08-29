@@ -1933,6 +1933,7 @@ button:hover {
 #cart #main {
   display: flex;
   position: relative;
+  height: 90vh;
 }
 #cart #main #empty {
   display: flex;
@@ -1965,7 +1966,21 @@ button:hover {
   margin: 0;
   gap: 35px;
   padding: 50px 100px;
-  min-height: 100%;
+  max-height: 120vh;
+  overflow-y: auto;
+}
+#cart #main #cart-items-list::-webkit-scrollbar {
+  width: 8px;
+}
+#cart #main #cart-items-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+#cart #main #cart-items-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+#cart #main #cart-items-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 #cart #main #cart-items-list .item {
   display: flex;
@@ -2052,7 +2067,7 @@ button:hover {
 }
 #cart #main #order {
   width: 470px;
-  height: 100%;
+  height: 90vh;
   border-left: 1px solid #CBCBCB;
   border-bottom: 1px solid #CBCBCB;
   position: fixed;
@@ -2310,6 +2325,9 @@ button:hover {
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
+}
+#cart #footer {
+  width: calc(100% - 470px - 100px);
 }
 
 html, body, #cart, #main, #root, #log, #complete-order {
@@ -4228,8 +4246,7 @@ button:hover {
   background-color: #eaeaea;
   padding: 100px;
   padding-bottom: 60px;
-  position: relative;
-  z-index: 10;
+  box-sizing: border-box;
 }
 #footer #up-footer {
   display: flex;

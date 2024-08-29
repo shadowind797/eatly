@@ -1,15 +1,12 @@
 import React, {useEffect, useState} from "react";
 import api from "../api.js";
-import cat_load from "../assets/header-loading.gif";
 import inCart_load from "../assets/count_load.gif";
-
+import like from "../assets/Heart.svg"
+import addToCart from "../assets/AddToCart.svg"
+import alreadyInCart from "../assets/tick.svg"
+import star from "../assets/Star.svg"
 
 function Dish({item, category, inCart}) {
-    const like = `${import.meta.env.VITE_API_URL}/media/img/Heart.svg`
-    const addToCart = `${import.meta.env.VITE_API_URL}/media/img/AddToCart.svg`
-    const alreadyInCart = `${import.meta.env.VITE_API_URL}/media/img/tick.svg`
-    const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
-
     const [style, setStyle] = useState({})
 
     const [itemInCart, setInCart] = useState(false)
