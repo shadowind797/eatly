@@ -284,7 +284,7 @@ class ItemListCreate(generics.ListCreateAPIView):
                 total = 0
 
                 for i in cartItems:
-                    item = Item.objects.get(pk=i.get("item"))
+                    item = Item.objects.get(pk=i.get("item_id"))
                     total += item.price * i.get("quantity") + 0.99 * i.get("quantity")
                     total = float('{:.2f}'.format(total))
                     if i == cartItems[length - 1]:
@@ -400,10 +400,6 @@ class CartItemListCreate(generics.ListCreateAPIView):
     serializer_class = CartItemSerializer
     permission_classes = [IsAuthenticated, ]
 
-    def get_queryset(self):
-        user = self.request.user
-        return CartItem.objects.filter(owner=user)
-
     def perform_create(self, serializer):
         method = self.request.query_params.get("method")
 
@@ -516,7 +512,17 @@ class RestaurantListCreate(generics.ListCreateAPIView):
             return Response(status=status.HTTP_200_OK,
                             data={"items": serialized_items.data,
                                   "cats": serialized_cats.data})
-
+        elif method == "cart":
+            user = self.request.user
+            cart_items = CartItem.objects.filter(owner=user).values("id", "quantity", "item_id")
+            item_ids = cart_items.values_list('item_id', flat=True)
+            items = Item.objects.filter(id__in=item_ids).values("id", "restaurant_id", "title", "price", "photo")
+            rest_ids = items.values_list('restaurant_id', flat=True)
+            rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+            return Response(status=status.HTTP_200_OK,
+                            data={"rests": list(rests),
+                                  "items": list(items),
+                                  "cart_items": list(cart_items)})
         return Restaurant.objects.all()
 
     def perform_create(self, serializer):

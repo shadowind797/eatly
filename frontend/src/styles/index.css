@@ -1935,6 +1935,17 @@ button:hover {
   position: relative;
   height: 90vh;
 }
+#cart #main .input-load {
+  background-color: #F9F9F9;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 117.5%; /* 21.15px */
+  color: #6c6c72;
+  width: 430px;
+  height: 15px;
+  border-radius: 10px;
+  padding: 20px 20px;
+}
 #cart #main #empty {
   display: flex;
   flex-direction: column;
@@ -1968,19 +1979,6 @@ button:hover {
   padding: 50px 100px;
   max-height: 120vh;
   overflow-y: auto;
-}
-#cart #main #cart-items-list::-webkit-scrollbar {
-  width: 8px;
-}
-#cart #main #cart-items-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-#cart #main #cart-items-list::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
-#cart #main #cart-items-list::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 #cart #main #cart-items-list .item {
   display: flex;
@@ -2176,12 +2174,12 @@ button:hover {
   flex-direction: column;
   gap: 30px;
 }
-#cart #main #order #pay #userInfo #nameDiv {
+#cart #main #order #pay #userInfo #nameDiv, #cart #main #order #pay #userInfo #phoneDiv {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-#cart #main #order #pay #userInfo #nameDiv #name {
+#cart #main #order #pay #userInfo #nameDiv #name, #cart #main #order #pay #userInfo #phoneDiv #name {
   border: none;
   background-color: #F9F9F9;
   font-size: 18px;
@@ -2193,7 +2191,7 @@ button:hover {
   border-radius: 10px;
   padding: 20px 10px;
 }
-#cart #main #order #pay #userInfo #nameDiv #name::placeholder {
+#cart #main #order #pay #userInfo #nameDiv #name::placeholder, #cart #main #order #pay #userInfo #phoneDiv #name::placeholder {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */

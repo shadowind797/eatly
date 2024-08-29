@@ -8,13 +8,16 @@ import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg"
 
-function MakeOrder({subtotal, total_load, createOrder, test}) {
+function MakeOrder({subtotal, total_load, createOrder, test, rests, changeItems, items}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
     const [applied, setApplied] = useState(null);
     const [firstName, setFirstName] = useState(user.first_name || "");
     const discount = (Math.abs((subtotal * 1.1) - ((subtotal * 1.1) * couponValue))).toFixed(2)
+    const [phone, setPhone] = useState(user.phone || "")
+    const [restaurant, setRestaurant] = useState(rests[0].id);
+    const [restList, setRestList] = useState([])
 
     const [addressList, setAddressList] = useState([]);
     const [address, setAddress] = useState(null);
@@ -30,6 +33,8 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
     const [noItems, setNoItems] = useState(false);
     const [noName, setNoName] = useState(false);
     const [noAddress, setNoAddress] = useState(false)
+    const [noPhone, setNoPhone] = useState(false)
+    const [noRest, setNoRest] = useState(false)
     const [alreadyExists, setAlreadyExists] = useState(false)
     const [noBuilding, setNoBuilding] = useState(false)
 
@@ -38,12 +43,37 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
     const [couponLoading, setCouponLoading] = useState(false)
 
     useEffect(() => {
+        if (restaurant) {
+            const oneRestItems = items.filter(item => item.restaurant_id === restaurant)
+            changeItems(oneRestItems)
+            console.log(oneRestItems)
+        }
+    }, [restaurant])
+
+    useEffect(() => {
         getUser()
         getAddressList()
     }, []);
 
+    useEffect(() => {
+        if (rests) {
+            let list = []
+            rests.map((item) => {
+                list = [...list, {
+                    value: item.id,
+                    label: item.name
+                }]
+            })
+            setRestList(list);
+        }
+    }, [rests])
+
     const changeAddress = (address) => {
         setAddress(address.value);
+    }
+
+    const changeRest = (rest) => {
+        setRestaurant(rest.value);
     }
 
     const getTotal = () => {
@@ -62,9 +92,11 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                 data.map((item) => {
                     setUser(item);
                     setFirstName(item.first_name);
+                    setPhone(item.phone);
                 })
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const checkAddressFormat = address => {
@@ -271,15 +303,36 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                 </div>
                 <div id="pay">
                     <div id="userInfo">
-                        <div id="nameDiv">
-                            {noName && <p className="error">Please enter your name</p>}
-                            <input autoComplete="off" id="name" type="text" placeholder="How courier'll call you?"
-                                   value={firstName}
-                                   onChange={(e) => {
-                                       setFirstName(e.target.value)
-                                   }}/>
-                        </div>
-                        <div id="address" data-testid="address-select">
+                        {phone.length > 0 ? <div id="address" data-testid="address-select">
+                            {noAddress && <p className="error">Address required</p>}
+                            <div id="nameDiv">
+                                {noName && <p className="error">Please enter your name</p>}
+                                <input autoComplete="off" id="name" type="text" placeholder="How courier'll call you?"
+                                       value={firstName}
+                                       onChange={(e) => {
+                                           setFirstName(e.target.value)
+                                       }}/>
+                            </div>
+                            <div id="phoneDiv">
+                                {noPhone && <p className="error">Please provide us phone number</p>}
+                                <input autoComplete="off" id="name" type="phone" placeholder="Phone number"
+                                       value={phone}
+                                       onChange={(e) => {
+                                           setPhone(e.target.value)
+                                       }}/>
+                            </div>
+                        </div> : <div className="input-load">Loading...</div>}
+                        {restList.length > 0 ? <div id="restDiv">
+                            {noRest && <p className="error">Please select restaurant to deliver from</p>}
+                            <Select
+                                options={restList}
+                                styles={selectStyles}
+                                placeholder='From which restaurant you want to order?'
+                                onChange={changeRest}
+                                defaultValue={restList[0]}
+                            />
+                        </div> : <div className="input-load">Loading...</div>}
+                        {addressList.length > 0 ? <div id="address" data-testid="address-select">
                             {noAddress && <p className="error">Address required</p>}
                             <Select
                                 options={addressList}
@@ -288,7 +341,7 @@ function MakeOrder({subtotal, total_load, createOrder, test}) {
                                 onChange={changeAddress}
                             />
                             <button id="add-address" onClick={() => setAddAddress(true)}>Add address</button>
-                        </div>
+                        </div> : <div className="input-load">Loading...</div>}
                         {noItems && <p className="error">Your cart is empty</p>}
                         {alreadyExists &&
                             <p className="error">You already have staged order. Go <a href="/complete-order">here</a> to

@@ -9,6 +9,9 @@ import load from "../assets/count_load.gif";
 
 function Cart({test}) {
     const [cartItems, setCartItems] = useState([]);
+    const [oneRestCartItems, setOneRestCartItems] = useState([]);
+    const [items, setItems] = useState([]);
+    const [rests, setRests] = useState([]);
     const [total, setTotal] = useState({});
     const [extra, setExtra] = useState(false);
     const [totalLoading, setTotalLoading] = useState(false)
@@ -16,20 +19,21 @@ function Cart({test}) {
     const [creatingOrder, setCreatingOrder] = useState(false)
 
     useEffect(() => {
-        getCartItems()
+        getCartData()
     }, []);
 
-    const getCartItems = () => {
+    const getCartData = () => {
         setTotalLoading(true)
         api
-            .get("api/items/cart/")
+            .get("api/restaurants/", {params: {method: "cart"}})
             .then((res) => res.data)
             .then((data) => {
-                setCartItems(data)
-                getTotal(data)
+                setRests(data.rests)
+                setItems(data.items)
+                setCartItems(data.cart_items)
+                getTotal(data.cart_items)
             })
     }
-
     const getTotal = (cartI) => {
         setTotalLoading(true)
         api
@@ -55,13 +59,17 @@ function Cart({test}) {
             <div id='cart'>
                 <BaseHeader page="cart"/>
                 <div id="main">
-                    {!creatingOrder && <ItemsList items={cartItems} onChange={getCartItems}/>}
+                    {!creatingOrder && <ItemsList rests={rests} items={oneRestCartItems} cartItems={cartItems}
+                                                  onChange={getCartData}/>}
                     {creatingOrder && <div style={{width: "100%"}}>
                         <img src={load} style={{width: "500px", paddingTop: "10%", paddingLeft: "36%"}} alt=""/>
                     </div>}
                     <div style={creatingOrder ? {display: "none"} : {display: "block"}}>
-                        <MakeOrder test={test} style createOrder={setCreatingOrder} total_load={totalLoading}
-                                   subtotal={total ? total.total : 0}/>
+                        <MakeOrder rests={rests} test={test} style createOrder={setCreatingOrder}
+                                   total_load={totalLoading}
+                                   items={items}
+                                   subtotal={total ? total.total : 0}
+                                   changeItems={setOneRestCartItems}/>
                     </div>
                 </div>
             </div>

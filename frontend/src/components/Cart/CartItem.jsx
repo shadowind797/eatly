@@ -6,34 +6,12 @@ import minus from "../../assets/RemoveFromCart.svg"
 import cross from "../../assets/cross.svg"
 
 
-function CartItem({cartItem, onChange}) {
-    const [dish, setDish] = useState({});
+function CartItem({dish, cartItem, onChange}) {
     const [quantity, setQuantity] = useState(cartItem.quantity);
     const [deleted, setDeleted] = useState(false);
 
     const [itemLoad, setItemLoad] = useState(false)
     const [countLoad, setCountLoad] = useState(false)
-
-    useEffect(() => {
-        getItem()
-    }, []);
-
-    const getItem = () => {
-        setItemLoad(true)
-        api
-            .get("api/items/", {params: {id: cartItem.item}})
-            .then((res) => res.data)
-            .then((data) => {
-                data.map((item) => {
-                    if (item.id === cartItem.item) {
-                        setDish(item)
-                        setItemLoad(false)
-                    }
-                })
-            })
-            .catch((err) => {
-            });
-    }
 
     const deleteItem = () => {
         setItemLoad(true)
@@ -91,7 +69,7 @@ function CartItem({cartItem, onChange}) {
                     <img src={cross} alt=""/>
                 </button>
                 <div className="main">
-                    <img src={`${import.meta.env.VITE_API_URL}${dish.photo}`} alt=""/>
+                    <img src={`${import.meta.env.VITE_API_URL}/media/${dish.photo}`} alt=""/>
                     <div className="info">
                         <h4>{dish.title}</h4>
                         <h5>${dish.price}.99</h5>
