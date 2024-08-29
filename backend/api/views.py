@@ -285,7 +285,7 @@ class ItemListCreate(generics.ListCreateAPIView):
 
                 for i in cartItems:
                     item = Item.objects.get(pk=i.get("item"))
-                    total += item.price * i.get("quantity") + 0.99
+                    total += item.price * i.get("quantity") + 0.99 * i.get("quantity")
                     total = float('{:.2f}'.format(total))
                     if i == cartItems[length - 1]:
                         return Response(status=status.HTTP_200_OK, data={"total": total})
@@ -299,7 +299,8 @@ class ItemListCreate(generics.ListCreateAPIView):
         method = self.request.query_params.get("method")
 
         if item_id:
-            return Item.objects.filter(pk=item_id)
+            item_serializer = ItemSerializer(Item.objects.filter(pk=item_id), many=True)
+            return Response(status=status.HTTP_200_OK, data=item_serializer.data)
         elif method == "top":
             items = Item.objects.order_by("-rating")[:5]
             serialized_items = ItemSerializer(items, many=True)

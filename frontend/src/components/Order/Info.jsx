@@ -4,6 +4,9 @@ import api from "../../api.js";
 import {Navigate} from "react-router-dom";
 import info_load from "../../assets/header-loading.gif";
 import load from "../../assets/count_load.gif";
+import cash from "../../assets/cash.svg"
+import card_internet from "../../assets/internet.svg"
+import card_courier from "../../assets/card.svg"
 
 function Info({order, user}) {
     const [addPayment, setAddPayment] = useState(false);
@@ -23,10 +26,6 @@ function Info({order, user}) {
     const [cancelErr, setCancelErr] = useState(false)
     const [ordered, setOrdered] = useState(false)
     const [cardRequired, setCardRequired] = useState(false)
-
-    const cash = `${import.meta.env.VITE_API_URL}/media/img/cash.svg`
-    const card_internet = `${import.meta.env.VITE_API_URL}/media/img/internet.svg`
-    const card_courier = `${import.meta.env.VITE_API_URL}/media/img/card.svg`
 
     const [loading, setLoading] = useState(false)
     const [newCardLoading, setNewCardLoading] = useState(false)
