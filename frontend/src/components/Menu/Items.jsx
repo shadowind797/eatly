@@ -1,5 +1,5 @@
 import Dish from "../Dish.jsx";
-import RestaurantCard from "../RestaurantCard.jsx";
+import Restaurant from "../Restaurant.jsx";
 import no_items from "../../assets/no-items-menu.svg"
 
 function Items({items, type, cats, inCartItems}) {
@@ -39,7 +39,9 @@ function Items({items, type, cats, inCartItems}) {
             return (
                 <div id="items-list" className="container">
                     {items.map((item) => (
-                        <RestaurantCard rest={item} key={item.id}/>
+                        <Restaurant rest={item}
+                                    key={item.id}
+                                    category={getCategory(item.category_id)}/>
                     ))}
                 </div>
             )

@@ -504,12 +504,17 @@ class RestaurantListCreate(generics.ListCreateAPIView):
     serializer_class = RestaurantSerializer
     permission_classes = [IsAuthenticated, ]
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         method = self.request.query_params.get('method')
 
         if method == "top":
             items = Restaurant.objects.order_by("-rating")[:3]
-            return items
+            serialized_items = RestaurantSerializer(items, many=True)
+            cats = RestaurantCat.objects.all()
+            serialized_cats = RestaurantCatSerializer(cats, many=True)
+            return Response(status=status.HTTP_200_OK,
+                            data={"items": serialized_items.data,
+                                  "cats": serialized_cats.data})
 
         return Restaurant.objects.all()
 
@@ -565,56 +570,59 @@ class SearchView(generics.ListAPIView):
                     search1 = Item.objects.filter(
                         Q(title__icontains=search) & Q(title__icontains=also) | Q(title__icontains=search) | Q(
                             title__icontains=also))
-                    serialized_items = ItemSerializer(search1, many=True)
-                    cats = Category.objects.all()
-                    serialized_cats = CategorySerializer(cats, many=True)
-                    cart_items = CartItem.objects.filter(owner=self.request.user)
-                    serialized_cart_items = CartItemSerializer(cart_items, many=True)
-                    return Response(status=status.HTTP_200_OK,
-                                    data={"items": serialized_items.data,
-                                          "cats": serialized_cats.data,
-                                          "in_cart": serialized_cart_items.data})
+                    if len(search1) > 0:
+                        serialized_items = ItemSerializer(search1, many=True)
+                        cats = Category.objects.all()
+                        serialized_cats = CategorySerializer(cats, many=True)
+                        cart_items = CartItem.objects.filter(owner=self.request.user)
+                        serialized_cart_items = CartItemSerializer(cart_items, many=True)
+                        return Response(status=status.HTTP_200_OK,
+                                        data={"items": serialized_items.data,
+                                              "cats": serialized_cats.data,
+                                              "in_cart": serialized_cart_items.data})
+                    else:
+                        return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
                 else:
                     search1 = Restaurant.objects.filter(
                         Q(name__icontains=search) & Q(name__icontains=also) | Q(name__icontains=search) | Q(
                             name__icontains=also))
-                    serialized_items = ItemSerializer(search1, many=True)
-                    cats = Category.objects.all()
-                    serialized_cats = CategorySerializer(cats, many=True)
-                    cart_items = CartItem.objects.filter(owner=self.request.user)
-                    serialized_cart_items = CartItemSerializer(cart_items, many=True)
-                    return Response(status=status.HTTP_200_OK,
-                                    data={"items": serialized_items.data,
-                                          "cats": serialized_cats.data,
-                                          "in_cart": serialized_cart_items.data})
+                    if len(search1) > 0:
+                        serialized_items = RestaurantSerializer(search1, many=True)
+                        cats = RestaurantCat.objects.all()
+                        serialized_cats = RestaurantCatSerializer(cats, many=True)
+                        return Response(status=status.HTTP_200_OK,
+                                        data={"items": serialized_items.data,
+                                              "cats": serialized_cats.data})
+                    else:
+                        return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
             else:
                 if search_mode == "food":
                     items = Item.objects.filter(Q(title__icontains=search))
-                    serialized_items = ItemSerializer(items, many=True)
-                    cats = Category.objects.all()
-                    serialized_cats = CategorySerializer(cats, many=True)
-                    cart_items = CartItem.objects.filter(owner=self.request.user)
-                    serialized_cart_items = CartItemSerializer(cart_items, many=True)
-                    return Response(status=status.HTTP_200_OK,
-                                    data={"items": serialized_items.data,
-                                          "cats": serialized_cats.data,
-                                          "in_cart": serialized_cart_items.data})
+                    if len(items) > 0:
+                        serialized_items = ItemSerializer(items, many=True)
+                        cats = Category.objects.all()
+                        serialized_cats = CategorySerializer(cats, many=True)
+                        cart_items = CartItem.objects.filter(owner=self.request.user)
+                        serialized_cart_items = CartItemSerializer(cart_items, many=True)
+                        return Response(status=status.HTTP_200_OK,
+                                        data={"items": serialized_items.data,
+                                              "cats": serialized_cats.data,
+                                              "in_cart": serialized_cart_items.data})
+                    else:
+                        return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
                 elif search_mode == "rests":
                     rests = Restaurant.objects.filter(Q(name__icontains=search))
-                    serialized_items = ItemSerializer(rests, many=True)
-                    cats = Category.objects.all()
-                    serialized_cats = CategorySerializer(cats, many=True)
-                    cart_items = CartItem.objects.filter(owner=self.request.user)
-                    serialized_cart_items = CartItemSerializer(cart_items, many=True)
-                    return Response(status=status.HTTP_200_OK,
-                                    data={"items": serialized_items.data,
-                                          "cats": serialized_cats.data,
-                                          "in_cart": serialized_cart_items.data})
+                    if len(rests) > 0:
+                        serialized_items = RestaurantSerializer(rests, many=True)
+                        cats = RestaurantCat.objects.all()
+                        serialized_cats = RestaurantCatSerializer(cats, many=True)
+                        return Response(status=status.HTTP_200_OK,
+                                        data={"items": serialized_items.data,
+                                              "cats": serialized_cats.data})
+                    else:
+                        return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
-from .models import Category, Item  # Ensure Category and Item are imported
 
 
 class FilterView(generics.ListAPIView):
@@ -651,7 +659,7 @@ class FilterView(generics.ListAPIView):
                                       "cats": serialized_cats.data,
                                       "in_cart": serialized_cart_items.data})
             else:
-                return Response(status=status.HTTP_200_OK, data=[{"not_found": "no items"}])
+                return Response(status=status.HTTP_200_OK, data=[{"items": {"not_found": "no items"}}])
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
 

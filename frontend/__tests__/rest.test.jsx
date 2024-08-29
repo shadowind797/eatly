@@ -2,7 +2,7 @@ import React from 'react';
 import {render, fireEvent, waitFor, act} from '@testing-library/react';
 import api from '../src/api.js';
 import {MemoryRouter as Router} from "react-router-dom";
-import Restaurant from '../src/components/RestaurantCard.jsx';
+import Restaurant from '../src/components/Restaurant.jsx';
 
 jest.mock('../src/api');
 

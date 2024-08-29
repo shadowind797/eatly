@@ -2,40 +2,22 @@ import React, {useEffect, useState} from "react";
 import api from "../api.js";
 import cat_load from "../assets/header-loading.gif";
 
-function RestaurantCard({rest}) {
+function Restaurant({rest, category}) {
     const [style, setStyle] = useState({});
-    const [category, setCategory] = useState("");
     const star = `${import.meta.env.VITE_API_URL}/media/img/Star.svg`
     const bookmark = `${import.meta.env.VITE_API_URL}/media/img/Bookmark.svg`
     const [catLoading, setCatLoading] = useState(false)
 
     useEffect(() => {
-        getRestsCats()
-    }, []);
+        const categoryStyles = {
+            "Healthy": {backgroundColor: "rgba(44,196,105,0.45)", color: "#309D5B"},
+            "Trending": {backgroundColor: "#F7C5BA", color: "#FB471D"},
+            "Supreme": {backgroundColor: "#F7EDD0", color: "#DAA31A"},
+            default: {backgroundColor: "#F7EDD0", color: "#DAA31A"},
+        };
 
-    const getRestsCats = () => {
-        setCatLoading(true)
-        api
-            .get("api/restaurants/categories/")
-            .then((res) => res.data)
-            .then((data) => {
-                data.map((restcat) => {
-                    if (restcat.id === rest.category_id) {
-                        setCategory(restcat.name)
-                        if (restcat.name === "Healthy") {
-                            setStyle({backgroundColor: "rgba(44,196,105,0.45)", color: "#309D5B"});
-                        } else if (restcat.name === "Trending") {
-                            setStyle({backgroundColor: "#F7C5BA", color: "#FB471D"})
-                        } else {
-                            setStyle({backgroundColor: "#F7EDD0", color: "#DAA31A"})
-                        }
-                    }
-                })
-                setCatLoading(false)
-            })
-            .catch((err) => {
-            });
-    }
+        setStyle(categoryStyles[category] || categoryStyles.default);
+    }, []);
 
     return (
         <div className="rest-card">
@@ -43,11 +25,7 @@ function RestaurantCard({rest}) {
                 src={rest.image.includes(import.meta.env.VITE_API_URL) ? rest.image : `${import.meta.env.VITE_API_URL}${rest.image}`}
                 alt="" className="rest-img"/>
             <div className="info">
-                {catLoading ? (
-                    <img src={cat_load} style={{width: "70px"}} alt=""/>
-                ) : (
-                    <div className="cat" style={style}>{category}</div>
-                )}
+                <div className="cat" style={style}>{category}</div>
                 <div className="text">
                     <h4>{rest.name}</h4>
                     <div className="widgets">
@@ -68,4 +46,4 @@ function RestaurantCard({rest}) {
     )
 }
 
-export default RestaurantCard;
+export default Restaurant;

@@ -43,7 +43,9 @@ function MainDiv({setItems, updateSort, setInCartItems, setCategories}) {
                     updateSort(sort, sortDir)
                     setItems(data.items)
                     setCategories(data.cats)
-                    setInCartItems(data.in_cart)
+                    if (data.items[0].photo) {
+                        setInCartItems(data.in_cart)
+                    }
                 })
                 .catch((err) => {
                 });
@@ -52,10 +54,12 @@ function MainDiv({setItems, updateSort, setInCartItems, setCategories}) {
                 .get("api/items/search", {params: {search: search, search_mode: getSearchMode()}})
                 .then((res) => res.data)
                 .then((data) => {
+                    updateSort(sort, sortDir)
                     setItems(data.items)
                     setCategories(data.cats)
-                    setInCartItems(data.in_cart)
-                    updateSort(sort, sortDir)
+                    if (data.items[0].photo) {
+                        setInCartItems(data.in_cart)
+                    }
                 })
                 .catch((err) => {
                 });

@@ -68,7 +68,7 @@ function Menu() {
             );
         } else if (newItems.length > 0 && newItems[0].image) {
             return (
-                <Items type="rests" items={newItems} cats={categories} inCartItems={inCartItems}/>
+                <Items type="rests" items={newItems} cats={categories}/>
             );
         } else if (newItems.length > 0 && JSON.stringify(newItems[0]) === JSON.stringify({not_found: "no items"})) {
             return (

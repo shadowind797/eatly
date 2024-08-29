@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
-import RestaurantCard from "./RestaurantCard.jsx";
+import Restaurant from "./Restaurant.jsx";
 import api from "../api.js";
 import header_load from "../assets/header-loading.gif"
 
 function TopRests() {
     const [rests, setRests] = useState([]);
+    const [cats, setCats] = useState([]);
     const ViewAll = `${import.meta.env.VITE_API_URL}/media/img/view-all.svg`
     const [loading, setLoading] = useState(false)
 
@@ -18,11 +19,17 @@ function TopRests() {
             .get("api/restaurants/", {params: {method: "top"}})
             .then((res) => res.data)
             .then((data) => {
-                setRests(data)
+                setRests(data.items)
+                setCats(data.cats)
                 setLoading(false)
             })
             .catch((err) => {
             });
+    }
+
+    const getCategory = (categoryId) => {
+        const cat = cats.find((cat) => cat.id === categoryId) || {name: ""}
+        return cat.name;
     }
 
     if (loading) {
@@ -37,7 +44,9 @@ function TopRests() {
             <div id="top-rests" className="container">
                 <h2>Our Top <span>Restaurants</span></h2>
                 <div id="tops">
-                    {rests.map((rest) => <RestaurantCard rest={rest} key={rest.id}/>)}
+                    {rests.map((rest) => <Restaurant rest={rest}
+                                                     key={rest.id}
+                                                     category={getCategory(rest.category_id)}/>)}
                 </div>
                 <div className="view-all">
                     <a href="#">
