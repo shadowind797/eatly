@@ -61,8 +61,8 @@ function Admin() {
 
     return (
         <div>
-            <Header/>
-            <BaseHeader/>
+            <Header page="admin"/>
+            <BaseHeader page="admin"/>
             <p>Admin page</p>
             <div>{couponList.map(coupon => {
                 <p>{coupon.title}</p>

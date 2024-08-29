@@ -6,10 +6,9 @@ import ProfileContent from "../components/Profile/ProfileContent.jsx";
 function Profile() {
     return (
         <div id="profile">
-            <Header />
-            <BaseHeader />
-            <ProfileContent />
-            <Footer />
+            <Header page="profile"/>
+            <BaseHeader page="profile"/>
+            <ProfileContent/>
         </div>
     )
 }

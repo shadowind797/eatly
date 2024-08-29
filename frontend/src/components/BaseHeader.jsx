@@ -4,6 +4,8 @@ import header_load from "../assets/header-loading.gif";
 import logo from "../assets/Logo.svg"
 import profile_icon from "../assets/Profile.svg"
 import cart from "../assets/cart.svg"
+import active_cart from "../assets/cart-active.svg";
+import active_profile_icon from "../assets/Profile-active.svg";
 
 function BaseHeader({page}) {
     const menu = [
@@ -82,8 +84,8 @@ function BaseHeader({page}) {
                     </nav>
                 </div>
                 <div id="icons">
-                    <a href="/cart"><img src={cart} alt=""/></a>
-                    <a href="/profile"><img src={profile_icon} alt=""/></a>
+                    <a href="/cart"><img src={page !== "cart" ? cart : active_cart} alt=""/></a>
+                    <a href="/profile"><img src={page !== "profile" ? profile_icon : active_profile_icon} alt=""/></a>
                     <button>
                         <a href="/logout">Log Out</a>
                     </button>

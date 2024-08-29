@@ -1,4 +1,3 @@
-import Header from "../components/Header.jsx";
 import ItemsList from "../components/Cart/ItemsList.jsx";
 import BaseHeader from "../components/BaseHeader.jsx";
 import MakeOrder from "../components/Cart/MakeOrder.jsx";
@@ -54,7 +53,7 @@ function Cart({test}) {
     if (cartItems.length > 0 && total.total > 0) {
         return (
             <div id='cart'>
-                <BaseHeader/>
+                <BaseHeader page="cart"/>
                 <div id="main">
                     {!creatingOrder && <ItemsList items={cartItems} onChange={getCartItems}/>}
                     {creatingOrder && <div style={{width: "100%"}}>
@@ -70,7 +69,7 @@ function Cart({test}) {
     } else if (extra === true) {
         return (
             <div id='cart'>
-                <BaseHeader/>
+                <BaseHeader page="cart"/>
                 <div id="main">
                     <div id="empty">
                         <img src={empty_cart} alt=""/>
@@ -83,7 +82,7 @@ function Cart({test}) {
     } else {
         return (
             <div id='cart'>
-                <BaseHeader/>
+                <BaseHeader page="cart"/>
                 <div id="main" style={{height: "805px"}}>
                     <img src={items_load} style={{margin: "auto", width: "400px"}} alt=""/>
                 </div>
