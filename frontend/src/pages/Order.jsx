@@ -34,13 +34,7 @@ function Order() {
             .get("api/order/", {params: {method: "for_complete"}})
             .then((res) => res.data)
             .then((data) => {
-                setOrder(data[0])
-                api
-                    .get("api/address", {params: {address_id: data[0].address}})
-                    .then((res) => res.data)
-                    .then((data) => {
-                        setAddress(data[0])
-                    })
+                setOrder(data)
             })
             .catch((err) => {
             });

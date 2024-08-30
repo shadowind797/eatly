@@ -227,14 +227,32 @@ class OrderView(generics.ListAPIView):
     serializer_class = OrderSerializer
     permission_classes = (IsAuthenticated,)
 
-    def get_queryset(self):
-        method = self.request.query_params.get("method")
-        user = self.request.user
+    def get(self, request, *args, **kwargs):
+        method = request.query_params.get("method")
+        user = request.user
 
         if method == "for_complete":
-            return Order.objects.filter(user=self.request.user, status=1)
+            order = Order.objects.filter(user=user, status=1)[0]
+            address = order.address
+            rest_name = order.restaurant.name
+
+            order_data = {
+                "id": order.id,
+                "total": order.total,
+                "address_obj": {
+                    "building": address.house_address,
+                    "entrance": address.entrance,
+                    "floor": address.floor,
+                    "flat": address.flat
+                },
+                "rest_name": rest_name
+            }
+
+            return Response(status=status.HTTP_200_OK, data=order_data)
         else:
-            return Order.objects.filter(user=user)
+            orders = Order.objects.filter(user=user)
+            serializer = OrderSerializer(orders, many=True)
+            return Response(status=status.HTTP_200_OK, data=serializer.data)
 
     def post(self, request, *args, **kwargs):
         addressID = request.data.get('address')
@@ -272,11 +290,11 @@ class OrderView(generics.ListAPIView):
 
             total = round(total, 2)
 
-            address = Address.objects.get(pk=addressID, owner=self.request.user)
-            exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
+            exists = Order.objects.filter(user=self.request.user, status=1).exists()
             if exists:
                 return Response(status=status.HTTP_303_SEE_OTHER)
-            order = Order(user=self.request.user, address=address, total=total, status=statusName)
+            order = Order(user=self.request.user, address_id=addressID, total=total, status_id=1, coupon=coupon,
+                          restaurant_id=rest_id)
             order.save()
             return Response(status=status.HTTP_201_CREATED)
 
@@ -299,15 +317,26 @@ class Items(generics.ListCreateAPIView):
             item = Item.objects.filter(pk=item_id).first()
             return Response(status=status.HTTP_200_OK, data=ItemSerializer(item).data)
 
-        items = Item.objects.all()
         if method == "top":
-            items = items.order_by("-rating")[:5]
+            items = Item.objects.order_by("-rating")[:5]
+        else:
+            items = Item.objects.all()
+
+        rest_ids = list(items.values_list('restaurant_id', flat=True))
+        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
 
         cats = Category.objects.all()
         cart_items = CartItem.objects.filter(owner=request.user).select_related('item')
 
+        serialized_items = ItemSerializer(items, many=True).data
+        serialized_rests = list(rests)
+        for i in serialized_items:
+            rest_id = i["restaurant"]
+            rest = next((r for r in serialized_rests if r["id"] == rest_id), None)
+            i["rest_name"] = rest["name"]
+
         data = {
-            "items": ItemSerializer(items, many=True).data,
+            "items": serialized_items,
             "cats": CategorySerializer(cats, many=True).data,
             "in_cart": CartItemSerializer(cart_items, many=True).data
         }
@@ -433,18 +462,12 @@ class CancelOrder(generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         order_id = self.request.data.get('id')
-        order_status = self.request.data.get('status')
 
         order = Order.objects.get(pk=order_id, user=self.request.user)
-        status = OrderStatus.objects.get(pk=order_status)
-
-        if order.status == status:
-            new_status = OrderStatus.objects.get(pk=5)
-            order.status = new_status
-            order.save()
-            return Response(status=200)
-        else:
-            return Response(status=400, data={"error": "No order with status " + status})
+        new_status = OrderStatus.objects.get(pk=5)
+        order.status = new_status
+        order.save()
+        return Response(status=200)
 
 
 class RestaurantListCreate(generics.ListCreateAPIView):
@@ -455,13 +478,25 @@ class RestaurantListCreate(generics.ListCreateAPIView):
         method = self.request.query_params.get('method')
 
         if method == "top":
-            items = Restaurant.objects.order_by("-rating")[:3]
-            serialized_items = RestaurantSerializer(items, many=True)
+            rests = Restaurant.objects.order_by("-rating")[:3]
+            rest_ids = list(rests.values_list('id', flat=True))
+            items = Item.objects.filter(restaurant_id__in=rest_ids).values("id", "restaurant_id")
+
             cats = RestaurantCat.objects.all()
-            serialized_cats = RestaurantCatSerializer(cats, many=True)
-            return Response(status=status.HTTP_200_OK,
-                            data={"items": serialized_items.data,
-                                  "cats": serialized_cats.data})
+
+            serialized_items = list(items)
+            serialized_rests = RestaurantSerializer(rests, many=True).data
+            for i in serialized_rests:
+                rest_id = i["id"]
+                items_in_rest = [r for r in serialized_items if r["restaurant_id"] == rest_id]
+                i["items_count"] = len(items_in_rest)
+
+            data = {
+                "items": serialized_rests,
+                "cats": RestaurantCatSerializer(cats, many=True).data
+            }
+
+            return Response(status=status.HTTP_200_OK, data=data)
         return Restaurant.objects.all()
 
     def perform_create(self, serializer):

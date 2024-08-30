@@ -194,8 +194,18 @@ button:hover {
     }
 
     .time-rating {
-      position: absolute;
-      bottom: 65px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      bottom: -45px;
+
+      .rest {
+        font-size: 12px;
+      }
+
+      div {
+        margin-left: auto;
+      }
     }
 
     .price-add {

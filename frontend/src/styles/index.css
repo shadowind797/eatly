@@ -584,8 +584,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -840,8 +848,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -1238,8 +1254,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -1843,8 +1867,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -2497,8 +2529,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -3024,8 +3064,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -3607,8 +3655,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -4153,8 +4209,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;
@@ -4482,8 +4546,16 @@ button:hover {
   border-radius: 5px;
 }
 .dish .info .time-rating {
-  position: absolute;
-  bottom: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: -45px;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
 }
 .dish .info .price-add {
   display: flex;

@@ -51,11 +51,13 @@ class Address(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey('User', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
     payment = models.ForeignKey('Payments', on_delete=models.SET_NULL, null=True)
     address = models.ForeignKey('Address', on_delete=models.SET_NULL, null=True)
     total = models.FloatField()
     status = models.ForeignKey('OrderStatus', on_delete=models.SET_NULL, null=True)
+    restaurant = models.ForeignKey('Restaurant', on_delete=models.SET_NULL, null=True)
+    coupon = models.ForeignKey('Coupon', on_delete=models.SET_NULL, null=True)
     comment = models.TextField(null=True, blank=True)
 
     def __str__(self):

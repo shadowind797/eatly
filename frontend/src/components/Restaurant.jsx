@@ -29,7 +29,7 @@ function Restaurant({rest, category}) {
                     <h4>{rest.name}</h4>
                     <div className="widgets">
                         <div className="time-rating">
-                            <p>~30min</p>
+                            <p>{rest.items_count} dishes</p>
                             <div>
                                 <img src={star} alt=""/>
                                 <p>{rest.rating}</p>

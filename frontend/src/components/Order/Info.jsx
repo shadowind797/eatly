@@ -70,6 +70,16 @@ function Info({order, user}) {
         getPaymentList()
     }, []);
 
+    const LoadingImage = ({src, width = "100px", alt = ""}) => (
+        <img src={src} style={{width}} alt={alt}/>
+    );
+
+    const InfoDisplay = ({label, value, loading}) => (
+        <h4>
+            {label}: {loading ? <LoadingImage src={info_load}/> : <span>{value}</span>}
+        </h4>
+    );
+
     const updateOrder = (e) => {
         e.preventDefault();
         if (!payment && paymentMode === "Card via Internet") {
@@ -218,14 +228,11 @@ function Info({order, user}) {
             <div id="order-info">
                 <h1>Complete order</h1>
                 <div id="counts">
-                    <h4>Total cost: {order.total === undefined ? (
-                        <img src={info_load} style={{width: "100px"}} alt=""/>) : (
-                        <span>${order.total}</span>)}</h4>
-                    <h4>Name: {user.first_name === undefined ? (
-                        <img src={info_load} style={{width: "100px"}} alt=""/>) : (
-                        <span>{user.first_name}</span>)}</h4>
-                    <h4>Payment: {loading ? (<img src={info_load} style={{width: "100px"}} alt=""/>) : (
-                        <span>{paymentMode}</span>)}</h4>
+                    <InfoDisplay label="Total cost" value={`$${order?.total}`} loading={order?.total === undefined}/>
+                    <InfoDisplay label="Name" value={user?.first_name} loading={user?.first_name === undefined}/>
+                    <InfoDisplay label="Contact phone" value={user?.phone} loading={user?.phone === undefined}/>
+                    <InfoDisplay label="Ship from" value={order?.rest_name} loading={order?.rest_name === undefined}/>
+                    <InfoDisplay label="Payment" value={paymentMode} loading={loading}/>
                 </div>
                 <div id="payment">
                     <h3>Select payment method</h3>
