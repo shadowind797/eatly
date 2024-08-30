@@ -8,7 +8,7 @@ import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg"
 
-function MakeOrder({subtotal, total_load, createOrder, test, rests, changeItems, items}) {
+function MakeOrder({subtotal, total_load, createOrder, test, rests, changeItems, items, updateTotal}) {
     const [user, setUser] = useState({});
     const [coupon, setCoupon] = useState("");
     const [couponValue, setCouponValue] = useState(1);
@@ -46,7 +46,7 @@ function MakeOrder({subtotal, total_load, createOrder, test, rests, changeItems,
         if (restaurant) {
             const oneRestItems = items.filter(item => item.restaurant_id === restaurant)
             changeItems(oneRestItems)
-            console.log(oneRestItems)
+            updateTotal(oneRestItems, restaurant)
         }
     }, [restaurant])
 
@@ -162,7 +162,7 @@ function MakeOrder({subtotal, total_load, createOrder, test, rests, changeItems,
                 if (address) {
                     e.preventDefault()
                     api
-                        .post("api/order/add/", {total: getTotal(), status: 1, address: address})
+                        .post("api/order/add/", {rest_id: restaurant, status: 1, address: address, coupon: coupon})
                         .then(res => {
                             if (res.status === 201) {
                                 createOrder(false)

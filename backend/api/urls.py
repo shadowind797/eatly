@@ -10,14 +10,13 @@ urlpatterns = [
     path("login/google/", views.GoogleLoginApi.as_view(), name='google-login'),
     path("login/github/", views.GithubLoginApi.as_view(), name='github-login'),
 
-    path('items/', views.ItemListCreate.as_view(), name='item-list'),
-    path('items/top/', views.ItemListCreate.as_view(), name='item-list'),
+    path('items/', views.Items.as_view(), name='item-list'),
+    path('items/top/', views.Items.as_view(), name='item-list'),
     path('items/category/', views.CategoriesList.as_view(), name='item-category-list'),
 
-    path('items/cart/', views.CartItemListCreate.as_view(), name='item-cart-list'),
+    path('items/cart/data/', views.GiveCartData.as_view(), name='item-cart-list'),
     path('items/cart/add', views.CartItemListCreate.as_view(), name='item-cart-list'),
     path('items/cart/delete', views.DeleteCartItem.as_view(), name='item-cart-list'),
-    path('items/cart/check', views.CheckInCart.as_view(), name='item-cart-list'),
 
     path("items/delete/<int:pk>/", views.ItemDelete.as_view(), name='item-delete'),
 

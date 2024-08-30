@@ -9,7 +9,7 @@ import load from "../assets/count_load.gif";
 
 function Cart({test}) {
     const [cartItems, setCartItems] = useState([]);
-    const [oneRestCartItems, setOneRestCartItems] = useState([]);
+    const [oneRestItems, setOneRestItems] = useState([]);
     const [items, setItems] = useState([]);
     const [rests, setRests] = useState([]);
     const [total, setTotal] = useState({});
@@ -22,54 +22,53 @@ function Cart({test}) {
         getCartData()
     }, []);
 
+    const getTotal = (items, cartItems, rest) => {
+        let total = 0
+        cartItems.map(cartItem => {
+            const matchingItem = items.find(item => item.id === cartItem.item_id && item.restaurant_id === rest);
+            if (matchingItem) {
+                total += (matchingItem.price + 0.99) * cartItem.quantity
+            }
+        });
+        if (total === 0) {
+            setExtra(true)
+        }
+        setTotal(total.toFixed(2))
+    }
+
     const getCartData = () => {
-        setTotalLoading(true)
         api
-            .get("api/restaurants/", {params: {method: "cart"}})
+            .get("api/items/cart/data/")
             .then((res) => res.data)
             .then((data) => {
+                console.log("fetch completed")
+                if (data.items.length === 0) {
+                    setExtra(true)
+                }
                 setRests(data.rests)
                 setItems(data.items)
                 setCartItems(data.cart_items)
-                getTotal(data.cart_items)
+                getTotal(data.items, data.cart_items, data.rests[0].id)
             })
-    }
-    const getTotal = (cartI) => {
-        setTotalLoading(true)
-        api
-            .post("api/items/", {items: cartI, method: "for_total"})
-            .then((res) => {
-                if (res.status === 200) {
-                    return res.data
-                } else {
-                    setExtra(true)
-                    setTotalLoading(false)
-                }
-            })
-            .then((data) => {
-                setTotal(data)
-                setTotalLoading(false)
-            })
-            .catch((err) => {
-            });
     }
 
-    if (cartItems.length > 0 && total.total > 0) {
+    if (cartItems.length > 0 && total > 0) {
         return (
             <div id='cart'>
                 <BaseHeader page="cart"/>
                 <div id="main">
-                    {!creatingOrder && <ItemsList rests={rests} items={oneRestCartItems} cartItems={cartItems}
+                    {!creatingOrder && <ItemsList rests={rests} items={oneRestItems} cartItems={cartItems}
                                                   onChange={getCartData}/>}
                     {creatingOrder && <div style={{width: "100%"}}>
                         <img src={load} style={{width: "500px", paddingTop: "10%", paddingLeft: "36%"}} alt=""/>
                     </div>}
                     <div style={creatingOrder ? {display: "none"} : {display: "block"}}>
-                        <MakeOrder rests={rests} test={test} style createOrder={setCreatingOrder}
+                        <MakeOrder rests={rests} test={test} createOrder={setCreatingOrder}
                                    total_load={totalLoading}
                                    items={items}
-                                   subtotal={total ? total.total : 0}
-                                   changeItems={setOneRestCartItems}/>
+                                   subtotal={total ? total : 0}
+                                   changeItems={setOneRestItems}
+                                   updateTotal={((items, restId) => getTotal(items, cartItems, restId))}/>
                     </div>
                 </div>
             </div>

@@ -7,11 +7,17 @@ import cross from "../../assets/cross.svg"
 
 
 function CartItem({dish, cartItem, onChange}) {
-    const [quantity, setQuantity] = useState(cartItem.quantity);
+    const [quantity, setQuantity] = useState(1);
     const [deleted, setDeleted] = useState(false);
 
     const [itemLoad, setItemLoad] = useState(false)
     const [countLoad, setCountLoad] = useState(false)
+
+    useEffect(() => {
+        if (cartItem) {
+            setQuantity(cartItem.quantity)
+        }
+    }, [cartItem])
 
     const deleteItem = () => {
         setItemLoad(true)
@@ -101,6 +107,8 @@ function CartItem({dish, cartItem, onChange}) {
                 <img src={count_load} style={{width: "100px"}} alt=""/>
             </div>
         )
+    } else if (deleted) {
+        return <div></div>
     }
 }
 
