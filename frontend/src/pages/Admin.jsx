@@ -35,17 +35,18 @@ function Admin() {
             .then((data) => {
 
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+            });
     }
 
     const createCoupon = () => {
         api
             .post("api/coupon/add/", {
-                title: "MAPTEST",
-                date_to: "2024-08-31",
+                title: "INFINITY",
+                date_to: "2099-12-31",
                 value: 0.5,
                 category: 1,
-                ea: 10,
+                ea: 9999,
                 method: "create"
             })
             .then((res) => {

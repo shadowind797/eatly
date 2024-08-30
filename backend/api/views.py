@@ -13,6 +13,9 @@ from django.contrib.auth import login
 from rest_framework.views import APIView
 from .serializers import GoogleAuthSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from django.db.models import F, Sum
+from django.db.models import F, Sum, FloatField
+from django.db.models.functions import Cast
 
 
 class GoogleLoginApi(APIView):
@@ -238,7 +241,6 @@ class OrderView(generics.ListAPIView):
         payment = request.data.get('payment')
         statusID = request.data.get('status')
         orderID = request.data.get('id')
-        total = request.data.get('total')
         statusName = OrderStatus.objects.get(pk=statusID)
 
         if payment:
@@ -255,6 +257,21 @@ class OrderView(generics.ListAPIView):
             order.save()
             return Response(status=status.HTTP_205_RESET_CONTENT)
         else:
+            rest_id = request.data.get('rest_id')
+            coupon_title = request.data.get('coupon')
+            total = CartItem.objects.filter(owner=request.user, item__restaurant_id=rest_id).annotate(
+                item_total=Cast(F('item__price') * F('quantity') + 0.99 * F('quantity'), FloatField())
+            ).aggregate(
+                total=Sum('item_total')
+            )['total'] or 0
+
+            coupon = Coupon.objects.get(title=coupon_title)
+            total *= 1.1
+            if (coupon):
+                total *= coupon.value
+
+            total = round(total, 2)
+
             address = Address.objects.get(pk=addressID, owner=self.request.user)
             exists = Order.objects.filter(user=self.request.user, status=statusName).exists()
             if exists:
@@ -270,59 +287,32 @@ class OrderView(generics.ListAPIView):
             return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-class ItemListCreate(generics.ListCreateAPIView):
+class Items(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [IsAuthenticated, ]
 
-    def post(self, request, *args, **kwargs):
-        method = self.request.data.get('method')
-        cartItems = self.request.data.get('items')
-
-        if len(cartItems) > 0:
-            if method == "for_total":
-                length = len(cartItems)
-                total = 0
-
-                for i in cartItems:
-                    item = Item.objects.get(pk=i.get("item_id"))
-                    total += item.price * i.get("quantity") + 0.99 * i.get("quantity")
-                    total = float('{:.2f}'.format(total))
-                    if i == cartItems[length - 1]:
-                        return Response(status=status.HTTP_200_OK, data={"total": total})
-            else:
-                return Response(status=status.HTTP_400_BAD_REQUEST)
-        else:
-            return Response(status=status.HTTP_204_NO_CONTENT)
-
     def get(self, request, *args, **kwargs):
-        item_id = self.request.query_params.get("id")
-        method = self.request.query_params.get("method")
+        item_id = request.query_params.get("id")
+        method = request.query_params.get("method")
 
         if item_id:
-            item_serializer = ItemSerializer(Item.objects.filter(pk=item_id), many=True)
-            return Response(status=status.HTTP_200_OK, data=item_serializer.data)
-        elif method == "top":
-            items = Item.objects.order_by("-rating")[:5]
-            serialized_items = ItemSerializer(items, many=True)
-            cats = Category.objects.all()
-            serialized_cats = CategorySerializer(cats, many=True)
-            cart_items = CartItem.objects.filter(owner=self.request.user)
-            serialized_cart_items = CartItemSerializer(cart_items, many=True)
-            return Response(status=status.HTTP_200_OK,
-                            data={"items": serialized_items.data,
-                                  "cats": serialized_cats.data,
-                                  "in_cart": serialized_cart_items.data})
-        else:
-            items = Item.objects.all()
-            serialized_items = ItemSerializer(items, many=True)
-            cats = Category.objects.all()
-            serialized_cats = CategorySerializer(cats, many=True)
-            cart_items = CartItem.objects.filter(owner=self.request.user)
-            serialized_cart_items = CartItemSerializer(cart_items, many=True)
-            return Response(status=status.HTTP_200_OK,
-                            data={"items": serialized_items.data,
-                                  "cats": serialized_cats.data,
-                                  "in_cart": serialized_cart_items.data})
+            item = Item.objects.filter(pk=item_id).first()
+            return Response(status=status.HTTP_200_OK, data=ItemSerializer(item).data)
+
+        items = Item.objects.all()
+        if method == "top":
+            items = items.order_by("-rating")[:5]
+
+        cats = Category.objects.all()
+        cart_items = CartItem.objects.filter(owner=request.user).select_related('item')
+
+        data = {
+            "items": ItemSerializer(items, many=True).data,
+            "cats": CategorySerializer(cats, many=True).data,
+            "in_cart": CartItemSerializer(cart_items, many=True).data
+        }
+
+        return Response(status=status.HTTP_200_OK, data=data)
 
     def perform_create(self, serializer):
         if serializer.is_valid():
@@ -331,47 +321,7 @@ class ItemListCreate(generics.ListCreateAPIView):
             print(serializer.errors)
 
 
-class CheckInCart(generics.ListCreateAPIView):
-    serializer_class = CartItemSerializer
-    permission_classes = [IsAuthenticated, ]
-
-    def list(self, request, *args, **kwargs):
-        itemID = self.request.query_params.get("item")
-        extra_status = self.request.query_params.get("extra")
-        user = self.request.user
-
-        if extra_status == "true":
-            return Response(status=status.HTTP_200_OK)
-
-        if itemID:
-            isInCart = CartItem.objects.filter(item=itemID, owner=user).exists()
-
-            if isInCart:
-                return Response(status=status.HTTP_200_OK)
-            else:
-                return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
 class DeleteCartItem(generics.DestroyAPIView):
-    """
-    Deletes a cart item or clears all cart items for the authenticated user.
-
-    Parameters:
-    request (Request): The HTTP request object containing query parameters.
-    *args: Additional positional arguments.
-    **kwargs: Additional keyword arguments.
-
-    Query Parameters:
-    - id (str): The ID of the cart item to delete.
-    - method (str): The method to use. If "clear", all cart items for the user will be deleted.
-
-    Returns:
-    Response:
-    - HTTP 202 Accepted if the item(s) were successfully deleted.
-    - HTTP 404 Not Found if the specified cart item does not exist.
-    - HTTP 400 Bad Request if required query parameters are missing or invalid.
-    """
     serializer_class = CartItemSerializer
     permission_classes = [IsAuthenticated, ]
 
@@ -512,17 +462,6 @@ class RestaurantListCreate(generics.ListCreateAPIView):
             return Response(status=status.HTTP_200_OK,
                             data={"items": serialized_items.data,
                                   "cats": serialized_cats.data})
-        elif method == "cart":
-            user = self.request.user
-            cart_items = CartItem.objects.filter(owner=user).values("id", "quantity", "item_id")
-            item_ids = cart_items.values_list('item_id', flat=True)
-            items = Item.objects.filter(id__in=item_ids).values("id", "restaurant_id", "title", "price", "photo")
-            rest_ids = items.values_list('restaurant_id', flat=True)
-            rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
-            return Response(status=status.HTTP_200_OK,
-                            data={"rests": list(rests),
-                                  "items": list(items),
-                                  "cart_items": list(cart_items)})
         return Restaurant.objects.all()
 
     def perform_create(self, serializer):
@@ -530,6 +469,22 @@ class RestaurantListCreate(generics.ListCreateAPIView):
             serializer.save()
         else:
             print(serializer.errors)
+
+
+class GiveCartData(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated, ]
+
+    def get(self, request, *args, **kwargs):
+        user = self.request.user
+        cart_items = CartItem.objects.filter(owner=user).values("id", "quantity", "item_id")
+        item_ids = cart_items.values_list('item_id', flat=True)
+        items = Item.objects.filter(id__in=item_ids).values("id", "restaurant_id", "title", "price", "photo")
+        rest_ids = items.values_list('restaurant_id', flat=True)
+        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+        return Response(status=status.HTTP_200_OK,
+                        data={"rests": list(rests),
+                              "items": list(items),
+                              "cart_items": list(cart_items)})
 
 
 class CategoriesList(generics.ListCreateAPIView):
