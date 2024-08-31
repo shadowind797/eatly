@@ -173,6 +173,7 @@ button:hover {
       flex-direction: column;
       gap: 2px;
       padding-top: 10px;
+      height: 110px;
 
       h4 {
         color: $black_main;
@@ -197,7 +198,7 @@ button:hover {
       display: flex;
       align-items: center;
       position: relative;
-      bottom: -45px;
+      bottom: 0;
 
       .rest {
         font-size: 12px;

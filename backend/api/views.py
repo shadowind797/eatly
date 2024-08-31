@@ -557,9 +557,9 @@ class SearchView(generics.ListAPIView):
     permission_classes = [IsAuthenticated, ]
 
     def get(self, request, *args, **kwargs):
-        search = self.request.query_params.get('search', None)
-        also = self.request.query_params.get('also', None)
-        search_mode = self.request.query_params.get('search_mode')
+        search = request.query_params.get('search', None)
+        also = request.query_params.get('also', None)
+        search_mode = request.query_params.get('search_mode')
 
         if search is not None:
             if also is not None:
@@ -568,13 +568,26 @@ class SearchView(generics.ListAPIView):
                         Q(title__icontains=search) & Q(title__icontains=also) | Q(title__icontains=search) | Q(
                             title__icontains=also))
                     if len(search1) > 0:
-                        serialized_items = ItemSerializer(search1, many=True)
+                        serialized_items = ItemSerializer(search1, many=True).data
                         cats = Category.objects.all()
                         serialized_cats = CategorySerializer(cats, many=True)
                         cart_items = CartItem.objects.filter(owner=self.request.user)
                         serialized_cart_items = CartItemSerializer(cart_items, many=True)
+                        
+                        rest_ids = list(search1.values_list('restaurant_id', flat=True))
+                        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+
+                        cats = Category.objects.all()
+                        cart_items = CartItem.objects.filter(owner=request.user).select_related('item')
+
+                        serialized_rests = list(rests)
+                        for i in serialized_items: 
+                            rest_id = i["restaurant"]
+                            rest = next((r for r in serialized_rests if r["id"] == rest_id), None)
+                            i["rest_name"] = rest["name"]
+                            
                         return Response(status=status.HTTP_200_OK,
-                                        data={"items": serialized_items.data,
+                                        data={"items": serialized_items,
                                               "cats": serialized_cats.data,
                                               "in_cart": serialized_cart_items.data})
                     else:
@@ -584,25 +597,50 @@ class SearchView(generics.ListAPIView):
                         Q(name__icontains=search) & Q(name__icontains=also) | Q(name__icontains=search) | Q(
                             name__icontains=also))
                     if len(search1) > 0:
-                        serialized_items = RestaurantSerializer(search1, many=True)
-                        cats = RestaurantCat.objects.all()
-                        serialized_cats = RestaurantCatSerializer(cats, many=True)
-                        return Response(status=status.HTTP_200_OK,
-                                        data={"items": serialized_items.data,
-                                              "cats": serialized_cats.data})
+                      rest_ids = list(search1.values_list('id', flat=True))
+                      items = Item.objects.filter(restaurant_id__in=rest_ids).values("id", "restaurant_id")
+
+                      cats = RestaurantCat.objects.all()
+
+                      serialized_items = list(items)
+                      serialized_rests = RestaurantSerializer(search1, many=True).data
+                      for i in serialized_rests:
+                          rest_id = i["id"]
+                          items_in_rest = [r for r in serialized_items if r["restaurant_id"] == rest_id]
+                          i["items_count"] = len(items_in_rest)
+
+                      data = {
+                          "items": serialized_rests,
+                          "cats": RestaurantCatSerializer(cats, many=True).data
+                      }
+
+                      return Response(status=status.HTTP_200_OK, data=data)
                     else:
                         return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
             else:
                 if search_mode == "food":
                     items = Item.objects.filter(Q(title__icontains=search))
                     if len(items) > 0:
-                        serialized_items = ItemSerializer(items, many=True)
+                        serialized_items = ItemSerializer(items, many=True).data
                         cats = Category.objects.all()
                         serialized_cats = CategorySerializer(cats, many=True)
                         cart_items = CartItem.objects.filter(owner=self.request.user)
                         serialized_cart_items = CartItemSerializer(cart_items, many=True)
+                        
+                        rest_ids = list(items.values_list('restaurant_id', flat=True))
+                        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+
+                        cats = Category.objects.all()
+                        cart_items = CartItem.objects.filter(owner=request.user).select_related('item')
+
+                        serialized_rests = list(rests)
+                        for i in serialized_items: 
+                            rest_id = i["restaurant"]
+                            rest = next((r for r in serialized_rests if r["id"] == rest_id), None)
+                            i["rest_name"] = rest["name"]
+                            
                         return Response(status=status.HTTP_200_OK,
-                                        data={"items": serialized_items.data,
+                                        data={"items": serialized_items,
                                               "cats": serialized_cats.data,
                                               "in_cart": serialized_cart_items.data})
                     else:
@@ -610,12 +648,24 @@ class SearchView(generics.ListAPIView):
                 elif search_mode == "rests":
                     rests = Restaurant.objects.filter(Q(name__icontains=search))
                     if len(rests) > 0:
-                        serialized_items = RestaurantSerializer(rests, many=True)
-                        cats = RestaurantCat.objects.all()
-                        serialized_cats = RestaurantCatSerializer(cats, many=True)
-                        return Response(status=status.HTTP_200_OK,
-                                        data={"items": serialized_items.data,
-                                              "cats": serialized_cats.data})
+                      rest_ids = list(rests.values_list('id', flat=True))
+                      items = Item.objects.filter(restaurant_id__in=rest_ids).values("id", "restaurant_id")
+
+                      cats = RestaurantCat.objects.all()
+
+                      serialized_items = list(items)
+                      serialized_rests = RestaurantSerializer(rests, many=True).data
+                      for i in serialized_rests:
+                          rest_id = i["id"]
+                          items_in_rest = [r for r in serialized_items if r["restaurant_id"] == rest_id]
+                          i["items_count"] = len(items_in_rest)
+
+                      data = {
+                          "items": serialized_rests,
+                          "cats": RestaurantCatSerializer(cats, many=True).data
+                      }
+
+                      return Response(status=status.HTTP_200_OK, data=data)
                     else:
                         return Response(status=status.HTTP_200_OK, data={"items": [{"not_found": "no items"}]})
         else:
@@ -646,15 +696,28 @@ class FilterView(generics.ListAPIView):
 
             items = Item.objects.filter(query)
             if len(items) > 0:
-                serialized_items = ItemSerializer(items, many=True)
-                cats = Category.objects.all()
-                serialized_cats = CategorySerializer(cats, many=True)
-                cart_items = CartItem.objects.filter(owner=self.request.user)
-                serialized_cart_items = CartItemSerializer(cart_items, many=True)
-                return Response(status=status.HTTP_200_OK,
-                                data={"items": serialized_items.data,
-                                      "cats": serialized_cats.data,
-                                      "in_cart": serialized_cart_items.data})
+              serialized_items = ItemSerializer(items, many=True).data
+              cats = Category.objects.all()
+              serialized_cats = CategorySerializer(cats, many=True)
+              cart_items = CartItem.objects.filter(owner=self.request.user)
+              serialized_cart_items = CartItemSerializer(cart_items, many=True)
+              
+              rest_ids = list(items.values_list('restaurant_id', flat=True))
+              rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+
+              cats = Category.objects.all()
+              cart_items = CartItem.objects.filter(owner=request.user).select_related('item')
+
+              serialized_rests = list(rests)
+              for i in serialized_items: 
+                  rest_id = i["restaurant"]
+                  rest = next((r for r in serialized_rests if r["id"] == rest_id), None)
+                  i["rest_name"] = rest["name"]
+                  
+              return Response(status=status.HTTP_200_OK,
+                              data={"items": serialized_items,
+                                    "cats": serialized_cats.data,
+                                    "in_cart": serialized_cart_items.data})
             else:
                 return Response(status=status.HTTP_200_OK, data=[{"items": {"not_found": "no items"}}])
         else:

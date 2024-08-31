@@ -58,25 +58,23 @@ function Dish({item, category, inCart}) {
                     <div style={style}>{category}</div>
                     <h4>{item.title}</h4>
                 </div>
-                <div>
-                    <div className="time-rating">
-                        <p className="rest">{item.rest_name}</p>
-                        <div>
-                            <p data-testid="item-rate">{item.rating}</p>
-                            <img src={star} alt=""/>
-                        </div>
-                    </div>
-                    <div className="price-add">
-                        <h5 data-testid="item-cost">{item.price}<span>.99</span></h5>
-                        {inCartLoading ? (
-                            <img style={{width: "45px", marginLeft: "80px"}} src={inCart_load} alt=""/>
-                        ) : (
-                            <button data-testid="add-to-cart-button" onClick={setCartStyle("btn")}>
-                                <img src={setCartStyle("img")} alt=""/>
-                            </button>
-                        )}
-                    </div>
-                </div>
+                  <div className="time-rating">
+                      <p className="rest">{item.rest_name}</p>
+                      <div>
+                          <p data-testid="item-rate">{item.rating}</p>
+                          <img src={star} alt=""/>
+                      </div>
+                  </div>
+                  <div className="price-add">
+                      <h5 data-testid="item-cost">{item.price}<span>.99</span></h5>
+                      {inCartLoading ? (
+                          <img style={{width: "45px", marginLeft: "80px"}} src={inCart_load} alt=""/>
+                      ) : (
+                          <button data-testid="add-to-cart-button" onClick={setCartStyle("btn")}>
+                              <img src={setCartStyle("img")} alt=""/>
+                          </button>
+                      )}
+                  </div>
             </div>
         </div>
     )
