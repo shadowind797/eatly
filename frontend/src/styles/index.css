@@ -2632,17 +2632,132 @@ button:hover {
 #complete-order {
   display: flex;
 }
-#complete-order #map {
-  margin: 80px;
+#complete-order #order-route {
+  width: 95vh;
+  height: 86.6%;
+  box-sizing: border-box;
+  margin: 60px 90px;
+}
+#complete-order #order-route #route-info {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 70px;
+  height: calc(40% - 70px);
+  border-radius: 14px;
+  border: 1px solid #6C5FBC;
+  padding: 50px;
+  background-color: #fff;
+}
+#complete-order #order-route #route-info #route {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+#complete-order #order-route #route-info #route #from .info .name {
+  background-color: rgba(0, 128, 0, 0.432);
+}
+#complete-order #order-route #route-info #route #from .info .name p {
+  color: green;
+}
+#complete-order #order-route #route-info #route #to .info .name {
+  background-color: rgba(255, 0, 0, 0.432);
+}
+#complete-order #order-route #route-info #route #to .info .name p {
+  color: red;
+}
+#complete-order #order-route #route-info #route #from,
+#complete-order #order-route #route-info #route #to {
+  width: 97%;
+  display: flex;
+  border-radius: 14px;
+  align-items: center;
+}
+#complete-order #order-route #route-info #route #from .img,
+#complete-order #order-route #route-info #route #to .img {
+  padding: 19px;
+  border-radius: 14px 0 0 14px;
+  border-bottom: 1px solid #6c5fbc;
+  border-left: 1px solid #6c5fbc;
+  border-top: 1px solid #6c5fbc;
+}
+#complete-order #order-route #route-info #route #from .info,
+#complete-order #order-route #route-info #route #to .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+#complete-order #order-route #route-info #route #from .info .name,
+#complete-order #order-route #route-info #route #to .info .name {
+  padding: 5px;
+  border-radius: 0 14px 0 0;
+  width: 130px;
+  border-top: 1px solid #6c5fbc;
+  border-right: 1px solid #6c5fbc;
+}
+#complete-order #order-route #route-info #route #from .info .name p,
+#complete-order #order-route #route-info #route #to .info .name p {
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-left: 7px;
+}
+#complete-order #order-route #route-info #route #from .info .name p span,
+#complete-order #order-route #route-info #route #to .info .name p span {
+  color: #ffffff;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 110%;
+}
+#complete-order #order-route #route-info #route #from .info .address,
+#complete-order #order-route #route-info #route #to .info .address {
+  padding: 5px;
+  border-radius: 0 0 14px 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(107, 95, 188, 0.4666666667);
+  border-bottom: 1px solid #6c5fbc;
+  border-right: 1px solid #6c5fbc;
+}
+#complete-order #order-route #route-info #route #from .info .address p,
+#complete-order #order-route #route-info #route #to .info .address p {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 100%;
+  margin-left: 7px;
+}
+#complete-order #order-route #route-info #time-destination {
+  padding: 28px;
+  background-color: #f2f2f2;
+  border-radius: 14px;
+}
+#complete-order #order-route #route-info #time-destination p {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 100%;
+  margin-left: 7px;
+}
+#complete-order #order-route #map {
   width: 100%;
   height: 60%;
 }
 #complete-order #order-info {
+  margin: 60px;
   margin-left: auto;
   min-width: 800px;
-  height: 100%;
-  border-left: 1px solid #cbcbcb;
-  border-bottom: 1px solid #cbcbcb;
+  max-width: 800px;
+  height: 86.6%;
+  border: 1px solid #6C5FBC;
+  border-radius: 14px;
   background-color: #fff;
   padding: 50px 70px 0;
   box-sizing: border-box;

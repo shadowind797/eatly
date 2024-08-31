@@ -6,7 +6,6 @@ import Map from "../components/Order/Map.jsx";
 function Order() {
   const [user, setUser] = useState({});
   const [order, setOrder] = useState({});
-  const [address, setAddress] = useState({});
 
   useEffect(() => {
     getUser();
@@ -41,6 +40,7 @@ function Order() {
         <Map
           restAddress={order.rest_address}
           userAddress={order.address_obj}
+          restName={order.rest_name} userName={user.first_name}
         />
         <Info order={order} user={user} />
       </div>
