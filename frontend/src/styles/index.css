@@ -2632,12 +2632,17 @@ button:hover {
 #complete-order {
   display: flex;
 }
+#complete-order #map {
+  margin: 80px;
+  width: 100%;
+  height: 60%;
+}
 #complete-order #order-info {
   margin-left: auto;
-  width: 800px;
+  min-width: 800px;
   height: 100%;
-  border-left: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-left: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   background-color: #fff;
   padding: 50px 70px 0;
   box-sizing: border-box;
@@ -2699,7 +2704,7 @@ button:hover {
 #complete-order #order-info #payment #payment-method button {
   width: 90px;
   height: 60px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid #6C5FBC;
   border-radius: 20px;
   color: #6C5FBC;
@@ -2751,7 +2756,7 @@ button:hover {
 #complete-order #order-info #btns #cancel {
   width: 48%;
   height: 55px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid #6C5FBC;
   border-radius: 10px;
   color: #6C5FBC;
@@ -2807,7 +2812,7 @@ button:hover {
   width: 390px;
   height: 40px;
   border: none;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -2819,7 +2824,7 @@ button:hover {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #C2C3CB;
+  color: #c2c3cb;
 }
 #complete-order #order-info #new-payment #card-info #date-name {
   display: flex;
@@ -2862,7 +2867,7 @@ button:hover {
 #complete-order #order-info .btns #cancel {
   width: 32%;
   height: 55px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid #6C5FBC;
   border-radius: 10px;
   color: #6C5FBC;
@@ -2897,7 +2902,7 @@ button:hover {
   font-size: 58px;
   font-weight: 600;
   line-height: 117.5%; /* 21.15px */
-  color: #FFF;
+  color: #fff;
 }
 
 html, body, #cart, #main, #root, #log, #complete-order {

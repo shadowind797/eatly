@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useCallback} from "react";
 import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
-import MapMarker from "../../assets/map-marker.svg";
+import MapMarker from "../../assets/map/map-marker.svg";
 
 const libraries = ["places"];
 
