@@ -160,13 +160,15 @@ class ChangePassword(generics.ListAPIView):
         user = request.user
 
         if method == "send_email":
+            if len(user.passwd_change_link) == 11:
+               return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
             change_keys_list = [
                 random.choice(
                     string.ascii_lowercase + string.digits
                     if i != 5
                     else string.ascii_uppercase
                 )
-                for i in range(10)
+                for i in range(11)
             ]
             change_key = "".join(change_keys_list)
 
@@ -185,7 +187,7 @@ class ChangePassword(generics.ListAPIView):
             key = request.data.get("key")
             new = request.data.get("new")
 
-            if user.passwd_change_link == key:
+            if user.passwd_change_link == key:              
                 change_keys_list = [
                     random.choice(
                         string.ascii_lowercase + string.digits

@@ -1,7 +1,6 @@
 import BaseHeader from "../components/BaseHeader";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useNavigate } from "react-router-dom";
 import useUrlParams from "../hooks/useUrlParams.jsx";
 import { useState, useEffect } from "react";
 import NotFound from "./404";
@@ -12,12 +11,11 @@ import show_pass from "../assets/eye-show.svg";
 
 function ChangePassword() {
   const params = useUrlParams();
-  const navigate = useNavigate();
   const [changeKey, setChangeKey] = useState("");
   const [notFound, setNotFound] = useState(false);
   const [invalidkey, setInvalidKey] = useState(false);
-  const [invalidPassword, setInvalidPassword] = useState(false);
   const [changed, setChanged] = useState(false);
+  const [passwordsArentMatch, setPasswordsArentMatch] = useState(false);
 
   const [newPassword, setNewPassword] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
@@ -35,24 +33,27 @@ function ChangePassword() {
 
   const changePassword = (e) => {
     e.preventDefault();
-    api
-      .post("api/password/change/", {
-        key: params.key,
-        method: "change",
-        new: newPassword,
-      })
-      .then((res) => {
-        if (res.status === 202) {
-          setChanged(true)
-        }
-      })
-      .catch((err) => {
-        if (err.response.status === 403) {
-          setInvalidKey(true);
-        } else if (err.response.status === 401) {
-          setInvalidPassword(true);
-        }
-      });
+    if (newPassword === newPassword2) {
+      api
+        .post("api/password/change/", {
+          key: params.key,
+          method: "change",
+          new: newPassword,
+        })
+        .then((res) => {
+          if (res.status === 202) {
+            setChanged(true);
+          }
+        })
+        .catch((err) => {
+          if (err.response.status === 403) {
+            setInvalidKey(true);
+            setPasswordsArentMatch(false)
+          }
+        });
+    } else {
+      setPasswordsArentMatch(true);
+    }
   };
 
   const fields = [
@@ -86,6 +87,7 @@ function ChangePassword() {
         {!changed ? (
           <div id="new-pass-form">
             <form onSubmit={changePassword}>
+              <h1>Change password</h1>
               <div id="inputs">
                 {fields.map((field) => (
                   <div id="input" key={field.id}>
@@ -122,8 +124,12 @@ function ChangePassword() {
                 ))}
               </div>
               <div id="action">
-                <p className="auth-error"></p>
-                <button type="submit">Change Password</button>
+                <p className="auth-error">
+                  {passwordsArentMatch
+                    ? "Passworrds aren't match"
+                    : invalidkey ? "Invalid pass-change key. Are you using the last link?.." : ""}
+                </p>
+                <button type="submit">Change</button>
               </div>
             </form>
           </div>

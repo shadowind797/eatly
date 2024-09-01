@@ -5,25 +5,53 @@ import emailImg from "../../assets/profile/email.svg";
 import passwordImg from "../../assets/profile/password.svg";
 import logoutImg from "../../assets/profile/log-out.svg";
 import deleteImg from "../../assets/profile/delete.svg";
+import logo from "../../assets/Logo.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
 
 function PContent({ user }) {
-  const [emailSended, setEmailSended] = useState(false)
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailSendConfirm, setEmailSendConfirm] = useState(false);
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailAlreadySent, setEmailAlreadySent] = useState(false);
+
+  const navigate = useNavigate();
 
   const changePassword = () => {
+    setEmailSending(true);
     api
-      .post("api/password/change/", {method: "send_email"})
+      .post("api/password/change/", { method: "send_email" })
       .then((res) => {
         if (res.status === 200) {
-          setEmailSended(true)
+          setEmailSent(true);
+          setEmailSending(false);
+          setEmailSendConfirm(false);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 405) {
+          setEmailAlreadySent(true);
+          setEmailSending(false);
+          setEmailSendConfirm(false);
         }
       });
   };
 
   return (
     <div id="profile-content-profile">
-      <div id="profile">
+      <div
+        id="profile"
+        style={
+          emailSendConfirm
+            ? { userSelect: "none", opacity: "0.4" }
+            : emailAlreadySent
+            ? { userSelect: "none", opacity: "0.4" }
+            : emailSent
+            ? { userSelect: "none", opacity: "0.4" }
+            : {}
+        }
+      >
         <div id="profile-info">
           <div id="photo-name">
             <img id="user-img" src={userImg} alt="" />
@@ -65,21 +93,90 @@ function PContent({ user }) {
           </div>
         </div>
         <div id="profile-actions">
-          <button onClick={changePassword}>
+          <button
+          id="change-pass"
+            onClick={() => setEmailSendConfirm(true)}
+            disabled={emailSendConfirm}
+          >
             <img src={passwordImg} alt="Change password" />
             <p>Change password</p>
           </button>
-          <button>
-            <img src={logoutImg} alt="Log Out" />
-            <p>Log Out</p>
+          <button
+            id="logout"
+            disabled={emailSendConfirm}
+            onClick={() => navigate("/logout")}
+          >
+            <img src={logoutImg} alt="Log out" />
+            <p>Log out</p>
           </button>
-          <button>
+          <button id="delete-acc">
             <img src={deleteImg} alt="Delete account" />
             <p>Delete account</p>
           </button>
         </div>
       </div>
-      <div></div>
+      {emailSendConfirm && (
+        <div id="pass-change-confirm">
+          <div id="logo">
+            <img src={logo} alt="" />
+            <h1>eatly</h1>
+          </div>
+          <p>
+            We will send to you confirmation email to provide you pass-reset
+            link.
+          </p>
+          <h4>Continue?</h4>
+          <div id="btns">
+            <button id="cancel" onClick={() => setEmailSendConfirm(false)}>
+              Cancel
+            </button>
+            <button
+              id="emailSendConfirm"
+              onClick={() => {
+                changePassword();
+              }}
+            >
+              {emailSending ? "Sending..." : "Send email"}
+            </button>
+          </div>
+        </div>
+      )}
+      {emailAlreadySent && (
+        <div id="pass-change-confirm">
+          <div id="logo">
+            <img src={logo} alt="" />
+            <h1>eatly</h1>
+          </div>
+          <p>
+            We detect that you already has sent email. If link in mail doesn't
+            work try to resave it later
+          </p>
+          <h4 style={{ fontSize: "17px" }}>
+            Please check "Spam" folder or try to resend email later
+          </h4>
+          <div id="btns" style={{ paddingTop: "20px" }}>
+            <button id="send" onClick={() => setEmailAlreadySent(false)}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
+      {emailSent && (
+        <div id="pass-change-confirm">
+          <div id="logo">
+            <img src={logo} alt="" />
+            <h1>eatly</h1>
+          </div>
+          <p style={{ color: "#aaa3d8", paddingTop: "10px" }}>
+            We sent email to {user.email}. Please follow the instructions in it
+          </p>
+          <div id="btns" style={{ paddingTop: "65px" }}>
+            <button id="send" onClick={() => setEmailSent(false)}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
