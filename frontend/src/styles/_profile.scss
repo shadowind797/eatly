@@ -5,6 +5,9 @@
     display: flex;
     position: relative;
     height: 52.5em;
+    #profile-content-profile {
+      padding: 70px;
+    }
     #profile-nav {
       position: fixed;
       display: flex;
@@ -13,6 +16,13 @@
       background-color: #fff;
       padding: 60px;
       height: 52.5em;
+      h4 {
+        text-align: center;
+        padding-bottom: 4px;
+        color: $black_main;
+        font-size: 15px;
+        font-weight: 800;
+      }
       nav {
         display: flex;
         flex-direction: column;

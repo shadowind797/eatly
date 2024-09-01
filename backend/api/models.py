@@ -9,6 +9,7 @@ class User(AbstractUser):
     status = models.ForeignKey('Status', on_delete=models.PROTECT, default=5)
     is_banned = models.BooleanField(default=False)
     ban_reason = models.TextField(blank=True)
+    passwd_change_link = models.CharField(max_length=120, blank=True)
 
     def __str__(self):
         return self.username

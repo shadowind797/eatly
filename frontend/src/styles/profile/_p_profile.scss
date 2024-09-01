@@ -1,0 +1,66 @@
+#profile-content-profile {
+  #profile {
+    #profile-info {
+      #photo-name {
+        display: flex;
+        align-items: center;
+        gap: 23px;
+        #user-img {
+          width: 115px;
+        }
+        #top-info {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          h3 {
+            color: #c2c3cb;
+            font-size: 24px;
+            font-weight: 600;
+
+            span {
+              color: $purple_main;
+              font-size: 24px;
+              font-weight: 600;
+            }
+          }
+
+          p {
+            color: #c2c3cb;
+            font-size: 21px;
+            font-weight: 600;
+
+            span {
+              color: $purple_main;
+              font-size: 21px;
+              font-weight: 600;
+
+              a {
+                color: $purple_main;
+                transition: 0.2s;
+
+                &:hover {
+                  opacity: 0.7;
+                  transition: 0.2s;
+                }
+              }
+            }
+          }
+        }
+      }
+      #others {
+        padding: 19px;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        div {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          img {
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+}

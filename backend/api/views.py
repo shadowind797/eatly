@@ -9,13 +9,13 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from .services import get_user_data
 from django.shortcuts import redirect
 from django.conf import settings
-from django.contrib.auth import login
 from rest_framework.views import APIView
 from .serializers import GoogleAuthSerializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.db.models import F, Sum
 from django.db.models import F, Sum, FloatField
 from django.db.models.functions import Cast
+from django.core.mail import send_mail
 
 
 class GoogleLoginApi(APIView):
@@ -148,6 +148,23 @@ class GetAccess(generics.ListAPIView):
                 else:
                     return Response(status=status.HTTP_401_UNAUTHORIZED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+class ChangePassword(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs):
+        method = self.request.data.get("method")
+        user = request.user
+
+        if method == "send_email":
+            subject = "Change EATLY password"
+            message = f"Hi {user.username}, "
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [
+                user.email,
+            ]
+            send_mail(subject, message, email_from, recipient_list)
 
 
 class GetUser(generics.ListAPIView):

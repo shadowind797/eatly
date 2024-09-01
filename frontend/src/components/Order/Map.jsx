@@ -19,6 +19,8 @@ function Map({ restAddress, userAddress, userName, restName }) {
   });
 
   const [shipTo, setShipTo] = useState("");
+  const currentTime = new Date();
+  const departureTime = new Date(currentTime.getTime() + 10 * 60 * 1000);
 
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const calculateDistanceAndTime = useCallback(() => {
@@ -29,6 +31,9 @@ function Map({ restAddress, userAddress, userName, restName }) {
           origin: restAddress,
           destination: shipTo,
           travelMode: window.google.maps.TravelMode.DRIVING,
+          drivingOptions: {
+            departureTime: departureTime,
+          }
         },
         (response, status) => {
           if (status === "OK") {

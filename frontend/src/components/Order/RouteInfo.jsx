@@ -13,7 +13,7 @@ function RouteInfo({ routeData, userName, restName }) {
       setAddressFrom(routeData.routes[0].legs[0].start_address);
       setAddressTo(routeData.routes[0].legs[0].end_address);
 
-      let totalDuration = 0;
+      let totalDuration = 1000;
       let totalDistance = 0;
 
       routeData.routes[0].legs.forEach((leg) => {
