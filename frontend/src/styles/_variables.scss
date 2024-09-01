@@ -1,23 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-$purple_main: #6C5FBC;
+$purple_main: #6c5fbc;
 $black_main: rgb(54, 54, 54);
 $black_second: #323142;
 $black_menu: #606060;
 $black_pars: #636363;
-$background: #F9F9F9;
+$background: #f9f9f9;
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -55,8 +69,8 @@ button:hover {
     gap: 16px;
 
     p {
-      color: #ACADB9;
-      font-feature-settings: 'clig' off, 'liga' off;
+      color: #acadb9;
+      font-feature-settings: "clig" off, "liga" off;
       font-family: Poppins, sans-serif;
       font-size: 20px;
       font-weight: 500;
@@ -71,8 +85,8 @@ button:hover {
   align-items: center;
 
   p {
-    color: #8E97A6;
-    font-feature-settings: 'clig' off, 'liga' off;
+    color: #8e97a6;
+    font-feature-settings: "clig" off, "liga" off;
     font-size: 19px;
     font-weight: 400;
     line-height: 26px; /* 133.333% */
@@ -93,14 +107,14 @@ button:hover {
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
 
   h2 {
     color: $black_main;
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings: "clig" off, "liga" off;
     font-size: 45px;
     font-weight: 600;
     line-height: 26px; /* 56.797% */
@@ -123,13 +137,13 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 
   h2 {
     color: $black_main;
-    font-feature-settings: 'clig' off, 'liga' off;
+    font-feature-settings: "clig" off, "liga" off;
     font-size: 45px;
     font-weight: 600;
     line-height: 26px; /* 56.797% */
@@ -151,9 +165,9 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.70);
+  border: 1px solid #f4f4f6;
+  background: #fff;
+  box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
 
@@ -177,7 +191,7 @@ button:hover {
 
       h4 {
         color: $black_main;
-        font-feature-settings: 'clig' off, 'liga' off;
+        font-feature-settings: "clig" off, "liga" off;
         font-size: 23px;
         font-weight: 600;
         line-height: 37px; /* 162.5% */
@@ -222,7 +236,7 @@ button:hover {
         font-weight: 700;
         line-height: 40px; /* 155.556% */
         span {
-          color: #8E97A6;
+          color: #8e97a6;
           font-family: Manrope, sans-serif;
           font-size: 19px;
           font-weight: 700;
@@ -244,9 +258,9 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
-  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.70);
+  border: 1px solid #f4f4f6;
+  background: #fff;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 
   .rest-img {
     width: 396px;
@@ -278,7 +292,7 @@ button:hover {
 
       h4 {
         color: $black_main;
-        font-feature-settings: 'clig' off, 'liga' off;
+        font-feature-settings: "clig" off, "liga" off;
         font-size: 26px;
         font-weight: 600;
         line-height: 42px; /* 162.5% */
@@ -303,4 +317,87 @@ button:hover {
       }
     }
   }
+}
+
+form {
+  #inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    #input {
+      width: 352px;
+      height: 65px;
+      border-radius: 14px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      input {
+        background: none;
+        border: none;
+        color: #6c5fbc;
+        font-family: Poppins, sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 0.334px;
+
+        &::placeholder {
+          color: #c2c3cb;
+          font-family: Poppins, sans-serif;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  #action {
+    button {
+      margin-top: 5px;
+      width: 408px;
+      height: 65px;
+      border-radius: 13px;
+      background: $purple_main;
+      border: none;
+      font-family: Poppins, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: white;
+    }
+
+    .another {
+      text-align: center;
+      padding-top: 8px;
+      color: #3e3e3e;
+      font-family: Poppins, sans-serif;
+      font-size: 19px;
+      font-weight: 400;
+      letter-spacing: 0.189px;
+
+      a {
+        color: $purple_main;
+        font-family: Poppins, sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: 0.189px;
+      }
+    }
+  }
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
 }

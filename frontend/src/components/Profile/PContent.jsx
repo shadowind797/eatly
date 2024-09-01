@@ -6,13 +6,14 @@ import passwordImg from "../../assets/profile/password.svg";
 import logoutImg from "../../assets/profile/log-out.svg";
 import deleteImg from "../../assets/profile/delete.svg";
 import { useState } from "react";
+import api from "../../api.js";
 
 function PContent({ user }) {
   const [emailSended, setEmailSended] = useState(false)
 
   const changePassword = () => {
     api
-      .post("api/password/change/")
+      .post("api/password/change/", {method: "send_email"})
       .then((res) => {
         if (res.status === 200) {
           setEmailSended(true)
@@ -64,7 +65,7 @@ function PContent({ user }) {
           </div>
         </div>
         <div id="profile-actions">
-          <button>
+          <button onClick={changePassword}>
             <img src={passwordImg} alt="Change password" />
             <p>Change password</p>
           </button>

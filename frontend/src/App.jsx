@@ -12,6 +12,7 @@ import Admin from "./pages/Admin.jsx";
 import SuperProtectedRoute from "./components/SuperProtectedRoute.jsx";
 import Order from "./pages/Order.jsx";
 import Profile from "./pages/Profile.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
 
 function Logout() {
   localStorage.clear();
@@ -64,6 +65,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="change-pass/"
+          element={
+            <ProtectedRoute>
+              <ChangePassword />
             </ProtectedRoute>
           }
         />

@@ -1,3 +1,5 @@
+import random
+import string
 from django.db.models import Q
 from django.utils import timezone
 from datetime import datetime
@@ -154,17 +156,54 @@ class ChangePassword(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
-        method = self.request.data.get("method")
+        method = request.data.get("method")
         user = request.user
 
         if method == "send_email":
+            change_keys_list = [
+                random.choice(
+                    string.ascii_lowercase + string.digits
+                    if i != 5
+                    else string.ascii_uppercase
+                )
+                for i in range(10)
+            ]
+            change_key = "".join(change_keys_list)
+
+            user.passwd_change_link = change_key
+            user.save()
+
             subject = "Change EATLY password"
-            message = f"Hi {user.username}, "
+            message = f"Hi {user.username}, follow this link to change your password: {settings.BASE_APP_URL}/change-pass?key={change_key}"
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [
                 user.email,
             ]
             send_mail(subject, message, email_from, recipient_list)
+            return Response(status=status.HTTP_200_OK)
+        elif method == "change":
+            key = request.data.get("key")
+            new = request.data.get("new")
+
+            if user.passwd_change_link == key:
+                change_keys_list = [
+                    random.choice(
+                        string.ascii_lowercase + string.digits
+                        if i != 5
+                        else string.ascii_uppercase
+                    )
+                    for i in range(10)
+                ]
+                change_key = "".join(change_keys_list)
+
+                user.set_password(new)
+                user.passwd_change_link = change_key
+                user.save()
+                return Response(status=status.HTTP_202_ACCEPTED)
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        else:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class GetUser(generics.ListAPIView):

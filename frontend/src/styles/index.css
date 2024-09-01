@@ -7,6 +7,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 html,
 body,
 div,
@@ -415,17 +416,31 @@ textarea {
   padding: 0.2em 0;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -463,7 +478,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -477,7 +492,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -490,12 +505,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -509,7 +524,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -522,8 +537,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -535,7 +550,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -547,8 +562,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -610,7 +625,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -627,8 +642,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -680,17 +695,104 @@ button:hover {
   right: -45px;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -728,7 +830,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -742,7 +844,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -755,12 +857,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -774,7 +876,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -787,8 +889,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -800,7 +902,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -812,8 +914,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -875,7 +977,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -892,8 +994,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -943,13 +1045,86 @@ button:hover {
   position: absolute;
   top: -20px;
   right: -45px;
+}
+
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
 }
 
 .base-header {
   padding: 16px 96px 16px 96px;
   display: flex;
   border-bottom: 1px solid #CBCBCB;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 .base-header #load-img {
   height: 50px;
@@ -966,7 +1141,7 @@ button:hover {
   align-items: center;
 }
 .base-header #first-part #logo a h4 {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 21px;
   font-weight: 600;
   line-height: 130%;
@@ -986,7 +1161,7 @@ button:hover {
   line-height: 27px; /* 150% */
 }
 .base-header #first-part nav ul li .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 .base-header #icons {
   margin-left: auto;
@@ -1000,7 +1175,7 @@ button:hover {
 .base-header #icons button {
   width: 121px;
   height: 53px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 18px;
 }
@@ -1015,7 +1190,7 @@ button:hover {
   padding: 16px 96px 16px 96px;
   display: flex;
   border-bottom: 1px solid #CBCBCB;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   position: fixed;
   top: -200px;
   z-index: 29;
@@ -1037,7 +1212,7 @@ button:hover {
   align-items: center;
 }
 .header #first-part #logo a h4 {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 21px;
   font-weight: 600;
   line-height: 130%;
@@ -1057,7 +1232,7 @@ button:hover {
   line-height: 27px; /* 150% */
 }
 .header #first-part nav ul li .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 .header #icons {
   margin-left: auto;
@@ -1071,7 +1246,7 @@ button:hover {
 .header #icons button {
   width: 121px;
   height: 53px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 18px;
 }
@@ -1087,17 +1262,31 @@ button:hover {
   top: 0;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -1135,7 +1324,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -1149,7 +1338,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -1162,12 +1351,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -1181,7 +1370,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -1194,8 +1383,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -1207,7 +1396,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -1219,8 +1408,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -1282,7 +1471,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -1299,8 +1488,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -1350,6 +1539,79 @@ button:hover {
   position: absolute;
   top: -20px;
   right: -45px;
+}
+
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
 }
 
 #home #main-div {
@@ -1391,7 +1653,7 @@ button:hover {
   letter-spacing: -3px;
 }
 #home #main-div #first #info h1 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #home #main-div #first #info p {
   color: #636363;
@@ -1400,7 +1662,7 @@ button:hover {
   line-height: 28px; /* 155.556% */
 }
 #home #main-div #first #info p span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #home #main-div #first #get-started {
   margin-top: 53px;
@@ -1413,7 +1675,7 @@ button:hover {
   width: 156px;
   height: 59px;
   color: #fff;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 12px;
 }
@@ -1423,12 +1685,12 @@ button:hover {
 #home #main-div #first #get-started .btns .pro {
   width: 110px;
   height: 59px;
-  background-color: #F9F9F9;
-  border: 2px solid #6C5FBC;
+  background-color: #f9f9f9;
+  border: 2px solid #6c5fbc;
   border-radius: 12px;
 }
 #home #main-div #first #get-started .btns .pro a {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #home #main-div #first #get-started .btns button a {
   font-family: Poppins, serif;
@@ -1498,7 +1760,7 @@ button:hover {
 #home #main-div #second .grafic #up .main {
   padding: 11px;
   color: #fff;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border-radius: 15px;
 }
 #home #main-div #second .grafic #up p {
@@ -1607,7 +1869,7 @@ button:hover {
   padding: 49px 0;
   display: flex;
   justify-content: center;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   margin-top: 135px;
 }
 #home #MobileApp #counts div {
@@ -1667,7 +1929,7 @@ button:hover {
   line-height: 58px; /* 114.286% */
 }
 #home #MobileApp #mobile .info h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #home #MobileApp #mobile .info div {
   padding-top: 63px;
@@ -1684,7 +1946,7 @@ button:hover {
 #home #MobileApp #mobile .info button {
   margin-top: 66px;
   border-radius: 15px;
-  background: #6C5FBC;
+  background: #6c5fbc;
   width: 186px;
   height: 63px;
   position: relative;
@@ -1701,17 +1963,31 @@ button:hover {
   height: 27px;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -1749,7 +2025,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -1763,7 +2039,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -1776,12 +2052,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -1795,7 +2071,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -1808,8 +2084,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -1821,7 +2097,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -1833,8 +2109,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -1896,7 +2172,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -1913,8 +2189,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -1966,6 +2242,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #cart #main {
   display: flex;
   position: relative;
@@ -2000,7 +2349,7 @@ button:hover {
   font-weight: 800;
 }
 #cart #main #empty h2 a {
-  color: #6C5FBC;
+  color: #6c5fbc;
   transition: 0.2s;
 }
 #cart #main #empty h2 a:hover {
@@ -2030,7 +2379,7 @@ button:hover {
 #cart #main #cart-items-list .item:hover {
   transform: scale(1.1);
   transition-duration: 0.2s;
-  box-shadow: 17px 17px 17px #6C5FBC;
+  box-shadow: 17px 17px 17px #6c5fbc;
 }
 #cart #main #cart-items-list .item:hover .cross {
   display: block;
@@ -2167,7 +2516,7 @@ button:hover {
 #cart #main #order #costs form button {
   width: 141px;
   height: 63px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 10px;
   color: white;
@@ -2178,7 +2527,7 @@ button:hover {
 #cart #main #order #costs .total {
   font-size: 22px;
   font-weight: 600;
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #cart #main #order #costs .total span {
   font-size: 22px;
@@ -2241,7 +2590,7 @@ button:hover {
 #cart #main #order #pay #userInfo #address #add-address {
   width: 470px;
   height: 55px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 10px;
   color: white;
@@ -2341,9 +2690,9 @@ button:hover {
   width: 48%;
   height: 55px;
   background-color: #FFF;
-  border: 2px solid #6C5FBC;
+  border: 2px solid #6c5fbc;
   border-radius: 10px;
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
@@ -2352,7 +2701,7 @@ button:hover {
 #cart #main #order #new-address form .btns .add {
   width: 48%;
   height: 55px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 10px;
   color: white;
@@ -2364,17 +2713,31 @@ button:hover {
   width: calc(100% - 470px - 100px);
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -2412,7 +2775,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -2426,7 +2789,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -2439,12 +2802,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -2458,7 +2821,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -2471,8 +2834,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -2484,7 +2847,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -2496,8 +2859,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -2559,7 +2922,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -2576,8 +2939,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -2629,6 +2992,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #complete-order {
   display: flex;
 }
@@ -2644,7 +3080,7 @@ button:hover {
   margin-top: 70px;
   height: calc(40% - 70px);
   border-radius: 14px;
-  border: 1px solid #6C5FBC;
+  border: 1px solid #6c5fbc;
   padding: 50px;
   background-color: #fff;
 }
@@ -2756,7 +3192,7 @@ button:hover {
   min-width: 800px;
   max-width: 800px;
   height: 86.6%;
-  border: 1px solid #6C5FBC;
+  border: 1px solid #6c5fbc;
   border-radius: 14px;
   background-color: #fff;
   padding: 50px 70px 0;
@@ -2797,17 +3233,17 @@ button:hover {
 #complete-order #order-info #counts h4 span {
   font-weight: 700;
   margin-left: auto;
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #complete-order #order-info #counts h4 img {
   margin-left: auto;
 }
 #complete-order #order-info #payment h3 {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 17px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 1px solid #6C5FBC;
+  border-bottom: 1px solid #6c5fbc;
 }
 #complete-order #order-info #payment #payment-method {
   padding-top: 11px;
@@ -2820,9 +3256,9 @@ button:hover {
   width: 90px;
   height: 60px;
   background-color: #fff;
-  border: 2px solid #6C5FBC;
+  border: 2px solid #6c5fbc;
   border-radius: 20px;
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
@@ -2834,7 +3270,7 @@ button:hover {
 #complete-order #order-info #payment #payment-method .active {
   width: 140px;
   height: 60px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 20px;
   color: white;
@@ -2847,7 +3283,7 @@ button:hover {
   position: relative;
 }
 #complete-order #order-info #payment #payment-method #card-select p {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 13px;
   font-weight: 600;
   padding-left: 3px;
@@ -2872,9 +3308,9 @@ button:hover {
   width: 48%;
   height: 55px;
   background-color: #fff;
-  border: 2px solid #6C5FBC;
+  border: 2px solid #6c5fbc;
   border-radius: 10px;
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
@@ -2983,9 +3419,9 @@ button:hover {
   width: 32%;
   height: 55px;
   background-color: #fff;
-  border: 2px solid #6C5FBC;
+  border: 2px solid #6c5fbc;
   border-radius: 10px;
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
@@ -2994,7 +3430,7 @@ button:hover {
 #complete-order #order-info .btns #add-payment {
   width: 32%;
   height: 55px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 10px;
   color: white;
@@ -3020,17 +3456,31 @@ button:hover {
   color: #fff;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -3068,7 +3518,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -3082,7 +3532,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -3095,12 +3545,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -3114,7 +3564,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -3127,8 +3577,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -3140,7 +3590,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -3152,8 +3602,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -3215,7 +3665,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -3232,8 +3682,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -3285,6 +3735,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #menu #top-rests {
   border-top: none;
 }
@@ -3316,7 +3839,7 @@ button:hover {
 }
 #menu #main-div #ad-search #search form button {
   border: none;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -3348,7 +3871,7 @@ button:hover {
 }
 #menu #main-div #ad-search #search #search-btns .active {
   border: none;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -3357,12 +3880,12 @@ button:hover {
   height: 63px;
 }
 #menu #main-div #ad-search #search #search-btns .passive {
-  border: 1px solid #6C5FBC;
-  background-color: #F9F9F9;
+  border: 1px solid #6c5fbc;
+  background-color: #f9f9f9;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #6C5FBC;
+  color: #6c5fbc;
   padding: 15px 20px;
   height: 63px;
 }
@@ -3382,7 +3905,7 @@ button:hover {
   text-align: left;
 }
 #menu #main-div .slider__item-content h3 {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 87.419px;
   font-weight: 800;
   text-align: left;
@@ -3425,7 +3948,7 @@ button:hover {
   justify-content: center;
 }
 #menu #sort-filter .categories .category-filter #select .other {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3512,7 +4035,7 @@ button:hover {
   gap: 5px;
 }
 #menu #sort-filter #sorting #sort-selects .sort-select p {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -3538,7 +4061,7 @@ button:hover {
   appearance: none;
   width: 15px;
   height: 15px;
-  background: #6C5FBC;
+  background: #6c5fbc;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -3546,7 +4069,7 @@ button:hover {
 #menu #sort-filter #cost-filter .range-slider-input::-moz-range-thumb {
   width: 20px;
   height: 20px;
-  background: #6C5FBC;
+  background: #6c5fbc;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -3554,7 +4077,7 @@ button:hover {
 #menu #sort-filter #cost-filter .range-slider-input::-ms-thumb {
   width: 20px;
   height: 20px;
-  background: #6C5FBC;
+  background: #6c5fbc;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -3574,7 +4097,7 @@ button:hover {
 #menu #sort-filter button {
   width: 150px;
   height: 50px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
@@ -3612,17 +4135,31 @@ button:hover {
   line-height: 27px;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -3660,7 +4197,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -3674,7 +4211,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -3687,12 +4224,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -3706,7 +4243,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -3719,8 +4256,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -3732,7 +4269,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -3744,8 +4281,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -3807,7 +4344,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -3824,8 +4361,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -3877,6 +4414,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #log {
   display: flex;
   position: relative;
@@ -3911,68 +4521,6 @@ button:hover {
 #log #form #foreign-log button img {
   width: 40px;
 }
-#log #form form #inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-#log #form form #inputs #input {
-  width: 352px;
-  height: 65px;
-  border-radius: 14px;
-  background: #F5F5F5;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-#log #form form #inputs #input input {
-  background: none;
-  border: none;
-  color: #6C5FBC;
-  font-family: Poppins, sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: 0.334px;
-}
-#log #form form #inputs #input input::placeholder {
-  color: #C2C3CB;
-  font-family: Poppins, sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-#log #form form #action button {
-  margin-top: 5px;
-  width: 408px;
-  height: 65px;
-  border-radius: 13px;
-  background: #6C5FBC;
-  border: none;
-  font-family: Poppins, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: white;
-}
-#log #form form #action .another {
-  text-align: center;
-  padding-top: 8px;
-  color: #3E3E3E;
-  font-family: Poppins, sans-serif;
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: 0.189px;
-}
-#log #form form #action .another a {
-  color: #6C5FBC;
-  font-family: Poppins, sans-serif;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: 0.189px;
-}
 #log #form #login-footer {
   position: absolute;
   bottom: 17px;
@@ -3980,7 +4528,8 @@ button:hover {
   display: flex;
   gap: 49em;
 }
-#log #form #login-footer p, #log #form #login-footer a {
+#log #form #login-footer p,
+#log #form #login-footer a {
   color: #718096;
   font-family: Poppins, "Helvetica Neue", sans-serif;
   font-size: 16px;
@@ -3989,7 +4538,7 @@ button:hover {
   letter-spacing: 0.2px;
 }
 #log #decor {
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   height: 100%;
   margin: 0;
   width: 40%;
@@ -4001,7 +4550,7 @@ button:hover {
 #log #decor h1 {
   margin-top: 70px;
   margin-bottom: 20px;
-  color: var(--Others-White, #FFF);
+  color: var(--Others-White, #fff);
   text-align: center;
   font-family: Manrope, sans-serif;
   font-size: 40px;
@@ -4009,7 +4558,7 @@ button:hover {
   line-height: 110%;
 }
 #log #decor p {
-  color: var(--Others-White, #FFF);
+  color: var(--Others-White, #fff);
   text-align: center;
   font-family: Manrope, sans-serif;
   font-size: 14px;
@@ -4020,7 +4569,7 @@ button:hover {
   width: 600px;
   height: 550px;
   position: relative;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
 }
 #log #decor #second .plate {
   position: absolute;
@@ -4036,8 +4585,8 @@ button:hover {
   bottom: -29px;
   background-color: #fff;
   border-radius: 17px;
-  border: 1px solid var(--Greyscale-200, #EDF2F7);
-  background: var(--Others-White, #FFF);
+  border: 1px solid var(--Greyscale-200, #edf2f7);
+  background: var(--Others-White, #fff);
   box-shadow: 14px 19px 38px 0 rgba(26, 32, 44, 0.15);
   width: 207px;
   height: 206px;
@@ -4051,7 +4600,7 @@ button:hover {
 #log #decor #second .grafic #up .main {
   padding: 11px;
   color: #fff;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border-radius: 15px;
 }
 #log #decor #second .grafic #up p {
@@ -4107,7 +4656,7 @@ button:hover {
 #log #decor #second .chicken-hell {
   position: absolute;
   border-radius: 16px;
-  border: 1px solid var(--Greyscale-200, #EDF2F7);
+  border: 1px solid var(--Greyscale-200, #edf2f7);
   background-color: #fff;
   box-shadow: 0 21px 24px 0 rgba(26, 32, 44, 0.2);
   top: 7px;
@@ -4149,7 +4698,7 @@ button:hover {
   position: absolute;
   bottom: 10px;
   right: 16px;
-  color: var(--Dark-Grey, #ACADB9);
+  color: var(--Dark-Grey, #acadb9);
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 11px;
@@ -4157,27 +4706,31 @@ button:hover {
   line-height: 140%; /* 14.93px */
 }
 
-.auth-error {
-  text-align: center;
-  color: red;
-  font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 140%; /* 24.619px */
-  margin-top: 30px;
-}
-
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -4215,7 +4768,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -4229,7 +4782,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -4242,12 +4795,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -4261,7 +4814,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -4274,8 +4827,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -4287,7 +4840,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -4299,8 +4852,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -4362,7 +4915,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -4379,8 +4932,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -4432,6 +4985,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #footer {
   background-color: #eaeaea;
   padding: 100px;
@@ -4458,7 +5084,7 @@ button:hover {
   line-height: 27px; /* 150% */
 }
 #footer #up-footer #foot-nav ul li .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #footer #up-footer #foot-logo a {
   display: flex;
@@ -4466,7 +5092,7 @@ button:hover {
   align-items: center;
 }
 #footer #up-footer #foot-logo a h4 {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 21px;
   font-weight: 600;
   line-height: 130%;
@@ -4505,17 +5131,35 @@ button:hover {
   width: 28px;
 }
 
-html, body, #cart, #main, #root, #log, #complete-order {
-  background: #F9F9F9;
+#pass-change #footer {
+  margin-top: 35vh;
+}
+
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
   height: 100%;
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, input {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
   font-family: "Poppins", sans-serif;
 }
 
-p, a {
+p,
+a {
   font-family: "Inter", sans-serif;
 }
 
@@ -4553,7 +5197,7 @@ button:hover {
   gap: 16px;
 }
 .view-all a p {
-  color: #ACADB9;
+  color: #acadb9;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Poppins, sans-serif;
   font-size: 20px;
@@ -4567,7 +5211,7 @@ button:hover {
   align-items: center;
 }
 .time-rating p {
-  color: #8E97A6;
+  color: #8e97a6;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 19px;
   font-weight: 400;
@@ -4580,12 +5224,12 @@ button:hover {
 }
 
 .header .active {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 
 #top-rests {
   text-align: center;
-  border-top: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
   padding-top: 100px;
   padding-bottom: 100px;
   position: relative;
@@ -4599,7 +5243,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-rests h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-rests #tops {
   display: flex;
@@ -4612,8 +5256,8 @@ button:hover {
   text-align: center;
   padding-top: 100px;
   padding-bottom: 130px;
-  border-top: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   margin-bottom: 80px;
 }
 #top-dishes h2 {
@@ -4625,7 +5269,7 @@ button:hover {
   margin-bottom: 86px;
 }
 #top-dishes h2 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
 }
 #top-dishes .tops {
   display: flex;
@@ -4637,8 +5281,8 @@ button:hover {
   width: 185px;
   height: 370px;
   border-radius: 35px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
   position: relative;
   padding: 30px 20px;
@@ -4700,7 +5344,7 @@ button:hover {
   line-height: 40px; /* 155.556% */
 }
 .dish .info .price-add h5 span {
-  color: #8E97A6;
+  color: #8e97a6;
   font-family: Manrope, sans-serif;
   font-size: 19px;
   font-weight: 700;
@@ -4717,8 +5361,8 @@ button:hover {
   width: 396px;
   height: 298px;
   border-radius: 30px;
-  border: 1px solid #F4F4F6;
-  background: #FFF;
+  border: 1px solid #f4f4f6;
+  background: #fff;
   box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
 }
 .rest-card .rest-img {
@@ -4770,6 +5414,79 @@ button:hover {
   right: -45px;
 }
 
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
 #profile #profile-content {
   display: flex;
   position: relative;
@@ -4804,9 +5521,9 @@ button:hover {
   height: 55px;
   padding: 15px;
   background-color: #FFF;
-  border: 2px solid #6C5FBC;
+  border: 2px solid #6c5fbc;
   border-radius: 10px;
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 18px;
   font-weight: 600;
   line-height: 23px;
@@ -4814,7 +5531,7 @@ button:hover {
 #profile #profile-content #profile-nav nav .active {
   width: 100%;
   height: 55px;
-  background-color: #6C5FBC;
+  background-color: #6c5fbc;
   border: none;
   border-radius: 10px;
   color: white;
@@ -4845,7 +5562,7 @@ button:hover {
   font-weight: 600;
 }
 #profile-content-profile #profile #profile-info #photo-name #top-info h3 span {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 24px;
   font-weight: 600;
 }
@@ -4855,12 +5572,12 @@ button:hover {
   font-weight: 600;
 }
 #profile-content-profile #profile #profile-info #photo-name #top-info p span {
-  color: #6C5FBC;
+  color: #6c5fbc;
   font-size: 21px;
   font-weight: 600;
 }
 #profile-content-profile #profile #profile-info #photo-name #top-info p span a {
-  color: #6C5FBC;
+  color: #6c5fbc;
   transition: 0.2s;
 }
 #profile-content-profile #profile #profile-info #photo-name #top-info p span a:hover {
@@ -4880,4 +5597,360 @@ button:hover {
 }
 #profile-content-profile #profile #profile-info #others div img {
   width: 30px;
+}
+
+html,
+body,
+#cart,
+#main,
+#root,
+#log,
+#complete-order {
+  background: #f9f9f9;
+  height: 100%;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+a {
+  font-family: "Inter", sans-serif;
+}
+
+div {
+  font-family: "Manrope", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+}
+
+button {
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+button:hover {
+  transform: scale(1.12);
+  transition: 200ms;
+}
+
+.container {
+  width: 1246px;
+  margin: 0 auto;
+}
+
+.view-all {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.view-all a {
+  display: flex;
+  gap: 16px;
+}
+.view-all a p {
+  color: #acadb9;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 45px; /* 225.921% */
+}
+
+.time-rating {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+.time-rating p {
+  color: #8e97a6;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 26px; /* 133.333% */
+}
+.time-rating div {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.header .active {
+  color: #6c5fbc;
+}
+
+#top-rests {
+  text-align: center;
+  border-top: 1px solid #cbcbcb;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+#top-rests h2 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
+}
+#top-rests h2 span {
+  color: #6c5fbc;
+}
+#top-rests #tops {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 66px;
+}
+
+#top-dishes {
+  position: relative;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  border-top: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
+  margin-bottom: 80px;
+}
+#top-dishes h2 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 26px; /* 56.797% */
+  margin-bottom: 86px;
+}
+#top-dishes h2 span {
+  color: #6c5fbc;
+}
+#top-dishes .tops {
+  display: flex;
+  gap: 31px;
+  text-align: left;
+}
+
+.dish {
+  width: 185px;
+  height: 370px;
+  border-radius: 35px;
+  border: 1px solid #f4f4f6;
+  background: #fff;
+  box-shadow: 7px 82px 41px 0 rgba(229, 229, 229, 0.7);
+  position: relative;
+  padding: 30px 20px;
+}
+.dish .like {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+}
+.dish .photo {
+  width: 181px;
+}
+.dish .info .item-cat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 10px;
+  height: 110px;
+}
+.dish .info .item-cat h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 37px; /* 162.5% */
+}
+.dish .info .item-cat div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 84px;
+  height: 25px;
+  border-radius: 5px;
+}
+.dish .info .time-rating {
+  display: flex;
+  align-items: center;
+  position: relative;
+  bottom: 0;
+}
+.dish .info .time-rating .rest {
+  font-size: 12px;
+}
+.dish .info .time-rating div {
+  margin-left: auto;
+}
+.dish .info .price-add {
+  display: flex;
+  padding-top: 13px;
+  position: absolute;
+  bottom: 20px;
+}
+.dish .info .price-add h5 {
+  color: rgb(54, 54, 54);
+  font-family: Manrope, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 40px; /* 155.556% */
+}
+.dish .info .price-add h5 span {
+  color: #8e97a6;
+  font-family: Manrope, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 40px;
+}
+.dish .info .price-add button {
+  position: absolute;
+  right: -130px;
+  border: none;
+  background-color: #fff;
+}
+
+.rest-card {
+  width: 396px;
+  height: 298px;
+  border-radius: 30px;
+  border: 1px solid #f4f4f6;
+  background: #fff;
+  box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+}
+.rest-card .rest-img {
+  width: 396px;
+  height: 176px;
+  border-radius: 30px 30px 0 0;
+}
+.rest-card .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 14px 30px 18px;
+  text-align: left;
+}
+.rest-card .info .cat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  width: 76px;
+  height: 25px;
+  border-radius: 5px;
+}
+.rest-card .info .text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.rest-card .info .text h4 {
+  color: rgb(54, 54, 54);
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 42px; /* 162.5% */
+}
+.rest-card .info .text .widgets {
+  display: flex;
+  gap: 157px;
+}
+.rest-card .info .text .widgets button {
+  background: #fff;
+  border: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+.rest-card .info .text .widgets button img {
+  position: absolute;
+  top: -20px;
+  right: -45px;
+}
+
+form #inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form #inputs #input {
+  width: 352px;
+  height: 65px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+form #inputs #input input {
+  background: none;
+  border: none;
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.334px;
+}
+form #inputs #input input::placeholder {
+  color: #c2c3cb;
+  font-family: Poppins, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+form #action button {
+  margin-top: 5px;
+  width: 408px;
+  height: 65px;
+  border-radius: 13px;
+  background: #6c5fbc;
+  border: none;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+form #action .another {
+  text-align: center;
+  padding-top: 8px;
+  color: #3e3e3e;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.189px;
+}
+form #action .another a {
+  color: #6c5fbc;
+  font-family: Poppins, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.189px;
+}
+
+.auth-error {
+  text-align: center;
+  color: red;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%; /* 24.619px */
+  margin-top: 30px;
+}
+
+#pass-change {
+  min-height: 100%;
 }/*# sourceMappingURL=index.css.map */
