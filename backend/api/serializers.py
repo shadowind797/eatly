@@ -13,19 +13,20 @@ class GithubAuthSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    """
-    Create a new User instance using the validated data.
-
-    Parameters:
-    validated_data (dict): The validated data containing user information.
-
-    Returns:
-    User: The newly created User instance.
-    """
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', "phone", "status", "is_banned", "ban_reason", "first_name"]
+        fields = [
+            "id",
+            "username",
+            "email",
+            "password",
+            "phone",
+            "status",
+            "is_banned",
+            "ban_reason",
+            "first_name",
+        ]
         extra_kwargs = {"password": {"write_only": True}, "status": {"read_only": True}}
 
     def create(self, validated_data):
@@ -57,41 +58,57 @@ class PaymentSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ["id", "status", "total", "payment", "address"]
+        fields = ["id", "status", "total", "payment", "address", "created"]
 
     def create(self, validated_data):
         order = Order.objects.create_order(**validated_data)
         return order
 
 
+class OrderedItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderedItem
+        fields = ["id", "order", "item"]
+
+        def create(self, validated_data):
+            ordered_item = OrderedItem.objects.create_ordered_item(**validated_data)
+            return ordered_item
+
+
+class OrderStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OrderStatus
+        fields = ["id", "name"]
+
+
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ['id', "title", "price", "photo", "category", "rating", "restaurant"]
+        fields = ["id", "title", "price", "photo", "category", "rating", "restaurant"]
 
 
 class CartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
-        fields = ['id', "item", "quantity"]
+        fields = ["id", "item", "quantity"]
 
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', "name"]
+        fields = ["id", "name"]
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
-        fields = ['id', "name", "address", "rating", "category_id", "image"]
+        fields = ["id", "name", "address", "rating", "category_id", "image"]
 
 
 class RestaurantCatSerializer(serializers.ModelSerializer):
     class Meta:
         model = RestaurantCat
-        fields = ['id', "name"]
+        fields = ["id", "name"]
 
 
 class CouponSerializer(serializers.ModelSerializer):

@@ -10,13 +10,20 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
 
-function PContent({ user }) {
+function PContent({ user, orders, osl }) {
   const [emailSent, setEmailSent] = useState(false);
   const [emailSendConfirm, setEmailSendConfirm] = useState(false);
   const [emailSending, setEmailSending] = useState(false);
   const [emailAlreadySent, setEmailAlreadySent] = useState(false);
-
   const navigate = useNavigate();
+
+  const getOrderSlatus = (stId) => {
+    return osl.map(status => {
+      if (status.id === stId) {
+        return status.name;
+      }
+    })
+  }
 
   const changePassword = () => {
     setEmailSending(true);
@@ -94,7 +101,7 @@ function PContent({ user }) {
         </div>
         <div id="profile-actions">
           <button
-          id="change-pass"
+            id="change-pass"
             onClick={() => setEmailSendConfirm(true)}
             disabled={emailSendConfirm}
           >
@@ -177,6 +184,25 @@ function PContent({ user }) {
           </div>
         </div>
       )}
+      <h2>Your latest orders</h2>
+      <div id="last-orders">
+        {orders.map((order) => (
+          <div id="order-card">
+            <div className="head">
+              <p>{order.created}</p>
+              <p className="last">{getOrderSlatus(order.status)}</p>
+            </div>
+            <div className="info">
+              <div id="rest">
+                <img src="" alt="" />
+                <h3>{order.rest}</h3>
+              </div>
+              <h3>{order.items_count} dishes</h3>
+              <h3 className="order-total">${order.total}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

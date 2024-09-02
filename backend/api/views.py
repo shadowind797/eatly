@@ -161,7 +161,7 @@ class ChangePassword(generics.ListAPIView):
 
         if method == "send_email":
             if len(user.passwd_change_link) == 11:
-               return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+                return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
             change_keys_list = [
                 random.choice(
                     string.ascii_lowercase + string.digits
@@ -187,7 +187,7 @@ class ChangePassword(generics.ListAPIView):
             key = request.data.get("key")
             new = request.data.get("new")
 
-            if user.passwd_change_link == key:              
+            if user.passwd_change_link == key:
                 change_keys_list = [
                     random.choice(
                         string.ascii_lowercase + string.digits
@@ -398,6 +398,13 @@ class OrderView(generics.ListAPIView):
                 restaurant_id=rest_id,
             )
             order.save()
+
+            ordered_items = list(
+                CartItem.objects.filter(owner=request.user, item__restaurant_id=rest_id)
+            )
+            for o_item in ordered_items:
+                ordered_item = OrderedItem.objects.create(order=order, item=o_item.item)
+                ordered_item.save()
             return Response(status=status.HTTP_201_CREATED)
 
     def perform_create(self, serializer):
@@ -508,15 +515,6 @@ class CartItemListCreate(generics.ListCreateAPIView):
 
 
 class CouponListCreate(generics.ListCreateAPIView):
-    """
-    View to list all coupons and create a new coupon.
-
-    - GET: Returns a list of all coupons.
-    - POST: Creates a new coupon.
-
-    Permissions:
-    - Only authenticated users can access this view.
-    """
 
     serializer_class = CouponSerializer
     permission_classes = [
@@ -956,9 +954,26 @@ class GetProfile(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         user = request.user
-        method = request.data.get("method")
+        method = request.query_params.get("method")
 
-        if method == "orders":
-            orders = Order.objects.filter(user=user)
-            serializer = OrderSerializer(orders)
-            return Response(serializer.data)
+        if method == "orders-last":
+            orders = Order.objects.filter(user=user).order_by("-created")[:3]
+            order_ids = list(orders.values_list("id", flat=True))
+            
+            for o in orders:
+              o.created = o.created.strftime("%d.%m %H:%M")
+
+            ordered_items = list(OrderedItem.objects.filter(order_id__in=order_ids))
+            orders = OrderSerializer(orders, many=True).data
+
+            for i in orders:
+                order_id = i["id"]
+                items_in_order = [r for r in ordered_items if r.order_id == order_id]
+                i["rest"] = items_in_order[0].item.restaurant.name
+                i["items_count"] = len(items_in_order)
+
+            statuses = OrderStatusSerializer(OrderStatus.objects.all(), many=True).data
+
+            return Response(
+                status=status.HTTP_200_OK, data={"orders": orders, "statuses": statuses}
+            )

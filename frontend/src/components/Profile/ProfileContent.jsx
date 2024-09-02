@@ -7,12 +7,26 @@ import api from "../../api.js";
 
 function ProfileContent() {
   const [user, setUser] = useState({});
+  const [orders, setOrders] = useState([]);
+  const [orderStatusList, setOrderStatusList] = useState([])
   const [status, setStatus] = useState("");
   const [contentOption, setContentOption] = useState("Profile");
 
   useEffect(() => {
     getUser();
+    getOrders("orders-last");
   }, []);
+
+  const getOrders = (method) => {
+    api
+      .get(`api/profile/orders/`, { params: { method: method } })
+      .then((res) => res.data)
+      .then((data) => {
+        setOrders(data.orders);
+        setOrderStatusList(data.statuses)
+      })
+      .catch((err) => {});
+  };
 
   const getUser = () => {
     api
@@ -26,7 +40,7 @@ function ProfileContent() {
           4: "Courier",
           5: "Basic user",
           6: "Premium user",
-          7: "Customer",
+          7: "Partner",
         };
 
         setStatus(statusMap[res.data[0].status] || "");
@@ -38,7 +52,10 @@ function ProfileContent() {
     <div id="profile-content">
       <div id="profile-nav">
         <h4>
-          {user.username} | <span style={user.username === "shadowind" ? { color: "red" } : {}}>{status}</span>
+          {user.username} |{" "}
+          <span style={user.username === "shadowind" ? { color: "red" } : {}}>
+            {status}
+          </span>
         </h4>
         <nav>
           {[
@@ -58,7 +75,7 @@ function ProfileContent() {
         </nav>
       </div>
       <div id="nav-option-content">
-        {contentOption === "Profile" && <PContent user={user}/>}
+        {contentOption === "Profile" && <PContent user={user} orders={orders} osl={orderStatusList} />}
         {contentOption === "Manage expenses" && <MEContent />}
         {contentOption === "Orders history" && <OHContent />}
         {contentOption === "Explore Premium" && <EPContent />}

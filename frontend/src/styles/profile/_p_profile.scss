@@ -1,6 +1,15 @@
 #profile-content-profile {
+  height: 90%;
   #profile {
+    margin-bottom: 40px;
     #profile-info {
+      padding: 23px 40px;
+      width: 520px;
+      border: 1px solid $purple_main;
+      border-bottom: none;
+      border-radius: 14px 14px 0 0;
+      background-color: #fff;
+
       #photo-name {
         display: flex;
         align-items: center;
@@ -13,24 +22,24 @@
           flex-direction: column;
           gap: 20px;
           h3 {
-            color: #c2c3cb;
+            color: $purple_main;
             font-size: 24px;
             font-weight: 600;
 
             span {
-              color: $purple_main;
+              color: $black_main;
               font-size: 24px;
               font-weight: 600;
             }
           }
 
           p {
-            color: #c2c3cb;
+            color: $purple_main;
             font-size: 21px;
             font-weight: 600;
 
             span {
-              color: $purple_main;
+              color: $black_main;
               font-size: 21px;
               font-weight: 600;
 
@@ -52,10 +61,23 @@
         display: flex;
         flex-direction: column;
         gap: 13px;
+        width: 100%;
         div {
           display: flex;
           gap: 10px;
           align-items: center;
+          width: 100%;
+          p {
+            color: $purple_main;
+            font-size: 16px;
+            font-weight: 600;
+
+            span {
+              color: $black_main;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
           img {
             width: 30px;
           }
@@ -65,13 +87,12 @@
     #profile-actions {
       display: flex;
       flex-direction: column;
-      padding-top: 30px;
-      
+
       button {
         display: flex;
         align-items: center;
         border: 1px solid $purple_main;
-        background-color: #f5f5f5;
+        background-color: #f1f1f1;
         &:hover {
           transform: scale(1);
           background-color: #fff;
@@ -90,13 +111,18 @@
       }
 
       #change-pass {
-        border-radius: 14px 14px 0 0 ;
         border-bottom: none;
+        border-top: none;
       }
 
       #logout {
         border-bottom: none;
         border-top: none;
+
+        img {
+          padding-left: 9px;
+          padding-right: 15px;
+        }
       }
 
       #delete-acc {
@@ -114,7 +140,8 @@
       }
     }
   }
-  #pass-change-confirm, #pass-change-already-sent {
+  #pass-change-confirm,
+  #pass-change-already-sent {
     box-sizing: border-box;
     background-color: #fff;
     width: 500px;
@@ -177,6 +204,82 @@
         background-color: #fff;
         border: 1px solid $purple_main;
         color: $purple_main;
+      }
+    }
+  }
+  h2 {
+    color: $purple_main;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    padding-left: 9px;
+  }
+  #last-orders {
+    padding: 20px;
+    border: 1px solid $purple_main;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    #order-card {
+      padding: 14px;
+      border-radius: 14px;
+      background-color: #fff;
+      box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+      transition: 0.2s;
+      border: 1px solid #fff;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid $purple_main;
+        transition: 0.2s;
+      }
+      .head {
+        min-width: 100%;
+
+        .last {
+          margin-left: auto;
+          width: 75px;
+          padding-right: 7px;
+          padding-bottom: 5px;
+          font-size: 13px;
+          color: rgb(0, 199, 199);
+        }
+      }
+      div {
+        display: flex;
+
+        p {
+          color: $purple_main;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 17px;
+          padding-bottom: 4px;
+        }
+        #rest {
+          width: 33%;
+
+          h3 {
+            color: $black_main;
+            font-size: 17px;
+            font-weight: 500;
+            font-style: italic;
+          }
+        }
+        h3 {
+          text-align: center;
+          width: 33%;
+          color: $black_main;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        .order-total {
+          color: green;
+        }
+      }
+      .info {
+        padding: 5px 0;
       }
     }
   }
