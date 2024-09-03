@@ -2321,7 +2321,7 @@ form #action .another a {
   height: 90vh;
 }
 #cart #main .input-load {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -2339,12 +2339,12 @@ form #action .another a {
   padding: 200px 36%;
 }
 #cart #main #empty h1 {
-  color: #C2C3CB;
+  color: #c2c3cb;
   font-size: 28px;
   font-weight: 800;
 }
 #cart #main #empty h2 {
-  color: #C2C3CB;
+  color: #c2c3cb;
   font-size: 24px;
   font-weight: 800;
 }
@@ -2451,8 +2451,8 @@ form #action .another a {
 #cart #main #order {
   width: 470px;
   height: 90vh;
-  border-left: 1px solid #CBCBCB;
-  border-bottom: 1px solid #CBCBCB;
+  border-left: 1px solid #cbcbcb;
+  border-bottom: 1px solid #cbcbcb;
   position: fixed;
   right: 0;
   padding: 30px 50px;
@@ -2474,7 +2474,7 @@ form #action .another a {
 }
 #cart #main #order #costs {
   padding-bottom: 40px;
-  border-bottom: 1px solid #CBCBCB;
+  border-bottom: 1px solid #cbcbcb;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -2488,7 +2488,7 @@ form #action .another a {
   width: 296px;
   height: 43px;
   border-radius: 10px;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -2508,7 +2508,7 @@ form #action .another a {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #C2C3CB;
+  color: #c2c3cb;
 }
 #cart #main #order #costs form #input img {
   width: 30px;
@@ -2559,14 +2559,16 @@ form #action .another a {
   flex-direction: column;
   gap: 30px;
 }
-#cart #main #order #pay #userInfo #nameDiv, #cart #main #order #pay #userInfo #phoneDiv {
+#cart #main #order #pay #userInfo #nameDiv,
+#cart #main #order #pay #userInfo #phoneDiv {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-#cart #main #order #pay #userInfo #nameDiv #name, #cart #main #order #pay #userInfo #phoneDiv #name {
+#cart #main #order #pay #userInfo #nameDiv #name,
+#cart #main #order #pay #userInfo #phoneDiv #name {
   border: none;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -2576,11 +2578,12 @@ form #action .another a {
   border-radius: 10px;
   padding: 20px 10px;
 }
-#cart #main #order #pay #userInfo #nameDiv #name::placeholder, #cart #main #order #pay #userInfo #phoneDiv #name::placeholder {
+#cart #main #order #pay #userInfo #nameDiv #name::placeholder,
+#cart #main #order #pay #userInfo #phoneDiv #name::placeholder {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #C2C3CB;
+  color: #c2c3cb;
 }
 #cart #main #order #pay #userInfo #address {
   display: flex;
@@ -2611,7 +2614,7 @@ form #action .another a {
   line-height: 27px;
 }
 #cart #main #order #complete a {
-  color: #FFF;
+  color: #fff;
 }
 #cart #main #order #new-address #map {
   width: 100%;
@@ -2627,26 +2630,43 @@ form #action .another a {
   font-size: 38px;
   font-weight: 600;
   line-height: 117.5%; /* 21.15px */
-  color: #FFF;
+  color: #fff;
   margin-bottom: 20px;
 }
-#cart #main #order #new-address .location-search-input {
+#cart #main #order #new-address .location-search-input-div {
   border: none;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
+  height: 15px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  align-items: center;
+  display: flex;
+  width: 96%;
+  padding: 22px 10px;
+}
+#cart #main #order #new-address .location-search-input-div img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-left: auto;
+}
+#cart #main #order #new-address .location-search-input-div .suggestion-item--active {
+  color: #6c5fbc;
+}
+#cart #main #order #new-address .location-search-input-div input {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
   color: #6c6c72;
-  height: 15px;
-  border-radius: 10px;
-  padding: 20px 10px;
-  margin-bottom: 10px;
+  border: none;
+  background-color: #f9f9f9;
+  border-radius: 14px;
 }
-#cart #main #order #new-address .location-search-input::placeholder {
+#cart #main #order #new-address .location-search-input-div input::placeholder {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #C2C3CB;
+  color: #c2c3cb;
 }
 #cart #main #order #new-address form {
   display: flex;
@@ -2660,7 +2680,7 @@ form #action .another a {
 }
 #cart #main #order #new-address form #inputs input {
   border: none;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -2673,7 +2693,7 @@ form #action .another a {
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
-  color: #C2C3CB;
+  color: #c2c3cb;
 }
 #cart #main #order #new-address form #inputs div {
   display: flex;
@@ -2689,7 +2709,7 @@ form #action .another a {
 #cart #main #order #new-address form .btns .cancel {
   width: 48%;
   height: 55px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid #6c5fbc;
   border-radius: 10px;
   color: #6c5fbc;
@@ -5487,13 +5507,19 @@ form #action .another a {
   margin-top: 30px;
 }
 
+#profile {
+  width: 100%;
+  overflow: hidden;
+}
 #profile #profile-content {
   display: flex;
   position: relative;
   height: 52.5em;
+  width: 100%;
 }
 #profile #profile-content #profile-content-profile {
-  padding: 40px 35px;
+  padding: 35px 35px;
+  padding-bottom: 0;
 }
 #profile #profile-content #profile-nav {
   position: fixed;
@@ -5520,7 +5546,7 @@ form #action .another a {
   width: 100%;
   height: 55px;
   padding: 15px;
-  background-color: #FFF;
+  background-color: #fff;
   border: 2px solid #6c5fbc;
   border-radius: 10px;
   color: #6c5fbc;
@@ -5544,138 +5570,219 @@ form #action .another a {
 }
 
 #profile-content-profile {
-  height: 90%;
+  height: 100%;
+  width: 192%;
+  display: flex;
+  gap: 40px;
 }
-#profile-content-profile #profile {
-  margin-bottom: 40px;
+#profile-content-profile #first {
+  height: 100%;
 }
-#profile-content-profile #profile #profile-info {
-  padding: 23px 40px;
+#profile-content-profile #first #profile {
+  margin-bottom: 30px;
+}
+#profile-content-profile #first #profile #profile-info {
+  padding: 15px 40px;
   width: 520px;
   border: 1px solid #6c5fbc;
   border-bottom: none;
   border-radius: 14px 14px 0 0;
   background-color: #fff;
 }
-#profile-content-profile #profile #profile-info #photo-name {
+#profile-content-profile #first #profile #profile-info #photo-name {
   display: flex;
   align-items: center;
-  gap: 23px;
-}
-#profile-content-profile #profile #profile-info #photo-name #user-img {
-  width: 115px;
-}
-#profile-content-profile #profile #profile-info #photo-name #top-info {
-  display: flex;
-  flex-direction: column;
   gap: 20px;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info h3 {
+#profile-content-profile #first #profile #profile-info #photo-name #user-img {
+  width: 115px;
+}
+#profile-content-profile #first #profile #profile-info #photo-name #top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+#profile-content-profile #first #profile #profile-info #photo-name #top-info h3 {
   color: #6c5fbc;
   font-size: 24px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info h3 span {
+#profile-content-profile #first #profile #profile-info #photo-name #top-info h3 span {
   color: rgb(54, 54, 54);
   font-size: 24px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info p {
+#profile-content-profile #first #profile #profile-info #photo-name #top-info p {
   color: #6c5fbc;
   font-size: 21px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info p span {
+#profile-content-profile #first #profile #profile-info #photo-name #top-info p span {
   color: rgb(54, 54, 54);
   font-size: 21px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info p span a {
+#profile-content-profile #first #profile #profile-info #photo-name #top-info p span a {
   color: #6c5fbc;
   transition: 0.2s;
 }
-#profile-content-profile #profile #profile-info #photo-name #top-info p span a:hover {
+#profile-content-profile #first #profile #profile-info #photo-name #top-info p span a:hover {
   opacity: 0.7;
   transition: 0.2s;
 }
-#profile-content-profile #profile #profile-info #others {
-  padding: 19px;
+#profile-content-profile #first #profile #profile-info #others {
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 11px;
   width: 100%;
 }
-#profile-content-profile #profile #profile-info #others div {
+#profile-content-profile #first #profile #profile-info #others div {
   display: flex;
   gap: 10px;
   align-items: center;
   width: 100%;
 }
-#profile-content-profile #profile #profile-info #others div p {
+#profile-content-profile #first #profile #profile-info #others div p {
   color: #6c5fbc;
   font-size: 16px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #others div p span {
+#profile-content-profile #first #profile #profile-info #others div p span {
   color: rgb(54, 54, 54);
   font-size: 16px;
   font-weight: 600;
 }
-#profile-content-profile #profile #profile-info #others div img {
+#profile-content-profile #first #profile #profile-info #others div p span #profile {
+  margin-bottom: 30px;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info {
+  padding: 17px 40px;
+  width: 520px;
+  border: 1px solid #6c5fbc;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  background-color: #fff;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #user-img {
+  width: 115px;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info h3 {
+  color: #6c5fbc;
+  font-size: 24px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info h3 span {
+  color: rgb(54, 54, 54);
+  font-size: 24px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info p {
+  color: #6c5fbc;
+  font-size: 21px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info p span {
+  color: rgb(54, 54, 54);
+  font-size: 21px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info p span a {
+  color: #6c5fbc;
+  transition: 0.2s;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #photo-name #top-info p span a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #others {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #others div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #others div p {
+  color: #6c5fbc;
+  font-size: 16px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #others div p span {
+  color: rgb(54, 54, 54);
+  font-size: 16px;
+  font-weight: 600;
+}
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-info #others div img {
   width: 30px;
 }
-#profile-content-profile #profile #profile-actions {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions {
   display: flex;
   flex-direction: column;
 }
-#profile-content-profile #profile #profile-actions button {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions button {
   display: flex;
   align-items: center;
   border: 1px solid #6c5fbc;
   background-color: #f1f1f1;
 }
-#profile-content-profile #profile #profile-actions button:hover {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions button:hover {
   transform: scale(1);
   background-color: #fff;
   border: 1px solid #6c5fbc;
 }
-#profile-content-profile #profile #profile-actions button img {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions button img {
   width: 35px;
   padding: 8px 12px;
 }
-#profile-content-profile #profile #profile-actions button p {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions button p {
   color: #9c9da0;
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
 }
-#profile-content-profile #profile #profile-actions #change-pass {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #change-pass {
   border-bottom: none;
   border-top: none;
 }
-#profile-content-profile #profile #profile-actions #logout {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #logout {
   border-bottom: none;
   border-top: none;
 }
-#profile-content-profile #profile #profile-actions #logout img {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #logout img {
   padding-left: 9px;
   padding-right: 15px;
 }
-#profile-content-profile #profile #profile-actions #delete-acc {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #delete-acc {
   border-radius: 0 0 14px 14px;
   display: flex;
   align-items: center;
   border: 1px solid red;
 }
-#profile-content-profile #profile #profile-actions #delete-acc p {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #delete-acc p {
   color: red;
 }
-#profile-content-profile #profile #profile-actions #delete-acc:hover {
+#profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #delete-acc:hover {
   transform: scale(1);
   background-color: rgba(255, 0, 0, 0.342);
 }
-#profile-content-profile #pass-change-confirm,
-#profile-content-profile #pass-change-already-sent {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent {
   box-sizing: border-box;
   background-color: #fff;
   width: 500px;
@@ -5688,44 +5795,44 @@ form #action .another a {
   border-radius: 14px;
   border: 1px solid #6c5fbc;
 }
-#profile-content-profile #pass-change-confirm #logo,
-#profile-content-profile #pass-change-already-sent #logo {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo {
   display: flex;
   gap: 12px;
   align-items: center;
 }
-#profile-content-profile #pass-change-confirm #logo h1,
-#profile-content-profile #pass-change-already-sent #logo h1 {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo h1,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo h1 {
   color: #6c5fbc;
   font-size: 24px;
   font-weight: 600;
 }
-#profile-content-profile #pass-change-confirm p,
-#profile-content-profile #pass-change-already-sent p {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm p,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent p {
   margin-top: 18px;
   color: #c2c3cb;
   font-size: 18px;
   font-weight: 600;
   line-height: 22px;
 }
-#profile-content-profile #pass-change-confirm h4,
-#profile-content-profile #pass-change-already-sent h4 {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm h4,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent h4 {
   margin-top: 12px;
   color: #6c5fbc;
   font-size: 19px;
   font-weight: 600;
   line-height: 25px;
 }
-#profile-content-profile #pass-change-confirm #btns,
-#profile-content-profile #pass-change-already-sent #btns {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns {
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: center;
   padding-top: 30px;
 }
-#profile-content-profile #pass-change-confirm #btns button,
-#profile-content-profile #pass-change-already-sent #btns button {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns button,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns button {
   background-color: #6c5fbc;
   color: #fff;
   font-size: 18px;
@@ -5736,20 +5843,20 @@ form #action .another a {
   width: 170px;
   cursor: pointer;
 }
-#profile-content-profile #pass-change-confirm #btns #cancel,
-#profile-content-profile #pass-change-already-sent #btns #cancel {
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns #cancel,
+#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns #cancel {
   background-color: #fff;
   border: 1px solid #6c5fbc;
   color: #6c5fbc;
 }
-#profile-content-profile h2 {
+#profile-content-profile #first #profile #profile-info #others div p span h2 {
   color: #6c5fbc;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
   padding-left: 9px;
 }
-#profile-content-profile #last-orders {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders {
   padding: 20px;
   border: 1px solid #6c5fbc;
   border-radius: 14px;
@@ -5757,7 +5864,7 @@ form #action .another a {
   flex-direction: column;
   gap: 12px;
 }
-#profile-content-profile #last-orders #order-card {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card {
   padding: 14px;
   border-radius: 14px;
   background-color: #fff;
@@ -5766,14 +5873,14 @@ form #action .another a {
   border: 1px solid #fff;
   cursor: pointer;
 }
-#profile-content-profile #last-orders #order-card:hover {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card:hover {
   border: 1px solid #6c5fbc;
   transition: 0.2s;
 }
-#profile-content-profile #last-orders #order-card .head {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card .head {
   min-width: 100%;
 }
-#profile-content-profile #last-orders #order-card .head .last {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card .head .last {
   margin-left: auto;
   width: 75px;
   padding-right: 7px;
@@ -5781,37 +5888,271 @@ form #action .another a {
   font-size: 13px;
   color: rgb(0, 199, 199);
 }
-#profile-content-profile #last-orders #order-card div {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div {
   display: flex;
 }
-#profile-content-profile #last-orders #order-card div p {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div p {
   color: #6c5fbc;
   font-size: 16px;
   font-weight: 600;
   line-height: 17px;
   padding-bottom: 4px;
 }
-#profile-content-profile #last-orders #order-card div #rest {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div #rest {
   width: 33%;
 }
-#profile-content-profile #last-orders #order-card div #rest h3 {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div #rest h3 {
   color: rgb(54, 54, 54);
   font-size: 17px;
   font-weight: 500;
   font-style: italic;
 }
-#profile-content-profile #last-orders #order-card div h3 {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div h3 {
   text-align: center;
   width: 33%;
   color: rgb(54, 54, 54);
   font-size: 15px;
   font-weight: 500;
 }
-#profile-content-profile #last-orders #order-card div .order-total {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card div .order-total {
   color: green;
 }
-#profile-content-profile #last-orders #order-card .info {
+#profile-content-profile #first #profile #profile-info #others div p span #last-orders #order-card .info {
   padding: 5px 0;
+}
+#profile-content-profile #first #profile #profile-info #others div img {
+  width: 30px;
+}
+#profile-content-profile #first #profile #profile-actions {
+  display: flex;
+  flex-direction: column;
+}
+#profile-content-profile #first #profile #profile-actions button {
+  display: flex;
+  align-items: center;
+  border: 1px solid #6c5fbc;
+  background-color: #f1f1f1;
+}
+#profile-content-profile #first #profile #profile-actions button:hover {
+  transform: scale(1);
+  background-color: #fff;
+  border: 1px solid #6c5fbc;
+}
+#profile-content-profile #first #profile #profile-actions button img {
+  width: 35px;
+  padding: 8px 12px;
+}
+#profile-content-profile #first #profile #profile-actions button p {
+  color: #9c9da0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+#profile-content-profile #first #profile #profile-actions #change-pass {
+  border-bottom: none;
+  border-top: none;
+}
+#profile-content-profile #first #profile #profile-actions #logout {
+  border-bottom: none;
+  border-top: none;
+}
+#profile-content-profile #first #profile #profile-actions #logout img {
+  padding-left: 9px;
+  padding-right: 15px;
+}
+#profile-content-profile #first #profile #profile-actions #delete-acc {
+  border-radius: 0 0 14px 14px;
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+}
+#profile-content-profile #first #profile #profile-actions #delete-acc p {
+  color: red;
+}
+#profile-content-profile #first #profile #profile-actions #delete-acc:hover {
+  transform: scale(1);
+  background-color: rgba(255, 0, 0, 0.342);
+}
+#profile-content-profile #first #pass-change-confirm,
+#profile-content-profile #first #pass-change-already-sent {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 500px;
+  height: 300px;
+  padding: 45px;
+  padding-top: 30px;
+  position: absolute;
+  top: calc(50% - 150px);
+  left: calc(50% - 250px);
+  border-radius: 14px;
+  border: 1px solid #6c5fbc;
+}
+#profile-content-profile #first #pass-change-confirm #logo,
+#profile-content-profile #first #pass-change-already-sent #logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+#profile-content-profile #first #pass-change-confirm #logo h1,
+#profile-content-profile #first #pass-change-already-sent #logo h1 {
+  color: #6c5fbc;
+  font-size: 24px;
+  font-weight: 600;
+}
+#profile-content-profile #first #pass-change-confirm p,
+#profile-content-profile #first #pass-change-already-sent p {
+  margin-top: 18px;
+  color: #c2c3cb;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+#profile-content-profile #first #pass-change-confirm h4,
+#profile-content-profile #first #pass-change-already-sent h4 {
+  margin-top: 12px;
+  color: #6c5fbc;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 25px;
+}
+#profile-content-profile #first #pass-change-confirm #btns,
+#profile-content-profile #first #pass-change-already-sent #btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+#profile-content-profile #first #pass-change-confirm #btns button,
+#profile-content-profile #first #pass-change-already-sent #btns button {
+  background-color: #6c5fbc;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 14px;
+  width: 170px;
+  cursor: pointer;
+}
+#profile-content-profile #first #pass-change-confirm #btns #cancel,
+#profile-content-profile #first #pass-change-already-sent #btns #cancel {
+  background-color: #fff;
+  border: 1px solid #6c5fbc;
+  color: #6c5fbc;
+}
+#profile-content-profile #first h2 {
+  color: #6c5fbc;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  padding-left: 9px;
+}
+#profile-content-profile #first #last-orders {
+  padding: 20px;
+  border: 1px solid #6c5fbc;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#profile-content-profile #first #last-orders #order-card {
+  padding: 14px;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 6px 9px 36px 0 rgba(229, 229, 229, 0.7);
+  transition: 0.2s;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+#profile-content-profile #first #last-orders #order-card:hover {
+  border: 1px solid #6c5fbc;
+  transition: 0.2s;
+}
+#profile-content-profile #first #last-orders #order-card .head {
+  min-width: 100%;
+}
+#profile-content-profile #first #last-orders #order-card .head .last {
+  margin-left: auto;
+  width: 75px;
+  padding-right: 7px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  color: rgb(0, 199, 199);
+}
+#profile-content-profile #first #last-orders #order-card div {
+  display: flex;
+}
+#profile-content-profile #first #last-orders #order-card div p {
+  color: #6c5fbc;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 17px;
+  padding-bottom: 4px;
+}
+#profile-content-profile #first #last-orders #order-card div #rest {
+  width: 33%;
+}
+#profile-content-profile #first #last-orders #order-card div #rest h3 {
+  color: rgb(54, 54, 54);
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+}
+#profile-content-profile #first #last-orders #order-card div h3 {
+  text-align: center;
+  width: 33%;
+  color: rgb(54, 54, 54);
+  font-size: 15px;
+  font-weight: 500;
+}
+#profile-content-profile #first #last-orders #order-card div .order-total {
+  color: green;
+}
+#profile-content-profile #first #last-orders #order-card .info {
+  padding: 5px 0;
+}
+#profile-content-profile #statistics {
+  height: 95.2%;
+  width: 41.4%;
+  padding: 0;
+  border: 1px solid green;
+  border-radius: 14px;
+  background: linear-gradient(to bottom right, #6c5fbc, rgba(55, 37, 173, 0.937254902));
+}
+#profile-content-profile #statistics div {
+  margin-top: calc(50% - 120px);
+  margin-left: calc(50% - 208px);
+  border-radius: 14px;
+  border: 5px solid #6c5fbc;
+  width: max-content;
+  padding: 40px;
+}
+#profile-content-profile #statistics div h2 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+#profile-content-profile #statistics div h3 {
+  font-size: 37px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #6c5fbc;
+  width: max-content;
+  text-shadow: 1px 0 5px #fff;
+  cursor: pointer;
+}
+#profile-content-profile #statistics div h3 #wt {
+  font-size: 19px;
+  color: rgb(54, 54, 54);
+  text-shadow: none;
+  color: #fff;
+  cursor: default;
+}
+#profile-content-profile #statistics div h3 #prem {
+  color: green;
+  cursor: pointer;
 }
 
 html,

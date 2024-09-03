@@ -1,285 +1,619 @@
 #profile-content-profile {
-  height: 90%;
-  #profile {
-    margin-bottom: 40px;
-    #profile-info {
-      padding: 23px 40px;
-      width: 520px;
-      border: 1px solid $purple_main;
-      border-bottom: none;
-      border-radius: 14px 14px 0 0;
-      background-color: #fff;
+  height: 100%;
+  width: 192%;
+  display: flex;
+  gap: 40px;
+  #first {
+    height: 100%;
+    #profile {
+      margin-bottom: 30px;
+      #profile-info {
+        padding: 15px 40px;
+        width: 520px;
+        border: 1px solid $purple_main;
+        border-bottom: none;
+        border-radius: 14px 14px 0 0;
+        background-color: #fff;
 
-      #photo-name {
-        display: flex;
-        align-items: center;
-        gap: 23px;
-        #user-img {
-          width: 115px;
-        }
-        #top-info {
+        #photo-name {
           display: flex;
-          flex-direction: column;
+          align-items: center;
           gap: 20px;
-          h3 {
-            color: $purple_main;
-            font-size: 24px;
-            font-weight: 600;
-
-            span {
-              color: $black_main;
+          #user-img {
+            width: 115px;
+          }
+          #top-info {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+            h3 {
+              color: $purple_main;
               font-size: 24px;
               font-weight: 600;
+
+              span {
+                color: $black_main;
+                font-size: 24px;
+                font-weight: 600;
+              }
             }
-          }
 
-          p {
-            color: $purple_main;
-            font-size: 21px;
-            font-weight: 600;
-
-            span {
-              color: $black_main;
+            p {
+              color: $purple_main;
               font-size: 21px;
               font-weight: 600;
 
-              a {
-                color: $purple_main;
-                transition: 0.2s;
+              span {
+                color: $black_main;
+                font-size: 21px;
+                font-weight: 600;
 
-                &:hover {
-                  opacity: 0.7;
+                a {
+                  color: $purple_main;
                   transition: 0.2s;
+
+                  &:hover {
+                    opacity: 0.7;
+                    transition: 0.2s;
+                  }
                 }
               }
             }
           }
         }
+        #others {
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          gap: 11px;
+          width: 100%;
+          div {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+            p {
+              color: $purple_main;
+              font-size: 16px;
+              font-weight: 600;
+
+              span {
+                color: $black_main;
+                font-size: 16px;
+                font-weight: 600;#profile {
+                  margin-bottom: 30px;
+                  #profile-info {
+                    padding: 17px 40px;
+                    width: 520px;
+                    border: 1px solid $purple_main;
+                    border-bottom: none;
+                    border-radius: 14px 14px 0 0;
+                    background-color: #fff;
+              
+                    #photo-name {
+                      display: flex;
+                      align-items: center;
+                      gap: 23px;
+                      #user-img {
+                        width: 115px;
+                      }
+                      #top-info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        h3 {
+                          color: $purple_main;
+                          font-size: 24px;
+                          font-weight: 600;
+              
+                          span {
+                            color: $black_main;
+                            font-size: 24px;
+                            font-weight: 600;
+                          }
+                        }
+              
+                        p {
+                          color: $purple_main;
+                          font-size: 21px;
+                          font-weight: 600;
+              
+                          span {
+                            color: $black_main;
+                            font-size: 21px;
+                            font-weight: 600;
+              
+                            a {
+                              color: $purple_main;
+                              transition: 0.2s;
+              
+                              &:hover {
+                                opacity: 0.7;
+                                transition: 0.2s;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    #others {
+                      padding: 15px;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 13px;
+                      width: 100%;
+                      div {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        width: 100%;
+                        p {
+                          color: $purple_main;
+                          font-size: 16px;
+                          font-weight: 600;
+              
+                          span {
+                            color: $black_main;
+                            font-size: 16px;
+                            font-weight: 600;
+                          }
+                        }
+                        img {
+                          width: 30px;
+                        }
+                      }
+                    }
+                  }
+                  #profile-actions {
+                    display: flex;
+                    flex-direction: column;
+              
+                    button {
+                      display: flex;
+                      align-items: center;
+                      border: 1px solid $purple_main;
+                      background-color: #f1f1f1;
+                      &:hover {
+                        transform: scale(1);
+                        background-color: #fff;
+                        border: 1px solid $purple_main;
+                      }
+                      img {
+                        width: 35px;
+                        padding: 8px 12px;
+                      }
+                      p {
+                        color: #9c9da0;
+                        font-size: 18px;
+                        font-weight: 600;
+                        line-height: 27px;
+                      }
+                    }
+              
+                    #change-pass {
+                      border-bottom: none;
+                      border-top: none;
+                    }
+              
+                    #logout {
+                      border-bottom: none;
+                      border-top: none;
+              
+                      img {
+                        padding-left: 9px;
+                        padding-right: 15px;
+                      }
+                    }
+              
+                    #delete-acc {
+                      border-radius: 0 0 14px 14px;
+                      display: flex;
+                      align-items: center;
+                      border: 1px solid red;
+                      p {
+                        color: red;
+                      }
+                      &:hover {
+                        transform: scale(1);
+                        background-color: rgba(255, 0, 0, 0.342);
+                      }
+                    }
+                  }
+                }
+                #pass-change-confirm,
+                #pass-change-already-sent {
+                  box-sizing: border-box;
+                  background-color: #fff;
+                  width: 500px;
+                  height: 300px;
+                  padding: 45px;
+                  padding-top: 30px;
+                  position: absolute;
+                  top: calc(50% - 150px);
+                  left: calc(50% - 250px);
+                  border-radius: 14px;
+                  border: 1px solid $purple_main;
+              
+                  #logo {
+                    display: flex;
+                    gap: 12px;
+                    align-items: center;
+              
+                    h1 {
+                      color: $purple_main;
+                      font-size: 24px;
+                      font-weight: 600;
+                    }
+                  }
+              
+                  p {
+                    margin-top: 18px;
+                    color: #c2c3cb;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 22px;
+                  }
+              
+                  h4 {
+                    margin-top: 12px;
+                    color: $purple_main;
+                    font-size: 19px;
+                    font-weight: 600;
+                    line-height: 25px;
+                  }
+              
+                  #btns {
+                    display: flex;
+                    gap: 20px;
+                    align-items: center;
+                    justify-content: center;
+                    padding-top: 30px;
+                    button {
+                      background-color: $purple_main;
+                      color: #fff;
+                      font-size: 18px;
+                      font-weight: 600;
+                      padding: 12px 30px;
+                      border: none;
+                      border-radius: 14px;
+                      width: 170px;
+                      cursor: pointer;
+                    }
+              
+                    #cancel {
+                      background-color: #fff;
+                      border: 1px solid $purple_main;
+                      color: $purple_main;
+                    }
+                  }
+                }
+                h2 {
+                  color: $purple_main;
+                  font-size: 14px;
+                  font-weight: 600;
+                  margin-bottom: 5px;
+                  padding-left: 9px;
+                }
+                #last-orders {
+                  padding: 20px;
+                  border: 1px solid $purple_main;
+                  border-radius: 14px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 12px;
+              
+                  #order-card {
+                    padding: 14px;
+                    border-radius: 14px;
+                    background-color: #fff;
+                    box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+                    transition: 0.2s;
+                    border: 1px solid #fff;
+                    cursor: pointer;
+              
+                    &:hover {
+                      border: 1px solid $purple_main;
+                      transition: 0.2s;
+                    }
+                    .head {
+                      min-width: 100%;
+              
+                      .last {
+                        margin-left: auto;
+                        width: 75px;
+                        padding-right: 7px;
+                        padding-bottom: 5px;
+                        font-size: 13px;
+                        color: rgb(0, 199, 199);
+                      }
+                    }
+                    div {
+                      display: flex;
+              
+                      p {
+                        color: $purple_main;
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: 17px;
+                        padding-bottom: 4px;
+                      }
+                      #rest {
+                        width: 33%;
+              
+                        h3 {
+                          color: $black_main;
+                          font-size: 17px;
+                          font-weight: 500;
+                          font-style: italic;
+                        }
+                      }
+                      h3 {
+                        text-align: center;
+                        width: 33%;
+                        color: $black_main;
+                        font-size: 15px;
+                        font-weight: 500;
+                      }
+                      .order-total {
+                        color: green;
+                      }
+                    }
+                    .info {
+                      padding: 5px 0;
+                    }
+                  }
+                }
+              }
+            }
+            img {
+              width: 30px;
+            }
+          }
+        }
       }
-      #others {
-        padding: 19px;
+      #profile-actions {
         display: flex;
         flex-direction: column;
-        gap: 13px;
-        width: 100%;
+
+        button {
+          display: flex;
+          align-items: center;
+          border: 1px solid $purple_main;
+          background-color: #f1f1f1;
+          &:hover {
+            transform: scale(1);
+            background-color: #fff;
+            border: 1px solid $purple_main;
+          }
+          img {
+            width: 35px;
+            padding: 8px 12px;
+          }
+          p {
+            color: #9c9da0;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 27px;
+          }
+        }
+
+        #change-pass {
+          border-bottom: none;
+          border-top: none;
+        }
+
+        #logout {
+          border-bottom: none;
+          border-top: none;
+
+          img {
+            padding-left: 9px;
+            padding-right: 15px;
+          }
+        }
+
+        #delete-acc {
+          border-radius: 0 0 14px 14px;
+          display: flex;
+          align-items: center;
+          border: 1px solid red;
+          p {
+            color: red;
+          }
+          &:hover {
+            transform: scale(1);
+            background-color: rgba(255, 0, 0, 0.342);
+          }
+        }
+      }
+    }
+    #pass-change-confirm,
+    #pass-change-already-sent {
+      box-sizing: border-box;
+      background-color: #fff;
+      width: 500px;
+      height: 300px;
+      padding: 45px;
+      padding-top: 30px;
+      position: absolute;
+      top: calc(50% - 150px);
+      left: calc(50% - 250px);
+      border-radius: 14px;
+      border: 1px solid $purple_main;
+
+      #logo {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        h1 {
+          color: $purple_main;
+          font-size: 24px;
+          font-weight: 600;
+        }
+      }
+
+      p {
+        margin-top: 18px;
+        color: #c2c3cb;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 22px;
+      }
+
+      h4 {
+        margin-top: 12px;
+        color: $purple_main;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 25px;
+      }
+
+      #btns {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        padding-top: 30px;
+        button {
+          background-color: $purple_main;
+          color: #fff;
+          font-size: 18px;
+          font-weight: 600;
+          padding: 12px 30px;
+          border: none;
+          border-radius: 14px;
+          width: 170px;
+          cursor: pointer;
+        }
+
+        #cancel {
+          background-color: #fff;
+          border: 1px solid $purple_main;
+          color: $purple_main;
+        }
+      }
+    }
+    h2 {
+      color: $purple_main;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      padding-left: 9px;
+    }
+    #last-orders {
+      padding: 20px;
+      border: 1px solid $purple_main;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      #order-card {
+        padding: 14px;
+        border-radius: 14px;
+        background-color: #fff;
+        box-shadow: 6px 9px 36px 0 rgba(229, 229, 229, 0.7);
+        transition: 0.2s;
+        border: 1px solid #fff;
+        cursor: pointer;
+
+        &:hover {
+          border: 1px solid $purple_main;
+          transition: 0.2s;
+        }
+        .head {
+          min-width: 100%;
+
+          .last {
+            margin-left: auto;
+            width: 75px;
+            padding-right: 7px;
+            padding-bottom: 5px;
+            font-size: 13px;
+            color: rgb(0, 199, 199);
+          }
+        }
         div {
           display: flex;
-          gap: 10px;
-          align-items: center;
-          width: 100%;
+
           p {
             color: $purple_main;
             font-size: 16px;
             font-weight: 600;
+            line-height: 17px;
+            padding-bottom: 4px;
+          }
+          #rest {
+            width: 33%;
 
-            span {
+            h3 {
               color: $black_main;
-              font-size: 16px;
-              font-weight: 600;
+              font-size: 17px;
+              font-weight: 500;
+              font-style: italic;
             }
           }
-          img {
-            width: 30px;
-          }
-        }
-      }
-    }
-    #profile-actions {
-      display: flex;
-      flex-direction: column;
-
-      button {
-        display: flex;
-        align-items: center;
-        border: 1px solid $purple_main;
-        background-color: #f1f1f1;
-        &:hover {
-          transform: scale(1);
-          background-color: #fff;
-          border: 1px solid $purple_main;
-        }
-        img {
-          width: 35px;
-          padding: 8px 12px;
-        }
-        p {
-          color: #9c9da0;
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 27px;
-        }
-      }
-
-      #change-pass {
-        border-bottom: none;
-        border-top: none;
-      }
-
-      #logout {
-        border-bottom: none;
-        border-top: none;
-
-        img {
-          padding-left: 9px;
-          padding-right: 15px;
-        }
-      }
-
-      #delete-acc {
-        border-radius: 0 0 14px 14px;
-        display: flex;
-        align-items: center;
-        border: 1px solid red;
-        p {
-          color: red;
-        }
-        &:hover {
-          transform: scale(1);
-          background-color: rgba(255, 0, 0, 0.342);
-        }
-      }
-    }
-  }
-  #pass-change-confirm,
-  #pass-change-already-sent {
-    box-sizing: border-box;
-    background-color: #fff;
-    width: 500px;
-    height: 300px;
-    padding: 45px;
-    padding-top: 30px;
-    position: absolute;
-    top: calc(50% - 150px);
-    left: calc(50% - 250px);
-    border-radius: 14px;
-    border: 1px solid $purple_main;
-
-    #logo {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-
-      h1 {
-        color: $purple_main;
-        font-size: 24px;
-        font-weight: 600;
-      }
-    }
-
-    p {
-      margin-top: 18px;
-      color: #c2c3cb;
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 22px;
-    }
-
-    h4 {
-      margin-top: 12px;
-      color: $purple_main;
-      font-size: 19px;
-      font-weight: 600;
-      line-height: 25px;
-    }
-
-    #btns {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      justify-content: center;
-      padding-top: 30px;
-      button {
-        background-color: $purple_main;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 600;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 14px;
-        width: 170px;
-        cursor: pointer;
-      }
-
-      #cancel {
-        background-color: #fff;
-        border: 1px solid $purple_main;
-        color: $purple_main;
-      }
-    }
-  }
-  h2 {
-    color: $purple_main;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    padding-left: 9px;
-  }
-  #last-orders {
-    padding: 20px;
-    border: 1px solid $purple_main;
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    #order-card {
-      padding: 14px;
-      border-radius: 14px;
-      background-color: #fff;
-      box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
-      transition: 0.2s;
-      border: 1px solid #fff;
-      cursor: pointer;
-
-      &:hover {
-        border: 1px solid $purple_main;
-        transition: 0.2s;
-      }
-      .head {
-        min-width: 100%;
-
-        .last {
-          margin-left: auto;
-          width: 75px;
-          padding-right: 7px;
-          padding-bottom: 5px;
-          font-size: 13px;
-          color: rgb(0, 199, 199);
-        }
-      }
-      div {
-        display: flex;
-
-        p {
-          color: $purple_main;
-          font-size: 16px;
-          font-weight: 600;
-          line-height: 17px;
-          padding-bottom: 4px;
-        }
-        #rest {
-          width: 33%;
-
           h3 {
+            text-align: center;
+            width: 33%;
             color: $black_main;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: 500;
-            font-style: italic;
+          }
+          .order-total {
+            color: green;
           }
         }
-        h3 {
-          text-align: center;
-          width: 33%;
-          color: $black_main;
-          font-size: 15px;
-          font-weight: 500;
-        }
-        .order-total {
-          color: green;
+        .info {
+          padding: 5px 0;
         }
       }
-      .info {
-        padding: 5px 0;
+    }
+  }
+  #statistics {
+    height: 95.2%;
+    width: 41.4%;
+    padding: 0;
+    border: 1px solid green;
+    border-radius: 14px;
+    background: linear-gradient(to bottom right, $purple_main, #3725adef);
+
+    div {
+      margin-top: calc(50% - 120px);
+      margin-left: calc(50% - 208px);
+      border-radius: 14px;
+      border: 5px solid $purple_main;
+      width: max-content;
+      padding: 40px;
+
+      h2 {
+        color: #fff;
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      h3 {
+        font-size: 37px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: $purple_main;
+        width: max-content;
+        text-shadow: 1px 0 5px #fff;
+        cursor: pointer;
+
+        #wt {
+          font-size: 19px;
+          color: $black_main;
+          text-shadow: none;
+          color: #fff;
+          cursor: default;
+        }
+        #prem {
+          color: green;
+          cursor: pointer;
+        }
       }
     }
   }
