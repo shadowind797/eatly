@@ -9,7 +9,7 @@ import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg";
 
 MakeOrder.propTypes = {
-  subtotal: PropTypes.number.isRequired,
+  subtotal: PropTypes.string.isRequired,
   total_load: PropTypes.bool.isRequired,
   createOrder: PropTypes.func.isRequired,
   test: PropTypes.bool,
@@ -63,6 +63,7 @@ function MakeOrder({
   const [mapLoading, setMapLoading] = useState(false);
   const [couponLoading, setCouponLoading] = useState(false);
   const [mapSelectMode, setMapSelectMode] = useState(false);
+  const [mapsError, setMapsError] = useState("");
 
   useEffect(() => {
     if (restaurant) {
@@ -153,7 +154,14 @@ function MakeOrder({
               label: checkAddressFormat(item),
             },
           ];
+          setBuildingAddress("");
+          setEntrance("");
+          setFloor("");
+          setFlat("");
           setAddressList(list);
+          setNoBuilding(false);
+          setAddressAlreadyExists(false);
+          setMapSelectMode(false);
         });
         if (add) {
           setAddAddress(false);
@@ -450,10 +458,17 @@ function MakeOrder({
             address={buildingAddress}
             setIsLoaded={setMapLoading}
             selectMode={mapSelectMode}
+            enableError={setMapsError}
+            updateAddress={setBuildingAddress}
           />
           {addressAlreadyExists && (
             <p className="error" style={{ paddingBottom: "4px" }}>
               You already add this address
+            </p>
+          )}
+          {mapsError && (
+            <p className="error" style={{ paddingBottom: "4px" }}>
+              {mapsError}
             </p>
           )}
           {mapLoading && (
@@ -468,6 +483,7 @@ function MakeOrder({
                   setBuildingAddress(a);
                 }}
                 enableSelectMode={setMapSelectMode}
+                userLocationAddress={buildingAddress}
               />
             </div>
           )}

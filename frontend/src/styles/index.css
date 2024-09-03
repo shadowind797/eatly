@@ -2660,7 +2660,7 @@ form #action .another a {
   color: #6c6c72;
   border: none;
   background-color: #f9f9f9;
-  border-radius: 14px;
+  width: 100%;
 }
 #cart #main #order #new-address .location-search-input-div input::placeholder {
   font-size: 18px;

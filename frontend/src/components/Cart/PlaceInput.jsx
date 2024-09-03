@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-key */
 import mapSelect from "../../assets/map/select-on-map.svg";
 import mapSelectActive from "../../assets/map/select-on-map-active.svg";
 import PlacesAutocomplete from "react-places-autocomplete";
 import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-const PlaceInput = ({ finalAddress, enableSelectMode }) => {
+const PlaceInput = ({ finalAddress, enableSelectMode, userLocationAddress }) => {
   const [address, setAddress] = useState("");
   const [selectMode, setSelectMode] = useState(false);
   const buildingInputRef = useRef();
@@ -17,9 +16,18 @@ const PlaceInput = ({ finalAddress, enableSelectMode }) => {
     setAddress(address);
   };
 
+  useEffect(() => {
+    if (userLocationAddress !== address) {
+      setAddress(userLocationAddress);
+    }
+  }, [userLocationAddress])
+
   const handleSelect = (address) => {
     setAddress(address);
     finalAddress(address);
+    setSelectMode(false)
+    enableSelectMode(false);
+    console.log("disable select")
   };
 
   return (
@@ -43,6 +51,11 @@ const PlaceInput = ({ finalAddress, enableSelectMode }) => {
               onClick={() => {
                 enableSelectMode(!selectMode);
                 setSelectMode(!selectMode);
+                
+                if (selectMode) {
+                  setAddress("")
+                  finalAddress("")
+                }
               }}
               alt=""
             />
@@ -69,6 +82,7 @@ const PlaceInput = ({ finalAddress, enableSelectMode }) => {
                     className,
                     style: { padding: "12px", cursor: "pointer" },
                   })}
+                  key={suggestion.id}
                 >
                   <span>{suggestion.description}</span>
                 </div>
@@ -84,6 +98,7 @@ const PlaceInput = ({ finalAddress, enableSelectMode }) => {
 PlaceInput.propTypes = {
   finalAddress: PropTypes.func.isRequired,
   enableSelectMode: PropTypes.func.isRequired,
+  userLocationAddress: PropTypes.string,
 };
 
 export default PlaceInput;

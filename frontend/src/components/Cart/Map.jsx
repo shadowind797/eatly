@@ -1,30 +1,44 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import PropTypes from "prop-types";
 import MapMarker from "../../assets/map/map-marker.svg";
-import locationMarker from "../../assets/map/select-on-map-active.svg"
+import locationMarker from "../../assets/map/select-on-map-active.svg";
 
 const libraries = ["places"];
 
-function Map({ address, setIsLoaded, selectMode }) {
+function Map({ address, setIsLoaded, selectMode, enableError, updateAddress }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_MAP_KEY,
+    language: "en",
     libraries,
-    loading: "lazy",
   });
 
   const [lat, setLat] = useState(41.316234975275385);
   const [lng, setLng] = useState(69.24842619026026);
 
+  const onMarkerDragEnd = useCallback(
+    (event) => {
+      setLat(event.latLng.lat());
+      setLng(event.latLng.lng());
+      geocodeCoordinates(event.latLng.lat(), event.latLng.lng());
+    },
+    [setLat, setLng]
+  );
+
   const getUserLocation = useCallback(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLat(position.coords.latitude)
-          setLng(position.coords.longitude)
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+          geocodeCoordinates(
+            position.coords.latitude,
+            position.coords.longitude
+          );
+          enableError("");
         },
         (error) => {
-          console.error("Error getting user location:", error);
+          enableError(error.message);
         }
       );
     } else {
@@ -34,15 +48,16 @@ function Map({ address, setIsLoaded, selectMode }) {
 
   useEffect(() => {
     if (selectMode) {
-      getUserLocation()
+      getUserLocation();
     } else {
       setLat(41.316234975275385);
       setLng(69.24842619026026);
+      enableError("");
     }
-  }, [selectMode])
+  }, [selectMode]);
 
   useEffect(() => {
-    if (address) {
+    if (address && !selectMode) {
       geocodeAddress();
     }
   }, [address, isLoaded]);
@@ -62,6 +77,25 @@ function Map({ address, setIsLoaded, selectMode }) {
       });
     }
   }, [address, isLoaded]);
+
+  const geocodeCoordinates = useCallback(
+    (lat, lng) => {
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode(
+        { location: { lat: lat, lng: lng } },
+        (results, status) => {
+          if (status === "OK") {
+            updateAddress(results[0].formatted_address);
+          } else {
+            console.error(
+              "Geocode was not successful for the following reason: " + status
+            );
+          }
+        }
+      );
+    },
+    [address, isLoaded, lat, lng]
+  );
 
   useEffect(() => {
     setIsLoaded(isLoaded);
@@ -103,6 +137,8 @@ function Map({ address, setIsLoaded, selectMode }) {
               url: selectMode ? locationMarker : MapMarker,
               scaledSize: new window.google.maps.Size(55, 55),
             }}
+            draggable={true}
+            onDragEnd={onMarkerDragEnd}
           />
         )}
       </GoogleMap>
@@ -114,6 +150,8 @@ Map.propTypes = {
   address: PropTypes.string.isRequired,
   setIsLoaded: PropTypes.func.isRequired,
   selectMode: PropTypes.bool.isRequired,
+  enableError: PropTypes.func.isRequired,
+  updateAddress: PropTypes.func.isRequired,
 };
 
 export default Map;
