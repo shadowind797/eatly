@@ -3,31 +3,30 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import { Navigate } from "react-router-dom";
-import price_load from "../../assets/header-loading.gif";
 import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg";
 
 MakeOrder.propTypes = {
   subtotal: PropTypes.string.isRequired,
-  total_load: PropTypes.bool.isRequired,
   createOrder: PropTypes.func.isRequired,
   test: PropTypes.bool,
   rests: PropTypes.array.isRequired,
   changeItems: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   updateTotal: PropTypes.func.isRequired,
+  updateRest: PropTypes.func.isRequired,
 };
 
 function MakeOrder({
   subtotal,
-  total_load,
   createOrder,
   test,
   rests,
   changeItems,
   items,
   updateTotal,
+  updateRest,
 }) {
   const [user, setUser] = useState({});
   const [coupon, setCoupon] = useState("");
@@ -70,6 +69,7 @@ function MakeOrder({
       const oneRestItems = items.filter(
         (item) => item.restaurant_id === restaurant
       );
+      updateRest(restaurant);
       changeItems(oneRestItems);
       updateTotal(oneRestItems, restaurant);
     }
@@ -337,32 +337,17 @@ function MakeOrder({
             </button>
           </form>
           <h6>
-            Subtotal:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${subtotal}</span>
-            )}
+            Subtotal: <span>${subtotal}</span>
           </h6>
           <h6>
-            Delivery:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${(subtotal * 0.1).toFixed(2)}</span>
-            )}
+            Delivery: <span>${(subtotal * 0.1).toFixed(2)}</span>
           </h6>
           <h6 style={applied ? { display: "flex" } : { display: "none" }}>
             Coupon:
             <span style={{ color: "green" }}>-${discount}</span>
           </h6>
           <h6 className="total">
-            Total:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${getTotal()}</span>
-            )}
+            Total: <span>${getTotal()}</span>
           </h6>
         </div>
         <div id="pay">
@@ -409,7 +394,11 @@ function MakeOrder({
                   styles={selectStyles}
                   placeholder="From which restaurant you want to order?"
                   onChange={changeRest}
-                  defaultValue={restList[0]}
+                  defaultValue={
+                    restaurant
+                      ? restList.find((r) => r.value === restaurant)
+                      : restList[0]
+                  }
                 />
               </div>
             ) : (

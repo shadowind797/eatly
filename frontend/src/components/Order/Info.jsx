@@ -7,6 +7,12 @@ import load from "../../assets/count_load.gif";
 import cash from "../../assets/cash.svg";
 import card_internet from "../../assets/internet.svg";
 import card_courier from "../../assets/card.svg";
+import PropTypes from "prop-types";
+
+Info.propTypes = {
+  order: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 function Info({ order, user }) {
   const [addPayment, setAddPayment] = useState(false);
@@ -74,12 +80,24 @@ function Info({ order, user }) {
     <img src={src} style={{ width }} alt={alt} />
   );
 
+  LoadingImage.propTypes = {
+    src: PropTypes.string.isRequired,
+    width: PropTypes.string,
+    alt: PropTypes.string,
+  };
+
   const InfoDisplay = ({ label, value, loading }) => (
     <h4>
       {label}:{" "}
       {loading ? <LoadingImage src={info_load} /> : <span>{value}</span>}
     </h4>
   );
+
+  InfoDisplay.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    loading: PropTypes.bool,
+  };
 
   const updateOrder = (e) => {
     e.preventDefault();
@@ -97,17 +115,12 @@ function Info({ order, user }) {
           if (res.status === 205) {
             setLoading(false);
             setOrdered(true);
-            api
-              .delete("api/items/cart/delete", { params: { method: "clear" } })
-              .then((res) => {
-                if (res.status === 202) {
-                } else if (res.status === 404) {
-                }
-              })
-              .catch((err) => {});
+            api.delete("api/items/cart/delete", {
+              params: { method: "clear", rest: order.rest_name },
+            });
           }
         })
-        .catch((err) => {});
+        .catch(() => {});
     }
   };
 

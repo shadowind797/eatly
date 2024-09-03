@@ -6,7 +6,7 @@ import BaseHeader from "../components/BaseHeader.jsx";
 import MainDiv from "../components/Menu/MainDiv.jsx";
 import Items from "../components/Menu/Items.jsx";
 import Footer from "../components/Footer.jsx";
-import header_load from "../assets/header-loading.gif";
+import header_load from "../assets/loading_menu.webp";
 
 function Menu() {
   const [items, setItems] = useState([]);
@@ -70,7 +70,7 @@ function Menu() {
         <img
           src={header_load}
           style={{ width: "400px", margin: "auto" }}
-          alt=""
+          id='loading'
         />
       );
     } else if (newItems.length > 0 && newItems[0].photo) {
@@ -90,10 +90,8 @@ function Menu() {
     ) {
       return (
         <Items
-          type="items"
+          type="none"
           items={newItems}
-          cats={categories}
-          inCartItems={inCartItems}
         />
       );
     }

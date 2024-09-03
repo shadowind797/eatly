@@ -1,21 +1,27 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   GoogleMap,
   useLoadScript,
   Marker,
   DirectionsRenderer,
 } from "@react-google-maps/api";
+import PropTypes from "prop-types";
 import markerTo from "../../assets/map/marker-to.svg";
 import markerFrom from "../../assets/map/marker-from.svg";
 import RouteInfo from "./RouteInfo";
 
-const libraries = ["places"];
+Map.propTypes = {
+  restAddress: PropTypes.string.isRequired,
+  userAddress: PropTypes.object.isRequired,
+  userName: PropTypes.string.isRequired,
+  restName: PropTypes.string.isRequired,
+  updateAddress: PropTypes.func.isRequired,
+}
 
 function Map({ restAddress, userAddress, userName, restName }) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_MAP_KEY,
-    libraries,
-    loading: "lazy",
+    language: "en",
   });
 
   const [shipTo, setShipTo] = useState("");
