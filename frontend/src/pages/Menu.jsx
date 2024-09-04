@@ -70,7 +70,7 @@ function Menu() {
         <img
           src={header_load}
           style={{ width: "400px", margin: "auto" }}
-          id='loading'
+          id="loading"
         />
       );
     } else if (newItems.length > 0 && newItems[0].photo) {
@@ -88,12 +88,7 @@ function Menu() {
       newItems.length > 0 &&
       JSON.stringify(newItems[0]) === JSON.stringify({ not_found: "no items" })
     ) {
-      return (
-        <Items
-          type="none"
-          items={newItems}
-        />
-      );
+      return <Items type="none" items={newItems} cats={[]} />;
     }
   };
 

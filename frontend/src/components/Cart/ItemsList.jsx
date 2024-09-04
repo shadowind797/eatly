@@ -1,6 +1,11 @@
-import {useEffect, useState} from "react";
 import CartItem from "./CartItem.jsx";
-import api from "../../api.js";
+import PropTypes from "prop-types"
+
+ItemsList.propTypes = {
+  items: PropTypes.array.isRequired,
+  cartItems: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+}
 
 function ItemsList({items, cartItems, onChange}) {
 

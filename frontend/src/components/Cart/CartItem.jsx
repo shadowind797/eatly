@@ -4,7 +4,13 @@ import count_load from "../../assets/count_load.gif";
 import plus from "../../assets/AddQuant.svg"
 import minus from "../../assets/RemoveFromCart.svg"
 import cross from "../../assets/cross.svg"
+import PropTypes from "prop-types"
 
+CartItem.propTypes = {
+  dish: PropTypes.object.isRequired,
+  cartItem: PropTypes.object,
+  onChange: PropTypes.func.isRequired,
+}
 
 function CartItem({dish, cartItem, onChange}) {
     const [quantity, setQuantity] = useState(1);
@@ -28,9 +34,8 @@ function CartItem({dish, cartItem, onChange}) {
                     onChange()
                     setDeleted(true)
                     setItemLoad(false)
-                } else if (res.status === 404) {
                 }
-            }).catch((err) => {
+            }).catch(() => {
         });
     }
 
@@ -45,7 +50,7 @@ function CartItem({dish, cartItem, onChange}) {
                 } else {
                     alert("Failed to create item");
                 }
-            }).catch((err) => {
+            }).catch(() => {
         });
     }
 
@@ -61,7 +66,7 @@ function CartItem({dish, cartItem, onChange}) {
                     } else {
                         alert("Failed to create item");
                     }
-                }).catch((err) => {
+                }).catch(() => {
             });
         } else {
             deleteItem()
@@ -107,9 +112,7 @@ function CartItem({dish, cartItem, onChange}) {
                 <img src={count_load} style={{width: "100px"}} alt=""/>
             </div>
         )
-    } else if (deleted) {
-        return <div></div>
-    }
+    } 
 }
 
 export default CartItem

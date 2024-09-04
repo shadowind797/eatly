@@ -26,7 +26,7 @@ function TopDishes() {
                 setCategories(data.cats)
                 setInCartItems(data.in_cart)
             })
-            .catch((err) => {
+            .catch(() => {
             });
     }
 
@@ -59,7 +59,7 @@ function TopDishes() {
                                                inCart={checkInCart(item.id)}/>)}
                 </div>
                 <div className="view-all">
-                    <a href="#">
+                    <a href="/menu">
                         <p>View All</p>
                         <img src={ViewAll} alt=""/>
                     </a>

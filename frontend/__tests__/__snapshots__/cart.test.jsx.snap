@@ -15,15 +15,6 @@ exports[`Cart component matches the snapshot 1`] = `
       />
     </div>
     <div
-      class="header "
-    >
-      <img
-        alt=""
-        id="load-img"
-        src="test-file-stub"
-      />
-    </div>
-    <div
       id="main"
       style=""
     >
@@ -40,7 +31,7 @@ exports[`Cart component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/cross.svg"
+              src="test-file-stub"
             />
           </button>
           <div
@@ -48,16 +39,16 @@ exports[`Cart component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="http://127.0.0.1:8000/media/img/food/ChikenHell.png"
+              src="undefined/media/img/food/SweDish.png"
             />
             <div
               class="info"
             >
               <h4>
-                Chicken Hell
+                Swe Dish
               </h4>
               <h5>
-                $12.99
+                $19.99
               </h5>
             </div>
           </div>
@@ -69,7 +60,7 @@ exports[`Cart component matches the snapshot 1`] = `
             >
               <img
                 alt=""
-                src="undefined/media/img/RemoveFromCart.svg"
+                src="test-file-stub"
               />
             </button>
             <div>
@@ -82,7 +73,7 @@ exports[`Cart component matches the snapshot 1`] = `
             >
               <img
                 alt=""
-                src="undefined/media/img/AddQuant.svg"
+                src="test-file-stub"
               />
             </button>
           </div>
@@ -109,7 +100,7 @@ exports[`Cart component matches the snapshot 1`] = `
               >
                 <img
                   alt=""
-                  src="undefined/media/img/coupon.svg"
+                  src="test-file-stub"
                 />
                 <input
                   placeholder="Apply Coupon"
@@ -126,13 +117,13 @@ exports[`Cart component matches the snapshot 1`] = `
             <h6>
               Subtotal: 
               <span>
-                $12.99
+                $59.97
               </span>
             </h6>
             <h6>
               Delivery: 
               <span>
-                $1.30
+                $6.00
               </span>
             </h6>
             <h6
@@ -150,7 +141,7 @@ exports[`Cart component matches the snapshot 1`] = `
             >
               Total: 
               <span>
-                $14.29
+                $65.97
               </span>
             </h6>
           </div>
@@ -161,15 +152,109 @@ exports[`Cart component matches the snapshot 1`] = `
               id="userInfo"
             >
               <div
-                id="nameDiv"
+                id="address"
               >
-                <input
-                  autocomplete="off"
-                  id="name"
-                  placeholder="How courier'll call you?"
-                  type="text"
-                  value=""
-                />
+                <div
+                  id="nameDiv"
+                >
+                  <input
+                    autocomplete="off"
+                    id="name"
+                    placeholder="How courier'll call you?"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  id="phoneDiv"
+                >
+                  <input
+                    autocomplete="off"
+                    id="name"
+                    placeholder="Phone number"
+                    type="phone"
+                    value="+375666999"
+                  />
+                </div>
+              </div>
+              <div
+                data-testid="rest-select"
+                id="restDiv"
+              >
+                <div
+                  class=" css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-4-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class=" css-185hrlv-control"
+                  >
+                    <div
+                      class=" css-hlgwow"
+                    >
+                      <div
+                        class=" css-1dimb5e-singleValue"
+                      >
+                        KFC
+                      </div>
+                      <div
+                        class=" css-19bb58m"
+                        data-value=""
+                      >
+                        <input
+                          aria-activedescendant=""
+                          aria-autocomplete="list"
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          autocapitalize="none"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class=""
+                          id="react-select-4-input"
+                          role="combobox"
+                          spellcheck="false"
+                          style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                          tabindex="0"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=" css-1wy0on6"
+                    >
+                      <span
+                        class=" css-1u9des2-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class=" css-1xc3v61-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div
                 data-testid="address-select"
@@ -180,7 +265,7 @@ exports[`Cart component matches the snapshot 1`] = `
                 >
                   <span
                     class="css-1f43avz-a11yText-A11yText"
-                    id="react-select-3-live-region"
+                    id="react-select-5-live-region"
                   />
                   <span
                     aria-atomic="false"
@@ -197,7 +282,7 @@ exports[`Cart component matches the snapshot 1`] = `
                     >
                       <div
                         class=" css-1jqq78o-placeholder"
-                        id="react-select-3-placeholder"
+                        id="react-select-5-placeholder"
                       >
                         Where should we deliver your order?
                       </div>
@@ -208,14 +293,14 @@ exports[`Cart component matches the snapshot 1`] = `
                         <input
                           aria-activedescendant=""
                           aria-autocomplete="list"
-                          aria-describedby="react-select-3-placeholder"
+                          aria-describedby="react-select-5-placeholder"
                           aria-expanded="false"
                           aria-haspopup="true"
                           autocapitalize="none"
                           autocomplete="off"
                           autocorrect="off"
                           class=""
-                          id="react-select-3-input"
+                          id="react-select-5-input"
                           role="combobox"
                           spellcheck="false"
                           style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
@@ -267,92 +352,359 @@ exports[`Cart component matches the snapshot 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Cart component selects restaurant to deliver from 1`] = `
+<DocumentFragment>
+  <div
+    id="cart"
+  >
     <div
-      id="footer"
+      class="base-header"
+    >
+      <img
+        alt=""
+        id="load-img"
+        src="test-file-stub"
+      />
+    </div>
+    <div
+      id="main"
+      style=""
     >
       <div
-        id="up-footer"
+        class="container"
+        id="cart-items-list"
       >
         <div
-          id="foot-logo"
+          class="item"
         >
-          <a
-            href="/"
+          <button
+            class="cross"
+            data-testid="cross"
           >
             <img
               alt=""
-              src="undefined/media/img/Logo.svg"
+              src="test-file-stub"
             />
-            <h4>
-              eatly
-            </h4>
-          </a>
-        </div>
-        <div
-          id="foot-nav"
-        >
-          <ul>
-            <li>
-              <a
-                href="/blog"
-              >
-                Blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="/pricing"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-              >
-                About Us
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contact"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+          </button>
+          <div
+            class="main"
+          >
+            <img
+              alt=""
+              src="undefined/media/img/food/SweDish.png"
+            />
+            <div
+              class="info"
+            >
+              <h4>
+                Swe Dish
+              </h4>
+              <h5>
+                $19.99
+              </h5>
+            </div>
+          </div>
+          <div
+            class="quant"
+          >
+            <button
+              data-testid="minus"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
+            <div>
+              <p>
+                3
+              </p>
+            </div>
+            <button
+              data-testid="plus"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
+          </div>
         </div>
       </div>
       <div
-        id="bot-footer"
+        style="display: block;"
       >
         <div
-          id="copy"
+          id="order"
         >
-          <p>
-            Made by shadowind in 2024
-          </p>
-        </div>
-        <div
-          id="contacts"
-        >
-          <img
-            alt=""
-            id="inst"
-            src="test-file-stub"
-          />
-          <img
-            alt=""
-            src="test-file-stub"
-          />
-          <img
-            alt=""
-            src="test-file-stub"
-          />
-          <img
-            alt=""
-            src="test-file-stub"
-          />
+          <div
+            id="costs"
+          >
+            <p
+              class="error"
+              style="display: none;"
+            >
+              Invalid coupon
+            </p>
+            <form>
+              <div
+                id="input"
+              >
+                <img
+                  alt=""
+                  src="test-file-stub"
+                />
+                <input
+                  placeholder="Apply Coupon"
+                  type="text"
+                  value=""
+                />
+              </div>
+              <button
+                type="submit"
+              >
+                Apply
+              </button>
+            </form>
+            <h6>
+              Subtotal: 
+              <span>
+                $59.97
+              </span>
+            </h6>
+            <h6>
+              Delivery: 
+              <span>
+                $6.00
+              </span>
+            </h6>
+            <h6
+              style="display: none;"
+            >
+              Coupon:
+              <span
+                style="color: green;"
+              >
+                -$0.00
+              </span>
+            </h6>
+            <h6
+              class="total"
+            >
+              Total: 
+              <span>
+                $65.97
+              </span>
+            </h6>
+          </div>
+          <div
+            id="pay"
+          >
+            <div
+              id="userInfo"
+            >
+              <div
+                id="address"
+              >
+                <div
+                  id="nameDiv"
+                >
+                  <input
+                    autocomplete="off"
+                    id="name"
+                    placeholder="How courier'll call you?"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <div
+                  id="phoneDiv"
+                >
+                  <input
+                    autocomplete="off"
+                    id="name"
+                    placeholder="Phone number"
+                    type="phone"
+                    value="+375666999"
+                  />
+                </div>
+              </div>
+              <div
+                data-testid="rest-select"
+                id="restDiv"
+              >
+                <div
+                  class=" css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-16-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class=" css-185hrlv-control"
+                  >
+                    <div
+                      class=" css-hlgwow"
+                    >
+                      <div
+                        class=" css-1dimb5e-singleValue"
+                      >
+                        KFC
+                      </div>
+                      <div
+                        class=" css-19bb58m"
+                        data-value=""
+                      >
+                        <input
+                          aria-activedescendant=""
+                          aria-autocomplete="list"
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          autocapitalize="none"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class=""
+                          id="react-select-16-input"
+                          role="combobox"
+                          spellcheck="false"
+                          style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                          tabindex="0"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=" css-1wy0on6"
+                    >
+                      <span
+                        class=" css-1u9des2-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class=" css-1xc3v61-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-testid="address-select"
+                id="address"
+              >
+                <div
+                  class=" css-b62m3t-container"
+                >
+                  <span
+                    class="css-1f43avz-a11yText-A11yText"
+                    id="react-select-17-live-region"
+                  />
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                    role="log"
+                  />
+                  <div
+                    class=" css-185hrlv-control"
+                  >
+                    <div
+                      class=" css-hlgwow"
+                    >
+                      <div
+                        class=" css-1jqq78o-placeholder"
+                        id="react-select-17-placeholder"
+                      >
+                        Where should we deliver your order?
+                      </div>
+                      <div
+                        class=" css-19bb58m"
+                        data-value=""
+                      >
+                        <input
+                          aria-activedescendant=""
+                          aria-autocomplete="list"
+                          aria-describedby="react-select-17-placeholder"
+                          aria-expanded="false"
+                          aria-haspopup="true"
+                          autocapitalize="none"
+                          autocomplete="off"
+                          autocorrect="off"
+                          class=""
+                          id="react-select-17-input"
+                          role="combobox"
+                          spellcheck="false"
+                          style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                          tabindex="0"
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class=" css-1wy0on6"
+                    >
+                      <span
+                        class=" css-1u9des2-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class=" css-1xc3v61-indicatorContainer"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="css-tj5bde-Svg"
+                          focusable="false"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          width="20"
+                        >
+                          <path
+                            d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  id="add-address"
+                >
+                  Add address
+                </button>
+              </div>
+              <button
+                id="complete"
+              >
+                Complete order
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

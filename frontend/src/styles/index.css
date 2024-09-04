@@ -768,6 +768,12 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 html,
 body,
 #cart,
@@ -1118,6 +1124,12 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .base-header {
@@ -1612,6 +1624,12 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 #home #main-div {
@@ -2313,6 +2331,12 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 #cart #main {
@@ -3085,6 +3109,12 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #complete-order {
   display: flex;
 }
@@ -3828,6 +3858,12 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #menu {
   text-align: center;
 }
@@ -3836,7 +3872,6 @@ form #action .another a {
 }
 #menu #top-rests {
   border-top: none;
-  text-align: left;
 }
 #menu #main-div {
   display: flex;
@@ -4517,6 +4552,12 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #log {
   display: flex;
   position: relative;
@@ -5088,6 +5129,12 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 #footer {
   background-color: #eaeaea;
   padding: 100px;
@@ -5515,6 +5562,12 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 #profile {
@@ -6515,6 +6568,12 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 #pass-change {

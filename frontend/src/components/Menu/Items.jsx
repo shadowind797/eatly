@@ -57,8 +57,7 @@ Items.propTypes = {
   items: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   cats: PropTypes.array.isRequired,
-  inCartItems: PropTypes.array.isRequired,
+  inCartItems: PropTypes.array,
 };
-
 
 export default Items;

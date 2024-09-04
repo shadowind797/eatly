@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from "react";
-import api from "../api.js";
-import cat_load from "../assets/header-loading.gif";
+import {useEffect, useState} from "react";
 import star from "../assets/Star.svg"
 import bookmark from "../assets/Bookmark.svg"
+import PropTypes from 'prop-types';
+
+Restaurant.propTypes = {
+  rest: PropTypes.object.isRequired,
+  category: PropTypes.string.isRequired,
+}
 
 function Restaurant({rest, category}) {
     const [style, setStyle] = useState({});

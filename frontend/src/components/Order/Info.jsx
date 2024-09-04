@@ -150,7 +150,7 @@ function Info({ order, user }) {
           setAddPayment(false);
         }
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const createPayment = (e) => {
@@ -193,7 +193,7 @@ function Info({ order, user }) {
           setCancelErr(true);
         }
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const selectStyles = {
@@ -216,7 +216,7 @@ function Info({ order, user }) {
         color: "#C2C3CB",
       },
     }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+    option: (styles, { isDisabled, isFocused }) => ({
       ...styles,
       backgroundColor: "#fff",
       color: isFocused ? "#6C5FBC" : "#201F1F",

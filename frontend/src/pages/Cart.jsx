@@ -48,7 +48,6 @@ function Cart({ test }) {
       .get("api/items/cart/data/")
       .then((res) => res.data)
       .then((data) => {
-        console.log("fetch completed");
         if (data.items.length === 0) {
           setExtra(true);
         }

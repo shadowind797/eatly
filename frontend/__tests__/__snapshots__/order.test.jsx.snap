@@ -5,13 +5,7 @@ exports[`Order component matches the snapshot 1`] = `
   <div
     id="complete-order"
   >
-    <div
-      id="google-map"
-    >
-      <div>
-        Map'll be here
-      </div>
-    </div>
+    Loading Maps
     <div
       id="order-info"
     >
@@ -24,12 +18,26 @@ exports[`Order component matches the snapshot 1`] = `
         <h4>
           Total cost: 
           <span>
-            $27.49
+            $64.86
           </span>
         </h4>
         <h4>
           Name: 
-          <span />
+          <span>
+            Peter
+          </span>
+        </h4>
+        <h4>
+          Contact phone: 
+          <span>
+            +375666999
+          </span>
+        </h4>
+        <h4>
+          Ship from: 
+          <span>
+            Mc'Donalds
+          </span>
         </h4>
         <h4>
           Payment: 
@@ -52,7 +60,7 @@ exports[`Order component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/cash.svg"
+              src="test-file-stub"
             />
           </button>
           <button
@@ -61,7 +69,7 @@ exports[`Order component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/internet.svg"
+              src="test-file-stub"
             />
           </button>
           <button
@@ -69,7 +77,7 @@ exports[`Order component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/card.svg"
+              src="test-file-stub"
             />
           </button>
           <div
@@ -167,7 +175,6 @@ exports[`Order component matches the snapshot 1`] = `
           </div>
         </div>
       </div>
-      <p />
       <div
         id="btns"
       >
@@ -195,13 +202,7 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
   <div
     id="complete-order"
   >
-    <div
-      id="google-map"
-    >
-      <div>
-        Map'll be here
-      </div>
-    </div>
+    Loading Maps
     <div
       id="order-info"
     >
@@ -214,12 +215,26 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
         <h4>
           Total cost: 
           <span>
-            $27.49
+            $64.86
           </span>
         </h4>
         <h4>
           Name: 
-          <span />
+          <span>
+            Peter
+          </span>
+        </h4>
+        <h4>
+          Contact phone: 
+          <span>
+            +375666999
+          </span>
+        </h4>
+        <h4>
+          Ship from: 
+          <span>
+            Mc'Donalds
+          </span>
         </h4>
         <h4>
           Payment: 
@@ -242,7 +257,7 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/cash.svg"
+              src="test-file-stub"
             />
           </button>
           <button
@@ -251,7 +266,7 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/internet.svg"
+              src="test-file-stub"
             />
           </button>
           <button
@@ -259,7 +274,7 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/card.svg"
+              src="test-file-stub"
             />
           </button>
           <div
@@ -355,7 +370,6 @@ exports[`Order component switches payment mode and selects payment card 1`] = `
           </div>
         </div>
       </div>
-      <p />
       <div
         id="btns"
       >

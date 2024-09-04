@@ -16,7 +16,7 @@ exports[`Header component matches the snapshot 1`] = `
         >
           <img
             alt=""
-            src="undefined/media/img/Logo.svg"
+            src="test-file-stub"
           />
           <h4>
             eatly
@@ -27,6 +27,7 @@ exports[`Header component matches the snapshot 1`] = `
         <ul>
           <li>
             <a
+              class="active"
               href="/menu/"
             >
               Menu
@@ -34,6 +35,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/blog/"
             >
               Blog
@@ -41,6 +43,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/pricing/"
             >
               Pricing
@@ -48,6 +51,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/support/"
             >
               Contact
@@ -55,6 +59,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/admin/"
             >
               Admin
@@ -62,6 +67,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/manage/"
             >
               Manage
@@ -69,6 +75,7 @@ exports[`Header component matches the snapshot 1`] = `
           </li>
           <li>
             <a
+              class="disabled"
               href="/orders/"
             >
               Orders
@@ -85,7 +92,7 @@ exports[`Header component matches the snapshot 1`] = `
       >
         <img
           alt=""
-          src="undefined/media/img/cart.svg"
+          src="test-file-stub"
         />
       </a>
       <a
@@ -93,7 +100,7 @@ exports[`Header component matches the snapshot 1`] = `
       >
         <img
           alt=""
-          src="undefined/media/img/Profile.svg"
+          src="test-file-stub"
         />
       </a>
       <button>

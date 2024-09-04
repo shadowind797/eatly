@@ -71,6 +71,11 @@ exports[`Signup form component matches the snapshot 1`] = `
               type="password"
               value=""
             />
+            <img
+              alt=""
+              src="test-file-stub"
+              style="display: none;"
+            />
           </div>
           <div
             id="input"
@@ -155,7 +160,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                       <img
                         alt=""
                         class="plate"
-                        src="undefined/media/img/food/ChikenHellPro.png"
+                        src="test-file-stub"
                       />
                       <div
                         class="bg"
@@ -185,17 +190,17 @@ exports[`Signup form component matches the snapshot 1`] = `
                           <img
                             alt=""
                             class="g"
-                            src="undefined/media/img/vectors/grafic.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="l"
-                            src="undefined/media/img/vectors/lines.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="p"
-                            src="undefined/media/img/vectors/point.svg"
+                            src="test-file-stub"
                           />
                         </div>
                         <nav
@@ -220,7 +225,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                         <div>
                           <img
                             alt=""
-                            src="undefined/media/img/food/ChikenHellPro.png"
+                            src="test-file-stub"
                           />
                           <div>
                             <h4>
@@ -263,7 +268,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                       <img
                         alt=""
                         class="plate"
-                        src="undefined/media/img/food/ChikenHellPro.png"
+                        src="test-file-stub"
                       />
                       <div
                         class="bg"
@@ -293,17 +298,17 @@ exports[`Signup form component matches the snapshot 1`] = `
                           <img
                             alt=""
                             class="g"
-                            src="undefined/media/img/vectors/grafic.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="l"
-                            src="undefined/media/img/vectors/lines.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="p"
-                            src="undefined/media/img/vectors/point.svg"
+                            src="test-file-stub"
                           />
                         </div>
                         <nav
@@ -328,7 +333,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                         <div>
                           <img
                             alt=""
-                            src="undefined/media/img/food/ChikenHellPro.png"
+                            src="test-file-stub"
                           />
                           <div>
                             <h4>
@@ -372,7 +377,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                       <img
                         alt=""
                         class="plate"
-                        src="undefined/media/img/food/ChikenHellPro.png"
+                        src="test-file-stub"
                       />
                       <div
                         class="bg"
@@ -402,17 +407,17 @@ exports[`Signup form component matches the snapshot 1`] = `
                           <img
                             alt=""
                             class="g"
-                            src="undefined/media/img/vectors/grafic.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="l"
-                            src="undefined/media/img/vectors/lines.svg"
+                            src="test-file-stub"
                           />
                           <img
                             alt=""
                             class="p"
-                            src="undefined/media/img/vectors/point.svg"
+                            src="test-file-stub"
                           />
                         </div>
                         <nav
@@ -437,7 +442,7 @@ exports[`Signup form component matches the snapshot 1`] = `
                         <div>
                           <img
                             alt=""
-                            src="undefined/media/img/food/ChikenHellPro.png"
+                            src="test-file-stub"
                           />
                           <div>
                             <h4>

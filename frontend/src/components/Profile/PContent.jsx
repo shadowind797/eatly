@@ -9,7 +9,7 @@ import logo from "../../assets/Logo.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 PContent.propTypes = {
   user: PropTypes.object.isRequired,
@@ -55,9 +55,7 @@ function PContent({ user, orders, osl }) {
   return (
     <div id="profile-content-profile">
       <div id="first">
-        <div
-          id="profile"
-        >
+        <div id="profile">
           <div id="profile-info">
             <div id="photo-name">
               <img id="user-img" src={userImg} alt="" />
@@ -99,21 +97,15 @@ function PContent({ user, orders, osl }) {
             </div>
           </div>
           <div id="profile-actions">
-            <button
-              id="change-pass"
-              onClick={() => setEmailSendConfirm(true)}
-            >
+            <button id="change-pass" onClick={() => setEmailSendConfirm(true)}>
               <img src={passwordImg} alt="Change password" />
               <p>Change password</p>
             </button>
-            <button
-              id="logout"
-              onClick={() => navigate("/logout")}
-            >
+            <button id="logout" onClick={() => navigate("/logout")}>
               <img src={logoutImg} alt="Log out" />
               <p>Log out</p>
             </button>
-            <button id="delete-acc">
+            <button id="delete-acc" className="disabled">
               <img src={deleteImg} alt="Delete account" />
               <p>Delete account</p>
             </button>
@@ -205,7 +197,9 @@ function PContent({ user, orders, osl }) {
       <div id="statistics">
         <div>
           <h2>Unlock spending statistics</h2>
-          <h3><span id="wt">with</span> EATLY <span id="prem">Premium</span></h3>
+          <h3>
+            <span id="wt">with</span> EATLY <span id="prem">Premium</span>
+          </h3>
         </div>
       </div>
     </div>

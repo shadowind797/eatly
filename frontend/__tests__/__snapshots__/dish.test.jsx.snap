@@ -13,7 +13,7 @@ exports[`Dish component matches the snapshot 1`] = `
     <img
       alt=""
       class="like"
-      src="undefined/media/img/Heart.svg"
+      src="test-file-stub"
     />
     <div
       class="info"
@@ -22,9 +22,9 @@ exports[`Dish component matches the snapshot 1`] = `
         class="item-cat"
       >
         <div
-          style="background-color: rgba(238, 0, 255, 0.32); color: rgb(255, 0, 242);"
+          style="background-color: rgb(247, 197, 186); color: rgb(251, 71, 29);"
         >
-          Asian
+          Fast Food
         </div>
         <h4>
           Chicken Hell
@@ -33,19 +33,19 @@ exports[`Dish component matches the snapshot 1`] = `
       <div
         class="time-rating"
       >
-        <p>
-          ~30min
-        </p>
+        <p
+          class="rest"
+        />
         <div>
-          <img
-            alt=""
-            src="undefined/media/img/Star.svg"
-          />
           <p
             data-testid="item-rate"
           >
             4.8
           </p>
+          <img
+            alt=""
+            src="test-file-stub"
+          />
         </div>
       </div>
       <div
@@ -64,7 +64,7 @@ exports[`Dish component matches the snapshot 1`] = `
         >
           <img
             alt=""
-            src="undefined/media/img/AddToCart.svg"
+            src="test-file-stub"
           />
         </button>
       </div>

@@ -401,3 +401,9 @@ form {
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
 }
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}

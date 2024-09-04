@@ -352,9 +352,8 @@ function MakeOrder({
         </div>
         <div id="pay">
           <div id="userInfo">
-            {phone.length > 0 ? (
-              <div id="address" data-testid="address-select">
-                {noAddress && <p className="error">Address required</p>}
+            {user.phone !== undefined ? (
+              <div id="address">
                 <div id="nameDiv">
                   {noName && <p className="error">Please enter your name</p>}
                   <input
@@ -388,7 +387,7 @@ function MakeOrder({
               <div className="input-load">Loading...</div>
             )}
             {restList.length > 0 ? (
-              <div id="restDiv">
+              <div id="restDiv" data-testid="rest-select">
                 <Select
                   options={restList}
                   styles={selectStyles}

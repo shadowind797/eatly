@@ -15,7 +15,6 @@ Map.propTypes = {
   userAddress: PropTypes.object.isRequired,
   userName: PropTypes.string.isRequired,
   restName: PropTypes.string.isRequired,
-  updateAddress: PropTypes.func.isRequired,
 }
 
 function Map({ restAddress, userAddress, userName, restName }) {
