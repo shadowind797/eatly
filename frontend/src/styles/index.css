@@ -2501,7 +2501,6 @@ form #action .another a {
   border-bottom: 1px solid #cbcbcb;
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 #cart #main #order #costs form {
   display: flex;
@@ -2537,7 +2536,7 @@ form #action .another a {
 #cart #main #order #costs form #input img {
   width: 30px;
 }
-#cart #main #order #costs form button {
+#cart #main #order #costs form #coupon-btns button {
   width: 141px;
   height: 63px;
   background-color: #6c5fbc;
@@ -2547,6 +2546,20 @@ form #action .another a {
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
+  position: absolute;
+  transition: 0.5s;
+}
+#cart #main #order #costs form #coupon-btns .applied {
+  background-color: green;
+}
+#cart #main #order #costs form #coupon-btns .applied:hover {
+  transform: scale(1);
+}
+#cart #main #order #costs form #coupon-btns .remove {
+  background-color: red;
+}
+#cart #main #order #costs form #coupon-btns .remove:hover {
+  transform: scale(1);
 }
 #cart #main #order #costs .total {
   font-size: 22px;
@@ -2566,16 +2579,13 @@ form #action .another a {
   font-weight: 400;
   line-height: 117.5%; /* 23.5px */
   height: 30px;
+  padding-top: 10px;
 }
 #cart #main #order #costs h6 span {
   font-size: 20px;
   font-weight: 600;
   line-height: 117.5%; /* 23.5px */
   margin-left: auto;
-}
-#cart #main #order #costs h6 img {
-  margin-left: auto;
-  width: 100px;
 }
 #cart #main #order #pay #userInfo {
   padding-top: 40px;

@@ -33,9 +33,7 @@ function MakeOrder({
   const [couponValue, setCouponValue] = useState(1);
   const [applied, setApplied] = useState(null);
   const [firstName, setFirstName] = useState(user.first_name || "");
-  const discount = Math.abs(
-    subtotal * 1.1 - subtotal * 1.1 * couponValue
-  ).toFixed(2);
+  const [discount, setDiscount] = useState(0);
   const [phone, setPhone] = useState(user.phone || "");
   const [restaurant, setRestaurant] = useState(rests[0].id);
   const [restList, setRestList] = useState([]);
@@ -57,12 +55,20 @@ function MakeOrder({
   const [noPhone, setNoPhone] = useState(false);
   const [alreadyExists, setAlreadyExists] = useState(false);
   const [noBuilding, setNoBuilding] = useState(false);
+  const [noCoupon, setNoCoupon] = useState(false);
+  const [discardCouponBtn, setDiscardCouponBtn] = useState(false);
 
   const [addressLoading, setAddressLoading] = useState(false);
   const [mapLoading, setMapLoading] = useState(false);
   const [couponLoading, setCouponLoading] = useState(false);
   const [mapSelectMode, setMapSelectMode] = useState(false);
   const [mapsError, setMapsError] = useState("");
+
+  useEffect(() => {
+    setDiscount(
+      Math.abs(subtotal * 1.1 - subtotal * 1.1 * couponValue).toFixed(2)
+    );
+  }, [couponValue]);
 
   useEffect(() => {
     if (restaurant) {
@@ -173,21 +179,26 @@ function MakeOrder({
 
   const checkCoupon = (e) => {
     e.preventDefault();
-    setCouponLoading(true);
-    api
-      .post("api/coupon/", { method: "apply", title: coupon })
-      .then((res) => {
-        if (res.status === 200) {
-          setCouponValue(res.data.value);
-          setApplied(true);
-          setCouponLoading(false);
-        } else {
-          setCouponValue(1);
-          setApplied(false);
-          setCouponLoading(false);
-        }
-      })
-      .catch(() => {});
+    if (coupon.length > 0) {
+      setCouponLoading(true);
+      setNoCoupon(false);
+      api
+        .post("api/coupon/", { method: "apply", title: coupon })
+        .then((res) => {
+          if (res.status === 200) {
+            setCouponValue(res.data.value);
+            setApplied(true);
+            setCouponLoading(false);
+          } else {
+            setCouponValue(1);
+            setApplied(false);
+            setCouponLoading(false);
+          }
+        })
+        .catch(() => {});
+    } else {
+      setNoCoupon(true);
+    }
   };
 
   const setOrderData = (e) => {
@@ -306,14 +317,8 @@ function MakeOrder({
     return (
       <div id="order">
         <div id="costs">
-          <p
-            className="error"
-            style={
-              applied === false ? { display: "block" } : { display: "none" }
-            }
-          >
-            Invalid coupon
-          </p>
+          {applied === false && <p className="error">Invalid coupon</p>}
+          {noCoupon && <p className="error">Please enter coupon to apply</p>}
           <form>
             <div id="input">
               <img src={cpImg} alt="" />
@@ -325,16 +330,50 @@ function MakeOrder({
                   setCoupon(e.target.value);
                   setApplied(null);
                 }}
+                disabled={applied}
               />
             </div>
-            <button
-              type="submit"
-              onClick={(e) => {
-                checkCoupon(e);
-              }}
-            >
-              {couponLoading ? "Applying..." : "Apply"}
-            </button>
+            <div id="coupon-btns">
+              {!applied && (
+                <button
+                  type="submit"
+                  style={{zIndex: "10"}}
+                  onClick={(e) => {
+                    checkCoupon(e);
+                  }}
+                >
+                  {couponLoading ? "Applying..." : "Apply"}
+                </button>
+              )}
+              <button
+                className="applied"
+                onMouseOver={() => setDiscardCouponBtn(true)}
+                style={
+                  applied && !discardCouponBtn
+                    ? { opacity: "1", zIndex: "5" }
+                    : { opacity: "0" }
+                }
+              >
+                ✓ Applied
+              </button>
+              <button
+                className="remove"
+                onMouseLeave={() => setDiscardCouponBtn(false)}
+                style={
+                  discardCouponBtn
+                    ? { opacity: "1" }
+                    : { opacity: "0", zIndex: "1" }
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCoupon("");
+                  setApplied(null);
+                  setCouponValue(1);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
           <h6>
             Subtotal: <span>${subtotal}</span>

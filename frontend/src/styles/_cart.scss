@@ -183,7 +183,6 @@
         border-bottom: 1px solid #cbcbcb;
         display: flex;
         flex-direction: column;
-        gap: 15px;
 
         form {
           display: flex;
@@ -223,16 +222,35 @@
             }
           }
 
-          button {
-            width: 141px;
-            height: 63px;
-            background-color: $purple_main;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 27px;
+          #coupon-btns {
+            button {
+              width: 141px;
+              height: 63px;
+              background-color: $purple_main;
+              border: none;
+              border-radius: 10px;
+              color: white;
+              font-size: 18px;
+              font-weight: 700;
+              line-height: 27px;
+              position: absolute;
+              transition: 0.5s;
+            }
+
+            .applied {
+              background-color: green;
+
+              &:hover {
+                transform: scale(1);
+              }
+            }
+            .remove {
+              background-color: red;
+
+              &:hover {
+                transform: scale(1);
+              }
+            }
           }
         }
 
@@ -256,17 +274,13 @@
           font-weight: 400;
           line-height: 117.5%; /* 23.5px */
           height: 30px;
+          padding-top: 10px;
 
           span {
             font-size: 20px;
             font-weight: 600;
             line-height: 117.5%; /* 23.5px */
             margin-left: auto;
-          }
-
-          img {
-            margin-left: auto;
-            width: 100px;
           }
         }
       }

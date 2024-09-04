@@ -135,7 +135,7 @@ function Info({ order, user }) {
             ...list,
             {
               value: item.number,
-              label: `**** **** **** ${item.number.slice(15, 19)}`,
+              label: item.number,
             },
           ];
           setPaymentList(list);

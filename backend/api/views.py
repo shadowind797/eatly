@@ -232,14 +232,25 @@ class PaymentView(generics.ListAPIView):
     serializer_class = PaymentSerializer
     permission_classes = (IsAuthenticated,)
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         payment_id = self.request.query_params.get("payment_id")
         user = self.request.user
 
         if payment_id:
-            return Payments.objects.filter(pk=payment_id, owner=user)
+            payment = list(
+                Payments.objects.filter(pk=payment_id, owner=user).values("id", "number")
+            )[0]
+            payment["number"] = f"**** **** **** {payment["number"][-4:]}"
+
+            return Response(status=status.HTTP_200_OK, data=payment)
         else:
-            return Payments.objects.filter(owner=user)
+            payments = list(
+                Payments.objects.filter(owner=user).values("id", "number")
+            )
+            for payment in payments:
+              payment["number"] = f"**** **** **** {payment["number"][-4:]}"
+          
+            return Response(status=status.HTTP_200_OK, data=payments)
 
     def post(self, request, *args, **kwargs):
         number = self.request.data.get("number")
