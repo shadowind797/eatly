@@ -817,7 +817,7 @@ class SearchView(generics.ListAPIView):
                         else:
                             return Response(
                                 status=status.HTTP_200_OK,
-                                data={"items": [{"not_found": "no items"}]},
+                                data={"items": {"not_found": "no items"}},
                             )
                 else:
                     search1 = Restaurant.objects.filter(
@@ -882,7 +882,7 @@ class SearchView(generics.ListAPIView):
                         else:
                             return Response(
                                 status=status.HTTP_200_OK,
-                                data={"items": [{"not_found": "no items"}]},
+                                data={"items": {"not_found": "no items"}},
                             )
             else:
                 if search_mode == "food":
@@ -926,7 +926,7 @@ class SearchView(generics.ListAPIView):
                     else:
                         return Response(
                             status=status.HTTP_200_OK,
-                            data={"items": [{"not_found": "no items"}]},
+                            data={"items": {"not_found": "no items"}},
                         )
                 elif search_mode == "rests":
                     rests = Restaurant.objects.filter(Q(name__icontains=search))
@@ -958,7 +958,7 @@ class SearchView(generics.ListAPIView):
                     else:
                         return Response(
                             status=status.HTTP_200_OK,
-                            data={"items": [{"not_found": "no items"}]},
+                            data={"items": {"not_found": "no items"}},
                         )
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
@@ -1023,7 +1023,7 @@ class FilterView(generics.ListAPIView):
             else:
                 return Response(
                     status=status.HTTP_200_OK,
-                    data=[{"items": {"not_found": "no items"}}],
+                    data={"items": {"not_found": "no items"}},
                 )
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)

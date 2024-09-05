@@ -135,6 +135,13 @@
     }
   }
 
+  .disabled-filters {
+    opacity: 0.7;
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+  }
+
   #sort-filter {
     height: 470px;
     padding: 20px;

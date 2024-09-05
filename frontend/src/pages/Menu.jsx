@@ -18,7 +18,11 @@ function Menu() {
   const [costDisabled, setCostDisabled] = useState(false);
 
   useEffect(() => {
-    updateSort(sort, dir);
+    if (items) {
+      updateSort(sort, dir);
+    } else {
+      setNewItems(items);
+    }
   }, [items]);
 
   useEffect(() => {
@@ -54,18 +58,22 @@ function Menu() {
         }
       }
       setNewItems(sortedItems);
+    } else {
+      setNewItems(items);
     }
   };
 
   const checkPage = () => {
-    if (items.length === 0) {
+    if (JSON.stringify(items) === JSON.stringify({ not_found: "no items" })) {
+      return <Items type="none" items={items} cats={[]} />;
+    } else if (items && items.length === 0) {
       return (
         <div>
           <TopRests />
           <TopDishes />
         </div>
       );
-    } else if (items[0] === "load items") {
+    } else if (items && items[0] === "load items") {
       return (
         <img
           src={header_load}
@@ -83,12 +91,8 @@ function Menu() {
         />
       );
     } else if (newItems.length > 0 && newItems[0].image) {
+      console.log(items);
       return <Items type="rests" items={newItems} cats={categories} />;
-    } else if (
-      newItems.length > 0 &&
-      JSON.stringify(newItems[0]) === JSON.stringify({ not_found: "no items" })
-    ) {
-      return <Items type="none" items={newItems} cats={[]} />;
     }
   };
 
@@ -102,6 +106,7 @@ function Menu() {
         setInCartItems={setInCartItems}
         updateSort={updateSort}
         costDisabled={costDisabled}
+        item={items[0]}
       />
       {checkPage()}
       <Footer />

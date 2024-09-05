@@ -15,7 +15,7 @@ function Items({ items, type, cats, inCartItems }) {
     return isInCart !== undefined;
   };
 
-  if (JSON.stringify(items[0]) === JSON.stringify({ not_found: "no items" })) {
+  if (JSON.stringify(items) === JSON.stringify({ not_found: "no items" })) {
     return (
       <div id="no-items">
         <img src={no_items} style={{ width: "200px" }} alt="" />
@@ -54,9 +54,9 @@ function Items({ items, type, cats, inCartItems }) {
 }
 
 Items.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   type: PropTypes.string.isRequired,
-  cats: PropTypes.array.isRequired,
+  cats: PropTypes.array,
   inCartItems: PropTypes.array,
 };
 

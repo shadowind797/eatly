@@ -4,9 +4,20 @@ import AdSlider from "./Slider.jsx";
 import Select from "react-select";
 import CatFilterOption from "./CatFilterOption.jsx";
 import RangeSlider from "./RangeInput.jsx";
+import PropTypes from "prop-types";
+
+MainDiv.propTypes = {
+  setItems: PropTypes.func,
+  updateSort: PropTypes.func,
+  setInCartItems: PropTypes.func,
+  setCategories: PropTypes.func,
+  costDisabled: PropTypes.bool,
+  item: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
 
 function MainDiv({
   setItems,
+  item,
   updateSort,
   setInCartItems,
   setCategories,
@@ -74,11 +85,10 @@ function MainDiv({
           updateSort(sort, sortDir);
           setItems(data.items);
           setCategories(data.cats);
-          if (data.items[0].photo) {
+          if (data.items[0] && data.items[0].photo) {
             setInCartItems(data.in_cart);
           }
-        })
-        .catch((err) => {});
+        });
     } else {
       api
         .get("api/items/search", {
@@ -89,11 +99,10 @@ function MainDiv({
           updateSort(sort, sortDir);
           setItems(data.items);
           setCategories(data.cats);
-          if (data.items[0].photo) {
+          if (data.items[0] && data.items[0].photo) {
             setInCartItems(data.in_cart);
           }
-        })
-        .catch((err) => {});
+        });
     }
     updateSort(sort, sortDir);
   };
@@ -112,14 +121,14 @@ function MainDiv({
         setCategories(data.cats);
         setInCartItems(data.in_cart);
         updateSort(sort, sortDir);
-      })
-      .catch((err) => {});
+      });
   };
 
   const getSearchMode = () => {
     if (foodSearch) {
       return "food";
     } else if (restSearch) {
+      setSort("rating");
       return "rests";
     }
   };
@@ -164,7 +173,7 @@ function MainDiv({
         color: "#C2C3CB",
       },
     }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+    option: (styles, { isDisabled, isFocused }) => ({
       ...styles,
       backgroundColor: "#fff",
       color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -204,7 +213,7 @@ function MainDiv({
         color: "#C2C3CB",
       },
     }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+    option: (styles, { isDisabled, isFocused }) => ({
       ...styles,
       backgroundColor: "#fff",
       color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -233,7 +242,10 @@ function MainDiv({
         <div id="ad-slider">
           <AdSlider />
         </div>
-        <div id="search">
+        <div
+          id="search"
+          className={item === "load items" ? "disabled-filters" : ""}
+        >
           <form>
             <input
               type="text"
@@ -278,7 +290,10 @@ function MainDiv({
           </div>
         </div>
       </div>
-      <div id="sort-filter">
+      <div
+        id="sort-filter"
+        className={item === "load items" ? "disabled-filters" : ""}
+      >
         <div className="categories">
           <h4>Category</h4>
           <div className="category-filter">
@@ -346,7 +361,10 @@ function MainDiv({
                 styles={sortSelectStyles}
                 placeholder=""
                 onChange={changeSortMethod}
-                defaultValue={sortSelectOptions[0]}
+                defaultValue={sortSelectOptions.find(
+                  (opt) => opt.value === sort
+                )}
+                value={sortSelectOptions.find((opt) => opt.value === sort)}
                 isDisabled={costDisabled}
               />
             </div>
