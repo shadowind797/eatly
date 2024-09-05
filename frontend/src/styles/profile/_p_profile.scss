@@ -429,73 +429,6 @@
         }
       }
     }
-    #pass-change-confirm,
-    #pass-change-already-sent {
-      box-sizing: border-box;
-      background-color: #fff;
-      width: 500px;
-      height: 300px;
-      padding: 45px;
-      padding-top: 30px;
-      position: absolute;
-      top: calc(50% - 150px);
-      left: calc(50% - 250px);
-      border-radius: 14px;
-      border: 1px solid $purple_main;
-
-      #logo {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-
-        h1 {
-          color: $purple_main;
-          font-size: 24px;
-          font-weight: 600;
-        }
-      }
-
-      p {
-        margin-top: 18px;
-        color: #c2c3cb;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 22px;
-      }
-
-      h4 {
-        margin-top: 12px;
-        color: $purple_main;
-        font-size: 19px;
-        font-weight: 600;
-        line-height: 25px;
-      }
-
-      #btns {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-        padding-top: 30px;
-        button {
-          background-color: $purple_main;
-          color: #fff;
-          font-size: 18px;
-          font-weight: 600;
-          padding: 12px 30px;
-          border: none;
-          border-radius: 14px;
-          width: 170px;
-          cursor: pointer;
-        }
-
-        #cancel {
-          background-color: #fff;
-          border: 1px solid $purple_main;
-          color: $purple_main;
-        }
-      }
-    }
     h2 {
       color: $purple_main;
       font-size: 14px;
@@ -506,10 +439,15 @@
     #last-orders {
       padding: 20px;
       border: 1px solid $purple_main;
+      height: 31%;
       border-radius: 14px;
       display: flex;
       flex-direction: column;
       gap: 12px;
+
+      #loading {
+        height: 100%;
+      }
 
       #order-card {
         padding: 14px;

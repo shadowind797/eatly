@@ -11,6 +11,7 @@ function ProfileContent() {
   const [orderStatusList, setOrderStatusList] = useState([]);
   const [status, setStatus] = useState("");
   const [contentOption, setContentOption] = useState("Profile");
+  const [orderLoading, setOrderLoading] = useState(false);
 
   useEffect(() => {
     getUser();
@@ -18,12 +19,14 @@ function ProfileContent() {
   }, []);
 
   const getOrders = (method) => {
+    setOrderLoading(true);
     api
       .get(`api/profile/orders/`, { params: { method: method } })
       .then((res) => res.data)
       .then((data) => {
         setOrders(data.orders);
         setOrderStatusList(data.statuses);
+        setOrderLoading(false);
       })
       .catch(() => {});
   };
@@ -76,7 +79,12 @@ function ProfileContent() {
       </div>
       <div id="nav-option-content">
         {contentOption === "Profile" && (
-          <PContent user={user} orders={orders} osl={orderStatusList} />
+          <PContent
+            user={user}
+            orders={orders}
+            osl={orderStatusList}
+            ordersLoad={orderLoading}
+          />
         )}
         {contentOption === "Manage expenses" && <MEContent />}
         {contentOption === "Orders history" && <OHContent />}

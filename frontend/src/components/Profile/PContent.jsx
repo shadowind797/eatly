@@ -10,14 +10,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
 import PropTypes from "prop-types";
+import orders_loading from "../../assets/loading_menu.webp"
 
 PContent.propTypes = {
   user: PropTypes.object.isRequired,
   orders: PropTypes.array.isRequired,
   osl: PropTypes.array.isRequired,
+  ordersLoad: PropTypes.bool.isRequired,
 };
 
-function PContent({ user, orders, osl }) {
+function PContent({ user, orders, osl, ordersLoad }) {
   const [emailSent, setEmailSent] = useState(false);
   const [emailSendConfirm, setEmailSendConfirm] = useState(false);
   const [emailSending, setEmailSending] = useState(false);
@@ -210,22 +212,26 @@ function PContent({ user, orders, osl }) {
               : ""
           }
         >
-          {orders.map((order) => (
-            <div id="order-card" key={order.id}>
-              <div className="head">
-                <p>{order.created}</p>
-                <p className="last">{getOrderStatus(order.status)}</p>
-              </div>
-              <div className="info">
-                <div id="rest">
-                  <img src="" alt="" />
-                  <h3>{order.rest}</h3>
+          {ordersLoad ? (
+            <img src={orders_loading} id="loading" alt="" />
+          ) : (
+            orders.map((order) => (
+              <div id="order-card" key={order.id}>
+                <div className="head">
+                  <p>{order.created}</p>
+                  <p className="last">{getOrderStatus(order.status)}</p>
                 </div>
-                <h3>{order.items_count} dishes</h3>
-                <h3 className="order-total">${order.total}</h3>
+                <div className="info">
+                  <div id="rest">
+                    <img src="" alt="" />
+                    <h3>{order.rest}</h3>
+                  </div>
+                  <h3>{order.items_count} dishes</h3>
+                  <h3 className="order-total">${order.total}</h3>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
       <div
