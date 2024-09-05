@@ -353,6 +353,8 @@ function Info({ order, user }) {
                   if (Number(digitsOnly)) {
                     const formatted = digitsOnly.match(/.{1,4}/g).join(" ");
                     setCardNumber(formatted);
+                  } else if (input === "") {
+                    setCardNumber("");
                   }
                 } else {
                   setCardNumber(input.slice(0, 19));
@@ -374,6 +376,8 @@ function Info({ order, user }) {
                       } else {
                         setCvv(input.slice(0, 3));
                       }
+                    } else if (input === "") {
+                      setCvv("");
                     }
                   }}
                 />
@@ -385,16 +389,18 @@ function Info({ order, user }) {
                     value={dateToMonth}
                     onChange={(e) => {
                       const input = e.target.value;
-                      if (Number(input)) {
-                        if (input.length <= 2) {
-                          if (Number(input) <= 12) {
+                      if (Number(input) || input === "0") {
+                        if (input.length <= 2 || input === "0") {
+                          if (Number(input) <= 12 || input === "0") {
                             setDateToMonth(input);
                           } else {
                             setDateToMonth("");
-                          }
+                          } 
                         } else {
                           setDateToMonth(input.slice(0, 2));
                         }
+                      } else if (input === "") {
+                        setDateToMonth("");
                       }
                     }}
                   />
@@ -406,9 +412,9 @@ function Info({ order, user }) {
                     value={dateToYear}
                     onChange={(e) => {
                       const input = e.target.value;
-                      if (Number(input)) {
-                        if (input.length <= 2) {
-                          if (Number(input) >= 24 || input.length < 2) {
+                      if (Number(input) || input === "0") {
+                        if (input.length <= 2 || input === "0") {
+                          if (Number(input) >= 24 || input.length < 2 || input === "0") {
                             setDateToYear(input);
                           } else {
                             setDateToYear("");
@@ -416,6 +422,8 @@ function Info({ order, user }) {
                         } else {
                           setDateToYear(input.slice(0, 2));
                         }
+                      } else if (input === "") {
+                        setDateToYear("");
                       }
                     }}
                   />
@@ -429,13 +437,17 @@ function Info({ order, user }) {
                 onChange={(e) => {
                   const input = e.target.value;
                   if (!Number(input)) {
-                    for (let i = 0; i < input.length; i++) {
-                      const char = input[i];
-                      if (!Number(char)) {
-                        setCardOwnerName(input);
-                      } else {
-                        setCardOwnerName(cardOwnerName.slice(0, i));
+                    if (input !== "") {
+                      for (let i = 0; i < input.length; i++) {
+                        const char = input[i];
+                        if (!Number(char)) {
+                          setCardOwnerName(input);
+                        } else {
+                          setCardOwnerName(cardOwnerName.slice(0, i));
+                        }
                       }
+                    } else if (input === "") {
+                      setCardOwnerName("");
                     }
                   }
                 }}

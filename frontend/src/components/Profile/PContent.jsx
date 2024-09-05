@@ -55,7 +55,18 @@ function PContent({ user, orders, osl }) {
   return (
     <div id="profile-content-profile">
       <div id="first">
-        <div id="profile">
+        <div
+          id="profile"
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
+        >
           <div id="profile-info">
             <div id="photo-name">
               <img id="user-img" src={userImg} alt="" />
@@ -174,8 +185,31 @@ function PContent({ user, orders, osl }) {
             </div>
           </div>
         )}
-        <h2>Your latest orders</h2>
-        <div id="last-orders">
+        <h2
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
+        >
+          Your latest orders
+        </h2>
+        <div
+          id="last-orders"
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
+        >
           {orders.map((order) => (
             <div id="order-card" key={order.id}>
               <div className="head">
@@ -194,7 +228,18 @@ function PContent({ user, orders, osl }) {
           ))}
         </div>
       </div>
-      <div id="statistics">
+      <div
+        id="statistics"
+        className={
+          emailSendConfirm
+            ? "disabled"
+            : emailAlreadySent
+            ? "disabled"
+            : emailSent
+            ? "disabled"
+            : ""
+        }
+      >
         <div>
           <h2>Unlock spending statistics</h2>
           <h3>

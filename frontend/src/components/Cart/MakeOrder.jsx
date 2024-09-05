@@ -442,7 +442,7 @@ function MakeOrder({
             ) : (
               <div className="input-load">Loading...</div>
             )}
-            {addressList.length > 0 ? (
+            {user.phone !== undefined ? (
               <div id="address" data-testid="address-select">
                 {noAddress && <p className="error">Address required</p>}
                 <Select

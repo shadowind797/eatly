@@ -5666,6 +5666,75 @@ form #action .another a {
 #profile-content-profile #first {
   height: 100%;
 }
+#profile-content-profile #first #pass-change-confirm,
+#profile-content-profile #first #pass-change-already-sent {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 500px;
+  height: 300px;
+  padding: 45px;
+  padding-top: 30px;
+  position: absolute;
+  z-index: 999;
+  top: calc(50% - 150px);
+  left: calc(50% - 250px);
+  border-radius: 14px;
+  border: 1px solid #6c5fbc;
+}
+#profile-content-profile #first #pass-change-confirm #logo,
+#profile-content-profile #first #pass-change-already-sent #logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+#profile-content-profile #first #pass-change-confirm #logo h1,
+#profile-content-profile #first #pass-change-already-sent #logo h1 {
+  color: #6c5fbc;
+  font-size: 24px;
+  font-weight: 600;
+}
+#profile-content-profile #first #pass-change-confirm p,
+#profile-content-profile #first #pass-change-already-sent p {
+  margin-top: 18px;
+  color: #c2c3cb;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+#profile-content-profile #first #pass-change-confirm h4,
+#profile-content-profile #first #pass-change-already-sent h4 {
+  margin-top: 12px;
+  color: #6c5fbc;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 25px;
+}
+#profile-content-profile #first #pass-change-confirm #btns,
+#profile-content-profile #first #pass-change-already-sent #btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+#profile-content-profile #first #pass-change-confirm #btns button,
+#profile-content-profile #first #pass-change-already-sent #btns button {
+  background-color: #6c5fbc;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 14px;
+  width: 170px;
+  cursor: pointer;
+}
+#profile-content-profile #first #pass-change-confirm #btns #cancel,
+#profile-content-profile #first #pass-change-already-sent #btns #cancel {
+  background-color: #fff;
+  border: 1px solid #6c5fbc;
+  color: #6c5fbc;
+}
 #profile-content-profile #first #profile {
   margin-bottom: 30px;
 }
@@ -5868,74 +5937,6 @@ form #action .another a {
 #profile-content-profile #first #profile #profile-info #others div p span #profile #profile-actions #delete-acc:hover {
   transform: scale(1);
   background-color: rgba(255, 0, 0, 0.342);
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent {
-  box-sizing: border-box;
-  background-color: #fff;
-  width: 500px;
-  height: 300px;
-  padding: 45px;
-  padding-top: 30px;
-  position: absolute;
-  top: calc(50% - 150px);
-  left: calc(50% - 250px);
-  border-radius: 14px;
-  border: 1px solid #6c5fbc;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo h1,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo h1 {
-  color: #6c5fbc;
-  font-size: 24px;
-  font-weight: 600;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm p,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent p {
-  margin-top: 18px;
-  color: #c2c3cb;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 22px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm h4,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent h4 {
-  margin-top: 12px;
-  color: #6c5fbc;
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 25px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding-top: 30px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns button,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns button {
-  background-color: #6c5fbc;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 14px;
-  width: 170px;
-  cursor: pointer;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns #cancel,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns #cancel {
-  background-color: #fff;
-  border: 1px solid #6c5fbc;
-  color: #6c5fbc;
 }
 #profile-content-profile #first #profile #profile-info #others div p span h2 {
   color: #6c5fbc;

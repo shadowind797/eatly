@@ -358,16 +358,11 @@ class OrderView(generics.ListAPIView):
 
         if payment:
             order = Order.objects.get(pk=orderID, user=self.request.user)
-            exists = Order.objects.filter(
-                user=self.request.user, status=statusName
-            ).exists()
-            if exists and statusID == 1:
-                return Response(status=status.HTTP_303_SEE_OTHER)
             if payment == "Cash" or payment == "Card to courier":
                 order.comment = f"Payment method: {payment}"
             else:
                 paymentID = Payments.objects.get(
-                    number=payment, owner=self.request.user
+                    number__endswith=payment[-4:], owner=self.request.user
                 )
                 order.payment = paymentID
             order.status = statusName
@@ -376,6 +371,11 @@ class OrderView(generics.ListAPIView):
         else:
             rest_id = request.data.get("rest_id")
             coupon_title = request.data.get("coupon")
+            exists = Order.objects.filter(
+                user=self.request.user, status=statusName
+            ).exists()
+            if exists and statusID == 1:
+                return Response(status=status.HTTP_303_SEE_OTHER)
             total = (
                 CartItem.objects.filter(owner=request.user, item__restaurant_id=rest_id)
                 .annotate(
