@@ -224,7 +224,7 @@ function PContent({ user, orders, osl, ordersLoad }) {
                 </div>
                 <div className="info">
                   <div id="rest">
-                    <img src="" alt="" />
+                    <img src={`${import.meta.env.VITE_API_URL}${order.rest_logo}`} alt="" />
                     <h3>{order.rest}</h3>
                   </div>
                   <h3>{order.items_count} dishes</h3>

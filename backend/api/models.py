@@ -37,6 +37,7 @@ class Restaurant(models.Model):
     address = models.CharField(max_length=120)
     rating = models.FloatField()
     image = models.ImageField(upload_to="img/rests", null=True)
+    logo = models.ImageField(upload_to="img/rests/logos", null=True)
     category = models.ForeignKey(
         "RestaurantCat", on_delete=models.SET_NULL, null=True, blank=True
     )

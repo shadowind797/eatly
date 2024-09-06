@@ -72,14 +72,24 @@ function Dish({ item, category, inCart }) {
       <img className="like disabled" src={like} alt="" />
       <div className="info">
         <div className="item-cat">
-          <div style={style}>{category}</div>
+          <div className="cat-rating">
+            <div className="cat" style={style}>
+              {category}
+            </div>
+            <div className="rate">
+              <p data-testid="item-rate">{item.rating}</p>
+              <img src={star} alt="" />
+            </div>
+          </div>
           <h4>{item.title}</h4>
         </div>
         <div className="time-rating">
-          <p className="rest">{item.rest_name}</p>
-          <div>
-            <p data-testid="item-rate">{item.rating}</p>
-            <img src={star} alt="" />
+          <div className="rest-info">
+            <img
+              src={`${import.meta.env.VITE_API_URL}/media${item.rest_logo}`}
+              alt=""
+            />
+            <p className="rest">{item.rest_name}</p>
           </div>
         </div>
         <div className="price-add">

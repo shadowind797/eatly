@@ -209,7 +209,7 @@ button:hover {
         line-height: 37px; /* 162.5% */
       }
 
-      div {
+      .cat {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -217,6 +217,25 @@ button:hover {
         width: 84px;
         height: 25px;
         border-radius: 5px;
+      }
+
+      .cat-rating {
+        display: flex;
+        justify-content: space-between;
+
+        .rate {
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          
+          p {
+            color: $black_main;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px; /* 100% */
+          }
+        }
       }
     }
 
@@ -226,8 +245,17 @@ button:hover {
       position: relative;
       bottom: 0;
 
-      .rest {
-        font-size: 12px;
+      .rest-info {
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .rest {
+          font-size: 12px;
+        }
+        img {
+          width: 25px;
+        }
       }
 
       div {

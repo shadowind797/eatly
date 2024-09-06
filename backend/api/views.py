@@ -445,7 +445,7 @@ class Items(generics.ListCreateAPIView):
             items = Item.objects.all()
 
         rest_ids = list(items.values_list("restaurant_id", flat=True))
-        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name", "logo")
 
         cats = Category.objects.all()
         cart_items = CartItem.objects.filter(owner=request.user).select_related("item")
@@ -456,6 +456,7 @@ class Items(generics.ListCreateAPIView):
             rest_id = i["restaurant"]
             rest = next((r for r in serialized_rests if r["id"] == rest_id), None)
             i["rest_name"] = rest["name"]
+            i["rest_logo"] = rest["logo"]
 
         data = {
             "items": serialized_items,
@@ -668,7 +669,7 @@ class GiveCartData(generics.ListCreateAPIView):
             "id", "restaurant_id", "title", "price", "photo"
         )
         rest_ids = items.values_list("restaurant_id", flat=True)
-        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name")
+        rests = Restaurant.objects.filter(id__in=rest_ids).values("id", "name", "logo")
         return Response(
             status=status.HTTP_200_OK,
             data={
@@ -1053,6 +1054,7 @@ class GetProfile(generics.ListAPIView):
                 order_id = i["id"]
                 items_in_order = [r for r in ordered_items if r.order_id == order_id]
                 i["rest"] = items_in_order[0].item.restaurant.name
+                i["rest_logo"] = items_in_order[0].item.restaurant.logo.url
                 i["items_count"] = len(items_in_order)
 
             statuses = OrderStatusSerializer(OrderStatus.objects.all(), many=True).data

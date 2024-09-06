@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg";
+import RestSelectOption from "./RestSelectOption.jsx";
 
 MakeOrder.propTypes = {
   subtotal: PropTypes.string.isRequired,
@@ -95,6 +96,7 @@ function MakeOrder({
           {
             value: item.id,
             label: item.name,
+            logo: item.logo,
           },
         ];
       });
@@ -291,7 +293,7 @@ function MakeOrder({
       lineHeight: "117.5%",
       transition: "0.2s",
       width: "470px",
-      height: "55px",
+      height: "65px",
       borderRadius: "10px",
       ":hover": {
         border: "2px solid #6C5FBC",
@@ -337,7 +339,7 @@ function MakeOrder({
               {!applied && (
                 <button
                   type="submit"
-                  style={{zIndex: "10"}}
+                  style={{ zIndex: "10" }}
                   onClick={(e) => {
                     checkCoupon(e);
                   }}
@@ -430,8 +432,20 @@ function MakeOrder({
                 <Select
                   options={restList}
                   styles={selectStyles}
+                  components={{ Option: RestSelectOption }}
+                  formatOptionLabel={(rest) => (
+                    <div className="rest-option">
+                      <img
+                        src={`${import.meta.env.VITE_API_URL}/media${
+                          rest.logo
+                        }`}
+                      />
+                      <h4>{rest.label}</h4>
+                    </div>
+                  )}
                   placeholder="From which restaurant you want to order?"
                   onChange={changeRest}
+                  isSearchable={false}
                   defaultValue={
                     restaurant
                       ? restList.find((r) => r.value === restaurant)

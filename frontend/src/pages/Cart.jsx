@@ -71,8 +71,8 @@ function Cart({ test }) {
         <div id="main">
           {!creatingOrder && (
             <ItemsList
-              rests={rests}
               items={oneRestItems}
+              rest={rests.find((r) => r.id === rest)}
               cartItems={cartItems}
               onChange={getCartData}
             />

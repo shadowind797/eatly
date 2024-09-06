@@ -63,13 +63,14 @@ function ProfileContent() {
         <nav>
           {[
             "Profile",
+            "Settings",
             "Orders history",
             "Manage expenses",
             "Explore Premium",
           ].map((option) => (
             <button
               key={option}
-              className={option === "Profile" ? "active" : "disabled"}
+              className={option === contentOption ? "active" : ""}
               onClick={() => setContentOption(option)}
             >
               {option}
