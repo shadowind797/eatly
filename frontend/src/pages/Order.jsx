@@ -2,6 +2,7 @@ import Info from "../components/Order/Info.jsx";
 import { useEffect, useState } from "react";
 import api from "../api.js";
 import Map from "../components/Order/Map.jsx";
+import Loading from "../components/Loading.jsx";
 
 function Order() {
   const [user, setUser] = useState({});
@@ -40,13 +41,14 @@ function Order() {
         <Map
           restAddress={order.rest_address}
           userAddress={order.address_obj}
-          restName={order.rest_name} userName={user.first_name}
+          restName={order.rest_name}
+          userName={user.first_name}
         />
         <Info order={order} user={user} />
       </div>
     );
   } else {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 }
 

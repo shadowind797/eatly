@@ -1,0 +1,32 @@
+.notfound {
+  padding: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/pages/404.png");
+
+  h1 {
+    padding-top: 70px;
+    color: $purple_main;
+    font-size: 60px;
+    font-weight: 800;
+  }
+
+  p {
+    padding-top: 100px;
+    color: $black_main;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 36px;
+    margin-top: 20px;
+  }
+
+  a {
+    color: $purple_main;
+    font-size: 28px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+}

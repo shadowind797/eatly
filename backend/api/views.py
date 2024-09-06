@@ -76,9 +76,9 @@ class GetAccess(generics.ListAPIView):
 
         if access_to:
             if "site" in access_to:
-                is_banned = User.objects.filter(pk=user.id, is_banned=True).exists()
+                is_banned = user.is_banned
                 if is_banned:
-                    return Response(status=status.HTTP_403_FORBIDDEN)
+                    return Response(status=status.HTTP_403_FORBIDDEN, data={"detail": user.ban_reason})
                 else:
                     return Response(status=status.HTTP_200_OK)
             elif "admin" in access_to:

@@ -3,14 +3,18 @@ import BaseHeader from "../components/BaseHeader.jsx";
 import Footer from "../components/Footer.jsx";
 
 function NotFound() {
-    return (
-        <div>
-            <Header/>
-            <BaseHeader/>
-            <h1>404 Not Found</h1>
-            <Footer/>
-        </div>
-    )
+  return (
+    <div>
+      <Header />
+      <BaseHeader />
+      <div className="notfound">
+        <h1>Page Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
+        <a href="/">Return to Home</a>
+      </div>
+      <Footer />
+    </div>
+  );
 }
 
-export default NotFound
+export default NotFound;

@@ -466,6 +466,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -830,6 +835,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -1336,6 +1346,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -2049,6 +2064,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -2841,6 +2861,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -3596,6 +3621,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -4302,6 +4332,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -4885,6 +4920,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -5326,6 +5366,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -6242,6 +6287,11 @@ div {
 a {
   text-decoration: none;
   color: rgb(54, 54, 54);
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
+  transition: 0.2s;
 }
 
 button {
@@ -6581,4 +6631,111 @@ form #action .another a {
   font-size: 24px;
   font-weight: 600;
   text-align: center;
+}
+
+.forbidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  gap: 70px;
+  background-image: url("../assets/pages/forbidden-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.forbidden img {
+  width: 300px;
+}
+.forbidden div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.forbidden div div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.forbidden div h1 {
+  color: #eb3c3c;
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 45px;
+}
+.forbidden div p {
+  color: #828283;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 26px;
+}
+.forbidden div p span {
+  color: #eb3c3c;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 26px;
+}
+.forbidden div #detail {
+  color: rgb(54, 54, 54);
+}
+.forbidden div #mistake {
+  font-size: 24px;
+}
+.forbidden div #mistake a {
+  color: #6c5fbc;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 26px;
+}
+.forbidden div a {
+  color: #6c5fbc;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.notfound {
+  padding: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/pages/404.png");
+}
+.notfound h1 {
+  padding-top: 70px;
+  color: #6c5fbc;
+  font-size: 60px;
+  font-weight: 800;
+}
+.notfound p {
+  padding-top: 100px;
+  color: rgb(54, 54, 54);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 36px;
+  margin-top: 20px;
+}
+.notfound a {
+  color: #6c5fbc;
+  font-size: 28px;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+#page-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#page-loading img {
+  height: 100px;
+  margin-top: 24%;
 }/*# sourceMappingURL=index.css.map */

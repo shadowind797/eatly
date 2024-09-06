@@ -1,6 +1,13 @@
 import { Navigate } from "react-router-dom";
 import api from "../api.js";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import Loading from "./Loading.jsx";
+
+SuperProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+  access_to: PropTypes.string.isRequired,
+};
 
 function SuperProtectedRoute({ children, access_to }) {
   const [access, setAccess] = useState(null);
@@ -25,11 +32,11 @@ function SuperProtectedRoute({ children, access_to }) {
   };
 
   if (access === null) {
-    return <div>Loading...</div>;
+    return <Loading />;
   } else if (access === true) {
     return children;
   } else if (access === false) {
-    return <Navigate to="/forbidden" />;
+    return <Navigate to="/forbidden?reason=no_permissions" />;
   }
 }
 
