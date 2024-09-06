@@ -11,7 +11,7 @@ function Footer() {
         <div id="foot-logo">
           <a href="/">
             <img src={logo} alt="" />
-            <h4>eatly</h4>
+            <h4 className="logo">eatly</h4>
           </a>
         </div>
         <div id="foot-nav" className="disabled">

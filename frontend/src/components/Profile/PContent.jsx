@@ -10,7 +10,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
 import PropTypes from "prop-types";
-import orders_loading from "../../assets/loading_menu.webp"
+import orders_loading from "../../assets/loading_menu.webp";
+import eatlyAd from "../../assets/eatly+ad1.png";
 
 PContent.propTypes = {
   user: PropTypes.object.isRequired,
@@ -128,7 +129,7 @@ function PContent({ user, orders, osl, ordersLoad }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p>
               We will send to you confirmation email to provide you pass-reset
@@ -154,7 +155,7 @@ function PContent({ user, orders, osl, ordersLoad }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p>
               We detect that you already has sent email. If link in mail doesn't
@@ -174,7 +175,7 @@ function PContent({ user, orders, osl, ordersLoad }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p style={{ color: "#aaa3d8", paddingTop: "10px" }}>
               We sent email to {user.email}. Please follow the instructions in
@@ -246,12 +247,7 @@ function PContent({ user, orders, osl, ordersLoad }) {
             : ""
         }
       >
-        <div>
-          <h2>Unlock spending statistics</h2>
-          <h3>
-            <span id="wt">with</span> EATLY <span id="prem">Premium</span>
-          </h3>
-        </div>
+        <img style={{ width: "100%", height: "100%" }} src={eatlyAd} alt="" />
       </div>
     </div>
   );

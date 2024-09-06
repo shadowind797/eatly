@@ -1,13 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 html,
 body,
 div,
@@ -428,6 +438,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -574,7 +589,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -787,6 +802,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -933,7 +953,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -1288,6 +1308,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -1434,7 +1459,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -1996,6 +2021,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -2142,7 +2172,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -2783,6 +2813,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -2929,7 +2964,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -3533,6 +3568,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -3679,7 +3719,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -4234,6 +4274,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -4380,7 +4425,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -4812,6 +4857,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -4958,7 +5008,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -5248,6 +5298,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -5394,7 +5449,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -6139,45 +6194,12 @@ form #action .another a {
 }
 #profile-content-profile #statistics {
   height: 95.2%;
-  width: 41.4%;
+  width: 27.5%;
   padding: 0;
-  border: 1px solid green;
   border-radius: 14px;
-  background: linear-gradient(to bottom right, #6c5fbc, rgba(55, 37, 173, 0.937254902));
 }
-#profile-content-profile #statistics div {
-  margin-top: calc(50% - 120px);
-  margin-left: calc(50% - 208px);
+#profile-content-profile #statistics img {
   border-radius: 14px;
-  border: 5px solid #6c5fbc;
-  width: max-content;
-  padding: 40px;
-}
-#profile-content-profile #statistics div h2 {
-  color: #fff;
-  font-size: 25px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-#profile-content-profile #statistics div h3 {
-  font-size: 37px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #6c5fbc;
-  width: max-content;
-  text-shadow: 1px 0 5px #fff;
-  cursor: pointer;
-}
-#profile-content-profile #statistics div h3 #wt {
-  font-size: 19px;
-  color: rgb(54, 54, 54);
-  text-shadow: none;
-  color: #fff;
-  cursor: default;
-}
-#profile-content-profile #statistics div h3 #prem {
-  color: green;
-  cursor: pointer;
 }
 
 html,
@@ -6190,6 +6212,11 @@ body,
   background: #f9f9f9;
   height: 100%;
   margin: 0;
+}
+
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
 }
 
 h1,
@@ -6338,7 +6365,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;

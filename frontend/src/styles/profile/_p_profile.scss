@@ -513,48 +513,12 @@
   }
   #statistics {
     height: 95.2%;
-    width: 41.4%;
+    width: 27.5%;
     padding: 0;
-    border: 1px solid green;
     border-radius: 14px;
-    background: linear-gradient(to bottom right, $purple_main, #3725adef);
 
-    div {
-      margin-top: calc(50% - 120px);
-      margin-left: calc(50% - 208px);
+    img {
       border-radius: 14px;
-      border: 5px solid $purple_main;
-      width: max-content;
-      padding: 40px;
-
-      h2 {
-        color: #fff;
-        font-size: 25px;
-        font-weight: 600;
-        margin-bottom: 12px;
-      }
-
-      h3 {
-        font-size: 37px;
-        font-weight: 600;
-        margin-bottom: 12px;
-        color: $purple_main;
-        width: max-content;
-        text-shadow: 1px 0 5px #fff;
-        cursor: pointer;
-
-        #wt {
-          font-size: 19px;
-          color: $black_main;
-          text-shadow: none;
-          color: #fff;
-          cursor: default;
-        }
-        #prem {
-          color: green;
-          cursor: pointer;
-        }
-      }
     }
   }
 }
