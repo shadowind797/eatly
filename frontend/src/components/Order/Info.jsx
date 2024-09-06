@@ -7,6 +7,12 @@ import load from "../../assets/count_load.gif";
 import cash from "../../assets/cash.svg";
 import card_internet from "../../assets/internet.svg";
 import card_courier from "../../assets/card.svg";
+import PropTypes from "prop-types";
+
+Info.propTypes = {
+  order: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
 
 function Info({ order, user }) {
   const [addPayment, setAddPayment] = useState(false);
@@ -74,12 +80,24 @@ function Info({ order, user }) {
     <img src={src} style={{ width }} alt={alt} />
   );
 
+  LoadingImage.propTypes = {
+    src: PropTypes.string.isRequired,
+    width: PropTypes.string,
+    alt: PropTypes.string,
+  };
+
   const InfoDisplay = ({ label, value, loading }) => (
     <h4>
       {label}:{" "}
       {loading ? <LoadingImage src={info_load} /> : <span>{value}</span>}
     </h4>
   );
+
+  InfoDisplay.propTypes = {
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    loading: PropTypes.bool,
+  };
 
   const updateOrder = (e) => {
     e.preventDefault();
@@ -97,17 +115,12 @@ function Info({ order, user }) {
           if (res.status === 205) {
             setLoading(false);
             setOrdered(true);
-            api
-              .delete("api/items/cart/delete", { params: { method: "clear" } })
-              .then((res) => {
-                if (res.status === 202) {
-                } else if (res.status === 404) {
-                }
-              })
-              .catch((err) => {});
+            api.delete("api/items/cart/delete", {
+              params: { method: "clear", rest: order.rest_name },
+            });
           }
         })
-        .catch((err) => {});
+        .catch(() => {});
     }
   };
 
@@ -122,7 +135,7 @@ function Info({ order, user }) {
             ...list,
             {
               value: item.number,
-              label: `**** **** **** ${item.number.slice(15, 19)}`,
+              label: item.number,
             },
           ];
           setPaymentList(list);
@@ -137,7 +150,7 @@ function Info({ order, user }) {
           setAddPayment(false);
         }
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const createPayment = (e) => {
@@ -180,7 +193,7 @@ function Info({ order, user }) {
           setCancelErr(true);
         }
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const selectStyles = {
@@ -203,7 +216,7 @@ function Info({ order, user }) {
         color: "#C2C3CB",
       },
     }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
+    option: (styles, { isDisabled, isFocused }) => ({
       ...styles,
       backgroundColor: "#fff",
       color: isFocused ? "#6C5FBC" : "#201F1F",
@@ -340,6 +353,8 @@ function Info({ order, user }) {
                   if (Number(digitsOnly)) {
                     const formatted = digitsOnly.match(/.{1,4}/g).join(" ");
                     setCardNumber(formatted);
+                  } else if (input === "") {
+                    setCardNumber("");
                   }
                 } else {
                   setCardNumber(input.slice(0, 19));
@@ -361,6 +376,8 @@ function Info({ order, user }) {
                       } else {
                         setCvv(input.slice(0, 3));
                       }
+                    } else if (input === "") {
+                      setCvv("");
                     }
                   }}
                 />
@@ -372,16 +389,18 @@ function Info({ order, user }) {
                     value={dateToMonth}
                     onChange={(e) => {
                       const input = e.target.value;
-                      if (Number(input)) {
-                        if (input.length <= 2) {
-                          if (Number(input) <= 12) {
+                      if (Number(input) || input === "0") {
+                        if (input.length <= 2 || input === "0") {
+                          if (Number(input) <= 12 || input === "0") {
                             setDateToMonth(input);
                           } else {
                             setDateToMonth("");
-                          }
+                          } 
                         } else {
                           setDateToMonth(input.slice(0, 2));
                         }
+                      } else if (input === "") {
+                        setDateToMonth("");
                       }
                     }}
                   />
@@ -393,9 +412,9 @@ function Info({ order, user }) {
                     value={dateToYear}
                     onChange={(e) => {
                       const input = e.target.value;
-                      if (Number(input)) {
-                        if (input.length <= 2) {
-                          if (Number(input) >= 24 || input.length < 2) {
+                      if (Number(input) || input === "0") {
+                        if (input.length <= 2 || input === "0") {
+                          if (Number(input) >= 24 || input.length < 2 || input === "0") {
                             setDateToYear(input);
                           } else {
                             setDateToYear("");
@@ -403,6 +422,8 @@ function Info({ order, user }) {
                         } else {
                           setDateToYear(input.slice(0, 2));
                         }
+                      } else if (input === "") {
+                        setDateToYear("");
                       }
                     }}
                   />
@@ -416,13 +437,17 @@ function Info({ order, user }) {
                 onChange={(e) => {
                   const input = e.target.value;
                   if (!Number(input)) {
-                    for (let i = 0; i < input.length; i++) {
-                      const char = input[i];
-                      if (!Number(char)) {
-                        setCardOwnerName(input);
-                      } else {
-                        setCardOwnerName(cardOwnerName.slice(0, i));
+                    if (input !== "") {
+                      for (let i = 0; i < input.length; i++) {
+                        const char = input[i];
+                        if (!Number(char)) {
+                          setCardOwnerName(input);
+                        } else {
+                          setCardOwnerName(cardOwnerName.slice(0, i));
+                        }
                       }
+                    } else if (input === "") {
+                      setCardOwnerName("");
                     }
                   }
                 }}

@@ -23,7 +23,7 @@ function TopRests() {
                 setCats(data.cats)
                 setLoading(false)
             })
-            .catch((err) => {
+            .catch(() => {
             });
     }
 
@@ -49,7 +49,7 @@ function TopRests() {
                                                      category={getCategory(rest.category_id)}/>)}
                 </div>
                 <div className="view-all">
-                    <a href="#">
+                    <a href="/menu">
                         <p>View All</p>
                         <img src={ViewAll} alt=""/>
                     </a>

@@ -15,9 +15,9 @@ exports[`Restaurant component matches the snapshot 1`] = `
     >
       <div
         class="cat"
-        style="background-color: rgb(247, 197, 186); color: rgb(251, 71, 29);"
+        style="background-color: rgb(247, 237, 208); color: rgb(218, 163, 26);"
       >
-        Trending
+        Supreme
       </div>
       <div
         class="text"
@@ -32,12 +32,12 @@ exports[`Restaurant component matches the snapshot 1`] = `
             class="time-rating"
           >
             <p>
-              ~30min
+              45 dishes
             </p>
             <div>
               <img
                 alt=""
-                src="undefined/media/img/Star.svg"
+                src="test-file-stub"
               />
               <p>
                 4.9
@@ -47,7 +47,7 @@ exports[`Restaurant component matches the snapshot 1`] = `
           <button>
             <img
               alt=""
-              src="undefined/media/img/Bookmark.svg"
+              src="test-file-stub"
             />
           </button>
         </div>

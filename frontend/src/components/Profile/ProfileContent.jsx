@@ -8,9 +8,10 @@ import api from "../../api.js";
 function ProfileContent() {
   const [user, setUser] = useState({});
   const [orders, setOrders] = useState([]);
-  const [orderStatusList, setOrderStatusList] = useState([])
+  const [orderStatusList, setOrderStatusList] = useState([]);
   const [status, setStatus] = useState("");
   const [contentOption, setContentOption] = useState("Profile");
+  const [orderLoading, setOrderLoading] = useState(false);
 
   useEffect(() => {
     getUser();
@@ -18,14 +19,16 @@ function ProfileContent() {
   }, []);
 
   const getOrders = (method) => {
+    setOrderLoading(true);
     api
       .get(`api/profile/orders/`, { params: { method: method } })
       .then((res) => res.data)
       .then((data) => {
         setOrders(data.orders);
-        setOrderStatusList(data.statuses)
+        setOrderStatusList(data.statuses);
+        setOrderLoading(false);
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const getUser = () => {
@@ -45,7 +48,7 @@ function ProfileContent() {
 
         setStatus(statusMap[res.data[0].status] || "");
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   return (
@@ -66,7 +69,7 @@ function ProfileContent() {
           ].map((option) => (
             <button
               key={option}
-              className={contentOption === option ? "active" : ""}
+              className={option === "Profile" ? "active" : "disabled"}
               onClick={() => setContentOption(option)}
             >
               {option}
@@ -75,7 +78,14 @@ function ProfileContent() {
         </nav>
       </div>
       <div id="nav-option-content">
-        {contentOption === "Profile" && <PContent user={user} orders={orders} osl={orderStatusList} />}
+        {contentOption === "Profile" && (
+          <PContent
+            user={user}
+            orders={orders}
+            osl={orderStatusList}
+            ordersLoad={orderLoading}
+          />
+        )}
         {contentOption === "Manage expenses" && <MEContent />}
         {contentOption === "Orders history" && <OHContent />}
         {contentOption === "Explore Premium" && <EPContent />}

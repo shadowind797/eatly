@@ -21,12 +21,12 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
         <img
           alt=""
           class="photo"
-          src="undefinedhttp://127.0.0.1:8000/media/img/food/foodimg1.png"
+          src="undefined/media/img/food/foodimg1.png"
         />
         <img
           alt=""
           class="like"
-          src="undefined/media/img/Heart.svg"
+          src="test-file-stub"
         />
         <div
           class="info"
@@ -34,7 +34,11 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="item-cat"
           >
-            <div />
+            <div
+              style="background-color: rgba(199, 158, 236, 0.59); color: rgb(221, 29, 251);"
+            >
+              Desserts
+            </div>
             <h4>
               Cookie
             </h4>
@@ -42,19 +46,21 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="time-rating"
           >
-            <p>
-              ~30min
+            <p
+              class="rest"
+            >
+              Mc'Donalds
             </p>
             <div>
-              <img
-                alt=""
-                src="undefined/media/img/Star.svg"
-              />
               <p
                 data-testid="item-rate"
               >
                 5
               </p>
+              <img
+                alt=""
+                src="test-file-stub"
+              />
             </div>
           </div>
           <div
@@ -68,11 +74,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 .99
               </span>
             </h5>
-            <img
-              alt=""
-              src="test-file-stub"
-              style="width: 45px; margin-left: 80px;"
-            />
+            <button
+              data-testid="add-to-cart-button"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -82,12 +91,12 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
         <img
           alt=""
           class="photo"
-          src="undefinedhttp://127.0.0.1:8000/media/img/food/SweDish.png"
+          src="undefined/media/img/food/SweDish.png"
         />
         <img
           alt=""
           class="like"
-          src="undefined/media/img/Heart.svg"
+          src="test-file-stub"
         />
         <div
           class="info"
@@ -96,8 +105,10 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
             class="item-cat"
           >
             <div
-              style="background-color: rgb(247, 237, 208); color: rgb(218, 163, 26);"
-            />
+              style="background-color: rgba(203, 135, 111, 0.59); color: rgb(251, 107, 29);"
+            >
+              Meat
+            </div>
             <h4>
               Swe Dish
             </h4>
@@ -105,19 +116,21 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="time-rating"
           >
-            <p>
-              ~30min
+            <p
+              class="rest"
+            >
+              KFC
             </p>
             <div>
-              <img
-                alt=""
-                src="undefined/media/img/Star.svg"
-              />
               <p
                 data-testid="item-rate"
               >
                 4.9
               </p>
+              <img
+                alt=""
+                src="test-file-stub"
+              />
             </div>
           </div>
           <div
@@ -131,11 +144,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 .99
               </span>
             </h5>
-            <img
-              alt=""
-              src="test-file-stub"
-              style="width: 45px; margin-left: 80px;"
-            />
+            <button
+              data-testid="add-to-cart-button"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -145,12 +161,12 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
         <img
           alt=""
           class="photo"
-          src="undefinedhttp://127.0.0.1:8000/media/img/food/foodimg1.png"
+          src="undefined/media/img/food/foodimg1.png"
         />
         <img
           alt=""
           class="like"
-          src="undefined/media/img/Heart.svg"
+          src="test-file-stub"
         />
         <div
           class="info"
@@ -159,8 +175,10 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
             class="item-cat"
           >
             <div
-              style="background-color: rgb(247, 237, 208); color: rgb(218, 163, 26);"
-            />
+              style="background-color: rgba(203, 135, 111, 0.59); color: rgb(251, 107, 29);"
+            >
+              Meat
+            </div>
             <h4>
               Steak
             </h4>
@@ -168,19 +186,21 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="time-rating"
           >
-            <p>
-              ~30min
+            <p
+              class="rest"
+            >
+              Mc'Donalds
             </p>
             <div>
-              <img
-                alt=""
-                src="undefined/media/img/Star.svg"
-              />
               <p
                 data-testid="item-rate"
               >
                 4.9
               </p>
+              <img
+                alt=""
+                src="test-file-stub"
+              />
             </div>
           </div>
           <div
@@ -194,11 +214,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 .99
               </span>
             </h5>
-            <img
-              alt=""
-              src="test-file-stub"
-              style="width: 45px; margin-left: 80px;"
-            />
+            <button
+              data-testid="add-to-cart-button"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -208,12 +231,12 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
         <img
           alt=""
           class="photo"
-          src="undefinedhttp://127.0.0.1:8000/media/img/food/ChikenHell.png"
+          src="undefined/media/img/food/ChikenHell.png"
         />
         <img
           alt=""
           class="like"
-          src="undefined/media/img/Heart.svg"
+          src="test-file-stub"
         />
         <div
           class="info"
@@ -221,7 +244,11 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="item-cat"
           >
-            <div />
+            <div
+              style="background-color: rgb(247, 197, 186); color: rgb(251, 71, 29);"
+            >
+              Fast Food
+            </div>
             <h4>
               Cheeseburger
             </h4>
@@ -229,19 +256,21 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="time-rating"
           >
-            <p>
-              ~30min
+            <p
+              class="rest"
+            >
+              Mc'Donalds
             </p>
             <div>
-              <img
-                alt=""
-                src="undefined/media/img/Star.svg"
-              />
               <p
                 data-testid="item-rate"
               >
                 4.9
               </p>
+              <img
+                alt=""
+                src="test-file-stub"
+              />
             </div>
           </div>
           <div
@@ -255,11 +284,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 .99
               </span>
             </h5>
-            <img
-              alt=""
-              src="test-file-stub"
-              style="width: 45px; margin-left: 80px;"
-            />
+            <button
+              data-testid="add-to-cart-button"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -269,12 +301,12 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
         <img
           alt=""
           class="photo"
-          src="undefinedhttp://127.0.0.1:8000/media/img/food/ChikenHell.png"
+          src="undefined/media/img/food/ChikenHell.png"
         />
         <img
           alt=""
           class="like"
-          src="undefined/media/img/Heart.svg"
+          src="test-file-stub"
         />
         <div
           class="info"
@@ -282,7 +314,11 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="item-cat"
           >
-            <div />
+            <div
+              style="background-color: rgba(238, 0, 255, 0.32); color: rgb(255, 0, 242);"
+            >
+              Asian
+            </div>
             <h4>
               Chicken Hell
             </h4>
@@ -290,19 +326,21 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
           <div
             class="time-rating"
           >
-            <p>
-              ~30min
+            <p
+              class="rest"
+            >
+              The Chicken King
             </p>
             <div>
-              <img
-                alt=""
-                src="undefined/media/img/Star.svg"
-              />
               <p
                 data-testid="item-rate"
               >
                 4.8
               </p>
+              <img
+                alt=""
+                src="test-file-stub"
+              />
             </div>
           </div>
           <div
@@ -316,11 +354,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
                 .99
               </span>
             </h5>
-            <img
-              alt=""
-              src="test-file-stub"
-              style="width: 45px; margin-left: 80px;"
-            />
+            <button
+              data-testid="add-to-cart-button"
+            >
+              <img
+                alt=""
+                src="test-file-stub"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -329,14 +370,14 @@ exports[`Top-Dishes component matches the snapshot 1`] = `
       class="view-all"
     >
       <a
-        href="#"
+        href="/menu"
       >
         <p>
           View All
         </p>
         <img
           alt=""
-          src="undefined/media/img/view-all.svg"
+          src="test-file-stub"
         />
       </a>
     </div>

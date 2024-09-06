@@ -9,15 +9,18 @@ import logo from "../../assets/Logo.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../api.js";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import orders_loading from "../../assets/loading_menu.webp";
+import eatlyAd from "../../assets/eatly+ad1.png";
 
 PContent.propTypes = {
   user: PropTypes.object.isRequired,
   orders: PropTypes.array.isRequired,
   osl: PropTypes.array.isRequired,
+  ordersLoad: PropTypes.bool.isRequired,
 };
 
-function PContent({ user, orders, osl }) {
+function PContent({ user, orders, osl, ordersLoad }) {
   const [emailSent, setEmailSent] = useState(false);
   const [emailSendConfirm, setEmailSendConfirm] = useState(false);
   const [emailSending, setEmailSending] = useState(false);
@@ -57,6 +60,15 @@ function PContent({ user, orders, osl }) {
       <div id="first">
         <div
           id="profile"
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
         >
           <div id="profile-info">
             <div id="photo-name">
@@ -99,21 +111,15 @@ function PContent({ user, orders, osl }) {
             </div>
           </div>
           <div id="profile-actions">
-            <button
-              id="change-pass"
-              onClick={() => setEmailSendConfirm(true)}
-            >
+            <button id="change-pass" onClick={() => setEmailSendConfirm(true)}>
               <img src={passwordImg} alt="Change password" />
               <p>Change password</p>
             </button>
-            <button
-              id="logout"
-              onClick={() => navigate("/logout")}
-            >
+            <button id="logout" onClick={() => navigate("/logout")}>
               <img src={logoutImg} alt="Log out" />
               <p>Log out</p>
             </button>
-            <button id="delete-acc">
+            <button id="delete-acc" className="disabled">
               <img src={deleteImg} alt="Delete account" />
               <p>Delete account</p>
             </button>
@@ -123,7 +129,7 @@ function PContent({ user, orders, osl }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p>
               We will send to you confirmation email to provide you pass-reset
@@ -149,7 +155,7 @@ function PContent({ user, orders, osl }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p>
               We detect that you already has sent email. If link in mail doesn't
@@ -169,7 +175,7 @@ function PContent({ user, orders, osl }) {
           <div id="pass-change-confirm">
             <div id="logo">
               <img src={logo} alt="" />
-              <h1>eatly</h1>
+              <h1 className="logo">eatly</h1>
             </div>
             <p style={{ color: "#aaa3d8", paddingTop: "10px" }}>
               We sent email to {user.email}. Please follow the instructions in
@@ -182,31 +188,66 @@ function PContent({ user, orders, osl }) {
             </div>
           </div>
         )}
-        <h2>Your latest orders</h2>
-        <div id="last-orders">
-          {orders.map((order) => (
-            <div id="order-card" key={order.id}>
-              <div className="head">
-                <p>{order.created}</p>
-                <p className="last">{getOrderStatus(order.status)}</p>
-              </div>
-              <div className="info">
-                <div id="rest">
-                  <img src="" alt="" />
-                  <h3>{order.rest}</h3>
+        <h2
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
+        >
+          Your latest orders
+        </h2>
+        <div
+          id="last-orders"
+          className={
+            emailSendConfirm
+              ? "disabled"
+              : emailAlreadySent
+              ? "disabled"
+              : emailSent
+              ? "disabled"
+              : ""
+          }
+        >
+          {ordersLoad ? (
+            <img src={orders_loading} id="loading" alt="" />
+          ) : (
+            orders.map((order) => (
+              <div id="order-card" key={order.id}>
+                <div className="head">
+                  <p>{order.created}</p>
+                  <p className="last">{getOrderStatus(order.status)}</p>
                 </div>
-                <h3>{order.items_count} dishes</h3>
-                <h3 className="order-total">${order.total}</h3>
+                <div className="info">
+                  <div id="rest">
+                    <img src="" alt="" />
+                    <h3>{order.rest}</h3>
+                  </div>
+                  <h3>{order.items_count} dishes</h3>
+                  <h3 className="order-total">${order.total}</h3>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </div>
-      <div id="statistics">
-        <div>
-          <h2>Unlock spending statistics</h2>
-          <h3><span id="wt">with</span> EATLY <span id="prem">Premium</span></h3>
-        </div>
+      <div
+        id="statistics"
+        className={
+          emailSendConfirm
+            ? "disabled"
+            : emailAlreadySent
+            ? "disabled"
+            : emailSent
+            ? "disabled"
+            : ""
+        }
+      >
+        <img style={{ width: "100%", height: "100%" }} src={eatlyAd} alt="" />
       </div>
     </div>
   );

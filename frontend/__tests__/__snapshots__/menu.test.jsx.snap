@@ -359,7 +359,7 @@ exports[`Menu component matches the snapshot 1`] = `
                     <div
                       class=" css-1dimb5e-singleValue"
                     >
-                      A-Z
+                      Rating
                     </div>
                     <div
                       class=" css-19bb58m"
@@ -441,7 +441,7 @@ exports[`Menu component matches the snapshot 1`] = `
                     <div
                       class=" css-1dimb5e-singleValue"
                     >
-                      Ascending
+                      Descending
                     </div>
                     <div
                       class=" css-19bb58m"
@@ -549,12 +549,14 @@ exports[`Menu component matches the snapshot 1`] = `
         </button>
       </div>
     </div>
-    <div
-      data-testid="mock-rests"
-    />
-    <div
-      data-testid="mock-dishes"
-    />
+    <div>
+      <div
+        data-testid="mock-rests"
+      />
+      <div
+        data-testid="mock-dishes"
+      />
+    </div>
     <div
       id="footer"
     >
@@ -569,7 +571,7 @@ exports[`Menu component matches the snapshot 1`] = `
           >
             <img
               alt=""
-              src="undefined/media/img/Logo.svg"
+              src="test-file-stub"
             />
             <h4>
               eatly

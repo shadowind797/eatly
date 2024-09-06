@@ -13,207 +13,12 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
       <img
         alt=""
         class="photo"
-        src="undefinedhttp://127.0.0.1:8000/media/img/food/foodimg1.png"
-      />
-      <img
-        alt=""
-        class="like"
-        src="undefined/media/img/Heart.svg"
-      />
-      <div
-        class="info"
-      >
-        <div
-          class="item-cat"
-        >
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 70px;"
-          />
-          <h4>
-            Cookie
-          </h4>
-        </div>
-        <div
-          class="time-rating"
-        >
-          <p>
-            ~30min
-          </p>
-          <div>
-            <img
-              alt=""
-              src="undefined/media/img/Star.svg"
-            />
-            <p
-              data-testid="item-rate"
-            >
-              5
-            </p>
-          </div>
-        </div>
-        <div
-          class="price-add"
-        >
-          <h5
-            data-testid="item-cost"
-          >
-            12
-            <span>
-              .99
-            </span>
-          </h5>
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 45px; margin-left: 80px;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="dish"
-    >
-      <img
-        alt=""
-        class="photo"
-        src="undefinedhttp://127.0.0.1:8000/media/img/food/SweDish.png"
-      />
-      <img
-        alt=""
-        class="like"
-        src="undefined/media/img/Heart.svg"
-      />
-      <div
-        class="info"
-      >
-        <div
-          class="item-cat"
-        >
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 70px;"
-          />
-          <h4>
-            Swe Dish
-          </h4>
-        </div>
-        <div
-          class="time-rating"
-        >
-          <p>
-            ~30min
-          </p>
-          <div>
-            <img
-              alt=""
-              src="undefined/media/img/Star.svg"
-            />
-            <p
-              data-testid="item-rate"
-            >
-              4.9
-            </p>
-          </div>
-        </div>
-        <div
-          class="price-add"
-        >
-          <h5
-            data-testid="item-cost"
-          >
-            19
-            <span>
-              .99
-            </span>
-          </h5>
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 45px; margin-left: 80px;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="dish"
-    >
-      <img
-        alt=""
-        class="photo"
-        src="undefinedhttp://127.0.0.1:8000/media/img/food/foodimg1.png"
-      />
-      <img
-        alt=""
-        class="like"
-        src="undefined/media/img/Heart.svg"
-      />
-      <div
-        class="info"
-      >
-        <div
-          class="item-cat"
-        >
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 70px;"
-          />
-          <h4>
-            Steak
-          </h4>
-        </div>
-        <div
-          class="time-rating"
-        >
-          <p>
-            ~30min
-          </p>
-          <div>
-            <img
-              alt=""
-              src="undefined/media/img/Star.svg"
-            />
-            <p
-              data-testid="item-rate"
-            >
-              4.9
-            </p>
-          </div>
-        </div>
-        <div
-          class="price-add"
-        >
-          <h5
-            data-testid="item-cost"
-          >
-            14
-            <span>
-              .99
-            </span>
-          </h5>
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 45px; margin-left: 80px;"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="dish"
-    >
-      <img
-        alt=""
-        class="photo"
         src="undefinedhttp://127.0.0.1:8000/media/img/food/ChikenHell.png"
       />
       <img
         alt=""
         class="like"
-        src="undefined/media/img/Heart.svg"
+        src="test-file-stub"
       />
       <div
         class="info"
@@ -221,10 +26,8 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="item-cat"
         >
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 70px;"
+          <div
+            style="background-color: rgb(247, 237, 208); color: rgb(218, 163, 26);"
           />
           <h4>
             Cheeseburger
@@ -233,19 +36,19 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="time-rating"
         >
-          <p>
-            ~30min
-          </p>
+          <p
+            class="rest"
+          />
           <div>
-            <img
-              alt=""
-              src="undefined/media/img/Star.svg"
-            />
             <p
               data-testid="item-rate"
             >
               4.9
             </p>
+            <img
+              alt=""
+              src="test-file-stub"
+            />
           </div>
         </div>
         <div
@@ -259,11 +62,14 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               .99
             </span>
           </h5>
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 45px; margin-left: 80px;"
-          />
+          <button
+            data-testid="add-to-cart-button"
+          >
+            <img
+              alt=""
+              src="test-file-stub"
+            />
+          </button>
         </div>
       </div>
     </div>
@@ -278,7 +84,7 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
       <img
         alt=""
         class="like"
-        src="undefined/media/img/Heart.svg"
+        src="test-file-stub"
       />
       <div
         class="info"
@@ -286,11 +92,11 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="item-cat"
         >
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 70px;"
-          />
+          <div
+            style="background-color: rgba(238, 0, 255, 0.32); color: rgb(255, 0, 242);"
+          >
+            Asian
+          </div>
           <h4>
             Chicken Hell
           </h4>
@@ -298,19 +104,19 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
         <div
           class="time-rating"
         >
-          <p>
-            ~30min
-          </p>
+          <p
+            class="rest"
+          />
           <div>
-            <img
-              alt=""
-              src="undefined/media/img/Star.svg"
-            />
             <p
               data-testid="item-rate"
             >
               4.8
             </p>
+            <img
+              alt=""
+              src="test-file-stub"
+            />
           </div>
         </div>
         <div
@@ -324,11 +130,14 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
               .99
             </span>
           </h5>
-          <img
-            alt=""
-            src="test-file-stub"
-            style="width: 45px; margin-left: 80px;"
-          />
+          <button
+            data-testid="add-to-cart-button"
+          >
+            <img
+              alt=""
+              src="test-file-stub"
+            />
+          </button>
         </div>
       </div>
     </div>
@@ -338,12 +147,19 @@ exports[`Menu-Items-List component matches the snapshot when dishes found 1`] = 
 
 exports[`Menu-Items-List component matches the snapshot when no items found 1`] = `
 <DocumentFragment>
-  <div>
+  <div
+    id="no-items"
+  >
+    <img
+      alt=""
+      src="test-file-stub"
+      style="width: 200px;"
+    />
     <h2>
-      No items found.
+      No items found
     </h2>
     <p>
-      Please, try searching for something else.
+      Please, try searching for something else
     </p>
   </div>
 </DocumentFragment>
@@ -366,11 +182,12 @@ exports[`Menu-Items-List component matches the snapshot when restaurants found 1
       <div
         class="info"
       >
-        <img
-          alt=""
-          src="test-file-stub"
-          style="width: 70px;"
-        />
+        <div
+          class="cat"
+          style="background-color: rgb(247, 237, 208); color: rgb(218, 163, 26);"
+        >
+          Supreme
+        </div>
         <div
           class="text"
         >
@@ -384,12 +201,12 @@ exports[`Menu-Items-List component matches the snapshot when restaurants found 1
               class="time-rating"
             >
               <p>
-                ~30min
+                 dishes
               </p>
               <div>
                 <img
                   alt=""
-                  src="undefined/media/img/Star.svg"
+                  src="test-file-stub"
                 />
                 <p>
                   4.9
@@ -399,109 +216,7 @@ exports[`Menu-Items-List component matches the snapshot when restaurants found 1
             <button>
               <img
                 alt=""
-                src="undefined/media/img/Bookmark.svg"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="rest-card"
-    >
-      <img
-        alt=""
-        class="rest-img"
-        src="undefinedhttp://127.0.0.1:8000/media/img/rests/mcdonalds.jpg"
-      />
-      <div
-        class="info"
-      >
-        <img
-          alt=""
-          src="test-file-stub"
-          style="width: 70px;"
-        />
-        <div
-          class="text"
-        >
-          <h4>
-            Maurice
-          </h4>
-          <div
-            class="widgets"
-          >
-            <div
-              class="time-rating"
-            >
-              <p>
-                ~30min
-              </p>
-              <div>
-                <img
-                  alt=""
-                  src="undefined/media/img/Star.svg"
-                />
-                <p>
-                  4.9
-                </p>
-              </div>
-            </div>
-            <button>
-              <img
-                alt=""
-                src="undefined/media/img/Bookmark.svg"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="rest-card"
-    >
-      <img
-        alt=""
-        class="rest-img"
-        src="undefinedhttp://127.0.0.1:8000/media/img/rests/burgerking.jpg"
-      />
-      <div
-        class="info"
-      >
-        <img
-          alt=""
-          src="test-file-stub"
-          style="width: 70px;"
-        />
-        <div
-          class="text"
-        >
-          <h4>
-            The Chicken King
-          </h4>
-          <div
-            class="widgets"
-          >
-            <div
-              class="time-rating"
-            >
-              <p>
-                ~30min
-              </p>
-              <div>
-                <img
-                  alt=""
-                  src="undefined/media/img/Star.svg"
-                />
-                <p>
-                  4.8
-                </p>
-              </div>
-            </div>
-            <button>
-              <img
-                alt=""
-                src="undefined/media/img/Bookmark.svg"
+                src="test-file-stub"
               />
             </button>
           </div>

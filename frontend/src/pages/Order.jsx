@@ -21,7 +21,7 @@ function Order() {
           setUser(item);
         });
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   const getOrder = () => {
@@ -31,7 +31,7 @@ function Order() {
       .then((data) => {
         setOrder(data);
       })
-      .catch((err) => {});
+      .catch(() => {});
   };
 
   if (order.address_obj) {

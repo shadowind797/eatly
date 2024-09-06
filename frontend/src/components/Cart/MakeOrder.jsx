@@ -3,40 +3,37 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Select from "react-select";
 import { Navigate } from "react-router-dom";
-import price_load from "../../assets/header-loading.gif";
 import Map from "./Map.jsx";
 import PlaceInput from "./PlaceInput.jsx";
 import cpImg from "../../assets/coupon.svg";
 
 MakeOrder.propTypes = {
   subtotal: PropTypes.string.isRequired,
-  total_load: PropTypes.bool.isRequired,
   createOrder: PropTypes.func.isRequired,
   test: PropTypes.bool,
   rests: PropTypes.array.isRequired,
   changeItems: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   updateTotal: PropTypes.func.isRequired,
+  updateRest: PropTypes.func.isRequired,
 };
 
 function MakeOrder({
   subtotal,
-  total_load,
   createOrder,
   test,
   rests,
   changeItems,
   items,
   updateTotal,
+  updateRest,
 }) {
   const [user, setUser] = useState({});
   const [coupon, setCoupon] = useState("");
   const [couponValue, setCouponValue] = useState(1);
   const [applied, setApplied] = useState(null);
   const [firstName, setFirstName] = useState(user.first_name || "");
-  const discount = Math.abs(
-    subtotal * 1.1 - subtotal * 1.1 * couponValue
-  ).toFixed(2);
+  const [discount, setDiscount] = useState(0);
   const [phone, setPhone] = useState(user.phone || "");
   const [restaurant, setRestaurant] = useState(rests[0].id);
   const [restList, setRestList] = useState([]);
@@ -58,6 +55,8 @@ function MakeOrder({
   const [noPhone, setNoPhone] = useState(false);
   const [alreadyExists, setAlreadyExists] = useState(false);
   const [noBuilding, setNoBuilding] = useState(false);
+  const [noCoupon, setNoCoupon] = useState(false);
+  const [discardCouponBtn, setDiscardCouponBtn] = useState(false);
 
   const [addressLoading, setAddressLoading] = useState(false);
   const [mapLoading, setMapLoading] = useState(false);
@@ -66,10 +65,17 @@ function MakeOrder({
   const [mapsError, setMapsError] = useState("");
 
   useEffect(() => {
+    setDiscount(
+      Math.abs(subtotal * 1.1 - subtotal * 1.1 * couponValue).toFixed(2)
+    );
+  }, [couponValue]);
+
+  useEffect(() => {
     if (restaurant) {
       const oneRestItems = items.filter(
         (item) => item.restaurant_id === restaurant
       );
+      updateRest(restaurant);
       changeItems(oneRestItems);
       updateTotal(oneRestItems, restaurant);
     }
@@ -173,21 +179,26 @@ function MakeOrder({
 
   const checkCoupon = (e) => {
     e.preventDefault();
-    setCouponLoading(true);
-    api
-      .post("api/coupon/", { method: "apply", title: coupon })
-      .then((res) => {
-        if (res.status === 200) {
-          setCouponValue(res.data.value);
-          setApplied(true);
-          setCouponLoading(false);
-        } else {
-          setCouponValue(1);
-          setApplied(false);
-          setCouponLoading(false);
-        }
-      })
-      .catch(() => {});
+    if (coupon.length > 0) {
+      setCouponLoading(true);
+      setNoCoupon(false);
+      api
+        .post("api/coupon/", { method: "apply", title: coupon })
+        .then((res) => {
+          if (res.status === 200) {
+            setCouponValue(res.data.value);
+            setApplied(true);
+            setCouponLoading(false);
+          } else {
+            setCouponValue(1);
+            setApplied(false);
+            setCouponLoading(false);
+          }
+        })
+        .catch(() => {});
+    } else {
+      setNoCoupon(true);
+    }
   };
 
   const setOrderData = (e) => {
@@ -306,14 +317,8 @@ function MakeOrder({
     return (
       <div id="order">
         <div id="costs">
-          <p
-            className="error"
-            style={
-              applied === false ? { display: "block" } : { display: "none" }
-            }
-          >
-            Invalid coupon
-          </p>
+          {applied === false && <p className="error">Invalid coupon</p>}
+          {noCoupon && <p className="error">Please enter coupon to apply</p>}
           <form>
             <div id="input">
               <img src={cpImg} alt="" />
@@ -325,51 +330,69 @@ function MakeOrder({
                   setCoupon(e.target.value);
                   setApplied(null);
                 }}
+                disabled={applied}
               />
             </div>
-            <button
-              type="submit"
-              onClick={(e) => {
-                checkCoupon(e);
-              }}
-            >
-              {couponLoading ? "Applying..." : "Apply"}
-            </button>
+            <div id="coupon-btns">
+              {!applied && (
+                <button
+                  type="submit"
+                  style={{zIndex: "10"}}
+                  onClick={(e) => {
+                    checkCoupon(e);
+                  }}
+                >
+                  {couponLoading ? "Applying..." : "Apply"}
+                </button>
+              )}
+              <button
+                className="applied"
+                onMouseOver={() => setDiscardCouponBtn(true)}
+                style={
+                  applied && !discardCouponBtn
+                    ? { opacity: "1", zIndex: "5" }
+                    : { opacity: "0" }
+                }
+              >
+                ✓ Applied
+              </button>
+              <button
+                className="remove"
+                onMouseLeave={() => setDiscardCouponBtn(false)}
+                style={
+                  discardCouponBtn
+                    ? { opacity: "1" }
+                    : { opacity: "0", zIndex: "1" }
+                }
+                onClick={(e) => {
+                  e.preventDefault();
+                  setCoupon("");
+                  setApplied(null);
+                  setCouponValue(1);
+                }}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
           <h6>
-            Subtotal:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${subtotal}</span>
-            )}
+            Subtotal: <span>${subtotal}</span>
           </h6>
           <h6>
-            Delivery:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${(subtotal * 0.1).toFixed(2)}</span>
-            )}
+            Delivery: <span>${(subtotal * 0.1).toFixed(2)}</span>
           </h6>
           <h6 style={applied ? { display: "flex" } : { display: "none" }}>
             Coupon:
             <span style={{ color: "green" }}>-${discount}</span>
           </h6>
           <h6 className="total">
-            Total:{" "}
-            {total_load ? (
-              <img src={price_load} alt="" />
-            ) : (
-              <span>${getTotal()}</span>
-            )}
+            Total: <span>${getTotal()}</span>
           </h6>
         </div>
         <div id="pay">
           <div id="userInfo">
-            {phone.length > 0 ? (
-              <div id="address" data-testid="address-select">
-                {noAddress && <p className="error">Address required</p>}
+            {user.phone !== undefined ? (
+              <div id="address">
                 <div id="nameDiv">
                   {noName && <p className="error">Please enter your name</p>}
                   <input
@@ -403,19 +426,23 @@ function MakeOrder({
               <div className="input-load">Loading...</div>
             )}
             {restList.length > 0 ? (
-              <div id="restDiv">
+              <div id="restDiv" data-testid="rest-select">
                 <Select
                   options={restList}
                   styles={selectStyles}
                   placeholder="From which restaurant you want to order?"
                   onChange={changeRest}
-                  defaultValue={restList[0]}
+                  defaultValue={
+                    restaurant
+                      ? restList.find((r) => r.value === restaurant)
+                      : restList[0]
+                  }
                 />
               </div>
             ) : (
               <div className="input-load">Loading...</div>
             )}
-            {addressList.length > 0 ? (
+            {user.phone !== undefined ? (
               <div id="address" data-testid="address-select">
                 {noAddress && <p className="error">Address required</p>}
                 <Select

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 $purple_main: #6c5fbc;
 $black_main: rgb(54, 54, 54);
@@ -17,6 +18,11 @@ body,
   background: #f9f9f9;
   height: 100%;
   margin: 0;
+}
+
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
 }
 
 h1,
@@ -178,7 +184,7 @@ button:hover {
   }
 
   .photo {
-    width: 181px;
+    height: 181px;
   }
 
   .info {
@@ -400,4 +406,11 @@ form {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }

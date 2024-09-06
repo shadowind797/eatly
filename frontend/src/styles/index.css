@@ -1,13 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 html,
 body,
 div,
@@ -428,6 +438,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -574,7 +589,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -766,6 +781,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 html,
@@ -780,6 +802,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -926,7 +953,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -1118,6 +1145,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .base-header {
@@ -1274,6 +1308,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -1420,7 +1459,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -1612,6 +1651,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 #home #main-div {
@@ -1975,6 +2021,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -2121,7 +2172,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -2315,6 +2366,13 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 #cart #main {
   display: flex;
   position: relative;
@@ -2477,7 +2535,6 @@ form #action .another a {
   border-bottom: 1px solid #cbcbcb;
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 #cart #main #order #costs form {
   display: flex;
@@ -2513,7 +2570,7 @@ form #action .another a {
 #cart #main #order #costs form #input img {
   width: 30px;
 }
-#cart #main #order #costs form button {
+#cart #main #order #costs form #coupon-btns button {
   width: 141px;
   height: 63px;
   background-color: #6c5fbc;
@@ -2523,6 +2580,20 @@ form #action .another a {
   font-size: 18px;
   font-weight: 700;
   line-height: 27px;
+  position: absolute;
+  transition: 0.5s;
+}
+#cart #main #order #costs form #coupon-btns .applied {
+  background-color: green;
+}
+#cart #main #order #costs form #coupon-btns .applied:hover {
+  transform: scale(1);
+}
+#cart #main #order #costs form #coupon-btns .remove {
+  background-color: red;
+}
+#cart #main #order #costs form #coupon-btns .remove:hover {
+  transform: scale(1);
 }
 #cart #main #order #costs .total {
   font-size: 22px;
@@ -2542,16 +2613,13 @@ form #action .another a {
   font-weight: 400;
   line-height: 117.5%; /* 23.5px */
   height: 30px;
+  padding-top: 10px;
 }
 #cart #main #order #costs h6 span {
   font-size: 20px;
   font-weight: 600;
   line-height: 117.5%; /* 23.5px */
   margin-left: auto;
-}
-#cart #main #order #costs h6 img {
-  margin-left: auto;
-  width: 100px;
 }
 #cart #main #order #pay #userInfo {
   padding-top: 40px;
@@ -2745,6 +2813,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -2891,7 +2964,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -3085,6 +3158,13 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 #complete-order {
   display: flex;
 }
@@ -3101,7 +3181,7 @@ form #action .another a {
   height: calc(40% - 70px);
   border-radius: 14px;
   border: 1px solid #6c5fbc;
-  padding: 50px;
+  padding: 35px 50px;
   background-color: #fff;
 }
 #complete-order #order-route #route-info #route {
@@ -3488,6 +3568,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -3634,7 +3719,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -3828,6 +3913,19 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#menu {
+  text-align: center;
+}
+#menu #loading {
+  padding: 30px 0;
+}
 #menu #top-rests {
   border-top: none;
 }
@@ -3835,6 +3933,7 @@ form #action .another a {
   display: flex;
   gap: 60px;
   padding-top: 40px;
+  text-align: left;
 }
 #menu #main-div #ad-search {
   display: flex;
@@ -3847,7 +3946,7 @@ form #action .another a {
 }
 #menu #main-div #ad-search #search form input {
   border: none;
-  background-color: #EDEDED;
+  background-color: #ededed;
   font-size: 18px;
   font-weight: 500;
   line-height: 117.5%; /* 21.15px */
@@ -3919,7 +4018,7 @@ form #action .another a {
   padding: 30px 60px;
 }
 #menu #main-div .slider__item-content h2 {
-  color: #F7F8FA;
+  color: #f7f8fa;
   font-size: 74.996px;
   font-weight: 800;
   text-align: left;
@@ -3936,6 +4035,12 @@ form #action .another a {
   right: 40px;
   bottom: -60px;
 }
+#menu .disabled-filters {
+  opacity: 0.7;
+  user-select: none;
+  cursor: default;
+  pointer-events: none;
+}
 #menu #sort-filter {
   height: 470px;
   padding: 20px;
@@ -3947,6 +4052,7 @@ form #action .another a {
   display: flex;
   flex-direction: column;
   gap: 22px;
+  text-align: left;
 }
 #menu #sort-filter .categories h4 {
   color: rgb(54, 54, 54);
@@ -4010,32 +4116,32 @@ form #action .another a {
   background-color: rgba(255, 222, 138, 0.69);
 }
 #menu #sort-filter .categories .category-filter #fastfood p {
-  color: #D69900;
+  color: #d69900;
 }
 #menu #sort-filter .categories .category-filter #fastfood:hover {
-  border: 4px solid #D69900;
+  border: 4px solid #d69900;
 }
 #menu #sort-filter .categories .category-filter #asian {
   background-color: rgba(247, 197, 186, 0.67);
 }
 #menu #sort-filter .categories .category-filter #asian p {
-  color: #FB471D;
+  color: #fb471d;
   padding-right: 3px;
 }
 #menu #sort-filter .categories .category-filter #asian img {
   padding-left: 3px;
 }
 #menu #sort-filter .categories .category-filter #asian:hover {
-  border: 4px solid #FB471D;
+  border: 4px solid #fb471d;
 }
 #menu #sort-filter .categories .category-filter #meat {
   background-color: rgba(237, 182, 107, 0.65);
 }
 #menu #sort-filter .categories .category-filter #meat p {
-  color: #E28B14;
+  color: #e28b14;
 }
 #menu #sort-filter .categories .category-filter #meat:hover {
-  border: 4px solid #E28B14;
+  border: 4px solid #e28b14;
 }
 #menu #sort-filter #sorting h4 {
   color: rgb(54, 54, 54);
@@ -4107,7 +4213,7 @@ form #action .another a {
   gap: 22px;
 }
 #menu #sort-filter #cost-filter ul li {
-  color: #C2C3CB;
+  color: #c2c3cb;
   font-feature-settings: "liga" off, "clig" off;
   font-family: Poppins, sans-serif;
   font-size: 11px;
@@ -4133,6 +4239,7 @@ form #action .another a {
   padding-left: 40px;
   padding-bottom: 60px;
   width: 1300px;
+  text-align: left;
 }
 #menu #no-items {
   display: flex;
@@ -4143,13 +4250,13 @@ form #action .another a {
   padding: 40px;
 }
 #menu #no-items h2 {
-  color: #C2C3CB;
+  color: #c2c3cb;
   font-size: 30px;
   font-weight: 800;
   line-height: 30px;
 }
 #menu #no-items p {
-  color: #C2C3CB;
+  color: #c2c3cb;
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
@@ -4165,6 +4272,11 @@ body,
   background: #f9f9f9;
   height: 100%;
   margin: 0;
+}
+
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
 }
 
 h1,
@@ -4313,7 +4425,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -4505,6 +4617,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 #log {
@@ -4738,6 +4857,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -4884,7 +5008,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -5076,6 +5200,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 #footer {
@@ -5167,6 +5298,11 @@ body,
   margin: 0;
 }
 
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
+}
+
 h1,
 h2,
 h3,
@@ -5313,7 +5449,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -5507,6 +5643,13 @@ form #action .another a {
   margin-top: 30px;
 }
 
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 #profile {
   width: 100%;
   overflow: hidden;
@@ -5577,6 +5720,75 @@ form #action .another a {
 }
 #profile-content-profile #first {
   height: 100%;
+}
+#profile-content-profile #first #pass-change-confirm,
+#profile-content-profile #first #pass-change-already-sent {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 500px;
+  height: 300px;
+  padding: 45px;
+  padding-top: 30px;
+  position: absolute;
+  z-index: 999;
+  top: calc(50% - 150px);
+  left: calc(50% - 250px);
+  border-radius: 14px;
+  border: 1px solid #6c5fbc;
+}
+#profile-content-profile #first #pass-change-confirm #logo,
+#profile-content-profile #first #pass-change-already-sent #logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+#profile-content-profile #first #pass-change-confirm #logo h1,
+#profile-content-profile #first #pass-change-already-sent #logo h1 {
+  color: #6c5fbc;
+  font-size: 24px;
+  font-weight: 600;
+}
+#profile-content-profile #first #pass-change-confirm p,
+#profile-content-profile #first #pass-change-already-sent p {
+  margin-top: 18px;
+  color: #c2c3cb;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+}
+#profile-content-profile #first #pass-change-confirm h4,
+#profile-content-profile #first #pass-change-already-sent h4 {
+  margin-top: 12px;
+  color: #6c5fbc;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 25px;
+}
+#profile-content-profile #first #pass-change-confirm #btns,
+#profile-content-profile #first #pass-change-already-sent #btns {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+#profile-content-profile #first #pass-change-confirm #btns button,
+#profile-content-profile #first #pass-change-already-sent #btns button {
+  background-color: #6c5fbc;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 14px;
+  width: 170px;
+  cursor: pointer;
+}
+#profile-content-profile #first #pass-change-confirm #btns #cancel,
+#profile-content-profile #first #pass-change-already-sent #btns #cancel {
+  background-color: #fff;
+  border: 1px solid #6c5fbc;
+  color: #6c5fbc;
 }
 #profile-content-profile #first #profile {
   margin-bottom: 30px;
@@ -5781,74 +5993,6 @@ form #action .another a {
   transform: scale(1);
   background-color: rgba(255, 0, 0, 0.342);
 }
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent {
-  box-sizing: border-box;
-  background-color: #fff;
-  width: 500px;
-  height: 300px;
-  padding: 45px;
-  padding-top: 30px;
-  position: absolute;
-  top: calc(50% - 150px);
-  left: calc(50% - 250px);
-  border-radius: 14px;
-  border: 1px solid #6c5fbc;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #logo h1,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #logo h1 {
-  color: #6c5fbc;
-  font-size: 24px;
-  font-weight: 600;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm p,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent p {
-  margin-top: 18px;
-  color: #c2c3cb;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 22px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm h4,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent h4 {
-  margin-top: 12px;
-  color: #6c5fbc;
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 25px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding-top: 30px;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns button,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns button {
-  background-color: #6c5fbc;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 14px;
-  width: 170px;
-  cursor: pointer;
-}
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-confirm #btns #cancel,
-#profile-content-profile #first #profile #profile-info #others div p span #pass-change-already-sent #btns #cancel {
-  background-color: #fff;
-  border: 1px solid #6c5fbc;
-  color: #6c5fbc;
-}
 #profile-content-profile #first #profile #profile-info #others div p span h2 {
   color: #6c5fbc;
   font-size: 14px;
@@ -5973,74 +6117,6 @@ form #action .another a {
   transform: scale(1);
   background-color: rgba(255, 0, 0, 0.342);
 }
-#profile-content-profile #first #pass-change-confirm,
-#profile-content-profile #first #pass-change-already-sent {
-  box-sizing: border-box;
-  background-color: #fff;
-  width: 500px;
-  height: 300px;
-  padding: 45px;
-  padding-top: 30px;
-  position: absolute;
-  top: calc(50% - 150px);
-  left: calc(50% - 250px);
-  border-radius: 14px;
-  border: 1px solid #6c5fbc;
-}
-#profile-content-profile #first #pass-change-confirm #logo,
-#profile-content-profile #first #pass-change-already-sent #logo {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-#profile-content-profile #first #pass-change-confirm #logo h1,
-#profile-content-profile #first #pass-change-already-sent #logo h1 {
-  color: #6c5fbc;
-  font-size: 24px;
-  font-weight: 600;
-}
-#profile-content-profile #first #pass-change-confirm p,
-#profile-content-profile #first #pass-change-already-sent p {
-  margin-top: 18px;
-  color: #c2c3cb;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 22px;
-}
-#profile-content-profile #first #pass-change-confirm h4,
-#profile-content-profile #first #pass-change-already-sent h4 {
-  margin-top: 12px;
-  color: #6c5fbc;
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 25px;
-}
-#profile-content-profile #first #pass-change-confirm #btns,
-#profile-content-profile #first #pass-change-already-sent #btns {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
-  padding-top: 30px;
-}
-#profile-content-profile #first #pass-change-confirm #btns button,
-#profile-content-profile #first #pass-change-already-sent #btns button {
-  background-color: #6c5fbc;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 14px;
-  width: 170px;
-  cursor: pointer;
-}
-#profile-content-profile #first #pass-change-confirm #btns #cancel,
-#profile-content-profile #first #pass-change-already-sent #btns #cancel {
-  background-color: #fff;
-  border: 1px solid #6c5fbc;
-  color: #6c5fbc;
-}
 #profile-content-profile #first h2 {
   color: #6c5fbc;
   font-size: 14px;
@@ -6051,10 +6127,14 @@ form #action .another a {
 #profile-content-profile #first #last-orders {
   padding: 20px;
   border: 1px solid #6c5fbc;
+  height: 31%;
   border-radius: 14px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+#profile-content-profile #first #last-orders #loading {
+  height: 100%;
 }
 #profile-content-profile #first #last-orders #order-card {
   padding: 14px;
@@ -6114,45 +6194,12 @@ form #action .another a {
 }
 #profile-content-profile #statistics {
   height: 95.2%;
-  width: 41.4%;
+  width: 27.5%;
   padding: 0;
-  border: 1px solid green;
   border-radius: 14px;
-  background: linear-gradient(to bottom right, #6c5fbc, rgba(55, 37, 173, 0.937254902));
 }
-#profile-content-profile #statistics div {
-  margin-top: calc(50% - 120px);
-  margin-left: calc(50% - 208px);
+#profile-content-profile #statistics img {
   border-radius: 14px;
-  border: 5px solid #6c5fbc;
-  width: max-content;
-  padding: 40px;
-}
-#profile-content-profile #statistics div h2 {
-  color: #fff;
-  font-size: 25px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-#profile-content-profile #statistics div h3 {
-  font-size: 37px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #6c5fbc;
-  width: max-content;
-  text-shadow: 1px 0 5px #fff;
-  cursor: pointer;
-}
-#profile-content-profile #statistics div h3 #wt {
-  font-size: 19px;
-  color: rgb(54, 54, 54);
-  text-shadow: none;
-  color: #fff;
-  cursor: default;
-}
-#profile-content-profile #statistics div h3 #prem {
-  color: green;
-  cursor: pointer;
 }
 
 html,
@@ -6165,6 +6212,11 @@ body,
   background: #f9f9f9;
   height: 100%;
   margin: 0;
+}
+
+.logo {
+  font-family: "Jua", sans-serif !important;
+  font-size: 30px !important;
 }
 
 h1,
@@ -6313,7 +6365,7 @@ button:hover {
   right: 22px;
 }
 .dish .photo {
-  width: 181px;
+  height: 181px;
 }
 .dish .info .item-cat {
   display: flex;
@@ -6505,6 +6557,13 @@ form #action .another a {
   font-weight: 500;
   line-height: 140%; /* 24.619px */
   margin-top: 30px;
+}
+
+.disabled {
+  user-select: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 #pass-change {
