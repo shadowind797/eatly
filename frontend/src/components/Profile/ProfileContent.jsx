@@ -4,6 +4,7 @@ import MEContent from "./MEContent.jsx";
 import OHContent from "./OHContent.jsx";
 import EPContent from "./EPContent.jsx";
 import api from "../../api.js";
+import Settings from './Settings.jsx'
 
 function ProfileContent() {
   const [user, setUser] = useState({});
@@ -63,13 +64,14 @@ function ProfileContent() {
         <nav>
           {[
             "Profile",
+            "Settings",
             "Orders history",
             "Manage expenses",
             "Explore Premium",
           ].map((option) => (
             <button
               key={option}
-              className={option === "Profile" ? "active" : "disabled"}
+              className={option === contentOption ? "active" : ""}
               onClick={() => setContentOption(option)}
             >
               {option}
@@ -87,6 +89,7 @@ function ProfileContent() {
           />
         )}
         {contentOption === "Manage expenses" && <MEContent />}
+        {contentOption === "Settings" && <Settings />}
         {contentOption === "Orders history" && <OHContent />}
         {contentOption === "Explore Premium" && <EPContent />}
       </div>

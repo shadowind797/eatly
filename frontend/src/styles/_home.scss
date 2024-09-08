@@ -1,5 +1,3 @@
-@import "variables.scss";
-
 #home {
   #main-div {
     display: flex;
@@ -19,10 +17,10 @@
           div {
             height: 1px;
             width: 54px;
-            background-color: rgba(32, 31, 31, 0.20);
+            background-color: $border;
           }
           h4 {
-            color: rgba(32, 31, 31, 0.20);
+            color: $border;
             font-size: 15px;
             font-weight: 600;
             line-height: 120%; /* 18px */
@@ -57,12 +55,12 @@
           .get {
             width: 156px;
             height: 59px;
-            color: #fff;
+            color: $main_button_color;
             background-color: $purple_main;
             border: none;
             border-radius: 12px;
             a {
-              color: #fff;
+              color: $main_button_color;
             }
           }
           .pro {
@@ -85,6 +83,7 @@
           }
         }
       }
+
       #trustpilot {
         margin-top: 33px;
         display: flex;
@@ -97,7 +96,7 @@
           align-items: center;
           h5 {
             padding-top: 2px;
-            color: var(--blue-gray-700, #334155);
+            color: $trustpilot;
             font-size: 16px;
             font-weight: 500;
             line-height: 24px; /* 150% */
@@ -113,7 +112,7 @@
         width: 422px;
         height: 424px;
         border-radius: 424px;
-        background: linear-gradient(137deg, #6C5FBC 4.83%, #5144A0 98.22%);
+        background: linear-gradient(137deg, $purple_main 4.83%, #5144A0 98.22%);
         position: absolute;
         top: 65px;
         right: 79px;
@@ -130,11 +129,9 @@
         z-index: 3;
         left: -25px;
         bottom: -29px;
-        background-color: #fff;
+        background-color: $accent_block;
         border-radius: 17px;
-        border: 1px solid var(--Greyscale-200, #EDF2F7);
-        background: var(--Others-White, #FFF);
-        box-shadow: 14px 19px 38px 0 rgba(26, 32, 44, 0.15);
+        box-shadow: 14px 19px 38px 0 $grafic_shadow;
         width: 207px;
         height: 206px;
         padding: 13px 26px;
@@ -144,7 +141,7 @@
           align-items: center;
           .main {
             padding: 11px;
-            color: #fff;
+            color: $accent_text;
             background-color: $purple_main;
             border-radius: 15px;
           }
@@ -154,7 +151,7 @@
             font-size: 11px;
             font-weight: 400;
             line-height: 9px; /* 142.857% */
-            color: #828282;
+            color: $footer_delimiter;
           }
         }
         div {
@@ -187,7 +184,7 @@
           .main {
             padding: 11px;
             color: $black_main;
-            background-color: rgba(231, 231, 231, 0.92);
+            background-color: $accent_block;
             border-radius: 15px;
           }
           p {
@@ -196,16 +193,15 @@
             font-size: 11px;
             font-weight: 400;
             line-height: 9px; /* 142.857% */
-            color: #828282;
+            color: $footer_delimiter;
           }
         }
       }
       .chicken-hell {
         position: absolute;
         border-radius: 16px;
-        border: 1px solid var(--Greyscale-200, #EDF2F7);
-        background-color: #fff;
-        box-shadow: 0 21px 24px 0 rgba(26, 32, 44, 0.2);
+        background-color: $accent_block;
+        box-shadow: 0 21px 24px 0 $grafic_shadow;
         top: 7px;
         right: 0;
         z-index: 4;
@@ -244,7 +240,7 @@
           position: absolute;
           bottom: 10px;
           right: 16px;
-          color: var(--Dark-Grey, #ACADB9);
+          color: $black_pars;
           font-feature-settings: 'clig' off, 'liga' off;
           font-family: Poppins, sans-serif;
           font-size: 11px;
@@ -268,13 +264,13 @@
         padding: 57px 79px;
         text-align: center;
         h4 {
-          color: #fff;
+          color: $accent_text;
           font-size: 43.2px;
           font-weight: 700;
           line-height: 54px; /* 125% */
         }
         p {
-          color: #C5BFED;
+          color: $counts_text;
           text-align: center;
           font-size: 14.4px;
           font-weight: 500;
@@ -282,8 +278,8 @@
         }
       }
       #s {
-        border-left: 1px solid rgba(197, 197, 197, 0.15);
-        border-right: 1px solid rgba(197, 197, 197, 0.15);
+        border-left: 1px solid $counts_border;
+        border-right: 1px solid $counts_border;
       }
     }
     #mobile {
@@ -339,7 +335,7 @@
           height: 63px;
           position: relative;
           border: none;
-          color: #fff;
+          color: $main_button_color;
           text-align: left;
           padding-left: 36px;
           img {
