@@ -1,0 +1,50 @@
+#toggler {
+  display: none;
+}
+
+.div-toggler {
+  position: relative;
+  margin-top: 30px;
+  width: 70px;
+  height: 30px;
+  .slider {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    background-color: $accent_block;
+    border: 1px solid $purple_main;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 1.4s;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: $purple_main;
+      border-radius: 30px;
+    }
+    &:before {
+      transition: 0.4s;
+    }
+    &:after {
+      transition: 0.5s;
+    }
+  }
+  input:checked + .slider {
+    background-color: $purple_main;
+    border: none;
+    &:before,
+    &:after {
+      transform: translateX(40px);
+      background-color: $accent_block;
+    }
+  }
+}

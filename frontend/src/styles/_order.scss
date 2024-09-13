@@ -1,5 +1,3 @@
-@import "variables";
-
 #complete-order {
   display: flex;
 
@@ -16,7 +14,7 @@
       border-radius: 14px;
       border: 1px solid $purple_main;
       padding: 35px 50px;
-      background-color: #fff;
+      background-color: $accent_block;
       #route {
         display: flex;
         gap: 50px;
@@ -24,9 +22,9 @@
         #from {
           .info {
             .name {
-              background-color: rgba(0, 128, 0, 0.432);
+              background-color: $order_from_bg;
               p {
-                color: green;
+                color: $green_main;
               }
             }
           }
@@ -34,9 +32,9 @@
         #to {
           .info {
             .name {
-              background-color: rgba(255, 0, 0, 0.432);
+              background-color: $order_to_bg;
               p {
-                color: red;
+                color: $red_main;
               }
             }
           }
@@ -50,9 +48,9 @@
           .img {
             padding: 19px;
             border-radius: 14px 0 0 14px;
-            border-bottom: 1px solid #6c5fbc;
-            border-left: 1px solid #6c5fbc;
-            border-top: 1px solid #6c5fbc;
+            border-bottom: 1px solid $purple_main;
+            border-left: 1px solid $purple_main;
+            border-top: 1px solid $purple_main;
           }
           .info {
             display: flex;
@@ -64,8 +62,8 @@
               padding: 5px;
               border-radius: 0 14px 0 0;
               width: 130px;
-              border-top: 1px solid #6c5fbc;
-              border-right: 1px solid #6c5fbc;
+              border-top: 1px solid $purple_main;
+              border-right: 1px solid $purple_main;
               p {
                 font-family: Poppins, sans-serif;
                 font-size: 13px;
@@ -74,7 +72,7 @@
                 margin-left: 7px;
 
                 span {
-                  color: #ffffff;
+                  color: $accent_text;
                   font-family: Poppins, sans-serif;
                   font-size: 13px;
                   font-weight: 500;
@@ -89,11 +87,11 @@
               width: 100%;
               display: flex;
               align-items: center;
-              background-color: #6b5fbc77;
-              border-bottom: 1px solid #6c5fbc;
-              border-right: 1px solid #6c5fbc;
+              background-color: $order_address_bg;
+              border-bottom: 1px solid $purple_main;
+              border-right: 1px solid $purple_main;
               p {
-                color: #6c5fbc;
+                color: $purple_main;
                 font-family: Poppins, sans-serif;
                 font-size: 13px;
                 font-weight: 500;
@@ -106,10 +104,10 @@
       }
       #time-destination {
         padding: 28px;
-        background-color: #f2f2f2;
+        background-color: $order_stats_bg;
         border-radius: 14px;
         p {
-          color: #6c5fbc;
+          color: $purple_main;
           font-family: Poppins, sans-serif;
           font-size: 23px;
           font-weight: 700;
@@ -132,12 +130,12 @@
     height: 86.6%;
     border: 1px solid $purple_main;
     border-radius: 14px;
-    background-color: #fff;
+    background-color: $accent_block;
     padding: 50px 70px 0;
     box-sizing: border-box;
 
     .error {
-      color: red;
+      color: $red_main;
       font-family: Poppins, sans-serif;
       font-size: 15px;
       font-weight: 500;
@@ -167,7 +165,7 @@
         font-weight: 600;
         display: flex;
         padding-bottom: 5px;
-        border-bottom: 1px dashed rgba(103, 103, 103, 0.62);
+        border-bottom: 1px dashed $order_info_delimiter;
         height: 30px;
 
         span {
@@ -201,7 +199,7 @@
         button {
           width: 90px;
           height: 60px;
-          background-color: #fff;
+          background-color: $accent_block;
           border: 2px solid $purple_main;
           border-radius: 20px;
           color: $purple_main;
@@ -221,7 +219,7 @@
           background-color: $purple_main;
           border: none;
           border-radius: 20px;
-          color: white;
+          color: $main_button_color;
           font-size: 18px;
           font-weight: 600;
           line-height: 27px;
@@ -244,7 +242,7 @@
             z-index: 10;
             left: 130px;
             top: -10px;
-            color: red;
+            color: $red_main;
             font-family: Poppins, sans-serif;
             font-size: 12px;
             font-weight: 500;
@@ -261,7 +259,7 @@
       #cancel {
         width: 48%;
         height: 55px;
-        background-color: #fff;
+        background-color: $accent_block;
         border: 2px solid $purple_main;
         border-radius: 10px;
         color: $purple_main;
@@ -278,10 +276,10 @@
       #order {
         width: 48%;
         height: 55px;
-        background-color: green;
+        background-color: $green_main;
         border: none;
         border-radius: 10px;
-        color: white;
+        color: $main_button_color;
         font-size: 18px;
         font-weight: 600;
         line-height: 27px;
@@ -306,7 +304,7 @@
 
       #invalid-card {
         padding-left: 4px;
-        color: red;
+        color: $red_main;
         font-family: Poppins, sans-serif;
         font-size: 18px;
         font-weight: 500;
@@ -324,11 +322,11 @@
           width: 390px;
           height: 40px;
           border: none;
-          background-color: #f9f9f9;
+          background-color: $background;
           font-size: 18px;
           font-weight: 500;
           line-height: 117.5%; /* 21.15px */
-          color: #6c6c72;
+          color: $input_text;
           border-radius: 10px;
           padding: 10px;
 
@@ -336,7 +334,7 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 117.5%; /* 21.15px */
-            color: #c2c3cb;
+            color: $input_placeholder;
           }
         }
 
@@ -367,7 +365,7 @@
                 font-weight: 800;
                 padding-left: 10px;
                 margin-right: 10px;
-                color: rgba(107, 107, 107, 0.65);
+                color: $order_payment_expdate_delimiter;
                 padding-top: 8px;
               }
 
@@ -389,7 +387,7 @@
       #cancel {
         width: 32%;
         height: 55px;
-        background-color: #fff;
+        background-color: $accent_block;
         border: 2px solid $purple_main;
         border-radius: 10px;
         color: $purple_main;
@@ -405,7 +403,7 @@
         background-color: $purple_main;
         border: none;
         border-radius: 10px;
-        color: white;
+        color: $main_button_color;
         font-size: 18px;
         font-weight: 600;
         line-height: 27px;
@@ -428,7 +426,7 @@
       font-size: 58px;
       font-weight: 600;
       line-height: 117.5%; /* 21.15px */
-      color: #fff;
+      color: $accent_text;
     }
   }
 }

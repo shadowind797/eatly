@@ -1,8 +1,7 @@
-import styles from './index.module.scss'
 import PropTypes from "prop-types";
 
 const Toggler = ({ value, onChange }) => (
-  <label className={styles.switch} htmlFor="toggler">
+  <label className="div-toggler" htmlFor="toggler">
     <input
       id="toggler"
       type="checkbox"
@@ -10,14 +9,14 @@ const Toggler = ({ value, onChange }) => (
       checked={value}
       readOnly
     />
-    <span className={styles.slider} />
-    <span className={styles.wave} />
+    <span className="slider" />
+    <span className="wave" />
   </label>
-)
+);
 
 Toggler.propTypes = {
   value: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default Toggler
+export default Toggler;

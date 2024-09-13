@@ -8,7 +8,7 @@
     #pass-change-confirm,
     #pass-change-already-sent {
       box-sizing: border-box;
-      background-color: #fff;
+      background-color: $accent_block;
       width: 500px;
       height: 300px;
       padding: 45px;
@@ -34,7 +34,7 @@
 
       p {
         margin-top: 18px;
-        color: #c2c3cb;
+        color: $cost_range;
         font-size: 18px;
         font-weight: 600;
         line-height: 22px;
@@ -56,7 +56,7 @@
         padding-top: 30px;
         button {
           background-color: $purple_main;
-          color: #fff;
+          color: $main_button_color;
           font-size: 18px;
           font-weight: 600;
           padding: 12px 30px;
@@ -67,7 +67,7 @@
         }
 
         #cancel {
-          background-color: #fff;
+          background-color: $accent_block;
           border: 1px solid $purple_main;
           color: $purple_main;
         }
@@ -81,7 +81,7 @@
         border: 1px solid $purple_main;
         border-bottom: none;
         border-radius: 14px 14px 0 0;
-        background-color: #fff;
+        background-color: $accent_block;
 
         #photo-name {
           display: flex;
@@ -157,7 +157,7 @@
                     border: 1px solid $purple_main;
                     border-bottom: none;
                     border-radius: 14px 14px 0 0;
-                    background-color: #fff;
+                    background-color: $accent_block;
 
                     #photo-name {
                       display: flex;
@@ -233,61 +233,7 @@
                       }
                     }
                   }
-                  #profile-actions {
-                    display: flex;
-                    flex-direction: column;
 
-                    button {
-                      display: flex;
-                      align-items: center;
-                      border: 1px solid $purple_main;
-                      background-color: #f1f1f1;
-                      &:hover {
-                        transform: scale(1);
-                        background-color: #fff;
-                        border: 1px solid $purple_main;
-                      }
-                      img {
-                        width: 35px;
-                        padding: 8px 12px;
-                      }
-                      p {
-                        color: #9c9da0;
-                        font-size: 18px;
-                        font-weight: 600;
-                        line-height: 27px;
-                      }
-                    }
-
-                    #change-pass {
-                      border-bottom: none;
-                      border-top: none;
-                    }
-
-                    #logout {
-                      border-bottom: none;
-                      border-top: none;
-
-                      img {
-                        padding-left: 9px;
-                        padding-right: 15px;
-                      }
-                    }
-
-                    #delete-acc {
-                      border-radius: 0 0 14px 14px;
-                      display: flex;
-                      align-items: center;
-                      border: 1px solid red;
-                      p {
-                        color: red;
-                      }
-                      &:hover {
-                        transform: scale(1);
-                        background-color: rgba(255, 0, 0, 0.342);
-                      }
-                    }
-                  }
                 }
                 h2 {
                   color: $purple_main;
@@ -307,10 +253,10 @@
                   #order-card {
                     padding: 14px;
                     border-radius: 14px;
-                    background-color: #fff;
-                    box-shadow: 6px 71px 36px 0 rgba(229, 229, 229, 0.7);
+                    background-color: $accent_block;
+                    box-shadow: 6px 71px 36px 0 $order_card_shadow;
                     transition: 0.2s;
-                    border: 1px solid #fff;
+                    border: 1px solid $accent_block;
                     cursor: pointer;
 
                     &:hover {
@@ -326,7 +272,7 @@
                         padding-right: 7px;
                         padding-bottom: 5px;
                         font-size: 13px;
-                        color: rgb(0, 199, 199);
+                        color: $order_time;
                       }
                     }
                     div {
@@ -357,7 +303,7 @@
                         font-weight: 500;
                       }
                       .order-total {
-                        color: green;
+                        color: $green_main;
                       }
                     }
                     .info {
@@ -381,10 +327,10 @@
           display: flex;
           align-items: center;
           border: 1px solid $purple_main;
-          background-color: #f1f1f1;
+          background-color: $profile_actions_but;
           &:hover {
             transform: scale(1);
-            background-color: #fff;
+            background-color: $accent_block;
             border: 1px solid $purple_main;
           }
           img {
@@ -392,7 +338,7 @@
             padding: 8px 12px;
           }
           p {
-            color: #9c9da0;
+            color: $profile_actions_but_txt;
             font-size: 18px;
             font-weight: 600;
             line-height: 27px;
@@ -418,13 +364,13 @@
           border-radius: 0 0 14px 14px;
           display: flex;
           align-items: center;
-          border: 1px solid red;
+          border: 1px solid $red_main;
           p {
-            color: red;
+            color: $red_main;
           }
           &:hover {
             transform: scale(1);
-            background-color: rgba(255, 0, 0, 0.342);
+            background-color: $delete_acc_bg;
           }
         }
       }
@@ -452,10 +398,10 @@
       #order-card {
         padding: 14px;
         border-radius: 14px;
-        background-color: #fff;
-        box-shadow: 6px 9px 36px 0 rgba(229, 229, 229, 0.7);
+        background-color: $accent_block;
+        box-shadow: 6px 9px 36px 0 $order_shadow;
         transition: 0.2s;
-        border: 1px solid #fff;
+        border: 1px solid $accent_block;
         cursor: pointer;
 
         &:hover {
@@ -471,7 +417,7 @@
             padding-right: 7px;
             padding-bottom: 5px;
             font-size: 13px;
-            color: rgb(0, 199, 199);
+            color: $order_time;
           }
         }
         div {
@@ -502,7 +448,7 @@
             font-weight: 500;
           }
           .order-total {
-            color: green;
+            color: $green_main;
           }
         }
         .info {

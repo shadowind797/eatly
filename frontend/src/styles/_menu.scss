@@ -27,11 +27,11 @@
 
           input {
             border: none;
-            background-color: #ededed;
+            background-color: $search_bg;
             font-size: 18px;
             font-weight: 500;
             line-height: 117.5%; /* 21.15px */
-            color: #6c6c72;
+            color: $input_text;
             width: 610px;
             padding: 15px;
             border-radius: 10px;
@@ -44,7 +44,7 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 117.5%; /* 21.15px */
-            color: #fff;
+            color: $main_button_color;
             padding: 15px 20px;
             border-radius: 10px;
             height: 63px;
@@ -82,7 +82,7 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 117.5%; /* 21.15px */
-            color: #fff;
+            color: $main_button_color;
             padding: 15px 20px;
             height: 63px;
           }
@@ -104,11 +104,11 @@
     .slider__item-content {
       display: flex;
       flex-direction: column;
-      border-radius: 19px;
+      border-radius: 38px;
       position: relative;
-      width: 638px;
+      width: 637px;
       height: 191px;
-      padding: 30px 60px;
+      padding: 30px 59px;
 
       h2 {
         color: #f7f8fa;
@@ -143,11 +143,11 @@
   #sort-filter {
     height: 470px;
     padding: 20px;
-    background-color: #fff;
+    background-color: $accent_block;
     margin-left: 0;
     min-width: 397px;
     border-radius: 24px;
-    box-shadow: 6px 10px 29px 1px rgba(108, 95, 188, 0.12);
+    box-shadow: 6px 10px 29px 1px $filter_shadow;
     display: flex;
     flex-direction: column;
     gap: 22px;
@@ -185,7 +185,7 @@
         .active {
           transform: scale(1.1);
           transition: 0.2s;
-          filter: drop-shadow(0 15px 5px rgba(135, 125, 200, 0.75));
+          filter: drop-shadow(0 15px 5px $active_filter_cat_shadow);
         }
 
         .cat-div {
@@ -201,12 +201,12 @@
           transform: scale(1);
           transition: 0.2s;
           position: relative;
-          border: 4px solid #fff;
+          border: 4px solid $accent_block;
 
           &:hover {
             transform: scale(1.1);
             transition: 0.2s;
-            filter: drop-shadow(0 15px 22px rgba(135, 125, 200, 0.35));
+            filter: drop-shadow(0 15px 22px $hover_filter_cat_shadow);
           }
 
           p {
@@ -345,12 +345,12 @@
         gap: 22px;
 
         li {
-          color: #c2c3cb;
+          color:$cost_range;
           font-feature-settings: "liga" off, "clig" off;
           font-family: Poppins, sans-serif;
           font-size: 11px;
           font-weight: 500;
-          line-height: 30px; /* 280.53% */
+          line-height: 30px;
         }
       }
     }
@@ -359,7 +359,7 @@
       width: 150px;
       height: 50px;
       background-color: $purple_main;
-      color: #fff;
+      color: $main_button_color;
       font-size: 18px;
       font-weight: 500;
       border: none;
@@ -388,14 +388,14 @@
     padding: 40px;
 
     h2 {
-      color: #c2c3cb;
+      color: $empty_cart_text;
       font-size: 30px;
       font-weight: 800;
       line-height: 30px;
     }
 
     p {
-      color: #c2c3cb;
+      color: $empty_cart_text;
       font-size: 18px;
       font-weight: 500;
       line-height: 27px;

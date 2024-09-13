@@ -3,44 +3,168 @@
 
 :root[data-theme="light"] {
   --background-color: #f9f9f9;
+  --purple_main: #6c5fbc;
+  --black_main: rgb(54, 54, 54);
+  --black_second: #323142;
+  --black_menu: #606060;
+  --black_pars: #636363;
+  --green_main: green;
+  --red_main: red;
+  --error_link: #008cff;
+
+  --input_text: #6c6c72;
+  --input_placeholder: #c2c3cb;
+
+  --accent_text: #fff;
+  --accent_block: #fff;
+  --main_button_color: #fff;
+
+  --background: var(--background-color);
+  --border: #cbcbcb;
+
+  --empty_cart_text: #c2c3cb;
+  --cart_item_shadow: rgba(70, 70, 70, 0.1);
+
+  --footer_bg: #eaeaea;
+  --footer_delimiter: #818181;
+  --footer_copyright: #999;
+
+  --trustpilot: #334155;
+  --grafic_shadow: rgba(26, 32, 44, 0.15);
+  --counts_text: #c5bfed;
+  --counts_border: rgba(197, 197, 197, 0.15);
+
+  --search_bg: #ededed;
+  --filter_shadow: rgba(108, 95, 188, 0.12);
+  --active_filter_cat_shadow: rgba(135, 125, 200, 0.75);
+  --hover_filter_cat_shadow: rgba(135, 125, 200, 0.35);
+  --cost_range: #c2c3cb;
+
+  --order_from_bg: rgba(0, 128, 0, 0.432);
+  --order_to_bg: rgba(255, 0, 0, 0.432);
+  --order_address_bg: #6b5fbc77;
+  --order_stats_bg: #f2f2f2;
+  --order_info_delimiter: rgba(103, 103, 103, 0.62);
+  --order_payment_expdate_delimiter: rgba(107, 107, 107, 0.65);
+
+  --profile_actions_but: #f1f1f1;
+  --profile_actions_but_txt: #9c9da0;
+  --delete_acc_bg: rgba(255, 0, 0, 0.342);
+  --order_card_shadow: rgba(229, 229, 229, 0.7);
+  --order_time: rgb(0, 199, 199);
+  --order_shadow: rgba(229, 229, 229, 0.7);
+
+  --login_footer: #718096;
 }
 
 :root[data-theme="dark"] {
   --background-color: #272424;
+  --purple_main: #6c5fbc;
+  --black_main: rgb(104, 104, 104);
+  --black_second: #53525f;
+  --black_menu: #868686;
+  --black_pars: #919191;
+  --green_main: green;
+  --red_main: red;
+  --error_link: #008cff;
+
+  --input_text: #909094;
+  --input_placeholder: #4e4e4e;
+
+  --accent_text: #1b1b1b;
+  --accent_block: #1b1b1b;
+  --main_button_color: #1b1b1b;
+
+  --background: var(--background-color);
+  --border: #161616;
+
+  --empty_cart_text: #c2c3cb;
+  --cart_item_shadow: rgba(70, 70, 70, 0.1);
+
+  --footer_bg: #3f3f3f;
+  --footer_delimiter: #818181;
+  --footer_copyright: #c2c2c2;
+
+  --trustpilot: #334155;
+  --grafic_shadow: rgba(26, 32, 44, 0.15);
+  --counts_text: #c5bfed;
+  --counts_border: rgba(197, 197, 197, 0.15);
+
+  --search_bg: #161616;
+  --filter_shadow: rgba(108, 95, 188, 0.12);
+  --active_filter_cat_shadow: rgba(135, 125, 200, 0.75);
+  --hover_filter_cat_shadow: rgba(135, 125, 200, 0.35);
+  --cost_range: #c2c3cb;
+
+  --order_from_bg: rgba(0, 128, 0, 0.432);
+  --order_to_bg: rgba(255, 0, 0, 0.432);
+  --order_address_bg: #6b5fbc77;
+  --order_stats_bg: #f2f2f2;
+  --order_info_delimiter: rgba(103, 103, 103, 0.62);
+  --order_payment_expdate_delimiter: rgba(107, 107, 107, 0.65);
+
+  --profile_actions_but: #222222;
+  --profile_actions_but_txt: #9c9da0;
+  --delete_acc_bg: rgba(255, 0, 0, 0.342);
+  --order_card_shadow: rgba(229, 229, 229, 0.7);
+  --order_time: rgb(0, 199, 199);
+  --order_shadow: rgba(229, 229, 229, 0.7);
+
+  --login_footer: #718096;
 }
 
-$purple_main: #6c5fbc;
-$black_main: rgb(54, 54, 54);
-$black_second: #323142;
-$black_menu: #606060;
-$black_pars: #636363;
-$green_main: green;
-$red_main: red;
-$error_link: #008cff;
+$purple_main: var(--purple_main);
+$black_main: var(--black_main);
+$black_second: var(--black_second);
+$black_menu: var(--black_menu);
+$black_pars: var(--black_pars);
+$green_main: var(--green_main);
+$red_main: var(--red_main);
+$error_link: var(--error_link);
 
-$input_text: #6c6c72;
-$input_placeholder: #c2c3cb;
+$input_text: var(--input_text);
+$input_placeholder: var(--input_placeholder);
 
-$accent_text: #fff;
-$accent_block: #fff;
-$main_button_color: #fff;
+$accent_text: var(--accent_text);
+$accent_block: var(--accent_block);
+$main_button_color: var(--main_button_color);
 
 $background: var(--background-color);
-$border: #cbcbcb;
+$border: var(--border);
 
-$empty_cart_text: #c2c3cb;
-$cart_item_shadow: rgba(70, 70, 70, 0.1);
+$empty_cart_text: var(--empty_cart_text);
+$cart_item_shadow: var(--cart_item_shadow);
 
-$footer_bg: #eaeaea;
-$footer_delimiter: #818181;
-$footer_copyright: #999;
+$footer_bg: var(--footer_bg);
+$footer_delimiter: var(--footer_delimiter);
+$footer_copyright: var(--footer_copyright);
 
-$trustpilot: #334155;
-$grafic_shadow: rgba(26, 32, 44, 0.15);
-$counts_text: #c5bfed;
-$counts_border: rgba(197, 197, 197, 0.15);
+$trustpilot: var(--trustpilot);
+$grafic_shadow: var(--grafic_shadow);
+$counts_text: var(--counts_text);
+$counts_border: var(--counts_border);
 
-$login_footer: #718096;
+$search_bg: var(--search_bg);
+$filter_shadow: var(--filter_shadow);
+$active_filter_cat_shadow: var(--active_filter_cat_shadow);
+$hover_filter_cat_shadow: var(--hover_filter_cat_shadow);
+$cost_range: var(--cost_range);
+
+$order_from_bg: var(--order_from_bg);
+$order_to_bg: var(--order_to_bg);
+$order_address_bg: var(--order_address_bg);
+$order_stats_bg: var(--order_stats_bg);
+$order_info_delimiter: var(--order_info_delimiter);
+$order_payment_expdate_delimiter: var(--order_payment_expdate_delimiter);
+
+$profile_actions_but: var(--profile_actions_but);
+$profile_actions_but_txt: var(--profile_actions_but_txt);
+$delete_acc_bg: var(--delete_acc_bg);
+$order_card_shadow: var(--order_card_shadow);
+$order_time: var(--order_time);
+$order_shadow: var(--order_shadow);
+
+$login_footer: var(--login_footer);
 
 html,
 body,
