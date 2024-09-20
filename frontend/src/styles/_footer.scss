@@ -1,5 +1,5 @@
 #footer {
-  background-color: #eaeaea;
+  background-color: $footer_bg;
   padding: 100px;
   padding-bottom: 60px;
   box-sizing: border-box;
@@ -8,7 +8,7 @@
     display: flex;
     justify-content: flex-start;
     padding-bottom: 44px;
-    border-bottom: 1px solid #818181;
+    border-bottom: 1px solid $footer_delimiter;
     #foot-nav {
       margin-left: auto;
       ul {
@@ -50,7 +50,7 @@
     padding-top: 44px;
     #copy {
       p {
-        color: #999;
+        color: $footer_copyright;
         font-family: Inter, sans-serif;
         font-size: 17px;
         font-weight: 500;

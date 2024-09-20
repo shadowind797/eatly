@@ -1,7 +1,7 @@
 .base-header {
   padding: 16px 96px 16px 96px;
   display: flex;
-  border-bottom: 1px solid #CBCBCB;
+  border-bottom: 1px solid $border;
   background-color: $background;
   #load-img {
     height: 50px;
@@ -61,7 +61,7 @@
       border: none;
       border-radius: 18px;
       a {
-        color: white;
+        color: $accent_text;
         font-size: 18px;
         font-weight: 700;
         line-height: 27px;
@@ -73,7 +73,7 @@
 .header {
   padding: 16px 96px 16px 96px;
   display: flex;
-  border-bottom: 1px solid #CBCBCB;
+  border-bottom: 1px solid $border;
   background-color: $background;
   position: fixed;
   top: -200px;
@@ -138,7 +138,7 @@
       border: none;
       border-radius: 18px;
       a {
-        color: white;
+        color:$accent_text;
         font-size: 18px;
         font-weight: 700;
         line-height: 27px;

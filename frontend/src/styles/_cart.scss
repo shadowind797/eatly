@@ -5,11 +5,11 @@
     height: 90vh;
 
     .input-load {
-      background-color: #f9f9f9;
+      background-color: $background;
       font-size: 18px;
       font-weight: 500;
       line-height: 117.5%; /* 21.15px */
-      color: #6c6c72;
+      color: $input_text;
       width: 430px;
       height: 15px;
       border-radius: 10px;
@@ -24,13 +24,13 @@
       padding: 200px 36%;
 
       h1 {
-        color: #c2c3cb;
+        color: $empty_cart_text;
         font-size: 28px;
         font-weight: 800;
       }
 
       h2 {
-        color: #c2c3cb;
+        color: $empty_cart_text;
         font-size: 24px;
         font-weight: 800;
 
@@ -84,10 +84,10 @@
         transform: scale(1);
         transition-duration: 0.2s;
         border-radius: 30px;
-        background: #fff;
+        background: $accent_block;
         position: relative;
         padding: 20px 30px;
-        box-shadow: 0 20px 30px 0 rgba(70, 70, 70, 0.1);
+        box-shadow: 0 20px 30px 0 $cart_item_shadow;
 
         &:hover {
           transform: scale(1.1);
@@ -177,21 +177,21 @@
     #order {
       width: 470px;
       height: 90vh;
-      border-left: 1px solid #cbcbcb;
-      border-bottom: 1px solid #cbcbcb;
+      border-left: 1px solid $border;
+      border-bottom: 1px solid $border;
       position: fixed;
       right: 0;
       padding: 30px 50px;
-      background-color: #fff;
+      background-color: $accent_block;
 
       .error {
-        color: red;
+        color: $red_main;
         font-family: Poppins, sans-serif;
         font-size: 12px;
         font-weight: 500;
         line-height: 140%; /* 24.619px */
         a {
-          color: #008cff;
+          color: $error_link;
           font-family: Poppins, sans-serif;
           font-size: 12px;
           font-weight: 500;
@@ -201,7 +201,7 @@
 
       #costs {
         padding-bottom: 40px;
-        border-bottom: 1px solid #cbcbcb;
+        border-bottom: 1px solid $border;
         display: flex;
         flex-direction: column;
 
@@ -214,7 +214,7 @@
             width: 296px;
             height: 43px;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: $background;
             display: flex;
             align-items: center;
             justify-content: left;
@@ -228,13 +228,13 @@
               font-size: 18px;
               font-weight: 600;
               line-height: 117.5%; /* 21.15px */
-              color: #6c6c72;
+              color: $input_text;
 
               &::placeholder {
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 117.5%; /* 21.15px */
-                color: #c2c3cb;
+                color: $input_placeholder;
               }
             }
 
@@ -250,7 +250,7 @@
               background-color: $purple_main;
               border: none;
               border-radius: 10px;
-              color: white;
+              color: $main_button_color;
               font-size: 18px;
               font-weight: 700;
               line-height: 27px;
@@ -259,14 +259,14 @@
             }
 
             .applied {
-              background-color: green;
+              background-color: $green_main;
 
               &:hover {
                 transform: scale(1);
               }
             }
             .remove {
-              background-color: red;
+              background-color: $red_main;
 
               &:hover {
                 transform: scale(1);
@@ -290,6 +290,7 @@
         h6 {
           display: flex;
           align-items: center;
+          color: $black_main;
           width: 470px;
           font-size: 20px;
           font-weight: 400;
@@ -321,11 +322,11 @@
 
             #name {
               border: none;
-              background-color: #f9f9f9;
+              background-color: $background;
               font-size: 18px;
               font-weight: 500;
               line-height: 117.5%; /* 21.15px */
-              color: #6c6c72;
+              color: $input_text;
               width: 450px;
               height: 15px;
               border-radius: 10px;
@@ -335,7 +336,7 @@
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 117.5%; /* 21.15px */
-                color: #c2c3cb;
+                color: $input_placeholder;
               }
             }
           }
@@ -351,7 +352,7 @@
               background-color: $purple_main;
               border: none;
               border-radius: 10px;
-              color: white;
+              color: $main_button_color;
               font-size: 18px;
               font-weight: 600;
               line-height: 27px;
@@ -382,16 +383,16 @@
         width: 200px;
         height: 55px;
         margin: auto;
-        background-color: green;
+        background-color: $green_main;
         border: none;
         border-radius: 10px;
-        color: white;
+        color: $main_button_color;
         font-size: 18px;
         font-weight: 600;
         line-height: 27px;
 
         a {
-          color: #fff;
+          color: $main_button_color;
         }
       }
 
@@ -399,7 +400,6 @@
         #map {
           width: 100%;
           height: 400px;
-          background-color: rgba(119, 119, 119, 0.55);
           border-radius: 24px;
           margin-bottom: 40px;
           display: flex;
@@ -410,14 +410,14 @@
             font-size: 38px;
             font-weight: 600;
             line-height: 117.5%; /* 21.15px */
-            color: #fff;
+            color: $accent_text;
             margin-bottom: 20px;
           }
         }
 
         .location-search-input-div {
           border: none;
-          background-color: #f9f9f9;
+          background-color: $background;
           height: 15px;
           border-radius: 14px;
           margin-bottom: 20px;
@@ -441,15 +441,15 @@
             font-size: 18px;
             font-weight: 500;
             line-height: 117.5%; /* 21.15px */
-            color: #6c6c72;
+            color: $input_text;
             border: none;
-            background-color: #f9f9f9;
+            background-color: $background;
             width: 100%;
             &::placeholder {
               font-size: 18px;
               font-weight: 500;
               line-height: 117.5%; /* 21.15px */
-              color: #c2c3cb;
+              color: $input_placeholder;
             }
           }
         }
@@ -466,11 +466,11 @@
 
             input {
               border: none;
-              background-color: #f9f9f9;
+              background-color: $background;
               font-size: 18px;
               font-weight: 500;
               line-height: 117.5%; /* 21.15px */
-              color: #6c6c72;
+              color: $input_text;
               height: 15px;
               border-radius: 10px;
               padding: 20px 10px;
@@ -479,7 +479,7 @@
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 117.5%; /* 21.15px */
-                color: #c2c3cb;
+                color: $input_placeholder;
               }
             }
 
@@ -500,7 +500,7 @@
             .cancel {
               width: 48%;
               height: 55px;
-              background-color: #fff;
+              background-color: $accent_block;
               border: 2px solid $purple_main;
               border-radius: 10px;
               color: $purple_main;
@@ -516,7 +516,7 @@
               background-color: $purple_main;
               border: none;
               border-radius: 10px;
-              color: white;
+              color: $accent_text;
               font-size: 18px;
               font-weight: 600;
               line-height: 27px;
@@ -525,9 +525,5 @@
         }
       }
     }
-  }
-
-  #footer {
-    width: calc(100% - 470px - 100px);
   }
 }
