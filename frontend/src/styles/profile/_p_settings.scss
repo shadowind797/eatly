@@ -1,0 +1,33 @@
+#set-content {
+  #settings {
+    padding-top: 50px;
+
+    h3 {
+      color: $purple_main;
+      font-feature-settings: "liga" off, "clig" off;
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .setting {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      gap: 250px;
+      padding-bottom: 15px;
+      padding-right: 70px;
+      border-bottom: 1px dashed $black_main;
+
+      p {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 31px;
+        color: $black_main
+      }
+
+      .title {
+        display: flex;
+      }
+    }
+  }
+}

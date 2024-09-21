@@ -606,3 +606,23 @@ form {
   opacity: 0.5;
   pointer-events: none;
 }
+
+.function-marker {
+  margin-left: 5px;
+  background-color: #7d6de77a;
+  height: 26px;
+  width: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+
+  .marker {
+    color: $purple_main;
+    font-family: Poppins, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+  }
+}
